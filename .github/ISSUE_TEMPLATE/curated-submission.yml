@@ -1,0 +1,48 @@
+name: 精选案例投稿
+description: 提交由 PromptDirector 生成的精选投稿包，等待人工审核。
+title: "[投稿] "
+labels:
+  - submission
+body:
+  - type: markdown
+    attributes:
+      value: |
+        请把 PromptDirector 生成的 ZIP 拖入下方说明框。投稿不会自动发布，维护者会人工检查质量、重复内容、隐私和授权。
+  - type: input
+    id: author
+    attributes:
+      label: 公开署名
+      description: 发布时显示的作者或团队名称。
+    validations:
+      required: true
+  - type: dropdown
+    id: license
+    attributes:
+      label: 授权方式
+      description: 请选择你有权授予的公开使用许可。
+      options:
+        - CC BY 4.0
+        - CC BY-SA 4.0
+        - CC0 1.0
+        - 其他（请在说明中写明）
+    validations:
+      required: true
+  - type: textarea
+    id: package
+    attributes:
+      label: 投稿包与说明
+      description: 将 ZIP 拖到这里上传，并说明案例价值、适用模型和必要的授权补充。
+      placeholder: 拖入 PromptDirector 生成的 ZIP，然后补充说明。
+    validations:
+      required: true
+  - type: checkboxes
+    id: rights
+    attributes:
+      label: 权利与公开范围确认
+      options:
+        - label: 我有权公开投稿包中的提示词、截图和标签，并授权按上方许可分发。
+          required: true
+        - label: 我已检查投稿包，不包含私人网址、身份信息、密钥、草稿或无权公开的素材。
+          required: true
+        - label: 我理解投稿需要人工审核，提交不代表一定入选。
+          required: true
