@@ -1,7 +1,7 @@
 {
   "format": "prompt-director-curated",
   "version": 1,
-  "updatedAt": "2026-08-02T15:57:50.000Z",
+  "updatedAt": "2026-08-02T17:16:18.000Z",
   "items": [
     {
       "id": "featured:vol-1",
@@ -18,6 +18,54 @@
       "caseCount": 37,
       "imageCount": 37,
       "summary": "20 个国风视觉原创案例与 17 个保留作者、来源和权利说明的网络案例。"
+    },
+    {
+      "id": "featured:jimeng",
+      "title": "即梦精选案例",
+      "type": "image_prompt",
+      "packageId": "jimeng-featured",
+      "packageVersion": "1.0.0",
+      "author": "PromptDirector 编辑精选",
+      "license": "网络分享 · 权利归原作者",
+      "updatedAt": "2026-08-02T17:16:18.000Z",
+      "coverUrl": "https://wchao6891.github.io/PromptDirector-Curated/covers/jimeng-featured.webp",
+      "downloadUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/jimeng-featured-1.0.0/jimeng-featured.zip",
+      "sha256": "5158a558fae8edf452cc1bd2d2c0ab83410c8678ce178c7b1e58bc8b8e9d2e0f",
+      "caseCount": 150,
+      "imageCount": 150,
+      "summary": "150 个来自即梦公开灵感页的图片提示词案例。"
+    },
+    {
+      "id": "featured:aiartworks-mj",
+      "title": "AIArtWorks · MJ 精选",
+      "type": "image_prompt",
+      "packageId": "aiartworks-mj-featured",
+      "packageVersion": "1.0.0",
+      "author": "PromptDirector 编辑精选",
+      "license": "网络分享 · 权利归原作者",
+      "updatedAt": "2026-08-02T17:16:18.000Z",
+      "coverUrl": "https://wchao6891.github.io/PromptDirector-Curated/covers/aiartworks-mj-featured.webp",
+      "downloadUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/aiartworks-mj-featured-1.0.0/aiartworks-mj-featured.zip",
+      "sha256": "b6a1c57f535e8d002792b0ef1623af00ff8950f7555d97d375269c0820ad21ae",
+      "caseCount": 81,
+      "imageCount": 81,
+      "summary": "81 个保留原作者与来源信息的 Midjourney 图片提示词案例。"
+    },
+    {
+      "id": "featured:higgsfield",
+      "title": "Higgsfield 精选案例",
+      "type": "image_prompt",
+      "packageId": "higgsfield-featured",
+      "packageVersion": "1.0.0",
+      "author": "PromptDirector 编辑精选",
+      "license": "网络分享 · 权利归原作者",
+      "updatedAt": "2026-08-02T17:16:18.000Z",
+      "coverUrl": "https://wchao6891.github.io/PromptDirector-Curated/covers/higgsfield-featured.webp",
+      "downloadUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/higgsfield-featured-1.0.0/higgsfield-featured.zip",
+      "sha256": "2292f5d4e3de9fa98598bb7e54f75a1696c07c7dbd75fc04c61d2ca177903cef",
+      "caseCount": 56,
+      "imageCount": 56,
+      "summary": "56 个保留原作者与来源信息的 Higgsfield 图片提示词案例。"
     }
   ]
 }
