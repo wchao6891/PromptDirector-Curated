@@ -33,13 +33,25 @@ p {
   line-height: 1.7;
 }
 
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
 a {
   display: inline-block;
-  margin-top: 18px;
   padding: 12px 18px;
   border-radius: 12px;
   background: #0e7a43;
   color: white;
   font-weight: 750;
   text-decoration: none;
+}
+
+a.secondary {
+  border: 1px solid color-mix(in srgb, CanvasText 24%, transparent);
+  background: transparent;
+  color: CanvasText;
 }

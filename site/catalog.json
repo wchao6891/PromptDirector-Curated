@@ -1,6 +1,23 @@
 {
   "format": "prompt-director-curated",
   "version": 1,
-  "updatedAt": "2026-07-29T00:00:00.000Z",
-  "items": []
+  "updatedAt": "2026-08-02T14:56:41.000Z",
+  "items": [
+    {
+      "id": "featured:vol-1",
+      "title": "精选案例 Vol.1",
+      "type": "image_prompt",
+      "packageId": "featured-cases-vol-1",
+      "packageVersion": "1.0.0",
+      "author": "PromptDirector 编辑精选",
+      "license": "混合来源 · 权利归原作者",
+      "updatedAt": "2026-08-02T14:56:41.000Z",
+      "coverUrl": "https://wchao6891.github.io/PromptDirector-Curated/covers/featured-cases-vol-1.webp",
+      "downloadUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/featured-cases-vol-1.0.0/featured-cases-vol-1.zip",
+      "sha256": "8c5928c44e8d569ec5a06d3f24f0352f70b5ceaecb0be904bbe5a3d8156627cb",
+      "caseCount": 37,
+      "imageCount": 37,
+      "summary": "20 个国风视觉原创案例与 17 个保留作者、来源和权利说明的网络案例。"
+    }
+  ]
 }

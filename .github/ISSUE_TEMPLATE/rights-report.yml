@@ -1,0 +1,34 @@
+name: 权利反馈与下架
+description: 向维护者反馈可能侵权、署名错误或需要下架的精选内容。
+title: "[权利反馈] "
+labels:
+  - rights-report
+body:
+  - type: input
+    id: case
+    attributes:
+      label: 案例或精选包
+      description: 请填写案例名称、精选包名称或相关链接。
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: 原始来源
+      description: 请提供可用于核实的原始发布链接。
+    validations:
+      required: true
+  - type: textarea
+    id: basis
+    attributes:
+      label: 权利说明
+      description: 请说明您与该内容的关系，以及希望更正署名还是下架。请勿公开身份证件或其他敏感信息。
+    validations:
+      required: true
+  - type: checkboxes
+    id: accuracy
+    attributes:
+      label: 真实性确认
+      options:
+        - label: 我确认上述信息真实，并同意维护者为核实问题联系我。
+          required: true
