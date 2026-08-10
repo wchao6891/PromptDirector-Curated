@@ -12,8 +12,8 @@ PromptDirector 的公开精选案例目录。
 
 ## 发布流程
 
-1. 在 PromptDirector 中把一期候选案例整理为项目并导出普通项目分享包。
-2. 维护者使用 `tools/build-curated-batch.mjs` 读取分享包和当期配置，检查隐私、来源、重复内容与包完整性，并生成发布材料。
+1. 在 PromptDirector 中把一期候选图片或视频案例整理为项目并导出普通项目分享包。
+2. 维护者使用 `tools/build-curated-batch.mjs` 读取分享包和当期配置，检查隐私、来源、重复内容、视频封面与包完整性，并生成发布材料。
 3. 维护者人工复核案例质量、权利与来源说明，为每一期确认名称。
 4. 通过审核的 ZIP 作为 GitHub Release 附件发布。
 5. 维护者将封面放入 `site/covers/`，并把带 SHA-256 校验值的记录加入 `site/catalog.json`。

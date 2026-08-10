@@ -49,15 +49,18 @@ async function buildPackage(packageConfig) {
   const inputPath = resolve(packageConfig.input);
   const outputPath = resolve(packageConfig.output);
   const coverPath = packageConfig.cover ? resolve(packageConfig.cover) : "";
+  const coverEntryId = clean(packageConfig.coverEntryId);
   if (!title || !sourceLabel) throw new Error(`${packageId} 缺少标题或来源`);
 
-  await assertSafeArchive(inputPath);
   const packageRoot = join(buildRoot, packageId);
   const sourceRoot = join(packageRoot, "source");
   const outputRoot = join(packageRoot, "output");
   await mkdir(sourceRoot, { recursive: true });
   await mkdir(join(outputRoot, "images"), { recursive: true });
-  await run("unzip", ["-qq", inputPath, "library.json", "images/*", "-d", sourceRoot]);
+  await mkdir(join(outputRoot, "videos"), { recursive: true });
+  const archiveNames = await assertSafeArchive(inputPath);
+  const mediaNames = archiveNames.filter((name) => /^(?:images|videos)\/.+/.test(name) && !name.endsWith("/"));
+  await run("unzip", ["-qq", inputPath, "library.json", ...mediaNames, "-d", sourceRoot]);
   await assertNoLinks(sourceRoot);
 
   const library = JSON.parse(await readFile(join(sourceRoot, "library.json"), "utf8"));
@@ -69,79 +72,123 @@ async function buildPackage(packageConfig) {
   const packagePairs = new Set();
   let inputImageBytes = 0;
   let outputImageBytes = 0;
+  let inputVideoBytes = 0;
+  let outputVideoBytes = 0;
   for (const entry of library.entries) {
-    const images = (entry.mediaAssets ?? []).filter((asset) => asset?.kind === "image");
-    if (images.length !== 1 || entry.mediaAssets.length !== 1) {
-      throw new Error(`${entry.id || entry.title || packageId} 必须恰好包含一张图片`);
+    const sourceAssets = Array.isArray(entry.mediaAssets) ? entry.mediaAssets : [];
+    const contentAssets = sourceAssets.filter((asset) => asset?.usage === "content" && ["image", "video"].includes(asset?.kind));
+    if (contentAssets.length !== 1) throw new Error(`${entry.id || entry.title || packageId} 必须恰好包含一项图片或视频内容`);
+    const primaryAsset = contentAssets[0];
+    if (clean(entry.primaryMediaId) && clean(entry.primaryMediaId) !== clean(primaryAsset.id)) {
+      throw new Error(`${entry.id || entry.title || packageId} 的主媒体关系无效`);
+    }
+    const posterAsset = primaryAsset.kind === "video"
+      ? sourceAssets.find((asset) => clean(asset?.id) === clean(primaryAsset.posterAssetId))
+      : null;
+    if (primaryAsset.kind === "image" && sourceAssets.length !== 1) {
+      throw new Error(`${entry.id || entry.title || packageId} 的图片案例包含未审核的额外媒体`);
+    }
+    if (primaryAsset.kind === "video" && (
+      sourceAssets.length !== 2
+      || posterAsset?.kind !== "image"
+      || posterAsset?.usage !== "poster"
+    )) {
+      throw new Error(`${entry.id || entry.title || packageId} 的视频必须恰好包含一个封面`);
     }
     const prompt = cleanPrompt(entry.text);
     if (!prompt) throw new Error(`${entry.id || entry.title || packageId} 缺少提示词`);
-    const asset = images[0];
-    const assetPath = safeRelativeMediaPath(asset.assetPath);
-    const inputImagePath = resolve(sourceRoot, assetPath);
-    assertInside(sourceRoot, inputImagePath);
-    const inputStats = await stat(inputImagePath);
-    inputImageBytes += inputStats.size;
-    const imageHash = await sha256File(inputImagePath);
+    const primaryPath = safeRelativeMediaPath(primaryAsset.assetPath, primaryAsset.kind);
+    const inputPrimaryPath = resolve(sourceRoot, primaryPath);
+    assertInside(sourceRoot, inputPrimaryPath);
+    const inputPrimaryStats = await stat(inputPrimaryPath);
+    if (primaryAsset.kind === "image") inputImageBytes += inputPrimaryStats.size;
+    else inputVideoBytes += inputPrimaryStats.size;
+    const mediaHash = await sha256File(inputPrimaryPath);
     const promptHash = sha256Text(normalizePromptForDedupe(prompt));
-    const pairHash = `${imageHash}:${promptHash}`;
+    const pairHash = `${mediaHash}:${promptHash}`;
     if (packagePairs.has(pairHash) || seenPairs.has(pairHash)) {
       const previous = seenPairs.get(pairHash) || packageId;
-      throw new Error(`${entry.id || entry.title} 与 ${previous} 的图片和提示词完全重复`);
+      throw new Error(`${entry.id || entry.title} 与 ${previous} 的媒体和提示词完全重复`);
     }
     packagePairs.add(pairHash);
     seenPairs.set(pairHash, `${packageId}/${entry.id}`);
 
-    const fileStem = imageHash.slice(0, 20);
-    const outputAssetPath = `images/${fileStem}.webp`;
-    const outputImagePath = join(outputRoot, outputAssetPath);
-    await encodeWebp(inputImagePath, outputImagePath, maxEdge, quality, packageRoot);
-    const outputStats = await stat(outputImagePath);
-    const dimensions = await probeDimensions(outputImagePath);
-    outputImageBytes += outputStats.size;
-
+    const fileStem = mediaHash.slice(0, 20);
     const author = extractAuthor(entry);
-    const sourceLine = [sourceLabel, author ? `@${author}` : "", "权利归原作者"].filter(Boolean).join(" · ");
+    const sourceTitle = author ? `${sourceLabel} · @${author}` : sourceLabel;
     const sourceUrl = firstHttpsUrl([entry.url, ...(entry.sourcePages ?? []).map((page) => page?.url)]);
-    const mediaId = clean(asset.id) || `media:${fileStem}`;
+    const mediaId = clean(primaryAsset.id) || `media:${fileStem}`;
+    const processedPrimary = primaryAsset.kind === "image"
+      ? await processImageAsset(primaryAsset, {
+        inputPath: inputPrimaryPath,
+        outputRoot,
+        packageRoot,
+        fileStem,
+        mediaId,
+        sourceUrl,
+        sourceTitle
+      })
+      : await processVideoAsset(primaryAsset, {
+        inputPath: inputPrimaryPath,
+        outputRoot,
+        fileStem,
+        mediaId,
+        sourceUrl,
+        sourceTitle
+      });
+    if (processedPrimary.kind === "image") outputImageBytes += processedPrimary.byteSize;
+    else outputVideoBytes += processedPrimary.byteSize;
+
+    const processedAssets = [processedPrimary];
+    if (posterAsset) {
+      const posterPath = safeRelativeMediaPath(posterAsset.assetPath, "image");
+      const inputPosterPath = resolve(sourceRoot, posterPath);
+      assertInside(sourceRoot, inputPosterPath);
+      const inputPosterStats = await stat(inputPosterPath);
+      inputImageBytes += inputPosterStats.size;
+      const posterHash = await sha256File(inputPosterPath);
+      const posterId = clean(posterAsset.id) || `poster:${fileStem}`;
+      const processedPoster = await processImageAsset(posterAsset, {
+        inputPath: inputPosterPath,
+        outputRoot,
+        packageRoot,
+        fileStem: `${posterHash.slice(0, 20)}-poster`,
+        mediaId: posterId,
+        sourceUrl,
+        sourceTitle,
+        usage: "poster",
+        derivedFromAssetId: mediaId
+      });
+      outputImageBytes += processedPoster.byteSize;
+      processedPrimary.posterAssetId = posterId;
+      processedAssets.push(processedPoster);
+    }
+
+    const entryTitle = clean(entry.title) || sourceTitle;
     entries.push({
       id: clean(entry.id) || `entry:${fileStem}`,
-      title: author ? `${sourceLabel} · @${author}` : sourceLabel,
+      title: entryTitle,
       text: prompt,
       savedAt: validIso(entry.savedAt) || validIso(library.exportedAt) || new Date().toISOString(),
       schemaVersion: Number.isSafeInteger(entry.schemaVersion) ? entry.schemaVersion : undefined,
       classification: {
-        pathIds: ["content:prompt:image"],
+        pathIds: [primaryAsset.kind === "video" ? "content:prompt:video" : "content:prompt:image"],
         status: "confirmed",
         source: "manual"
       },
       facetAssignments: [],
       customLabels: [],
-      metadataLabels: [sourceLine],
+      metadataLabels: sourceMetadataLabels(entry, sourceLabel, author, primaryAsset.kind),
       url: sourceUrl,
-      sourcePages: sourceUrl ? [{ title: author ? `${sourceLabel} · @${author}` : sourceLabel, url: sourceUrl }] : [],
-      mediaAssets: [{
-        id: mediaId,
-        kind: "image",
-        usage: "content",
-        storageMode: "managed",
-        sourceUrl,
-        sourceTitle: author ? `${sourceLabel} · @${author}` : sourceLabel,
-        capturedAt: validIso(asset.capturedAt) || validIso(entry.savedAt) || validIso(library.exportedAt),
-        mimeType: "image/webp",
-        width: dimensions.width,
-        height: dimensions.height,
-        byteSize: outputStats.size,
-        reviewStatus: "verified",
-        assetPath: outputAssetPath
-      }],
+      sourcePages: sourceUrl ? [{ title: clean(entry.sourcePages?.[0]?.title) || sourceTitle, url: sourceUrl }] : [],
+      mediaAssets: processedAssets,
       primaryMediaId: mediaId,
       timeNotes: []
     });
   }
 
-  const exportedAt = new Date().toISOString();
-  const taxonomy = sanitizeTaxonomy(library.taxonomy);
+  const exportedAt = validIso(packageConfig.publishedAt) || validIso(library.exportedAt) || new Date().toISOString();
+  const taxonomy = sanitizeTaxonomy(library.taxonomy, new Set(entries.flatMap((entry) => entry.classification.pathIds)));
   const curatedLibrary = {
     format: "prompt-case-library",
     version: 3,
@@ -166,19 +213,23 @@ async function buildPackage(packageConfig) {
   await writeFile(join(outputRoot, "library.json"), `${JSON.stringify(curatedLibrary, null, 2)}\n`);
   await writeFile(
     join(outputRoot, "RIGHTS.md"),
-    `${title}整理自公开网络分享，图片与提示词权利归原作者；如有侵权请通过 PromptDirector Curated 权利反馈申请下架。\n`
+    `${title}整理自公开网络分享，图片、视频与提示词权利归原作者或其他权利人；收录与署名不代表已获得商业授权。如有权利争议，请通过 PromptDirector Curated 权利反馈申请核实与下架。\n`
   );
   await normalizeTimestamps(outputRoot);
   await mkdir(dirname(outputPath), { recursive: true });
   await rm(outputPath, { force: true });
   await writePromptDirectorZip(outputPath, outputRoot, [
     "library.json",
-    ...entries.map((entry) => entry.mediaAssets[0].assetPath),
+    ...new Set(entries.flatMap((entry) => entry.mediaAssets.map((asset) => asset.assetPath))),
     "RIGHTS.md"
   ]);
 
   if (coverPath) {
-    const coverSource = join(outputRoot, entries[0].mediaAssets[0].assetPath);
+    const coverEntry = coverEntryId ? entries.find((entry) => entry.id === coverEntryId) : entries[0];
+    if (!coverEntry) throw new Error(`${packageId} 的封面案例不存在：${coverEntryId}`);
+    const coverAsset = coverEntry.mediaAssets.find((asset) => asset.kind === "image");
+    if (!coverAsset) throw new Error(`${packageId} 缺少可用封面`);
+    const coverSource = join(outputRoot, coverAsset.assetPath);
     await mkdir(dirname(coverPath), { recursive: true });
     await cp(coverSource, coverPath);
   }
@@ -191,14 +242,18 @@ async function buildPackage(packageConfig) {
     inputPath,
     outputPath,
     coverPath,
+    coverEntryId: coverEntryId || entries[0]?.id || "",
     caseCount: entries.length,
-    imageCount: entries.length,
+    imageCount: entries.flatMap((entry) => entry.mediaAssets).filter((asset) => asset.kind === "image").length,
+    videoCount: entries.flatMap((entry) => entry.mediaAssets).filter((asset) => asset.kind === "video").length,
     inputImageBytes,
     outputImageBytes,
+    inputVideoBytes,
+    outputVideoBytes,
     archiveBytes: outputStats.size,
     sha256: await sha256File(outputPath),
-    maxWidth: Math.max(...entries.map((entry) => entry.mediaAssets[0].width)),
-    maxHeight: Math.max(...entries.map((entry) => entry.mediaAssets[0].height))
+    maxWidth: Math.max(...entries.flatMap((entry) => entry.mediaAssets).map((asset) => asset.width)),
+    maxHeight: Math.max(...entries.flatMap((entry) => entry.mediaAssets).map((asset) => asset.height))
   };
 }
 
@@ -210,7 +265,11 @@ async function assertSafeArchive(inputPath) {
     if (name.startsWith("/") || name.split("/").includes("..") || name.includes("\\")) {
       throw new Error(`${inputPath} 包含不安全路径：${name}`);
     }
+    if (name !== "library.json" && name !== "RIGHTS.md" && !/^(?:images|videos)\//.test(name)) {
+      throw new Error(`${inputPath} 包含不属于分享包的文件：${name}`);
+    }
   }
+  return names;
 }
 
 async function assertNoLinks(root) {
@@ -220,6 +279,67 @@ async function assertNoLinks(root) {
     if (info.isSymbolicLink()) throw new Error(`分享包包含符号链接：${path}`);
     if (info.isDirectory()) await assertNoLinks(path);
   }
+}
+
+async function processImageAsset(asset, options) {
+  const {
+    inputPath,
+    outputRoot,
+    packageRoot,
+    fileStem,
+    mediaId,
+    sourceUrl,
+    sourceTitle,
+    usage = "content",
+    derivedFromAssetId = ""
+  } = options;
+  const outputAssetPath = `images/${fileStem}.webp`;
+  const outputPath = join(outputRoot, outputAssetPath);
+  await encodeWebp(inputPath, outputPath, maxEdge, quality, packageRoot);
+  const outputStats = await stat(outputPath);
+  const dimensions = await probeDimensions(outputPath);
+  return {
+    id: mediaId,
+    kind: "image",
+    usage,
+    storageMode: "managed",
+    sourceUrl: firstHttpsUrl([asset.sourceUrl, sourceUrl]),
+    sourceTitle: clean(asset.sourceTitle) || sourceTitle,
+    capturedAt: validIso(asset.capturedAt),
+    mimeType: "image/webp",
+    width: dimensions.width,
+    height: dimensions.height,
+    byteSize: outputStats.size,
+    reviewStatus: "verified",
+    ...(derivedFromAssetId ? { derivedFromAssetId } : {}),
+    assetPath: outputAssetPath
+  };
+}
+
+async function processVideoAsset(asset, options) {
+  const { inputPath, outputRoot, fileStem, mediaId, sourceUrl, sourceTitle } = options;
+  const outputAssetPath = `videos/${fileStem}.mp4`;
+  const outputPath = join(outputRoot, outputAssetPath);
+  const video = await probeVideo(inputPath);
+  await cp(inputPath, outputPath);
+  const outputStats = await stat(outputPath);
+  return {
+    id: mediaId,
+    kind: "video",
+    usage: "content",
+    storageMode: "managed",
+    sourceUrl: firstHttpsUrl([asset.sourceUrl, sourceUrl]),
+    sourceTitle: clean(asset.sourceTitle) || sourceTitle,
+    capturedAt: validIso(asset.capturedAt),
+    mimeType: "video/mp4",
+    width: video.width,
+    height: video.height,
+    durationMs: video.durationMs,
+    byteSize: outputStats.size,
+    playbackCapability: "native",
+    reviewStatus: "verified",
+    assetPath: outputAssetPath
+  };
 }
 
 async function encodeWebp(inputPath, outputPath, maxEdgeValue, qualityValue, packageRoot) {
@@ -243,6 +363,28 @@ async function probeDimensions(path) {
   return {
     width: positiveInteger(stream?.width, "输出图片宽度"),
     height: positiveInteger(stream?.height, "输出图片高度")
+  };
+}
+
+async function probeVideo(path) {
+  const output = await run("ffprobe", [
+    "-v", "error",
+    "-select_streams", "v:0",
+    "-show_entries", "stream=width,height,codec_name:format=duration,format_name",
+    "-of", "json",
+    path
+  ]);
+  const result = JSON.parse(output);
+  const stream = result?.streams?.[0];
+  const durationSeconds = Number(result?.format?.duration);
+  if (!stream || stream.codec_name !== "h264" || !String(result?.format?.format_name ?? "").split(",").includes("mp4")) {
+    throw new Error(`视频必须是可在浏览器中播放的 H.264 MP4：${path}`);
+  }
+  if (!Number.isFinite(durationSeconds) || durationSeconds <= 0) throw new Error(`视频时长无效：${path}`);
+  return {
+    width: positiveInteger(stream.width, "视频宽度"),
+    height: positiveInteger(stream.height, "视频高度"),
+    durationMs: Math.round(durationSeconds * 1000)
   };
 }
 
@@ -274,17 +416,32 @@ function cleanPrompt(value) {
     .trim();
 }
 
+function sourceMetadataLabels(entry, sourceLabel, author, mediaKind) {
+  const allowedPrefixes = ["作者：", "作者账号：", "来源编号：", "时长：", "Remix：", "元素："];
+  const retained = (entry.metadataLabels ?? [])
+    .map((label) => clean(label))
+    .filter((label) => allowedPrefixes.some((prefix) => label.startsWith(prefix)));
+  const labels = [
+    `来源：${sourceLabel}`,
+    author && !retained.some((label) => label.startsWith("作者：")) ? `作者：${author}` : "",
+    `媒体：${mediaKind === "video" ? "视频" : "图片"}`,
+    ...retained,
+    "权利：归原作者或其他权利人"
+  ].filter(Boolean);
+  return [...new Set(labels)];
+}
+
 function normalizePromptForDedupe(value) {
   return String(value).normalize("NFKC").replace(/\s+/g, " ").trim();
 }
 
-function sanitizeTaxonomy(value = {}) {
-  const imagePrompt = (value.nodes ?? []).find((node) => node?.id === "content:prompt:image");
-  if (!imagePrompt) throw new Error("分享包缺少图片提示词分类");
+function sanitizeTaxonomy(value = {}, requiredIds = new Set()) {
+  const nodes = [...requiredIds].map((id) => (value.nodes ?? []).find((node) => node?.id === id));
+  if (nodes.some((node) => !node)) throw new Error("分享包缺少所需的图片或视频提示词分类");
   return {
     version: Number.isSafeInteger(value.version) ? value.version : 1,
     revision: Number.isSafeInteger(value.revision) ? value.revision : 1,
-    nodes: [structuredClone(imagePrompt)]
+    nodes: nodes.map((node) => structuredClone(node))
   };
 }
 
@@ -298,9 +455,12 @@ function firstHttpsUrl(values) {
   return "";
 }
 
-function safeRelativeMediaPath(value) {
+function safeRelativeMediaPath(value, kind) {
   const path = clean(value);
-  if (!/^images\/[A-Za-z0-9._/-]+\.(?:png|jpe?g|webp)$/i.test(path) || path.split("/").includes("..")) {
+  const valid = kind === "video"
+    ? /^videos\/[A-Za-z0-9._/-]+\.mp4$/i.test(path)
+    : /^images\/[A-Za-z0-9._/-]+\.(?:png|jpe?g|webp)$/i.test(path);
+  if (!valid || path.split("/").includes("..")) {
     throw new Error(`媒体路径无效：${path}`);
   }
   return path;

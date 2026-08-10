@@ -14,8 +14,8 @@ for (const item of catalog.themes) {
   if (required.some((key) => !String(item?.[key] ?? "").trim())) throw new Error("目录条目缺少必填字段");
   if (!["editorial", "image_prompt", "video_prompt"].includes(item.type)) throw new Error(`不支持的精选类型：${item.type}`);
   if (!/^[a-f0-9]{64}$/.test(item.sha256)) throw new Error(`校验值无效：${item.id}`);
-  if (![item.caseCount, item.imageCount].every((value) => Number.isInteger(value) && value >= 0)) {
-    throw new Error(`案例或图片数量无效：${item.id}`);
+  if (![item.caseCount, item.imageCount, item.videoCount].every((value) => Number.isInteger(value) && value >= 0)) {
+    throw new Error(`案例、图片或视频数量无效：${item.id}`);
   }
   for (const urlValue of [item.coverUrl, item.downloadUrl]) {
     const url = new URL(urlValue);
