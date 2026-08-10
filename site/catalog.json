@@ -1,7 +1,7 @@
 {
   "format": "prompt-director-curated",
   "version": 2,
-  "updatedAt": "2026-08-10T15:33:07.000Z",
+  "updatedAt": "2026-08-10T15:58:05.000Z",
   "themes": [
     {
       "id": "featured:vol-1",
@@ -74,24 +74,6 @@
       "imageCount": 56,
       "videoCount": 0,
       "summary": "56 个保留原作者与来源信息的 Higgsfield 图片提示词案例。"
-    },
-    {
-      "id": "featured:yesand",
-      "title": "Vol.5 Yes& 精选案例",
-      "order": 5,
-      "type": "editorial",
-      "packageId": "yesand-featured",
-      "packageVersion": "1.0.0",
-      "author": "PromptDirector 编辑精选",
-      "license": "网络分享 · 权利归原作者",
-      "updatedAt": "2026-08-10T15:33:07.000Z",
-      "coverUrl": "https://wchao6891.github.io/PromptDirector-Curated/covers/yesand-featured.webp",
-      "downloadUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/yesand-featured-1.0.0/yesand-featured.zip",
-      "sha256": "3cf232efea118f5a1ba40591a842ad96455f75f91c60924dd1d991e6a3a8f8a8",
-      "caseCount": 15,
-      "imageCount": 15,
-      "videoCount": 5,
-      "summary": "10 个图片案例与 5 个视频案例；视频均附封面，全部保留原作者、原标题与 Yes& 来源链接。"
     }
   ]
 }
