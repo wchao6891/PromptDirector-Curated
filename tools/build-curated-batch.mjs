@@ -417,10 +417,13 @@ function cleanPrompt(value) {
 }
 
 function sourceMetadataLabels(entry, sourceLabel, author, mediaKind) {
-  const allowedPrefixes = ["作者：", "作者账号：", "来源编号：", "时长：", "Remix：", "元素："];
+  const replacedKeys = new Set(["来源", "媒体", "权利"]);
   const retained = (entry.metadataLabels ?? [])
     .map((label) => clean(label))
-    .filter((label) => allowedPrefixes.some((prefix) => label.startsWith(prefix)));
+    .filter((label) => {
+      const match = label.match(/^([^：:]{1,32})[：:](.+)$/u);
+      return match && clean(match[2]) && !replacedKeys.has(clean(match[1]));
+    });
   const labels = [
     `来源：${sourceLabel}`,
     author && !retained.some((label) => label.startsWith("作者：")) ? `作者：${author}` : "",
