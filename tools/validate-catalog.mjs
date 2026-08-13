@@ -1,34 +1,35 @@
-import { readFile } from "node:fs/promises";
+import { readFile, readdir, stat } from "node:fs/promises";
+import { normalizeSiteCatalog, normalizeSiteMetrics, normalizeSitePreview } from "./curated-site-data.mjs";
 
-const catalog = JSON.parse(await readFile(new URL("../site/catalog.json", import.meta.url), "utf8"));
-if (catalog?.format !== "prompt-director-curated" || catalog.version !== 2 || !Array.isArray(catalog.themes)) {
-  throw new Error("catalog.json 格式无效");
-}
-if (!Number.isFinite(Date.parse(catalog.updatedAt))) throw new Error("目录更新时间无效");
-
-const ids = new Set();
-const packages = new Set();
-const orders = new Set();
-for (const item of catalog.themes) {
-  const required = ["id", "title", "type", "packageId", "packageVersion", "author", "license", "updatedAt", "coverUrl", "downloadUrl", "sha256", "order"];
-  if (required.some((key) => !String(item?.[key] ?? "").trim())) throw new Error("目录条目缺少必填字段");
-  if (!["editorial", "image_prompt", "video_prompt"].includes(item.type)) throw new Error(`不支持的精选类型：${item.type}`);
-  if (!/^[a-f0-9]{64}$/.test(item.sha256)) throw new Error(`校验值无效：${item.id}`);
-  if (![item.caseCount, item.imageCount, item.videoCount].every((value) => Number.isInteger(value) && value >= 0)) {
-    throw new Error(`案例、图片或视频数量无效：${item.id}`);
+const catalogUrl = new URL("../site/catalog.json", import.meta.url);
+const catalog = normalizeSiteCatalog(JSON.parse(await readFile(catalogUrl, "utf8")));
+const metrics = normalizeSiteMetrics(
+  JSON.parse(await readFile(new URL("../site/metrics.json", import.meta.url), "utf8")),
+  catalog
+);
+for (const theme of catalog.themes) {
+  const previewUrl = new URL(theme.previewUrl);
+  const previewPath = new URL(`../site${previewUrl.pathname.replace(/^\/PromptDirector-Curated/, "")}`, import.meta.url);
+  const preview = normalizeSitePreview(JSON.parse(await readFile(previewPath, "utf8")), theme);
+  for (const entry of preview.entries) {
+    const imageUrl = new URL(entry.previewImageUrl);
+    const imagePath = new URL(`../site${imageUrl.pathname.replace(/^\/PromptDirector-Curated/, "")}`, import.meta.url);
+    const info = await stat(imagePath);
+    if (!info.isFile() || info.size < 1) throw new Error(`${theme.id}/${entry.id} 的预览图片缺失`);
   }
-  for (const urlValue of [item.coverUrl, item.downloadUrl]) {
-    const url = new URL(urlValue);
-    if (url.protocol !== "https:" || url.search || url.hash || url.username || url.password) {
-      throw new Error(`精选地址无效：${item.id}`);
-    }
-  }
-  const packageKey = `${item.packageId}@${item.packageVersion}`;
-  if (!Number.isInteger(item.order) || item.order < 1 || orders.has(item.order)) throw new Error(`主题排序无效：${item.id}`);
-  if (ids.has(item.id) || packages.has(packageKey)) throw new Error(`精选编号重复：${item.id}`);
-  ids.add(item.id);
-  orders.add(item.order);
-  packages.add(packageKey);
 }
 
-process.stdout.write(`catalog.json 有效：${catalog.themes.length} 个精选主题\n`);
+const siteRoot = new URL("../site/", import.meta.url);
+const siteBytes = await directoryBytes(siteRoot);
+if (siteBytes > 1_000_000_000) throw new Error("GitHub Pages 站点超过 1GB 限制");
+
+process.stdout.write(`公开目录有效：${catalog.themes.length} 个精选包，${Object.keys(metrics.downloads).length} 组真实下载指标，站点 ${siteBytes} 字节\n`);
+
+async function directoryBytes(directoryUrl) {
+  let total = 0;
+  for (const entry of await readdir(directoryUrl, { withFileTypes: true })) {
+    const url = new URL(entry.name + (entry.isDirectory() ? "/" : ""), directoryUrl);
+    total += entry.isDirectory() ? await directoryBytes(url) : (await stat(url)).size;
+  }
+  return total;
+}

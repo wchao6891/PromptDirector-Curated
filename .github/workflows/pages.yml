@@ -6,6 +6,8 @@ on:
       - main
     paths:
       - "site/**"
+      - "tools/curated-site-data.mjs"
+      - "tools/validate-catalog.mjs"
       - ".github/workflows/pages.yml"
   workflow_dispatch:
 
