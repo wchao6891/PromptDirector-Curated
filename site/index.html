@@ -46,6 +46,15 @@
     <dialog id="detail-dialog" class="detail-dialog" aria-label="精选案例详情">
       <button id="detail-close" class="dialog-close" type="button" aria-label="关闭详情">×</button>
       <div id="detail-content"></div>
+      <div id="case-detail-backdrop" class="case-detail-backdrop" hidden></div>
+      <aside id="case-detail-drawer" class="case-detail-drawer" aria-hidden="true" aria-label="案例详情">
+        <nav class="case-detail-toolbar" aria-label="案例切换">
+          <button id="case-detail-prev" type="button" aria-label="上一个案例">‹</button>
+          <button id="case-detail-next" type="button" aria-label="下一个案例">›</button>
+          <button id="case-detail-close" type="button" aria-label="关闭案例详情">×</button>
+        </nav>
+        <div id="case-detail-content" class="case-detail-content"></div>
+      </aside>
     </dialog>
     <div id="toast" class="toast" role="status" hidden></div>
     <script type="module" src="app.js"></script>

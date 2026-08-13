@@ -121,3 +121,23 @@ test("release metric sync refuses a digest mismatch and preserves the previous f
     await rm(root, { recursive: true, force: true });
   }
 });
+
+test("public cases use visual-only masonry cards and a copy-only case detail", async () => {
+  const [app, html, styles] = await Promise.all([
+    readFile(new URL("../site/app.js", import.meta.url), "utf8"),
+    readFile(new URL("../site/index.html", import.meta.url), "utf8"),
+    readFile(new URL("../site/styles.css", import.meta.url), "utf8")
+  ]);
+  assert.match(app, /import \{ createStableMasonry \} from "\.\/masonry\.js"/);
+  assert.match(app, /const CASE_PAGE_SIZE = 24/);
+  assert.match(html, /id="case-detail-drawer"/);
+  const card = app.slice(app.indexOf("function createCaseCard"), app.indexOf("function openCaseDetail"));
+  assert.match(card, /openCaseDetail\(item, entry, card\)/);
+  assert.doesNotMatch(card, /case-footer|case-copy-action|button/);
+  const detail = app.slice(app.indexOf("function renderCaseDetail"), app.indexOf("async function loadPreview"));
+  assert.match(detail, /element\("pre", "case-detail-prompt", entry\.text\)/);
+  assert.match(detail, /actions\.append\(copy\)/);
+  assert.doesNotMatch(detail, /保存到案例库|case-save-action/);
+  assert.match(styles, /\.case-list\s*\{[^}]*position:\s*relative/);
+  assert.match(styles, /\.case-card\s*\{[^}]*position:\s*absolute/);
+});

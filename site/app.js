@@ -1,6 +1,9 @@
+import { createStableMasonry } from "./masonry.js";
+
 const CATALOG_URL = "catalog.json";
 const METRICS_URL = "metrics.json";
 const FOLLOW_STORAGE_KEY = "promptdirector.curated.following.v1";
+const CASE_PAGE_SIZE = 24;
 
 const state = {
   catalog: [],
@@ -11,29 +14,23 @@ const state = {
   filters: new Set(),
   sort: "recommended",
   following: readFollowing(),
-  selectedId: ""
+  selectedId: "",
+  selectedEntryId: ""
 };
 
-const elements = {
-  app: document.querySelector("#app"),
-  clearFilters: document.querySelector("#clear-filters"),
-  detailClose: document.querySelector("#detail-close"),
-  detailContent: document.querySelector("#detail-content"),
-  detailDialog: document.querySelector("#detail-dialog"),
-  filterButton: document.querySelector("#filter-button"),
-  filterCount: document.querySelector("#filter-count"),
-  filterPopover: document.querySelector("#filter-popover"),
-  followedFilter: document.querySelector("#followed-filter"),
-  searchInput: document.querySelector("#search-input"),
-  sortDownloads: document.querySelector("#sort-downloads"),
-  sortLabel: document.querySelector("#sort-label"),
-  sortMenu: document.querySelector("#sort-menu"),
-  toast: document.querySelector("#toast")
-};
+const elements = Object.fromEntries([
+  "app", "case-detail-backdrop", "case-detail-close", "case-detail-content", "case-detail-drawer", "case-detail-next", "case-detail-prev",
+  "clear-filters", "detail-close", "detail-content", "detail-dialog", "filter-button", "filter-count", "filter-popover",
+  "search-input", "sort-downloads", "sort-label", "sort-menu", "toast"
+].map((id) => [camel(id), document.querySelector(`#${id}`)]));
 
 let toastTimer = 0;
 let searchVersion = 0;
 let detailReturnFocus = null;
+let caseDetailReturnFocus = null;
+let caseMasonry = null;
+let caseLoadObserver = null;
+let renderedCaseCount = 0;
 
 elements.searchInput.addEventListener("input", async () => {
   const version = ++searchVersion;
@@ -71,8 +68,13 @@ elements.detailDialog.addEventListener("click", (event) => {
 });
 elements.detailDialog.addEventListener("cancel", (event) => {
   event.preventDefault();
-  closeDetail();
+  if (state.selectedEntryId) closeCaseDetail();
+  else closeDetail();
 });
+elements.caseDetailBackdrop.addEventListener("click", closeCaseDetail);
+elements.caseDetailClose.addEventListener("click", closeCaseDetail);
+elements.caseDetailPrev.addEventListener("click", () => moveCaseDetail(-1));
+elements.caseDetailNext.addEventListener("click", () => moveCaseDetail(1));
 document.addEventListener("click", (event) => {
   if (!event.target.closest(".filter-wrap")) {
     elements.filterPopover.hidden = true;
@@ -81,6 +83,10 @@ document.addEventListener("click", (event) => {
   if (!event.target.closest(".sort-menu")) elements.sortMenu.open = false;
 });
 document.addEventListener("keydown", (event) => {
+  if (state.selectedEntryId && !event.target.matches("input, textarea, select")) {
+    if (event.key === "ArrowLeft") moveCaseDetail(-1);
+    if (event.key === "ArrowRight") moveCaseDetail(1);
+  }
   if ((event.metaKey || event.ctrlKey) && event.key.toLocaleLowerCase() === "k") {
     event.preventDefault();
     elements.searchInput.focus();
@@ -113,12 +119,8 @@ async function loadMetrics() {
     const response = await fetch(METRICS_URL, { cache: "no-store" });
     if (!response.ok) throw new Error(`指标返回 HTTP ${response.status}`);
     const metrics = await response.json();
-    if (metrics?.format !== "prompt-director-curated-metrics" || metrics.version !== 1 || !metrics.downloads) {
-      throw new Error("指标格式无效");
-    }
-    if (state.catalog.some((item) => !Number.isSafeInteger(metrics.downloads[item.id]) || metrics.downloads[item.id] < 0)) {
-      throw new Error("下载指标不完整");
-    }
+    if (metrics?.format !== "prompt-director-curated-metrics" || metrics.version !== 1 || !metrics.downloads) throw new Error("指标格式无效");
+    if (state.catalog.some((item) => !Number.isSafeInteger(metrics.downloads[item.id]) || metrics.downloads[item.id] < 0)) throw new Error("下载指标不完整");
     state.metrics = metrics;
     elements.sortDownloads.disabled = false;
     renderGallery();
@@ -131,7 +133,10 @@ async function loadMetrics() {
 
 function renderGallery() {
   const items = visibleItems();
-  if (!items.length) return elements.app.replaceChildren(emptyState("没有结果"));
+  if (!items.length) {
+    elements.app.replaceChildren(emptyState("没有结果"));
+    return;
+  }
   const grid = element("section", "pack-grid");
   grid.append(...items.map(createPackCard));
   elements.app.replaceChildren(grid);
@@ -142,8 +147,7 @@ function visibleItems() {
     if (state.filters.has("followed") && !state.following.has(item.authorId)) return false;
     const typeFilters = [...state.filters].filter((value) => value !== "followed");
     if (typeFilters.length && !typeFilters.includes(item.type)) return false;
-    if (!state.query) return true;
-    return searchableText(item).includes(state.query);
+    return !state.query || searchableText(item).includes(state.query);
   });
   if (state.sort === "latest") {
     items = [...items].sort((left, right) => new Date(right.updatedAt) - new Date(left.updatedAt) || left.order - right.order);
@@ -157,7 +161,7 @@ function visibleItems() {
 
 function searchableText(item) {
   const preview = state.previews.get(item.id);
-  return [item.title, item.author, item.summary, ...(preview?.entries ?? []).flatMap((entry) => [entry.title, entry.author, entry.text])]
+  return [item.title, item.author, ...(preview?.entries ?? []).flatMap((entry) => [entry.title, entry.author, entry.text])]
     .join(" ")
     .toLocaleLowerCase();
 }
@@ -179,11 +183,12 @@ function createPackCard(item) {
   meta.append(element("span", "", item.author), element("span", "", `${item.caseCount} 个案例`));
   copy.append(meta);
   card.append(cover, copy);
-  card.addEventListener("click", () => openDetail(item.id, card));
+  const open = () => openDetail(item.id, card);
+  card.addEventListener("click", open);
   card.addEventListener("keydown", (event) => {
     if (!["Enter", " "].includes(event.key)) return;
     event.preventDefault();
-    openDetail(item.id, card);
+    open();
   });
   return card;
 }
@@ -198,7 +203,7 @@ async function openDetail(id, returnFocus = null) {
   history.replaceState(null, "", url);
   renderDetail(item, null);
   document.documentElement.classList.add("detail-open");
-  elements.detailDialog.showModal();
+  if (!elements.detailDialog.open) elements.detailDialog.showModal();
   elements.detailClose.focus({ preventScroll: true });
   try {
     const preview = await loadPreview(item);
@@ -211,8 +216,10 @@ async function openDetail(id, returnFocus = null) {
 }
 
 function closeDetail() {
+  if (state.selectedEntryId) closeCaseDetail({ restoreFocus: false });
   const selectedId = state.selectedId;
   const returnFocus = detailReturnFocus;
+  cleanupCaseGallery();
   state.selectedId = "";
   detailReturnFocus = null;
   document.documentElement.classList.remove("detail-open");
@@ -226,6 +233,7 @@ function closeDetail() {
 }
 
 function renderDetail(item, preview, failed = false) {
+  cleanupCaseGallery();
   const surface = element("article", "detail-surface");
   const hero = element("section", "detail-hero");
   const cover = element("div", "detail-cover");
@@ -248,7 +256,7 @@ function renderDetail(item, preview, failed = false) {
   follow.addEventListener("click", () => toggleFollow(item));
   const copyLink = element("button", "", "复制链接");
   copyLink.type = "button";
-  copyLink.addEventListener("click", () => copyText(publicPackUrl(item.id), "已复制链接"));
+  copyLink.addEventListener("click", () => copyText(publicPackUrl(item.id), copyLink, "已复制"));
   actions.append(download, follow, copyLink);
   info.append(actions);
   hero.append(cover, info);
@@ -259,9 +267,14 @@ function renderDetail(item, preview, failed = false) {
   section.append(heading);
   if (preview) {
     const list = element("div", "case-list");
-    list.append(...preview.entries.map(createCaseCard));
-    section.append(list);
-  } else if (failed) {
+    const sentinel = element("div", "case-load-sentinel");
+    section.append(list, sentinel);
+    surface.append(section);
+    elements.detailContent.replaceChildren(surface);
+    startCaseGallery(item, preview, list, sentinel);
+    return;
+  }
+  if (failed) {
     const failure = element("div", "preview-failure");
     failure.append(element("span", "", "预览加载失败"));
     const retry = element("button", "", "重试");
@@ -278,24 +291,133 @@ function renderDetail(item, preview, failed = false) {
   elements.detailContent.replaceChildren(surface);
 }
 
-function createCaseCard(entry) {
+function startCaseGallery(item, preview, list, sentinel) {
+  renderedCaseCount = 0;
+  caseMasonry = createStableMasonry(list, { scrollContainer: elements.detailDialog });
+  const appendNext = () => {
+    const entries = preview.entries.slice(renderedCaseCount, renderedCaseCount + CASE_PAGE_SIZE);
+    if (!entries.length) return;
+    const cards = entries.map((entry) => createCaseCard(item, entry));
+    list.append(...cards);
+    caseMasonry.append(cards);
+    renderedCaseCount += entries.length;
+    sentinel.hidden = renderedCaseCount >= preview.entries.length;
+    if (sentinel.hidden) caseLoadObserver?.disconnect();
+  };
+  appendNext();
+  if (renderedCaseCount < preview.entries.length) {
+    caseLoadObserver = new IntersectionObserver((records) => {
+      if (records.some((record) => record.isIntersecting)) appendNext();
+    }, { root: elements.detailDialog, rootMargin: "600px 0px" });
+    caseLoadObserver.observe(sentinel);
+  }
+}
+
+function cleanupCaseGallery() {
+  caseLoadObserver?.disconnect();
+  caseLoadObserver = null;
+  caseMasonry?.destroy();
+  caseMasonry = null;
+  renderedCaseCount = 0;
+}
+
+function createCaseCard(item, entry) {
   const card = element("article", "case-card");
+  card.dataset.entryId = entry.id;
+  card.tabIndex = 0;
+  card.setAttribute("aria-label", `查看案例：${entry.title}`);
+  const visual = element("div", "case-image-wrap");
+  visual.style.aspectRatio = `${entry.width} / ${entry.height}`;
   const image = element("img", "case-visual");
   image.src = siteAssetUrl(entry.previewImageUrl);
   image.alt = "";
   image.loading = "lazy";
+  image.decoding = "async";
   image.width = entry.width;
   image.height = entry.height;
-  const footer = element("div", "case-footer");
-  const copy = element("div", "case-copy");
-  copy.append(element("h3", "", entry.title), element("p", "", entry.author));
-  const action = element("button", "case-copy-action", "复制");
-  action.type = "button";
-  action.setAttribute("aria-label", `复制 ${entry.title} 的提示词`);
-  action.addEventListener("click", () => copyText(entry.text, "已复制"));
-  footer.append(copy, action);
-  card.append(image, footer);
+  visual.append(image);
+  if (entry.mediaKind === "video") visual.append(element("span", "case-video-badge", "▶"));
+  card.append(visual);
+  const open = () => openCaseDetail(item, entry, card);
+  card.addEventListener("click", open);
+  card.addEventListener("keydown", (event) => {
+    if (!["Enter", " "].includes(event.key)) return;
+    event.preventDefault();
+    open();
+  });
   return card;
+}
+
+function openCaseDetail(item, entry, card) {
+  state.selectedEntryId = entry.id;
+  caseDetailReturnFocus = card ?? caseDetailReturnFocus;
+  elements.caseDetailBackdrop.hidden = false;
+  elements.caseDetailDrawer.classList.add("open");
+  elements.caseDetailDrawer.setAttribute("aria-hidden", "false");
+  renderCaseDetail(item, entry);
+  elements.caseDetailClose.focus({ preventScroll: true });
+}
+
+function closeCaseDetail({ restoreFocus = true } = {}) {
+  const returnFocus = caseDetailReturnFocus;
+  state.selectedEntryId = "";
+  caseDetailReturnFocus = null;
+  elements.caseDetailDrawer.classList.remove("open");
+  elements.caseDetailDrawer.setAttribute("aria-hidden", "true");
+  elements.caseDetailBackdrop.hidden = true;
+  elements.caseDetailContent.replaceChildren();
+  if (restoreFocus && returnFocus?.isConnected) returnFocus.focus({ preventScroll: true });
+}
+
+function moveCaseDetail(offset) {
+  const item = state.catalog.find((candidate) => candidate.id === state.selectedId);
+  const preview = item ? state.previews.get(item.id) : null;
+  if (!item || !preview) return;
+  const index = preview.entries.findIndex((entry) => entry.id === state.selectedEntryId);
+  const entry = preview.entries[index + offset];
+  if (!entry) return;
+  state.selectedEntryId = entry.id;
+  renderCaseDetail(item, entry);
+}
+
+function renderCaseDetail(item, entry) {
+  const preview = state.previews.get(item.id);
+  const index = preview.entries.findIndex((candidate) => candidate.id === entry.id);
+  elements.caseDetailPrev.disabled = index <= 0;
+  elements.caseDetailNext.disabled = index >= preview.entries.length - 1;
+  const layout = element("article", "case-detail-layout");
+  const figure = element("figure", "case-detail-figure");
+  const image = element("img");
+  image.src = siteAssetUrl(entry.previewImageUrl);
+  image.alt = entry.title;
+  figure.append(image);
+  if (entry.mediaKind === "video") figure.append(element("span", "case-detail-video-label", "视频封面"));
+  const body = element("div", "case-detail-body");
+  const heading = element("header", "case-detail-heading");
+  heading.append(element("h2", "", entry.title), element("p", "", entry.author));
+  body.append(heading);
+  const prompt = element("section", "case-detail-section");
+  prompt.append(element("h3", "", "完整提示词"), element("pre", "case-detail-prompt", entry.text));
+  body.append(prompt);
+  const source = element("div", "case-detail-source");
+  source.append(element("span", "", entry.rights || rightsLabel(item.license)));
+  if (entry.sourceUrl) {
+    const link = element("a", "", "查看来源");
+    link.href = entry.sourceUrl;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    source.append(link);
+  }
+  body.append(source);
+  const actions = element("div", "case-detail-actions");
+  const copy = element("button", "", "复制提示词");
+  copy.type = "button";
+  copy.disabled = !entry.text;
+  copy.addEventListener("click", () => copyText(entry.text, copy, "已复制"));
+  actions.append(copy);
+  body.append(actions);
+  layout.append(figure, body);
+  elements.caseDetailContent.replaceChildren(layout);
 }
 
 async function loadPreview(item) {
@@ -305,9 +427,7 @@ async function loadPreview(item) {
     const response = await fetch(siteAssetUrl(item.previewUrl), { cache: "force-cache" });
     if (!response.ok) throw new Error(`预览返回 HTTP ${response.status}`);
     const preview = await response.json();
-    if (preview?.format !== "prompt-director-curated-preview" || preview.version !== 1 || preview.catalogId !== item.id || preview.packageId !== item.packageId || preview.packageVersion !== item.packageVersion || !Array.isArray(preview.entries) || preview.entries.length !== item.caseCount) {
-      throw new Error("预览格式无效");
-    }
+    if (preview?.format !== "prompt-director-curated-preview" || preview.version !== 1 || preview.catalogId !== item.id || preview.packageId !== item.packageId || preview.packageVersion !== item.packageVersion || !Array.isArray(preview.entries) || preview.entries.length !== item.caseCount) throw new Error("预览格式无效");
     state.previews.set(item.id, preview);
     return preview;
   } catch (error) {
@@ -338,10 +458,8 @@ function toggleFollow(item) {
   if (state.following.has(item.authorId)) state.following.delete(item.authorId);
   else state.following.add(item.authorId);
   localStorage.setItem(FOLLOW_STORAGE_KEY, JSON.stringify([...state.following]));
-  showToast(state.following.has(item.authorId) ? "已关注" : "已取消关注");
   updateFilters();
-  const preview = state.previews.get(item.id) ?? null;
-  if (elements.detailDialog.open) renderDetail(item, preview, state.previewFailures.has(item.id));
+  if (state.selectedId === item.id) renderDetail(item, state.previews.get(item.id) ?? null, state.previewFailures.has(item.id));
 }
 
 function updateFilters() {
@@ -382,10 +500,19 @@ function siteAssetUrl(value) {
   return `${url.pathname.replace(/^\/PromptDirector-Curated/, "")}${url.search}`;
 }
 
-async function copyText(value, message) {
+async function copyText(value, button, successLabel) {
+  const originalLabel = button?.textContent ?? "";
   try {
     await navigator.clipboard.writeText(value);
-    showToast(message);
+    if (button) {
+      button.textContent = successLabel;
+      button.classList.add("is-success");
+      setTimeout(() => {
+        if (!button.isConnected) return;
+        button.textContent = originalLabel;
+        button.classList.remove("is-success");
+      }, 1600);
+    }
   } catch {
     showToast("浏览器未允许复制");
   }
@@ -407,4 +534,8 @@ function element(tagName, className = "", text = "") {
   if (className) value.className = className;
   if (text) value.textContent = text;
   return value;
+}
+
+function camel(value) {
+  return value.replace(/-([a-z])/g, (_, character) => character.toUpperCase());
 }

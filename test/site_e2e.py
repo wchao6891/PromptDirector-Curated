@@ -12,7 +12,9 @@ SITE_URL = os.environ.get("CURATED_SITE_URL", "http://127.0.0.1:4180")
 def main() -> None:
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch(headless=True)
-        page = browser.new_page(viewport={"width": 1440, "height": 1000})
+        context = browser.new_context(viewport={"width": 1440, "height": 1000})
+        context.grant_permissions(["clipboard-read", "clipboard-write"], origin=SITE_URL)
+        page = context.new_page()
         errors: list[str] = []
         page.on("pageerror", lambda error: errors.append(str(error)))
         page.goto(SITE_URL, wait_until="networkidle")
@@ -38,12 +40,23 @@ def main() -> None:
         expect(page.locator(".detail-actions")).to_contain_text("关注")
         expect(page.locator(".detail-actions")).to_contain_text("复制链接")
         expect(page.locator(".case-card")).to_have_count(20)
+        expect(page.locator(".case-card h3, .case-footer, .case-copy-action")).to_have_count(0)
         expect(page.locator("text=版本")).to_have_count(0)
         expect(page.locator("text=更新")).to_have_count(0)
         expect(page.locator("text=更多")).to_have_count(0)
         expect(page.locator("text=保存")).to_have_count(0)
-        expect(page.locator(".detail-prompt, pre")).to_have_count(0)
+        expect(page.locator(".detail-prompt, .case-detail-prompt")).to_have_count(0)
         assert "github.com/wchao6891/PromptDirector-Curated/releases/download" in page.locator(".detail-actions a").get_attribute("href")
+        page.locator(".case-card").first.click()
+        expect(page.locator("#case-detail-drawer")).to_have_class("case-detail-drawer open")
+        expect(page.locator(".case-detail-prompt")).to_be_visible()
+        expect(page.locator(".case-detail-actions button")).to_have_count(1)
+        expect(page.locator("text=保存到案例库")).to_have_count(0)
+        page.locator(".case-detail-actions button").click()
+        expect(page.locator(".case-detail-actions button")).to_have_text("已复制")
+        page.keyboard.press("Escape")
+        expect(page.locator("#case-detail-drawer")).not_to_have_class("case-detail-drawer open")
+        expect(page.locator(".case-card").first).to_be_focused()
         if screenshot_dir:
             page.screenshot(path=target / "curated-public-detail.png", full_page=False)
 
@@ -69,6 +82,15 @@ def main() -> None:
         page.locator("#clear-filters").click()
         expect(page.locator(".pack-card")).to_have_count(9)
 
+        page.locator(".pack-card").nth(7).click()
+        expect(page.locator(".case-card")).to_have_count(24)
+        case_geometry = page.locator(".case-card").evaluate_all(
+            "cards => cards.map(card => ({width: card.offsetWidth, height: card.offsetHeight, top: card.offsetTop}))"
+        )
+        assert case_geometry[0]["height"] < case_geometry[10]["height"], case_geometry
+        assert case_geometry[1]["top"] == case_geometry[0]["top"], case_geometry[:4]
+        page.keyboard.press("Escape")
+
         page.set_viewport_size({"width": 820, "height": 650})
         page.locator(".pack-card").first.click()
         medium_geometry = page.evaluate(
@@ -81,7 +103,7 @@ def main() -> None:
 
         page.set_viewport_size({"width": 390, "height": 844})
         page.locator(".pack-card").nth(1).click()
-        expect(page.locator(".case-card")).to_have_count(150)
+        expect(page.locator(".case-card")).to_have_count(24)
         geometry = page.evaluate("""() => ({viewport: innerWidth, page: document.documentElement.scrollWidth})""")
         assert geometry["page"] <= geometry["viewport"], geometry
         if screenshot_dir:
@@ -93,6 +115,7 @@ def main() -> None:
             "packs": 9,
             "detail_layers": 3,
             "public_save_buttons": 0,
+            "masonry_natural_heights": True,
             "inner_case_search": True,
             "medium": medium_geometry,
             "mobile": geometry,
