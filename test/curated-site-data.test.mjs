@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import { mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { tmpdir } from "node:os";
-import { normalizeSiteCatalog, normalizeSiteMetrics, normalizeSitePreview } from "../tools/curated-site-data.mjs";
+import { normalizeSiteCatalog, normalizeSiteMediaManifest, normalizeSiteMetrics, normalizeSitePreview } from "../tools/curated-site-data.mjs";
 import { assertSafeArchiveNames } from "../tools/build-site-previews.mjs";
 import { syncReleaseMetrics } from "../tools/sync-release-metrics.mjs";
 
@@ -23,6 +23,7 @@ function theme(overrides = {}) {
     previewUrl: "https://wchao6891.github.io/PromptDirector-Curated/previews/test-featured/preview.json",
     downloadUrl: "https://github.com/wchao6891/PromptDirector-Curated/releases/download/test-1.0.0/test.zip",
     sha256: "a".repeat(64),
+    archiveBytes: 1024,
     caseCount: 1,
     imageCount: 1,
     videoCount: 0,
@@ -69,11 +70,35 @@ test("preview files bind reviewed cases to the exact catalog package version", (
     }]
   }, theme());
   assert.equal(value.entries[0].text, "真实提示词");
+  assert.deepEqual(normalizeSitePreview(value, theme()), value);
   assert.throws(() => normalizeSitePreview({ ...value, packageVersion: "2.0.0" }, theme()), /版本不一致/);
   assert.throws(() => normalizeSitePreview({
     ...value,
     entries: [{ ...value.entries[0], sourceUrl: "http://source.example/case-one" }]
   }, theme()), /来源地址无效/);
+});
+
+test("media manifests bind each reviewed video to one immutable release asset", () => {
+  const videoTheme = theme({ type: "video_prompt", videoCount: 1 });
+  const value = normalizeSiteMediaManifest({
+    format: "prompt-director-curated-media",
+    version: 1,
+    updatedAt: "2026-08-14T00:00:00.000Z",
+    packages: [{
+      packageId: videoTheme.packageId,
+      packageVersion: videoTheme.packageVersion,
+      releaseTag: "media-test-featured-1.0.0",
+      entries: [{
+        sourceEntryId: "case-one",
+        videoUrl: `https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-test-featured-1.0.0/${"b".repeat(64)}.mp4`,
+        videoSha256: "b".repeat(64),
+        videoBytes: 2048,
+        videoMimeType: "video/mp4"
+      }]
+    }]
+  }, catalog({ themes: [videoTheme] }));
+  assert.equal(value.packages[0].entries[0].sourceEntryId, "case-one");
+  assert.throws(() => normalizeSiteMediaManifest({ ...value, packages: [{ ...value.packages[0], entries: [] }] }, catalog({ themes: [videoTheme] })), /视频数量不一致/);
 });
 
 test("preview builds reject paths that could escape or publish unreviewed content", () => {

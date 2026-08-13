@@ -28,7 +28,8 @@ export function createStableMasonry(container, { scrollContainer = window } = {}
       if (!card.isConnected) continue;
       card.style.width = `${width}px`;
       const column = heights.indexOf(Math.min(...heights));
-      card.style.transform = `translate(${column * (width + gap)}px, ${heights[column]}px)`;
+      card.style.left = `${column * (width + gap)}px`;
+      card.style.top = `${heights[column]}px`;
       heights[column] += card.getBoundingClientRect().height + gap;
     }
     container.style.height = `${Math.max(0, ...heights) - gap}px`;
@@ -40,7 +41,8 @@ export function createStableMasonry(container, { scrollContainer = window } = {}
       cards.push(card);
       cardObserver.observe(card);
     }
-    schedule();
+    if (container.clientWidth) layout();
+    else schedule();
   }
 
   function destroy() {

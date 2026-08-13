@@ -84,6 +84,12 @@ def main() -> None:
 
         page.locator(".pack-card").nth(7).click()
         expect(page.locator(".case-card")).to_have_count(24)
+        expect(page.locator(".case-video-badge")).to_have_count(24)
+        page.locator(".case-card").first.hover()
+        expect(page.locator(".case-card").first.locator(".case-video-preview")).to_have_count(1)
+        page.locator(".case-card").first.click()
+        expect(page.locator(".case-detail-video")).to_have_count(1)
+        page.keyboard.press("Escape")
         case_geometry = page.locator(".case-card").evaluate_all(
             "cards => cards.map(card => ({width: card.offsetWidth, height: card.offsetHeight, top: card.offsetTop}))"
         )

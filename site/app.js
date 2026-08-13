@@ -31,6 +31,8 @@ let caseDetailReturnFocus = null;
 let caseMasonry = null;
 let caseLoadObserver = null;
 let renderedCaseCount = 0;
+const caseVideoControllers = new Set();
+let caseDetailVideoCleanup = null;
 
 elements.searchInput.addEventListener("input", async () => {
   const version = ++searchVersion;
@@ -318,6 +320,8 @@ function cleanupCaseGallery() {
   caseLoadObserver = null;
   caseMasonry?.destroy();
   caseMasonry = null;
+  for (const controller of caseVideoControllers) controller.destroy();
+  caseVideoControllers.clear();
   renderedCaseCount = 0;
 }
 
@@ -336,7 +340,10 @@ function createCaseCard(item, entry) {
   image.width = entry.width;
   image.height = entry.height;
   visual.append(image);
-  if (entry.mediaKind === "video") visual.append(element("span", "case-video-badge", "▶"));
+  if (entry.mediaKind === "video") {
+    visual.append(element("span", "case-video-badge", "▶"));
+    if (entry.videoUrl) caseVideoControllers.add(bindRemoteVideoHover(visual, entry));
+  }
   card.append(visual);
   const open = () => openCaseDetail(item, entry, card);
   card.addEventListener("click", open);
@@ -365,6 +372,8 @@ function closeCaseDetail({ restoreFocus = true } = {}) {
   elements.caseDetailDrawer.classList.remove("open");
   elements.caseDetailDrawer.setAttribute("aria-hidden", "true");
   elements.caseDetailBackdrop.hidden = true;
+  caseDetailVideoCleanup?.();
+  caseDetailVideoCleanup = null;
   elements.caseDetailContent.replaceChildren();
   if (restoreFocus && returnFocus?.isConnected) returnFocus.focus({ preventScroll: true });
 }
@@ -381,17 +390,25 @@ function moveCaseDetail(offset) {
 }
 
 function renderCaseDetail(item, entry) {
+  caseDetailVideoCleanup?.();
+  caseDetailVideoCleanup = null;
   const preview = state.previews.get(item.id);
   const index = preview.entries.findIndex((candidate) => candidate.id === entry.id);
   elements.caseDetailPrev.disabled = index <= 0;
   elements.caseDetailNext.disabled = index >= preview.entries.length - 1;
   const layout = element("article", "case-detail-layout");
   const figure = element("figure", "case-detail-figure");
-  const image = element("img");
-  image.src = siteAssetUrl(entry.previewImageUrl);
-  image.alt = entry.title;
-  figure.append(image);
-  if (entry.mediaKind === "video") figure.append(element("span", "case-detail-video-label", "视频封面"));
+  if (entry.mediaKind === "video" && entry.videoUrl) {
+    const player = createRemoteVideoPlayer(entry);
+    figure.append(player.node);
+    caseDetailVideoCleanup = player.destroy;
+  } else {
+    const image = element("img");
+    image.src = siteAssetUrl(entry.previewImageUrl);
+    image.alt = entry.title;
+    figure.append(image);
+    if (entry.mediaKind === "video") figure.append(element("span", "case-detail-video-label", "视频暂不可播放"));
+  }
   const body = element("div", "case-detail-body");
   const heading = element("header", "case-detail-heading");
   heading.append(element("h2", "", entry.title), element("p", "", entry.author));
@@ -424,10 +441,11 @@ async function loadPreview(item) {
   if (state.previews.has(item.id)) return state.previews.get(item.id);
   if (state.previewFailures.has(item.id)) throw new Error("预览先前加载失败");
   try {
-    const response = await fetch(siteAssetUrl(item.previewUrl), { cache: "force-cache" });
+    const response = await fetch(siteAssetUrl(item.previewUrl), { cache: "no-cache" });
     if (!response.ok) throw new Error(`预览返回 HTTP ${response.status}`);
     const preview = await response.json();
     if (preview?.format !== "prompt-director-curated-preview" || preview.version !== 1 || preview.catalogId !== item.id || preview.packageId !== item.packageId || preview.packageVersion !== item.packageVersion || !Array.isArray(preview.entries) || preview.entries.length !== item.caseCount) throw new Error("预览格式无效");
+    preview.entries = preview.entries.map(normalizePreviewEntry);
     state.previews.set(item.id, preview);
     return preview;
   } catch (error) {
@@ -452,6 +470,105 @@ async function retryPreview(item, button) {
     showToast("预览加载失败");
     if (state.selectedId === item.id) renderDetail(item, null, true);
   }
+}
+
+function normalizePreviewEntry(entry) {
+  const next = { ...entry };
+  const hasVideoAsset = Boolean(String(next.videoUrl ?? "").trim() || String(next.videoSha256 ?? "").trim() || String(next.videoMimeType ?? "").trim() || Number(next.videoBytes) > 0);
+  if (!hasVideoAsset) {
+    delete next.videoUrl;
+    delete next.videoSha256;
+    delete next.videoBytes;
+    delete next.videoMimeType;
+    return next;
+  }
+  const url = new URL(next.videoUrl);
+  const trustedHosts = new Set(["github.com", "objects.githubusercontent.com", "release-assets.githubusercontent.com"]);
+  if (next.mediaKind !== "video" || url.protocol !== "https:" || !trustedHosts.has(url.hostname) || url.username || url.password || url.search || url.hash ||
+      !/^[a-f0-9]{64}$/.test(next.videoSha256) || !Number.isSafeInteger(next.videoBytes) || next.videoBytes < 1 || next.videoMimeType !== "video/mp4") {
+    throw new Error("精选视频预览无效");
+  }
+  return next;
+}
+
+function bindRemoteVideoHover(container, entry) {
+  let video = null;
+  const canPlay = () => !globalThis.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches
+    && globalThis.matchMedia?.("(hover: hover) and (pointer: fine)")?.matches;
+  const destroy = () => {
+    if (!video) return;
+    video.pause();
+    video.removeAttribute("src");
+    video.load();
+    video.remove();
+    video = null;
+    container.classList.remove("is-video-playing", "is-video-loading");
+  };
+  const start = async () => {
+    if (!canPlay() || video) return;
+    container.classList.add("is-video-loading");
+    video = document.createElement("video");
+    video.className = "case-video-preview";
+    video.muted = true;
+    video.loop = true;
+    video.playsInline = true;
+    video.preload = "metadata";
+    video.poster = siteAssetUrl(entry.previewImageUrl);
+    video.src = entry.videoUrl;
+    video.setAttribute("aria-hidden", "true");
+    video.addEventListener("playing", () => {
+      container.classList.remove("is-video-loading");
+      container.classList.add("is-video-playing");
+    }, { once: true });
+    video.addEventListener("error", () => {
+      destroy();
+      container.classList.add("is-video-preview-unavailable");
+    }, { once: true });
+    container.append(video);
+    await video.play().catch(() => destroy());
+  };
+  container.addEventListener("pointerenter", start);
+  container.addEventListener("pointerleave", destroy);
+  return {
+    destroy() {
+      container.removeEventListener("pointerenter", start);
+      container.removeEventListener("pointerleave", destroy);
+      destroy();
+    }
+  };
+}
+
+function createRemoteVideoPlayer(entry) {
+  const video = document.createElement("video");
+  video.className = "case-detail-video";
+  video.controls = true;
+  video.preload = "metadata";
+  video.autoplay = false;
+  video.playsInline = true;
+  video.poster = siteAssetUrl(entry.previewImageUrl);
+  video.src = entry.videoUrl;
+  const failure = element("div", "case-video-error");
+  failure.hidden = true;
+  failure.append(element("span", "", "视频加载失败"));
+  const retry = element("button", "", "重试");
+  retry.type = "button";
+  retry.addEventListener("click", () => {
+    failure.hidden = true;
+    video.src = entry.videoUrl;
+    video.load();
+  });
+  failure.append(retry);
+  video.addEventListener("error", () => { failure.hidden = false; });
+  const wrap = element("div", "case-detail-video-wrap");
+  wrap.append(video, failure);
+  return {
+    node: wrap,
+    destroy() {
+      video.pause();
+      video.removeAttribute("src");
+      video.load();
+    }
+  };
 }
 
 function toggleFollow(item) {

@@ -1,0 +1,896 @@
+{
+  "format": "prompt-director-curated-media",
+  "version": 1,
+  "updatedAt": "2026-08-13T17:09:08.183Z",
+  "packages": [
+    {
+      "packageId": "evolink-featured-video-1",
+      "packageVersion": "1.0.0",
+      "releaseTag": "media-evolink-featured-video-1-1.0.0",
+      "entries": [
+        {
+          "sourceEntryId": "entry:evolink:0418300b4e29d7e45a5f2d7c",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-1-1.0.0/2d33a1e2f2b35859b853def42fd4d85b9ebb4aa397afe540474251fd8d94fd25.mp4",
+          "videoSha256": "2d33a1e2f2b35859b853def42fd4d85b9ebb4aa397afe540474251fd8d94fd25",
+          "videoBytes": 2388582,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:7032079df205cc136b0372ec",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-1-1.0.0/54185b3bae4c872aefc67bee7aebec093b2ae618add3938b6531690c7c060ac5.mp4",
+          "videoSha256": "54185b3bae4c872aefc67bee7aebec093b2ae618add3938b6531690c7c060ac5",
+          "videoBytes": 4963465,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:e6890b2f653e2186154a3cc0",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-1-1.0.0/f9d0c66030797ba6905de6c517f83060c0415631d474178c9dd4d56cde68285f.mp4",
+          "videoSha256": "f9d0c66030797ba6905de6c517f83060c0415631d474178c9dd4d56cde68285f",
+          "videoBytes": 4125914,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:337acd5993296cbf11e46062",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-1-1.0.0/3b81a6e1f5de47f2342507e008d0ed03a1f82c1f9d95291407fa0f235f48c6ab.mp4",
+          "videoSha256": "3b81a6e1f5de47f2342507e008d0ed03a1f82c1f9d95291407fa0f235f48c6ab",
+          "videoBytes": 4042491,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:e1a82b2324a89bb9db618178",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-1-1.0.0/59c001b01b28406e5cab53fd8b667109f748658e043f67953299112d745367a3.mp4",
+          "videoSha256": "59c001b01b28406e5cab53fd8b667109f748658e043f67953299112d745367a3",
+          "videoBytes": 13633320,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:21f90c0edb3bed9df8794b9b",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-1-1.0.0/79a741b65714bfad748f192f1c4f5f876ddf71f367811f860de0479aa2647971.mp4",
+          "videoSha256": "79a741b65714bfad748f192f1c4f5f876ddf71f367811f860de0479aa2647971",
+          "videoBytes": 407311,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:1a61f9bed20dc74d01ecb524",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-1-1.0.0/0e004987a5084eb4aeda935fedadf92bbd1094b058012b67edd6f8363a66b9f7.mp4",
+          "videoSha256": "0e004987a5084eb4aeda935fedadf92bbd1094b058012b67edd6f8363a66b9f7",
+          "videoBytes": 4252335,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:887f559e606a0c8960cc28a8",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-1-1.0.0/7754633957fd7cce5b024e737760f0bc1b7669c8cb66145276b70abf4635b3ba.mp4",
+          "videoSha256": "7754633957fd7cce5b024e737760f0bc1b7669c8cb66145276b70abf4635b3ba",
+          "videoBytes": 10503176,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:5beee2b578e3477795e64b43",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-1-1.0.0/9eff30c8ca5f24e27a95da40684b17cd6776fffc899ad5be7c8a408d1dfa1e4b.mp4",
+          "videoSha256": "9eff30c8ca5f24e27a95da40684b17cd6776fffc899ad5be7c8a408d1dfa1e4b",
+          "videoBytes": 5975080,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:f7c0cc8b9765e2e95da6cc40",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-1-1.0.0/f0ae3c5774c25eddbfdd8526fd2cdbd21035ef9db5bbc114724b37c7ee65ba02.mp4",
+          "videoSha256": "f0ae3c5774c25eddbfdd8526fd2cdbd21035ef9db5bbc114724b37c7ee65ba02",
+          "videoBytes": 4276862,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:06c19e28fc18f2d2a3376677",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-1-1.0.0/7c45958700ba9b7aed5c67621dc9e81a0c9d6216d02b052670824354ff02b0e9.mp4",
+          "videoSha256": "7c45958700ba9b7aed5c67621dc9e81a0c9d6216d02b052670824354ff02b0e9",
+          "videoBytes": 5704621,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:8ee09c0d325b8026e8f2e38b",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-1-1.0.0/8800d2bfb70abf9a9ba4b3387ec744e4b153ff913e252202574ce3cf8c3bf9f1.mp4",
+          "videoSha256": "8800d2bfb70abf9a9ba4b3387ec744e4b153ff913e252202574ce3cf8c3bf9f1",
+          "videoBytes": 1558171,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:9a48173401c8293b939115b4",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-1-1.0.0/fedc3cdc08a66903ef88a652b4c70eee5d59c8107af727f4113226d028f06238.mp4",
+          "videoSha256": "fedc3cdc08a66903ef88a652b4c70eee5d59c8107af727f4113226d028f06238",
+          "videoBytes": 5631724,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:f5862ef4f0f4be54cabdc5a6",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-1-1.0.0/5b8655d5b1ee0f9befcc0507b2349f5ec8b6c09b63b203cc2d9432f7c702be59.mp4",
+          "videoSha256": "5b8655d5b1ee0f9befcc0507b2349f5ec8b6c09b63b203cc2d9432f7c702be59",
+          "videoBytes": 4639635,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:56d5e7bd67748f52fcae0623",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-1-1.0.0/6d00cf0e86ad8b372ca2c94e392b2dc3daa47bad2e473832e83cb988d1552fbf.mp4",
+          "videoSha256": "6d00cf0e86ad8b372ca2c94e392b2dc3daa47bad2e473832e83cb988d1552fbf",
+          "videoBytes": 3328610,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:e1e83bef2e3a7e585e31ccc9",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-1-1.0.0/f7b48325c8057e9854d043147bb34416c839317d4e258517ab2fbdcac37f21b2.mp4",
+          "videoSha256": "f7b48325c8057e9854d043147bb34416c839317d4e258517ab2fbdcac37f21b2",
+          "videoBytes": 6089507,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:e40b08ecaa6517166fcfd09c",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-1-1.0.0/97159b05874dd576aba97a162fd9ffd8f6200002ca74c12ccfe878ecba67ae6b.mp4",
+          "videoSha256": "97159b05874dd576aba97a162fd9ffd8f6200002ca74c12ccfe878ecba67ae6b",
+          "videoBytes": 5051223,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:39b0a2685097e88f81c8f220",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-1-1.0.0/1a0b1c5dff40387d437369750cf1998145574dd8d3ca3f8899346e5049ebfd65.mp4",
+          "videoSha256": "1a0b1c5dff40387d437369750cf1998145574dd8d3ca3f8899346e5049ebfd65",
+          "videoBytes": 5794638,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:d044df0a2ef78362a7467050",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-1-1.0.0/6a8002c8b6ef6123cbb33c55d1b3154a0af76096297dd29e15bb20fb7663d7f6.mp4",
+          "videoSha256": "6a8002c8b6ef6123cbb33c55d1b3154a0af76096297dd29e15bb20fb7663d7f6",
+          "videoBytes": 4573057,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:597392c539ba974b9cc18368",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-1-1.0.0/7e6ae729f31f5f94896e626fb186d748e63d987f4d415d8cbd70272986c22dd1.mp4",
+          "videoSha256": "7e6ae729f31f5f94896e626fb186d748e63d987f4d415d8cbd70272986c22dd1",
+          "videoBytes": 4163511,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:514bdae396ad3508fe5f6748",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-1-1.0.0/6756980007c4ce896ffbfb536ea8e7859382b177dbfd58aa358d17dfef603508.mp4",
+          "videoSha256": "6756980007c4ce896ffbfb536ea8e7859382b177dbfd58aa358d17dfef603508",
+          "videoBytes": 8698141,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:8f34511012ae30cabf036bb8",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-1-1.0.0/3ddd24479552ad5efd789cc8cb1f1e4ad5b6c3f77b269d09b95b337e6cdba080.mp4",
+          "videoSha256": "3ddd24479552ad5efd789cc8cb1f1e4ad5b6c3f77b269d09b95b337e6cdba080",
+          "videoBytes": 4598720,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:05ead77171093d249c437d67",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-1-1.0.0/a27d51c7a561af2f26bfa0c3270a420807625363392eb1129320b8952c568fa5.mp4",
+          "videoSha256": "a27d51c7a561af2f26bfa0c3270a420807625363392eb1129320b8952c568fa5",
+          "videoBytes": 1759772,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:60ce06ff1df352c78ece6038",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-1-1.0.0/89c00d2280332a453a3aba939b761c845dd4b01f825b6df7ffa3134b4a7bc3ed.mp4",
+          "videoSha256": "89c00d2280332a453a3aba939b761c845dd4b01f825b6df7ffa3134b4a7bc3ed",
+          "videoBytes": 2445623,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:2a25272909d818797789e4b2",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-1-1.0.0/e7e4737b53dfcef6aa2c0a71c7c0233c2da7cbb4e4c51c5a04b3da168f32650d.mp4",
+          "videoSha256": "e7e4737b53dfcef6aa2c0a71c7c0233c2da7cbb4e4c51c5a04b3da168f32650d",
+          "videoBytes": 5200263,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:d213d7234d374aecb9091eef",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-1-1.0.0/de3f5c7a797e5a6adf8f03a8d1415b7ad408284058f96e0a4ea0018437a3ef9b.mp4",
+          "videoSha256": "de3f5c7a797e5a6adf8f03a8d1415b7ad408284058f96e0a4ea0018437a3ef9b",
+          "videoBytes": 2518370,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:9a12a9c24983f433bfdd866a",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-1-1.0.0/e870fe8a11f3c1f549ff756947e100c117eea18f93216e55432f8e636cd250de.mp4",
+          "videoSha256": "e870fe8a11f3c1f549ff756947e100c117eea18f93216e55432f8e636cd250de",
+          "videoBytes": 6299007,
+          "videoMimeType": "video/mp4"
+        }
+      ]
+    },
+    {
+      "packageId": "evolink-featured-video-2",
+      "packageVersion": "1.0.0",
+      "releaseTag": "media-evolink-featured-video-2-1.0.0",
+      "entries": [
+        {
+          "sourceEntryId": "entry:evolink:b3fc955e7c483236b61b6bf9",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-2-1.0.0/5e50b1c262e4008e4dd13e9705dbc98d80d97dbad6f4fd7cdea78bc76f405ace.mp4",
+          "videoSha256": "5e50b1c262e4008e4dd13e9705dbc98d80d97dbad6f4fd7cdea78bc76f405ace",
+          "videoBytes": 6742009,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:7b0f73e4cef4a049c05dde68",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-2-1.0.0/05a056983438531bbbea8e13ff0110a19b03a066027e1cd56b96d41440d51e58.mp4",
+          "videoSha256": "05a056983438531bbbea8e13ff0110a19b03a066027e1cd56b96d41440d51e58",
+          "videoBytes": 2838623,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:4f5fe0bcfa0e9ade97c8974b",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-2-1.0.0/ce0e0a49a7fa7dd07d6c949e34e92b9bd0b917daa9d9ae19599f45e169987508.mp4",
+          "videoSha256": "ce0e0a49a7fa7dd07d6c949e34e92b9bd0b917daa9d9ae19599f45e169987508",
+          "videoBytes": 4057435,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:356d240a000f9fc375dff93b",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-2-1.0.0/48c98f03a0af7233a33b22fdd2cc181fd39f1218ab2c609e6f9d0974c7e30f83.mp4",
+          "videoSha256": "48c98f03a0af7233a33b22fdd2cc181fd39f1218ab2c609e6f9d0974c7e30f83",
+          "videoBytes": 3072031,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:b5e753f476d29ee7b9e55118",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-2-1.0.0/701aea3cc238cab7cad1ae9c132ca52eb90978b5850f201506bf543709592933.mp4",
+          "videoSha256": "701aea3cc238cab7cad1ae9c132ca52eb90978b5850f201506bf543709592933",
+          "videoBytes": 1224806,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:f1c874623efac4a837c3aff6",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-2-1.0.0/f1069c2be48d9b54b760422eebd530e8fbaff19eb8d72c2559b218b0abd1042a.mp4",
+          "videoSha256": "f1069c2be48d9b54b760422eebd530e8fbaff19eb8d72c2559b218b0abd1042a",
+          "videoBytes": 4914494,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:3f089eb395f67fa0c344c964",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-2-1.0.0/dc3ddb0229f32bec708711c3340fa8380adb738d3a32a7879d4e879a5326e6e1.mp4",
+          "videoSha256": "dc3ddb0229f32bec708711c3340fa8380adb738d3a32a7879d4e879a5326e6e1",
+          "videoBytes": 4998304,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:e74bad3387a754bc6af0bd72",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-2-1.0.0/6ae975a2cce6a85f864d06ea8ae686e802fec1d36ef4e43bbc8705d78c4cb41f.mp4",
+          "videoSha256": "6ae975a2cce6a85f864d06ea8ae686e802fec1d36ef4e43bbc8705d78c4cb41f",
+          "videoBytes": 913065,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:60dad9d0c4c0e082c34f388e",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-2-1.0.0/8b0a366bead4713528e35810c3b847e4bf381dcca8fe2caeb8142c4ac27d99aa.mp4",
+          "videoSha256": "8b0a366bead4713528e35810c3b847e4bf381dcca8fe2caeb8142c4ac27d99aa",
+          "videoBytes": 1923127,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:8adbc87d7aa886c3f0819453",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-2-1.0.0/dba8dd54b7af8c951f41a709e3d4fc5819bc20774c0610361e4bbec30140d3be.mp4",
+          "videoSha256": "dba8dd54b7af8c951f41a709e3d4fc5819bc20774c0610361e4bbec30140d3be",
+          "videoBytes": 3890689,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:9b458afa3d47ee87a5bdb795",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-2-1.0.0/a1e1c760623ddd2d8405d4bdcd347cf1dcb469d5b66559b5798763e0218c56f0.mp4",
+          "videoSha256": "a1e1c760623ddd2d8405d4bdcd347cf1dcb469d5b66559b5798763e0218c56f0",
+          "videoBytes": 1379449,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:eddb4e10e2e7013a10ff5e93",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-2-1.0.0/718a055dc199cd7c9816cf03c4b1c672c10c917fb3c3844bbc9e6d5eaa582623.mp4",
+          "videoSha256": "718a055dc199cd7c9816cf03c4b1c672c10c917fb3c3844bbc9e6d5eaa582623",
+          "videoBytes": 15094434,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:6b7e27456a8218558e75043b",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-2-1.0.0/bd6d24208b8e4242cb1e97d9fb97b4b7e42d80c34ec19a763412b6e41e29fcca.mp4",
+          "videoSha256": "bd6d24208b8e4242cb1e97d9fb97b4b7e42d80c34ec19a763412b6e41e29fcca",
+          "videoBytes": 1464234,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:88b0031ee22430b0041f3f3b",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-2-1.0.0/ea8954dcc034329ecbc3a2f4711ab065a2f2fbcd403790c6bb50aca9a2c5d602.mp4",
+          "videoSha256": "ea8954dcc034329ecbc3a2f4711ab065a2f2fbcd403790c6bb50aca9a2c5d602",
+          "videoBytes": 4971287,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:b449ff57c477f8ccc652274d",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-2-1.0.0/b21438e457966ecce5c755000ff70b48eb9e35b71ccd063a1f7c54286bfd57de.mp4",
+          "videoSha256": "b21438e457966ecce5c755000ff70b48eb9e35b71ccd063a1f7c54286bfd57de",
+          "videoBytes": 1638177,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:94640dcad49b2b5c495b8874",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-2-1.0.0/39c82fa2ff936bbeb804aed98c603cf81d133c47be12c2daff991585324cae0a.mp4",
+          "videoSha256": "39c82fa2ff936bbeb804aed98c603cf81d133c47be12c2daff991585324cae0a",
+          "videoBytes": 3541844,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:a3c5be019e741255720ccdb6",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-2-1.0.0/2d7b6be7f26571d957c83593929d70a2d84ab1e0714cc4d9cc181e58eeec2c39.mp4",
+          "videoSha256": "2d7b6be7f26571d957c83593929d70a2d84ab1e0714cc4d9cc181e58eeec2c39",
+          "videoBytes": 1658681,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:60eef1a2183372a10d501886",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-2-1.0.0/16d331d328389224acbacfcbb1b6db613f5bc5dc7dcd74ddfa02df696217eb35.mp4",
+          "videoSha256": "16d331d328389224acbacfcbb1b6db613f5bc5dc7dcd74ddfa02df696217eb35",
+          "videoBytes": 950800,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:db932a287878756ca271cf11",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-2-1.0.0/4debf6e493ba98dd59c5b52d1b403bc4eee0b255293f7c584b35c1a1c8cb5f82.mp4",
+          "videoSha256": "4debf6e493ba98dd59c5b52d1b403bc4eee0b255293f7c584b35c1a1c8cb5f82",
+          "videoBytes": 10418809,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:39ad50787102e97ad2bea50d",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-2-1.0.0/450f5043c21276b70007c0577d715c58972a6ac478aebff985b96d992ee84112.mp4",
+          "videoSha256": "450f5043c21276b70007c0577d715c58972a6ac478aebff985b96d992ee84112",
+          "videoBytes": 1044440,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:39d162738e9d7026de3add2a",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-2-1.0.0/d0ea75da2fd5e51f5429595fafe567efe05f50533ddd00b739a9a3dedf92cda5.mp4",
+          "videoSha256": "d0ea75da2fd5e51f5429595fafe567efe05f50533ddd00b739a9a3dedf92cda5",
+          "videoBytes": 7580733,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:8d7d28353c753ad64b2046d4",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-2-1.0.0/eb1d0f5c12dfbaa337235b43c0631f473ece16c086ad56652a7de876c6854f86.mp4",
+          "videoSha256": "eb1d0f5c12dfbaa337235b43c0631f473ece16c086ad56652a7de876c6854f86",
+          "videoBytes": 3915798,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:07e68155af817b4e93789277",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-2-1.0.0/268a770f046431ed7734896146d96cbd65fe47fa4b58b2c6d19e3190384d9fc8.mp4",
+          "videoSha256": "268a770f046431ed7734896146d96cbd65fe47fa4b58b2c6d19e3190384d9fc8",
+          "videoBytes": 4223354,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:01080be758ddc26abfc4cb0b",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-2-1.0.0/e1687b225126a3767dfc91801532d408ac7fe4519f487bb0a4af3cac3a7dba06.mp4",
+          "videoSha256": "e1687b225126a3767dfc91801532d408ac7fe4519f487bb0a4af3cac3a7dba06",
+          "videoBytes": 6873579,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:feaf3fa3e6822c3300525a35",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-2-1.0.0/e54286ae5fea9770f24a52e29ac7272c913e6f9d761b34411b2b3d651d1f1b2b.mp4",
+          "videoSha256": "e54286ae5fea9770f24a52e29ac7272c913e6f9d761b34411b2b3d651d1f1b2b",
+          "videoBytes": 7935338,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:b41bd38f4f4e4119e8ef36d8",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-2-1.0.0/4e04514c6a17730ef4f534d72f20e0f701a6e9cb69803fe65672b1d2532967ca.mp4",
+          "videoSha256": "4e04514c6a17730ef4f534d72f20e0f701a6e9cb69803fe65672b1d2532967ca",
+          "videoBytes": 5253524,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:3e85a7ef20e86ecd47cc2e66",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-2-1.0.0/f791052ad6c0f872afa8c82291666a1d1cdc26810b2c252ce5b04ee89ebc53ea.mp4",
+          "videoSha256": "f791052ad6c0f872afa8c82291666a1d1cdc26810b2c252ce5b04ee89ebc53ea",
+          "videoBytes": 4278124,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:a09a6b9fb11afd1ef44e7129",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-2-1.0.0/42f9745fb6773e6c48edfaaa6470cd58da092865eb393e0a8f619733762250cf.mp4",
+          "videoSha256": "42f9745fb6773e6c48edfaaa6470cd58da092865eb393e0a8f619733762250cf",
+          "videoBytes": 5812649,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:38d1adfe752d973f1d769721",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-2-1.0.0/e98e95b588a6eeb05e61f2c71a3fc12da6e43fdf6cce7af82e9ec2ba3bc402c1.mp4",
+          "videoSha256": "e98e95b588a6eeb05e61f2c71a3fc12da6e43fdf6cce7af82e9ec2ba3bc402c1",
+          "videoBytes": 2735011,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:5ed2b9830d6f9c58627f1560",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-2-1.0.0/2f1fa9f0000fa9d0ec23f2122d97464516c073be55ef6ff1ae02d0d3470b5a2d.mp4",
+          "videoSha256": "2f1fa9f0000fa9d0ec23f2122d97464516c073be55ef6ff1ae02d0d3470b5a2d",
+          "videoBytes": 2316823,
+          "videoMimeType": "video/mp4"
+        }
+      ]
+    },
+    {
+      "packageId": "evolink-featured-video-3",
+      "packageVersion": "1.0.0",
+      "releaseTag": "media-evolink-featured-video-3-1.0.0",
+      "entries": [
+        {
+          "sourceEntryId": "entry:evolink:7fd556a09032b6858bd69669",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-3-1.0.0/8547112b9699078b29233d9be0d4ba1d4406014548d9e0f5c3c01c95bf069e92.mp4",
+          "videoSha256": "8547112b9699078b29233d9be0d4ba1d4406014548d9e0f5c3c01c95bf069e92",
+          "videoBytes": 7860117,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:3ca10b00e619219f3b555913",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-3-1.0.0/40353b159fa5a384e1e8eb8bfdc853b484d6d050405ab52edaf3cfdbd0bbee5c.mp4",
+          "videoSha256": "40353b159fa5a384e1e8eb8bfdc853b484d6d050405ab52edaf3cfdbd0bbee5c",
+          "videoBytes": 15307099,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:e7bd5a8e591c1cf972898d73",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-3-1.0.0/d990222dca5a9074fbb66c42cc2907dfaa63c122ef4b0f8be7b1c948e20a9e16.mp4",
+          "videoSha256": "d990222dca5a9074fbb66c42cc2907dfaa63c122ef4b0f8be7b1c948e20a9e16",
+          "videoBytes": 4098802,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:ae6d91ebfcf480d134485fbc",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-3-1.0.0/513cc517e9b5b9328dfe673630d11b5e700a62b0f36afe89c33283364ab5cd72.mp4",
+          "videoSha256": "513cc517e9b5b9328dfe673630d11b5e700a62b0f36afe89c33283364ab5cd72",
+          "videoBytes": 6122429,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:250bd375b70947acb6adfc88",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-3-1.0.0/0698b4c5a86f58a721ef243f98808b88a9b631aa02b6b3625fffa800dce2a5db.mp4",
+          "videoSha256": "0698b4c5a86f58a721ef243f98808b88a9b631aa02b6b3625fffa800dce2a5db",
+          "videoBytes": 4292064,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:f87bcd399f936e8e80e9bf40",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-3-1.0.0/7a4a87a04b3e7442707f57efbf60e6f5e08e29df74616c269a140d2ba3a69735.mp4",
+          "videoSha256": "7a4a87a04b3e7442707f57efbf60e6f5e08e29df74616c269a140d2ba3a69735",
+          "videoBytes": 6187437,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:8c2e102ea8cb4492b71979bc",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-3-1.0.0/ab957cb7df99e354d6a62d0f9259746a6f6465613c6ce2d92daadae1c42876ed.mp4",
+          "videoSha256": "ab957cb7df99e354d6a62d0f9259746a6f6465613c6ce2d92daadae1c42876ed",
+          "videoBytes": 1756515,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:fe4e4ce86ed88eaf5027150b",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-3-1.0.0/364bfe2e8e780f403280ef90ab3c1b8b42bb5858cd6547cbf0cda6d6dcbb6744.mp4",
+          "videoSha256": "364bfe2e8e780f403280ef90ab3c1b8b42bb5858cd6547cbf0cda6d6dcbb6744",
+          "videoBytes": 4105185,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:6aa453cc2c4e5c251be8e07d",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-3-1.0.0/2edefe8c92ce87d4b150558d581a93de61a883a8485aa07caccdbc2092f1f868.mp4",
+          "videoSha256": "2edefe8c92ce87d4b150558d581a93de61a883a8485aa07caccdbc2092f1f868",
+          "videoBytes": 5844657,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:82dcbca55228cde5fec72a69",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-3-1.0.0/132b7f71dae5dd032905aea4b36b2b71e88bc7aa92246b327bd614a06cf2edad.mp4",
+          "videoSha256": "132b7f71dae5dd032905aea4b36b2b71e88bc7aa92246b327bd614a06cf2edad",
+          "videoBytes": 6239987,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:ecced277d77e7e426cba2ac7",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-3-1.0.0/822e8d036a2c1a9c3892933f49cb65f89520ca8584fba85ac62a1d1a9ff4281b.mp4",
+          "videoSha256": "822e8d036a2c1a9c3892933f49cb65f89520ca8584fba85ac62a1d1a9ff4281b",
+          "videoBytes": 8837077,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:0b77f6b191034e988892e00e",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-3-1.0.0/e13e13c4f21ac6fa8f2109be9c265628625733647a8ed549516bcd4e717fdc9a.mp4",
+          "videoSha256": "e13e13c4f21ac6fa8f2109be9c265628625733647a8ed549516bcd4e717fdc9a",
+          "videoBytes": 2660753,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:d2b14f6e566cbff4d7c57073",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-3-1.0.0/867d39bf1f99bafa45a629f41ee05029add5f89ebea4f9db0afb8de7788fa0a7.mp4",
+          "videoSha256": "867d39bf1f99bafa45a629f41ee05029add5f89ebea4f9db0afb8de7788fa0a7",
+          "videoBytes": 3685352,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:ddfc1208ca7e44e1eabca774",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-3-1.0.0/4d72e24a75de42e4f6b4dfc17b2f56cd2c9fda8cd18fd9f0f28874d1d172ff3a.mp4",
+          "videoSha256": "4d72e24a75de42e4f6b4dfc17b2f56cd2c9fda8cd18fd9f0f28874d1d172ff3a",
+          "videoBytes": 3776469,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:7d03d42b5d0181bd265ae7c6",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-3-1.0.0/abd6640b0816d570e61a665f24294a96ed8bff84a08b13f7f3a23e6c18fcf52f.mp4",
+          "videoSha256": "abd6640b0816d570e61a665f24294a96ed8bff84a08b13f7f3a23e6c18fcf52f",
+          "videoBytes": 2940737,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:77276a555fddde72de8bd755",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-3-1.0.0/e182a157caaf5940da6a916fb9cdcf6542064a39d76f3b2c6184da863520bf7d.mp4",
+          "videoSha256": "e182a157caaf5940da6a916fb9cdcf6542064a39d76f3b2c6184da863520bf7d",
+          "videoBytes": 10723663,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:4a504918f8f075fe2723e5f8",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-3-1.0.0/79261ad3fb7b3947b4c0e25f811fc7540e572b8585709f573ad1a1367adf8c56.mp4",
+          "videoSha256": "79261ad3fb7b3947b4c0e25f811fc7540e572b8585709f573ad1a1367adf8c56",
+          "videoBytes": 811526,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:ec0099ebcc4d1b11da8ca6c6",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-3-1.0.0/a16dd0bf247d6639fa7ff7ff3798e848936e258dbda48ce7d1c590dcee4f57c3.mp4",
+          "videoSha256": "a16dd0bf247d6639fa7ff7ff3798e848936e258dbda48ce7d1c590dcee4f57c3",
+          "videoBytes": 8543840,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:f85d17825e33f4c1544b681c",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-3-1.0.0/f86c4410c6a3279c1760d6db6665e6fcae1037a9348c33894800cabad07d4473.mp4",
+          "videoSha256": "f86c4410c6a3279c1760d6db6665e6fcae1037a9348c33894800cabad07d4473",
+          "videoBytes": 4684367,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:de693852968904e2d2645470",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-3-1.0.0/576a58fe17d2ab8beeeb24ef435397721d6f248b99b1744b8617e044c4e759c5.mp4",
+          "videoSha256": "576a58fe17d2ab8beeeb24ef435397721d6f248b99b1744b8617e044c4e759c5",
+          "videoBytes": 7962269,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:59dd19cfe59f62d34c6f792c",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-3-1.0.0/a55ada9851905de7b401826c5939c0a16f7d8d86f9dc0b9c20539c8fe61a5d8b.mp4",
+          "videoSha256": "a55ada9851905de7b401826c5939c0a16f7d8d86f9dc0b9c20539c8fe61a5d8b",
+          "videoBytes": 1455966,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:091e9b53c213be6b328a8892",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-3-1.0.0/b0606025bf8a15400873bf72196f25058b173c50c0b2ccde1626c8f02341a4e5.mp4",
+          "videoSha256": "b0606025bf8a15400873bf72196f25058b173c50c0b2ccde1626c8f02341a4e5",
+          "videoBytes": 1467062,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:9c04207fe1af8cac94f45a2b",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-3-1.0.0/423d449f55d9024942630542f5a92f1138967c6307f6c4377f7886c47462dcfe.mp4",
+          "videoSha256": "423d449f55d9024942630542f5a92f1138967c6307f6c4377f7886c47462dcfe",
+          "videoBytes": 6551751,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:fc11f722b8e486104f42ae38",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-3-1.0.0/2358ebf312c28892caac5476c38d1b1511bdea7fee5ef36bd2ee61ac7285280b.mp4",
+          "videoSha256": "2358ebf312c28892caac5476c38d1b1511bdea7fee5ef36bd2ee61ac7285280b",
+          "videoBytes": 4282221,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:7631f4ccf61021a3ac07e0ae",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-3-1.0.0/f00e10d9bbc1e67a14d904e46e85902f6d35f12c534274f8d344279805893954.mp4",
+          "videoSha256": "f00e10d9bbc1e67a14d904e46e85902f6d35f12c534274f8d344279805893954",
+          "videoBytes": 2762077,
+          "videoMimeType": "video/mp4"
+        }
+      ]
+    },
+    {
+      "packageId": "evolink-featured-video-4",
+      "packageVersion": "1.0.0",
+      "releaseTag": "media-evolink-featured-video-4-1.0.0",
+      "entries": [
+        {
+          "sourceEntryId": "entry:evolink:84ca1bd28205b441e04b9605",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-4-1.0.0/b48c877f6dbf9da5633998ea2fc7a3899dfd0b7899d026d6f81fa9ed113cbd15.mp4",
+          "videoSha256": "b48c877f6dbf9da5633998ea2fc7a3899dfd0b7899d026d6f81fa9ed113cbd15",
+          "videoBytes": 4718245,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:b2ab666f589ccaf11e4409d6",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-4-1.0.0/7c98d8e74e593fed16ed9451de5a54d14dbeb847616f54d0e558f08a0b6f1b36.mp4",
+          "videoSha256": "7c98d8e74e593fed16ed9451de5a54d14dbeb847616f54d0e558f08a0b6f1b36",
+          "videoBytes": 4826088,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:4f55a66c72e4df9fe20b9fe4",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-4-1.0.0/bae8366623fec531b7984ca9c6150e3e17ca5fe90fd54c74d207bbd09b0ea0b7.mp4",
+          "videoSha256": "bae8366623fec531b7984ca9c6150e3e17ca5fe90fd54c74d207bbd09b0ea0b7",
+          "videoBytes": 2577142,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:1f61d11cbaa02de4afee161b",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-4-1.0.0/8dd954f101977140f91b92d9b598429290ad5823be84a309557e9857b1ff746a.mp4",
+          "videoSha256": "8dd954f101977140f91b92d9b598429290ad5823be84a309557e9857b1ff746a",
+          "videoBytes": 1645293,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:68a8294b2508ada33830f2a6",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-4-1.0.0/f5ca9914feb883d9b902d311b63b3df69817f6994f6a23240aca7d67ff5f0de4.mp4",
+          "videoSha256": "f5ca9914feb883d9b902d311b63b3df69817f6994f6a23240aca7d67ff5f0de4",
+          "videoBytes": 1766991,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:c73e95501ea5e7ed1446b1c7",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-4-1.0.0/5cdabee69abb087e74b3bbf5207d4e45bb8c441f630304dcb13fb29e15dd95ea.mp4",
+          "videoSha256": "5cdabee69abb087e74b3bbf5207d4e45bb8c441f630304dcb13fb29e15dd95ea",
+          "videoBytes": 2779116,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:70917e5a4a392b948f282e77",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-4-1.0.0/5a65a88c3b17cdd93ae8018b65a37bee3982726f25619425088315684b92b861.mp4",
+          "videoSha256": "5a65a88c3b17cdd93ae8018b65a37bee3982726f25619425088315684b92b861",
+          "videoBytes": 4976237,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:0d4b71bb7472a619150627fe",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-4-1.0.0/586b179f81a173db9ebbf9cc5359acd3e49d44420990022f4c93b29034a5d95f.mp4",
+          "videoSha256": "586b179f81a173db9ebbf9cc5359acd3e49d44420990022f4c93b29034a5d95f",
+          "videoBytes": 1251159,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:f212f5ffdec64ed988fc81d1",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-4-1.0.0/e169b61e2d05781642b813d0270bfe1a577a20753878f2167faf883f4ffee082.mp4",
+          "videoSha256": "e169b61e2d05781642b813d0270bfe1a577a20753878f2167faf883f4ffee082",
+          "videoBytes": 1020235,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:2925faab5466be76890af0d6",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-4-1.0.0/0ad106d9456e77f84c7d4143bd67474f61b55488db6431b2dccef63cd7fbe4fa.mp4",
+          "videoSha256": "0ad106d9456e77f84c7d4143bd67474f61b55488db6431b2dccef63cd7fbe4fa",
+          "videoBytes": 4839935,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:4183f4a19a600e64f824a68f",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-4-1.0.0/9a30b395b7a941cbe0e609131e3f8284ee6a9c54a072618cfffe84508ab32c42.mp4",
+          "videoSha256": "9a30b395b7a941cbe0e609131e3f8284ee6a9c54a072618cfffe84508ab32c42",
+          "videoBytes": 3609803,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:8dc355ea3434b627ff5d3e2c",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-4-1.0.0/0f38045478c22fa6efbbb9b30462d71e38aa0d44b1cc0f5fc18eabce9bf2f8fb.mp4",
+          "videoSha256": "0f38045478c22fa6efbbb9b30462d71e38aa0d44b1cc0f5fc18eabce9bf2f8fb",
+          "videoBytes": 3767248,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:8e2d669ab652c59772b7f80d",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-4-1.0.0/e93cc4b5365763272db0d162622b224d215abab6509d4be0ec028e45778ac3db.mp4",
+          "videoSha256": "e93cc4b5365763272db0d162622b224d215abab6509d4be0ec028e45778ac3db",
+          "videoBytes": 3470516,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:b9ae4a3e8ddd8d41db9584ba",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-4-1.0.0/7e733584138ab050d7abcf82af8c207564f112587ca6ffb4e4c7856871dc2337.mp4",
+          "videoSha256": "7e733584138ab050d7abcf82af8c207564f112587ca6ffb4e4c7856871dc2337",
+          "videoBytes": 1821165,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:8161868a946e1d235ee23a7b",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-4-1.0.0/3c7e896fd13ce0cf1b32b4db0fbb76f6fe773b9d61d3078a2c8114c6f7d93469.mp4",
+          "videoSha256": "3c7e896fd13ce0cf1b32b4db0fbb76f6fe773b9d61d3078a2c8114c6f7d93469",
+          "videoBytes": 2100045,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:b73a153ca316190a6fb4dafc",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-4-1.0.0/40aac2cd3f81b34a12883f623d7911eb8b0744a7c62ba7503023672561813980.mp4",
+          "videoSha256": "40aac2cd3f81b34a12883f623d7911eb8b0744a7c62ba7503023672561813980",
+          "videoBytes": 3659712,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:addc9236935b0f72e81fc6e1",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-4-1.0.0/21438a4c488a140c43164bd7f8ef3c496c736b4ef29c55697c0572e9282cfa4a.mp4",
+          "videoSha256": "21438a4c488a140c43164bd7f8ef3c496c736b4ef29c55697c0572e9282cfa4a",
+          "videoBytes": 3426677,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:9b22f42589add52b743664c0",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-4-1.0.0/15a0a85a000f7e3497455379258ebf88e252e84e203ded60b585b966152958f3.mp4",
+          "videoSha256": "15a0a85a000f7e3497455379258ebf88e252e84e203ded60b585b966152958f3",
+          "videoBytes": 3147255,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:c56ed9e86bddd771052b154a",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-4-1.0.0/80f78fa1889f87920ab2c9c5eea9e425133a5dba71648ebc9077a8b604858ff1.mp4",
+          "videoSha256": "80f78fa1889f87920ab2c9c5eea9e425133a5dba71648ebc9077a8b604858ff1",
+          "videoBytes": 6814609,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:562b34d4f30f97abefb112b3",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-4-1.0.0/5303603e10ab8b44724cfb60d7d59839fd72a48d360562fecca22c8908324a61.mp4",
+          "videoSha256": "5303603e10ab8b44724cfb60d7d59839fd72a48d360562fecca22c8908324a61",
+          "videoBytes": 4787870,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:1eaf97e1d6a6849155a6c351",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-4-1.0.0/41e350a8d4a9db02ed4effdfc40f643ef666ab82fbb92b9fcd8b31aaf4862efe.mp4",
+          "videoSha256": "41e350a8d4a9db02ed4effdfc40f643ef666ab82fbb92b9fcd8b31aaf4862efe",
+          "videoBytes": 4104232,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:ab37159775717bc8099a3d54",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-4-1.0.0/d13623db6e7552d3a0c35db53ff9895eaf3feb091a8be0f9ace2d74bd5463e9c.mp4",
+          "videoSha256": "d13623db6e7552d3a0c35db53ff9895eaf3feb091a8be0f9ace2d74bd5463e9c",
+          "videoBytes": 6081782,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:a78ed870834e606f51a84074",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-4-1.0.0/208021513d4ea753fdee418afcdd6d052e208356276e96b627413c77da62a47d.mp4",
+          "videoSha256": "208021513d4ea753fdee418afcdd6d052e208356276e96b627413c77da62a47d",
+          "videoBytes": 7007529,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:ca5135ff38dd1bdfa0d3cf29",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-4-1.0.0/d762dd2903887abae8e9393930ef2e6e880250831c5fd42eb179d88a8d86a92f.mp4",
+          "videoSha256": "d762dd2903887abae8e9393930ef2e6e880250831c5fd42eb179d88a8d86a92f",
+          "videoBytes": 4513334,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:ef10bda85d1ce2db5082cc04",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-4-1.0.0/37882a48820e6ce0a3cdc45e21cf22e07b3b2bfef94d73bbcb3c14e62f68e0a5.mp4",
+          "videoSha256": "37882a48820e6ce0a3cdc45e21cf22e07b3b2bfef94d73bbcb3c14e62f68e0a5",
+          "videoBytes": 5357380,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:bb38a6bbb2f9280456fdd5a1",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-4-1.0.0/5162728b9e099c3e17ac5ad1f2cc4af5899be42ce11c1696357802ba7162c954.mp4",
+          "videoSha256": "5162728b9e099c3e17ac5ad1f2cc4af5899be42ce11c1696357802ba7162c954",
+          "videoBytes": 4848361,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:72c200f059209c1249f74f76",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-4-1.0.0/1f800b36cbd719d14c152b4d0fd5dd3d8d6a2e8d86ea52d39e838ca966cd7f34.mp4",
+          "videoSha256": "1f800b36cbd719d14c152b4d0fd5dd3d8d6a2e8d86ea52d39e838ca966cd7f34",
+          "videoBytes": 3343681,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:e32a698f6bbc814f3ab5174f",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-4-1.0.0/acbb5e1de22cf6eb547ec995e53d5c17de0feb7828649a0ce851729dd79a8835.mp4",
+          "videoSha256": "acbb5e1de22cf6eb547ec995e53d5c17de0feb7828649a0ce851729dd79a8835",
+          "videoBytes": 4275587,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:6b7857cd0fdbcd26784b29ef",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-4-1.0.0/e06de32d6f91147b5664a6ec793f84f9badbb75ccaaea30d7aa721ea6238b9ba.mp4",
+          "videoSha256": "e06de32d6f91147b5664a6ec793f84f9badbb75ccaaea30d7aa721ea6238b9ba",
+          "videoBytes": 3046583,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:0fc9b002c63ca49566f07b7d",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-4-1.0.0/73a62b710b25b06ac72ccff7a1b49a68c11e85aed9d4b4903acf9e9ec3ad51fc.mp4",
+          "videoSha256": "73a62b710b25b06ac72ccff7a1b49a68c11e85aed9d4b4903acf9e9ec3ad51fc",
+          "videoBytes": 7216665,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:c8918def6019f661f89e2b3e",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-4-1.0.0/43749ec6414e8133fe9c88e55b8f37e65a7e4f16744329226042b45f29c9fc67.mp4",
+          "videoSha256": "43749ec6414e8133fe9c88e55b8f37e65a7e4f16744329226042b45f29c9fc67",
+          "videoBytes": 7798964,
+          "videoMimeType": "video/mp4"
+        }
+      ]
+    },
+    {
+      "packageId": "evolink-featured-video-5",
+      "packageVersion": "1.0.0",
+      "releaseTag": "media-evolink-featured-video-5-1.0.0",
+      "entries": [
+        {
+          "sourceEntryId": "entry:evolink:361a86b9c18a46716be398cc",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-5-1.0.0/ccf2f4c48b85af6494717e56caff7e129b2f553f5d40d4c70122c5e4019d5679.mp4",
+          "videoSha256": "ccf2f4c48b85af6494717e56caff7e129b2f553f5d40d4c70122c5e4019d5679",
+          "videoBytes": 12829063,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:2553b08ab6366036cefa4055",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-5-1.0.0/2e23f0a47b21ad05d3e57723cbf975974a3ffb6a25528aea05a6ddf28b248cac.mp4",
+          "videoSha256": "2e23f0a47b21ad05d3e57723cbf975974a3ffb6a25528aea05a6ddf28b248cac",
+          "videoBytes": 1510956,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:f077f56c25946ae0b78cc89b",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-5-1.0.0/3f9b845880674085ab3229e1cb93b047aeeb49558634bfc30c2c5285225a340b.mp4",
+          "videoSha256": "3f9b845880674085ab3229e1cb93b047aeeb49558634bfc30c2c5285225a340b",
+          "videoBytes": 2149848,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:5d20864eb8646c02eda644ae",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-5-1.0.0/fe47d06d54c31601d637161dfa4e154f29b17f6792f2df234d86cf22a3df7fb8.mp4",
+          "videoSha256": "fe47d06d54c31601d637161dfa4e154f29b17f6792f2df234d86cf22a3df7fb8",
+          "videoBytes": 5266734,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:65b40cfc9277c94f5205bc0e",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-5-1.0.0/9d9a855d69a3ffb077f2d74423bfdd334c2d2fc9d0cc15407b1663022267c6cc.mp4",
+          "videoSha256": "9d9a855d69a3ffb077f2d74423bfdd334c2d2fc9d0cc15407b1663022267c6cc",
+          "videoBytes": 3680779,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:6e906a3d55de1fb293483670",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-5-1.0.0/ed33dbee67522e5bdcbaf45c2c025ec6691f6ae551bb18fe5b2e4de8793408ac.mp4",
+          "videoSha256": "ed33dbee67522e5bdcbaf45c2c025ec6691f6ae551bb18fe5b2e4de8793408ac",
+          "videoBytes": 5030913,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:f1524487bab9fa67c1e3fff8",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-5-1.0.0/cdb81c89694249232133a33ce256ccbcdeebe1c322a89face75433c0a694a960.mp4",
+          "videoSha256": "cdb81c89694249232133a33ce256ccbcdeebe1c322a89face75433c0a694a960",
+          "videoBytes": 3419249,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:e4146e6bb1731318f120c541",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-5-1.0.0/b25c628725549beb825e68714425615489a127d2b8582f9e3d1a3df8b9cf3be6.mp4",
+          "videoSha256": "b25c628725549beb825e68714425615489a127d2b8582f9e3d1a3df8b9cf3be6",
+          "videoBytes": 3346184,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "entry:evolink:d29c63a3bc06bace21d13ea7",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-5-1.0.0/252a8fc8a67f1d3fc14ed927cb1ead9b109622281fb3bee9cee92c67b4e4b84b.mp4",
+          "videoSha256": "252a8fc8a67f1d3fc14ed927cb1ead9b109622281fb3bee9cee92c67b4e4b84b",
+          "videoBytes": 6161154,
+          "videoMimeType": "video/mp4"
+        }
+      ]
+    }
+  ]
+}

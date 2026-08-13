@@ -4,17 +4,21 @@ import { lstat, mkdir, mkdtemp, readFile, readdir, rm, stat, writeFile, copyFile
 import { tmpdir } from "node:os";
 import { basename, dirname, join, resolve, sep } from "node:path";
 import { pathToFileURL } from "node:url";
-import { clean, cleanPrompt, normalizeSiteCatalog, normalizeSitePreview, safeId } from "./curated-site-data.mjs";
+import { clean, cleanPrompt, normalizeSiteCatalog, normalizeSiteMediaManifest, normalizeSitePreview, safeId } from "./curated-site-data.mjs";
 
-export async function buildSitePreviews({ catalogPath, packagesPath, sitePath }) {
-  const catalog = normalizeSiteCatalog(JSON.parse(await readFile(resolve(catalogPath), "utf8")));
+export async function buildSitePreviews({ catalogPath, packagesPath, sitePath, mediaManifestPath = "" }) {
+  const catalogValue = JSON.parse(await readFile(resolve(catalogPath), "utf8"));
+  const catalog = normalizeSiteCatalog(catalogValue);
+  const mediaByPackage = mediaManifestPath
+    ? mediaEntriesByPackage(normalizeSiteMediaManifest(JSON.parse(await readFile(resolve(mediaManifestPath), "utf8")), catalogValue))
+    : new Map();
   const packageRoot = resolve(packagesPath);
   const siteRoot = resolve(sitePath);
   const temporaryRoot = await mkdtemp(join(tmpdir(), "promptdirector-site-preview-"));
   const results = [];
   try {
     for (const theme of catalog.themes) {
-      results.push(await buildThemePreview(theme, packageRoot, siteRoot, temporaryRoot));
+      results.push(await buildThemePreview(theme, packageRoot, siteRoot, temporaryRoot, mediaByPackage.get(`${theme.packageId}@${theme.packageVersion}`)));
     }
   } finally {
     await rm(temporaryRoot, { recursive: true, force: true });
@@ -22,7 +26,7 @@ export async function buildSitePreviews({ catalogPath, packagesPath, sitePath })
   return results;
 }
 
-async function buildThemePreview(theme, packageRoot, siteRoot, temporaryRoot) {
+async function buildThemePreview(theme, packageRoot, siteRoot, temporaryRoot, mediaEntries) {
   const archivePath = resolve(packageRoot, `${safeId(theme.packageId)}.zip`);
   assertInside(packageRoot, archivePath);
   if (await sha256File(archivePath) !== theme.sha256) throw new Error(`${theme.id} 的 ZIP 校验值与目录不一致`);
@@ -65,6 +69,8 @@ async function buildThemePreview(theme, packageRoot, siteRoot, temporaryRoot) {
     const outputMediaPath = join(mediaDirectory, mediaName);
     await copyFile(sourcePath, outputMediaPath);
     const relativeMediaUrl = new URL(`media/${encodeURIComponent(mediaName)}`, theme.previewUrl).href;
+    const media = content.kind === "video" ? mediaEntries?.get(clean(entry.id)) : null;
+    if (mediaEntries && content.kind === "video" && !media) throw new Error(`${theme.id}/${entry.id} 缺少已发布的视频资产`);
     entries.push({
       id: clean(entry.id),
       title: clean(entry.title) || "未命名案例",
@@ -75,7 +81,13 @@ async function buildThemePreview(theme, packageRoot, siteRoot, temporaryRoot) {
       mediaKind: content.kind,
       previewImageUrl: relativeMediaUrl,
       width: positiveInteger(image.width, `${theme.id}/${entry.id} 缺少图片宽度`),
-      height: positiveInteger(image.height, `${theme.id}/${entry.id} 缺少图片高度`)
+      height: positiveInteger(image.height, `${theme.id}/${entry.id} 缺少图片高度`),
+      ...(media ? {
+        videoUrl: media.videoUrl,
+        videoSha256: media.videoSha256,
+        videoBytes: media.videoBytes,
+        videoMimeType: media.videoMimeType
+      } : {})
     });
   }
   const preview = normalizeSitePreview({
@@ -88,6 +100,13 @@ async function buildThemePreview(theme, packageRoot, siteRoot, temporaryRoot) {
   }, theme);
   await writeFile(previewOutputPath, `${JSON.stringify(preview, null, 2)}\n`);
   return { id: theme.id, previewPath: previewOutputPath, caseCount: entries.length };
+}
+
+function mediaEntriesByPackage(manifest) {
+  return new Map(manifest.packages.map((item) => [
+    `${item.packageId}@${item.packageVersion}`,
+    new Map(item.entries.map((entry) => [entry.sourceEntryId, entry]))
+  ]));
 }
 
 async function safeArchiveNames(archivePath) {
@@ -191,8 +210,8 @@ function run(command, args) {
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
-  const [catalogPath, packagesPath, sitePath] = process.argv.slice(2);
+  const [catalogPath, packagesPath, sitePath, mediaManifestPath] = process.argv.slice(2);
   if (!catalogPath || !packagesPath || !sitePath) throw new Error("用法：node tools/build-site-previews.mjs <catalog.json> <审核包目录> <site目录>");
-  const result = await buildSitePreviews({ catalogPath, packagesPath, sitePath });
+  const result = await buildSitePreviews({ catalogPath, packagesPath, sitePath, mediaManifestPath });
   process.stdout.write(`${JSON.stringify(result, null, 2)}\n`);
 }
