@@ -1,16 +1,16 @@
 {
   "format": "prompt-director-curated-metrics",
   "version": 1,
-  "updatedAt": "2026-08-12T17:43:51.051Z",
+  "updatedAt": "2026-08-14T05:09:37.408Z",
   "downloads": {
-    "featured:vol-1": 13,
-    "featured:jimeng": 29,
-    "featured:aiartworks-mj": 4,
-    "featured:higgsfield": 18,
-    "featured:evolink-video-1": 1,
-    "featured:evolink-video-2": 0,
-    "featured:evolink-video-3": 0,
-    "featured:evolink-video-4": 0,
-    "featured:evolink-video-5": 3
+    "featured:vol-1": 15,
+    "featured:jimeng": 31,
+    "featured:aiartworks-mj": 6,
+    "featured:higgsfield": 21,
+    "featured:evolink-video-1": 3,
+    "featured:evolink-video-2": 2,
+    "featured:evolink-video-3": 2,
+    "featured:evolink-video-4": 4,
+    "featured:evolink-video-5": 21
   }
 }
