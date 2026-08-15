@@ -21,6 +21,12 @@ jobs:
         run: |
           printf '%s' "$ISSUE_BODY" > "$RUNNER_TEMP/issue-body.md"
 
+      - name: 准备媒体检查工具
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes --no-install-recommends ffmpeg
+          ffprobe -version
+
       - name: 预检投稿包
         id: preflight
         continue-on-error: true
@@ -56,31 +62,36 @@ jobs:
               report = JSON.parse(fs.readFileSync(process.env.REPORT_PATH, 'utf8'));
             }
             const passed = process.env.PREFLIGHT_OK === 'true' && report.ok === true;
+            const systemError = report.errorType === 'system';
             const owner = context.repo.owner;
             const repo = context.repo.repo;
             const issue_number = context.issue.number;
-            for (const name of ['preflight-passed', 'needs-fix']) {
+            for (const name of ['preflight-passed', 'needs-fix', 'preflight-error']) {
               try {
                 await github.rest.issues.getLabel({ owner, repo, name });
               } catch (error) {
                 if (error.status !== 404) throw error;
                 await github.rest.issues.createLabel({
                   owner, repo, name,
-                  color: name === 'preflight-passed' ? '2da44e' : 'd73a4a'
+                  color: name === 'preflight-passed' ? '2da44e' : name === 'preflight-error' ? 'bf8700' : 'd73a4a'
                 });
               }
             }
-            const add = passed ? 'preflight-passed' : 'needs-fix';
-            const remove = passed ? 'needs-fix' : 'preflight-passed';
+            const add = passed ? 'preflight-passed' : systemError ? 'preflight-error' : 'needs-fix';
+            const remove = ['preflight-passed', 'needs-fix', 'preflight-error'].filter((name) => name !== add);
             await github.rest.issues.addLabels({ owner, repo, issue_number, labels: [add] });
-            try {
-              await github.rest.issues.removeLabel({ owner, repo, issue_number, name: remove });
-            } catch (error) {
-              if (error.status !== 404) throw error;
+            for (const name of remove) {
+              try {
+                await github.rest.issues.removeLabel({ owner, repo, issue_number, name });
+              } catch (error) {
+                if (error.status !== 404) throw error;
+              }
             }
             const body = passed
               ? `${marker}\n预检通过：${report.caseCount} 个案例、${report.mediaCount} 个媒体。仍需人工审核后才会发布。`
-              : `${marker}\n预检未通过：${report.message || '投稿包无法安全读取'}\n\n请在 PromptDirector 重新生成全部投稿文件后替换附件。`;
+              : systemError
+                ? `${marker}\n预检系统暂不可用：${report.message || '审核环境异常'}\n\n投稿文件无需重新上传，维护者修复后会重新检查。`
+                : `${marker}\n预检未通过：${report.message || '投稿包无法安全读取'}\n\n请在 PromptDirector 重新生成全部投稿文件后替换附件。`;
             const comments = await github.paginate(github.rest.issues.listComments, {
               owner, repo, issue_number, per_page: 100
             });

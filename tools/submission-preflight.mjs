@@ -508,7 +508,12 @@ async function main() {
     report = { ...result, payload: undefined };
     if (payloadPath) await writeFile(resolve(payloadPath), result.payload);
   } catch (error) {
-    report = { ok: false, message: error.message || "投稿预检失败" };
+    const message = error.message || "投稿预检失败";
+    report = {
+      ok: false,
+      errorType: message.includes("审核环境缺少媒体检查工具") ? "system" : "submission",
+      message
+    };
     if (reportPath) await writeFile(resolve(reportPath), `${JSON.stringify(report, null, 2)}\n`);
     process.stdout.write(`${JSON.stringify(report)}\n`);
     process.exitCode = 1;

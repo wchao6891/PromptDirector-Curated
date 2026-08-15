@@ -114,6 +114,8 @@ test("投稿表单区分第三方推荐与本人授权，预检不会因标签�
   assert.match(form, /可核验的原作者与来源/);
   assert.match(workflow, /types: \[opened, edited, reopened, labeled\]/);
   assert.match(workflow, /startsWith\(github\.event\.issue\.title, '\[投稿\]'\)/);
+  assert.match(workflow, /apt-get install --yes --no-install-recommends ffmpeg/);
+  assert.match(workflow, /投稿文件无需重新上传/);
 });
 
 async function makeSubmissionFixture(entryPatch = {}) {
