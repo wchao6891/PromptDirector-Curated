@@ -2,7 +2,7 @@ name: 精选投稿预检
 
 on:
   issues:
-    types: [opened, edited]
+    types: [opened, edited, reopened, labeled]
 
 permissions:
   contents: read
@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   preflight:
-    if: contains(github.event.issue.labels.*.name, 'submission')
+    if: startsWith(github.event.issue.title, '[投稿]') || contains(github.event.issue.labels.*.name, 'submission')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

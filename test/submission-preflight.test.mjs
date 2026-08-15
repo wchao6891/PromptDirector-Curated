@@ -104,6 +104,18 @@ test("即使 ZIP 和摘要有效，额外私人字段仍会被拒绝", async () 
   }
 });
 
+test("投稿表单区分第三方推荐与本人授权，预检不会因标签缺失而跳过", async () => {
+  const [form, workflow] = await Promise.all([
+    readFile(new URL("../.github/ISSUE_TEMPLATE/curated-submission.yml", import.meta.url), "utf8"),
+    readFile(new URL("../.github/workflows/submission-preflight.yml", import.meta.url), "utf8")
+  ]);
+  assert.match(form, /第三方公开案例推荐（不声明授权，权利归原作者）/);
+  assert.match(form, /我不代表原作者授予许可/);
+  assert.match(form, /可核验的原作者与来源/);
+  assert.match(workflow, /types: \[opened, edited, reopened, labeled\]/);
+  assert.match(workflow, /startsWith\(github\.event\.issue\.title, '\[投稿\]'\)/);
+});
+
 async function makeSubmissionFixture(entryPatch = {}) {
   const root = await mkdtemp(join(tmpdir(), "promptdirector-preflight-test-"));
   const payloadRoot = join(root, "payload");

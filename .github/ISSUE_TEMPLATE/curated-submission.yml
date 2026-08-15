@@ -16,15 +16,17 @@ body:
     validations:
       required: true
   - type: dropdown
-    id: license
+    id: rights_basis
     attributes:
-      label: 授权方式
-      description: 请选择你有权授予的公开使用许可。
+      label: 内容权利情况
+      description: 第三方公开案例只能推荐收录，不能由投稿者替原作者授予 CC 许可。
       options:
-        - CC BY 4.0
-        - CC BY-SA 4.0
-        - CC0 1.0
-        - 其他（请在说明中写明）
+        - 第三方公开案例推荐（不声明授权，权利归原作者）
+        - 本人原创（CC BY 4.0）
+        - 本人原创（CC BY-SA 4.0）
+        - 本人原创（CC0 1.0）
+        - 已获权利人明确授权（请在说明中写明范围）
+        - 其他权利情况（请在说明中写明）
     validations:
       required: true
   - type: upload
@@ -45,7 +47,9 @@ body:
     attributes:
       label: 权利与公开范围确认
       options:
-        - label: 我有权公开投稿包中的提示词、截图和标签，并授权按上方许可分发。
+        - label: 如为本人原创或已获授权，我确认所选许可有效；如为第三方推荐，我不代表原作者授予许可。
+          required: true
+        - label: 我已保留可核验的原作者与来源，并理解权利人提出要求时需要下架。
           required: true
         - label: 我已检查投稿包，不包含私人网址、身份信息、密钥、草稿或无权公开的素材。
           required: true
