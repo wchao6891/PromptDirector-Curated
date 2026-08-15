@@ -1,7 +1,7 @@
 {
   "format": "prompt-director-curated",
   "version": 2,
-  "updatedAt": "2026-08-13T17:20:36.219Z",
+  "updatedAt": "2026-08-15T15:51:55.631Z",
   "themes": [
     {
       "id": "featured:vol-1",
@@ -191,6 +191,27 @@
       "videoCount": 9,
       "summary": "EvoLink 精选视频案例第 5 卷；全套共 122 条 Seedance 2.5 视频提示词案例，保留作者账号、原页链接和来源字段。",
       "order": 9
+    },
+    {
+      "id": "featured:jimeng-guofeng-community-1",
+      "title": "即梦国风投稿精选 · 第 1 期",
+      "type": "image_prompt",
+      "packageId": "jimeng-guofeng-community-1",
+      "packageVersion": "1.0.0",
+      "authorId": "github-wchao6891",
+      "author": "即梦国风精选",
+      "license": "第三方公开案例推荐 · 权利归原作者（非授权声明）",
+      "updatedAt": "2026-08-15T15:51:55.631Z",
+      "coverUrl": "https://wchao6891.github.io/PromptDirector-Curated/covers/jimeng-guofeng-community-1.webp",
+      "previewUrl": "https://wchao6891.github.io/PromptDirector-Curated/previews/jimeng-guofeng-community-1/preview.json",
+      "downloadUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/jimeng-guofeng-community-1.0.0/jimeng-guofeng-community-1.zip",
+      "sha256": "d1dfe5a4898cbcea204fba7fc4e88193352479a0694f22b65eeb045eb7003c95",
+      "archiveBytes": 3083736,
+      "caseCount": 38,
+      "imageCount": 38,
+      "videoCount": 0,
+      "summary": "38 个由社区推荐的即梦国风公开案例，逐案例保留原作者、提示词和来源链接。",
+      "order": 10
     }
   ]
 }

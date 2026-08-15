@@ -1,12 +1,17 @@
 from __future__ import annotations
 
+import json
 import os
+import re
 from pathlib import Path
 
 from playwright.sync_api import expect, sync_playwright
 
 
 SITE_URL = os.environ.get("CURATED_SITE_URL", "http://127.0.0.1:4180")
+CATALOG = json.loads((Path(__file__).parents[1] / "site" / "catalog.json").read_text())
+EXPECTED_PACK_COUNT = len(CATALOG["themes"])
+EXPECTED_VIDEO_PACK_COUNT = sum(theme["type"] == "video_prompt" for theme in CATALOG["themes"])
 
 
 def main() -> None:
@@ -19,7 +24,7 @@ def main() -> None:
         page.on("pageerror", lambda error: errors.append(str(error)))
         page.goto(SITE_URL, wait_until="networkidle")
 
-        expect(page.locator(".pack-card")).to_have_count(9)
+        expect(page.locator(".pack-card")).to_have_count(EXPECTED_PACK_COUNT)
         expect(page.locator("#sort-downloads")).to_be_enabled()
         expect(page.locator(".topbar h1")).to_have_text("精选案例")
         expect(page.locator("#filter-popover")).to_be_hidden()
@@ -91,6 +96,17 @@ def main() -> None:
         expect(page.locator(".case-card").nth(2)).to_be_focused()
         page.keyboard.press("Escape")
 
+        page.goto(f"{SITE_URL}?pack=featured%3Ajimeng-guofeng-community-1", wait_until="networkidle")
+        expect(page.locator(".detail-info h1")).to_have_text("即梦国风投稿精选 · 第 1 期")
+        expect(page.locator(".case-card")).to_have_count(24)
+        page.locator(".case-card").first.click()
+        expect(page.locator(".case-detail-heading h2")).to_have_text("即梦 · @用户San川cg")
+        expect(page.locator(".case-detail-heading p")).to_have_text("@用户San川cg")
+        expect(page.locator(".case-detail-source")).to_contain_text("归原作者或其他权利人")
+        expect(page.locator(".case-detail-source a")).to_have_attribute("href", re.compile(r"^https://jimeng\.jianying\.com/ai-tool/work-detail/"))
+        page.keyboard.press("Escape")
+        page.keyboard.press("Escape")
+
         page.goto(f"{SITE_URL}?pack=featured%3Avol-1", wait_until="networkidle")
         expect(page.locator("#detail-dialog")).to_be_visible()
         expect(page.locator(".detail-info h1")).to_have_text("Vol.1 原创国风视觉")
@@ -103,9 +119,9 @@ def main() -> None:
 
         page.locator("#filter-button").click()
         page.locator('input[value="video_prompt"]').check()
-        expect(page.locator(".pack-card")).to_have_count(5)
+        expect(page.locator(".pack-card")).to_have_count(EXPECTED_VIDEO_PACK_COUNT)
         page.locator("#clear-filters").click()
-        expect(page.locator(".pack-card")).to_have_count(9)
+        expect(page.locator(".pack-card")).to_have_count(EXPECTED_PACK_COUNT)
 
         page.locator(".pack-card").nth(7).click()
         expect(page.locator(".case-card")).to_have_count(24)
@@ -156,12 +172,12 @@ def main() -> None:
         expect(failure_page.locator(".empty-state")).to_contain_text("精选目录加载失败")
         expect(failure_page.locator(".empty-state button")).to_have_text("重试")
         failure_page.locator(".empty-state button").click()
-        expect(failure_page.locator(".pack-card")).to_have_count(9)
+        expect(failure_page.locator(".pack-card")).to_have_count(EXPECTED_PACK_COUNT)
         failure_page.close()
         browser.close()
 
         print({
-            "packs": 9,
+            "packs": EXPECTED_PACK_COUNT,
             "detail_layers": 3,
             "public_save_buttons": 0,
             "masonry_natural_heights": True,

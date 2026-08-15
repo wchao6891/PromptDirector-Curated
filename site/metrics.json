@@ -1,7 +1,7 @@
 {
   "format": "prompt-director-curated-metrics",
   "version": 1,
-  "updatedAt": "2026-08-15T03:57:36.030Z",
+  "updatedAt": "2026-08-15T15:51:55.631Z",
   "downloads": {
     "featured:vol-1": 15,
     "featured:jimeng": 31,
@@ -11,6 +11,7 @@
     "featured:evolink-video-2": 2,
     "featured:evolink-video-3": 2,
     "featured:evolink-video-4": 4,
-    "featured:evolink-video-5": 21
+    "featured:evolink-video-5": 21,
+    "featured:jimeng-guofeng-community-1": 0
   }
 }
