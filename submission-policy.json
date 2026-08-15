@@ -1,0 +1,15 @@
+{
+  "format": "prompt-director-curated-submission-policy",
+  "version": 1,
+  "maxSubmissionBytes": 134217728,
+  "maxTransportFileBytes": 25165824,
+  "maxTransportFiles": 6,
+  "maxFileCount": 4096,
+  "maxLibraryJsonBytes": 16777216,
+  "maxEntries": 5000,
+  "maxImageBytes": 16777216,
+  "maxVideoBytes": 134217728,
+  "maxImagePixels": 40000000,
+  "allowedImageMimeTypes": ["image/png", "image/jpeg", "image/webp"],
+  "allowedVideoMimeTypes": ["video/mp4"]
+}

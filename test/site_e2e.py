@@ -60,11 +60,36 @@ def main() -> None:
         if screenshot_dir:
             page.screenshot(path=target / "curated-public-detail.png", full_page=False)
 
+        before_follow = page.evaluate("""() => {
+          document.querySelector('.case-card').dataset.renderIdentity = 'kept';
+          document.querySelector('#detail-dialog').scrollTop = 120;
+          return document.querySelector('#detail-dialog').scrollTop;
+        }""")
         page.locator(".follow-action").click()
         expect(page.locator(".follow-action")).to_have_text("已关注")
+        assert page.locator('.case-card[data-render-identity="kept"]').count() == 1
+        assert page.locator("#detail-dialog").evaluate("dialog => dialog.scrollTop") == before_follow
         page.keyboard.press("Escape")
         expect(page.locator("#detail-dialog")).not_to_be_visible()
         expect(page.locator(".pack-card").first).to_be_focused()
+
+        page.goto(f"{SITE_URL}?pack=featured%3Ajimeng", wait_until="networkidle")
+        expect(page.locator(".case-card")).to_have_count(24)
+        page.locator(".case-card").nth(2).click()
+        expect(page.locator(".case-detail-heading h2")).to_have_text("即梦 · @啊福")
+        assert page.locator("#detail-content").get_attribute("inert") == ""
+        assert page.locator("#detail-close").get_attribute("inert") == ""
+        portrait_geometry = page.locator(".case-detail-figure img").evaluate(
+            "img => ({naturalWidth: img.naturalWidth, naturalHeight: img.naturalHeight, renderedWidth: img.getBoundingClientRect().width, renderedHeight: img.getBoundingClientRect().height})"
+        )
+        assert portrait_geometry["naturalWidth"] == 900, portrait_geometry
+        assert portrait_geometry["naturalHeight"] == 1600, portrait_geometry
+        assert abs(
+            portrait_geometry["renderedWidth"] / portrait_geometry["renderedHeight"] - 900 / 1600
+        ) < 0.01, portrait_geometry
+        page.keyboard.press("Escape")
+        expect(page.locator(".case-card").nth(2)).to_be_focused()
+        page.keyboard.press("Escape")
 
         page.goto(f"{SITE_URL}?pack=featured%3Avol-1", wait_until="networkidle")
         expect(page.locator("#detail-dialog")).to_be_visible()
@@ -115,6 +140,24 @@ def main() -> None:
         if screenshot_dir:
             page.screenshot(path=Path(screenshot_dir) / "curated-public-mobile.png", full_page=False)
         assert not errors, errors
+
+        failure_page = context.new_page()
+        catalog_attempts = {"count": 0}
+
+        def fail_catalog_once(route) -> None:
+            catalog_attempts["count"] += 1
+            if catalog_attempts["count"] == 1:
+                route.fulfill(status=503, content_type="text/plain", body="temporary failure")
+            else:
+                route.continue_()
+
+        failure_page.route(f"{SITE_URL}/catalog.json", fail_catalog_once)
+        failure_page.goto(SITE_URL, wait_until="domcontentloaded")
+        expect(failure_page.locator(".empty-state")).to_contain_text("精选目录加载失败")
+        expect(failure_page.locator(".empty-state button")).to_have_text("重试")
+        failure_page.locator(".empty-state button").click()
+        expect(failure_page.locator(".pack-card")).to_have_count(9)
+        failure_page.close()
         browser.close()
 
         print({
@@ -122,9 +165,11 @@ def main() -> None:
             "detail_layers": 3,
             "public_save_buttons": 0,
             "masonry_natural_heights": True,
+            "real_portrait_ratio": portrait_geometry,
             "inner_case_search": True,
             "medium": medium_geometry,
             "mobile": geometry,
+            "catalog_retry": catalog_attempts["count"],
         })
 
 

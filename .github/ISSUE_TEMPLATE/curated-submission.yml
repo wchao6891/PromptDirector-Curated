@@ -7,7 +7,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        请把 PromptDirector 生成的 ZIP 拖入下方说明框。投稿不会自动发布，维护者会人工检查质量、重复内容、隐私和授权。
+        上传 PromptDirector 生成的全部投稿 ZIP。投稿不会自动发布，维护者会人工检查质量、重复内容、隐私和授权。
   - type: input
     id: author
     attributes:
@@ -27,14 +27,19 @@ body:
         - 其他（请在说明中写明）
     validations:
       required: true
-  - type: textarea
+  - type: upload
     id: package
     attributes:
-      label: 投稿包与说明
-      description: 将 ZIP 拖到这里上传，并说明案例价值、适用模型和必要的授权补充。
-      placeholder: 拖入 PromptDirector 生成的 ZIP，然后补充说明。
+      label: 投稿包
+      description: 选择 PromptDirector 生成的一个 ZIP，或一次选择全部分卷 ZIP。
     validations:
       required: true
+      accept: ".zip"
+  - type: textarea
+    id: notes
+    attributes:
+      label: 补充说明
+      description: 可选。说明案例价值、适用模型或需要人工注意的授权信息。
   - type: checkboxes
     id: rights
     attributes:

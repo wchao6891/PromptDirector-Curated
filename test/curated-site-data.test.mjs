@@ -165,4 +165,9 @@ test("public cases use visual-only masonry cards and a copy-only case detail", a
   assert.doesNotMatch(detail, /保存到案例库|case-save-action/);
   assert.match(styles, /\.case-list\s*\{[^}]*position:\s*relative/);
   assert.match(styles, /\.case-card\s*\{[^}]*position:\s*absolute/);
+  assert.match(html, /id="case-detail-drawer"[^>]*role="dialog"[^>]*aria-modal="true"/);
+  assert.match(styles, /\.case-detail-figure img\s*\{[^}]*width:\s*auto;[^}]*height:\s*auto;[^}]*max-width:\s*100%;[^}]*max-height:\s*100dvh;[^}]*object-fit:\s*contain/);
+  assert.match(app, /image\.width = entry\.width/);
+  assert.match(app, /setPackageDetailInert\(true\)/);
+  assert.match(app, /renderCatalogFailure\(\)/);
 });

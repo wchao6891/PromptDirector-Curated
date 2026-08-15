@@ -112,7 +112,7 @@ async function start() {
     if (requestedId) openDetail(requestedId);
   } catch (error) {
     console.error(error);
-    elements.app.replaceChildren(emptyState("加载失败"));
+    renderCatalogFailure();
   }
 }
 
@@ -255,7 +255,7 @@ function renderDetail(item, preview, failed = false) {
   const following = state.following.has(item.authorId);
   const follow = element("button", `follow-action${following ? " is-active" : ""}`, following ? "已关注" : "关注");
   follow.type = "button";
-  follow.addEventListener("click", () => toggleFollow(item));
+  follow.addEventListener("click", () => toggleFollow(item, follow));
   const copyLink = element("button", "", "复制链接");
   copyLink.type = "button";
   copyLink.addEventListener("click", () => copyText(publicPackUrl(item.id), copyLink, "已复制"));
@@ -361,6 +361,7 @@ function openCaseDetail(item, entry, card) {
   elements.caseDetailBackdrop.hidden = false;
   elements.caseDetailDrawer.classList.add("open");
   elements.caseDetailDrawer.setAttribute("aria-hidden", "false");
+  setPackageDetailInert(true);
   renderCaseDetail(item, entry);
   elements.caseDetailClose.focus({ preventScroll: true });
 }
@@ -371,6 +372,7 @@ function closeCaseDetail({ restoreFocus = true } = {}) {
   caseDetailReturnFocus = null;
   elements.caseDetailDrawer.classList.remove("open");
   elements.caseDetailDrawer.setAttribute("aria-hidden", "true");
+  setPackageDetailInert(false);
   elements.caseDetailBackdrop.hidden = true;
   caseDetailVideoCleanup?.();
   caseDetailVideoCleanup = null;
@@ -403,10 +405,7 @@ function renderCaseDetail(item, entry) {
     figure.append(player.node);
     caseDetailVideoCleanup = player.destroy;
   } else {
-    const image = element("img");
-    image.src = siteAssetUrl(entry.previewImageUrl);
-    image.alt = entry.title;
-    figure.append(image);
+    figure.append(createRemoteImageViewer(entry, siteAssetUrl(entry.previewImageUrl)));
     if (entry.mediaKind === "video") figure.append(element("span", "case-detail-video-label", "视频暂不可播放"));
   }
   const body = element("div", "case-detail-body");
@@ -547,6 +546,7 @@ function createRemoteVideoPlayer(entry) {
   video.playsInline = true;
   video.poster = siteAssetUrl(entry.previewImageUrl);
   video.src = entry.videoUrl;
+  video.style.aspectRatio = `${entry.width} / ${entry.height}`;
   const failure = element("div", "case-video-error");
   failure.hidden = true;
   failure.append(element("span", "", "视频加载失败"));
@@ -571,12 +571,57 @@ function createRemoteVideoPlayer(entry) {
   };
 }
 
-function toggleFollow(item) {
+function createRemoteImageViewer(entry, url) {
+  const image = element("img");
+  image.alt = entry.title;
+  image.width = entry.width;
+  image.height = entry.height;
+  const failure = element("div", "case-video-error");
+  failure.hidden = true;
+  failure.append(element("span", "", "图片加载失败"));
+  const retry = element("button", "", "重试");
+  retry.type = "button";
+  retry.addEventListener("click", () => {
+    failure.hidden = true;
+    image.removeAttribute("src");
+    requestAnimationFrame(() => { image.src = url; });
+  });
+  failure.append(retry);
+  image.addEventListener("error", () => { failure.hidden = false; });
+  image.src = url;
+  const fragment = document.createDocumentFragment();
+  fragment.append(image, failure);
+  return fragment;
+}
+
+function setPackageDetailInert(inert) {
+  elements.detailContent.inert = inert;
+  elements.detailClose.inert = inert;
+}
+
+function toggleFollow(item, button) {
   if (state.following.has(item.authorId)) state.following.delete(item.authorId);
   else state.following.add(item.authorId);
   localStorage.setItem(FOLLOW_STORAGE_KEY, JSON.stringify([...state.following]));
   updateFilters();
-  if (state.selectedId === item.id) renderDetail(item, state.previews.get(item.id) ?? null, state.previewFailures.has(item.id));
+  const following = state.following.has(item.authorId);
+  if (button) {
+    button.classList.toggle("is-active", following);
+    button.textContent = following ? "已关注" : "关注";
+  }
+}
+
+function renderCatalogFailure() {
+  const failure = emptyState("");
+  failure.append(element("span", "", "精选目录加载失败"));
+  const retry = element("button", "", "重试");
+  retry.type = "button";
+  retry.addEventListener("click", async () => {
+    retry.disabled = true;
+    await start();
+  });
+  failure.append(retry);
+  elements.app.replaceChildren(failure);
 }
 
 function updateFilters() {
