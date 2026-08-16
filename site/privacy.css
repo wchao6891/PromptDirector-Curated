@@ -1,0 +1,43 @@
+:root {
+  color-scheme: light dark;
+  --page: #f4f5f7;
+  --surface: #ffffff;
+  --text: #16191e;
+  --muted: #68707c;
+  --border: #d7dbe1;
+  --accent: #adff00;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", sans-serif;
+  color: var(--text);
+  background: var(--page);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --page: #17191d;
+    --surface: #1d2025;
+    --text: #f1f3f5;
+    --muted: #9299a3;
+    --border: #343941;
+  }
+}
+
+* { box-sizing: border-box; }
+body { min-width: 320px; margin: 0; background: var(--page); }
+a { color: inherit; }
+.policy-header { position: sticky; top: 0; display: flex; min-height: 58px; align-items: center; justify-content: space-between; gap: 16px; border-bottom: 1px solid var(--border); padding: 10px max(16px, calc((100vw - 880px) / 2)); background: color-mix(in srgb, var(--surface) 96%, transparent); }
+.policy-header strong { font-size: 15px; }
+.policy-header a { border: 1px solid var(--border); border-radius: 5px; padding: 7px 10px; font-size: 12px; font-weight: 700; text-decoration: none; }
+.policy-main { width: calc(100% - 28px); max-width: 880px; margin: 24px auto 64px; }
+.policy-hero { border: 1px solid var(--border); border-radius: 8px; padding: clamp(22px, 5vw, 48px); background: var(--surface); }
+.eyebrow { margin: 0 0 8px; color: var(--muted); font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+h1 { margin: 0; font-size: clamp(30px, 6vw, 52px); letter-spacing: -.04em; }
+.effective { margin: 14px 0 0; color: var(--muted); font-size: 13px; }
+.policy-section { border-bottom: 1px solid var(--border); padding: 28px 4px; }
+.policy-section h2 { margin: 0 0 12px; font-size: 19px; }
+.policy-section p, .policy-section li { font-size: 14px; line-height: 1.8; }
+.policy-section p { margin: 0 0 12px; }
+.policy-section ul { margin: 0; padding-left: 22px; }
+.policy-section li + li { margin-top: 6px; }
+.language-divider { margin-top: 52px; border-top: 4px solid var(--accent); padding-top: 38px; }
+code { border-radius: 4px; padding: 2px 5px; background: var(--surface); font-size: .92em; }
+@media (max-width: 600px) { .policy-header { padding-inline: 14px; } .policy-main { margin-top: 14px; } }

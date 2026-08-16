@@ -32,6 +32,7 @@ def main() -> None:
         expect(page.locator(".pack-card")).to_have_count(EXPECTED_PACK_COUNT)
         expect(page.locator("#sort-downloads")).to_be_enabled()
         expect(page.locator(".topbar h1")).to_have_text("精选案例")
+        expect(page.locator(".privacy-link")).to_have_attribute("href", "privacy.html")
         expect(page.locator("#filter-popover")).to_be_hidden()
         screenshot_dir = os.environ.get("CURATED_SCREENSHOT_DIR")
         if screenshot_dir:
@@ -135,6 +136,14 @@ def main() -> None:
         failure_page.locator(".empty-state button").click()
         expect(failure_page.locator(".pack-card")).to_have_count(EXPECTED_PACK_COUNT)
         failure_page.close()
+
+        privacy_page = context.new_page()
+        privacy_page.goto(f"{SITE_URL}/privacy.html", wait_until="networkidle")
+        expect(privacy_page.locator("h1")).to_have_count(2)
+        expect(privacy_page.locator("h1").first).to_have_text("提示词导演隐私政策")
+        expect(privacy_page.locator("text=Chrome Web Store Limited Use")).to_have_count(2)
+        expect(privacy_page.locator('a[href="https://github.com/wchao6891/PromptDirector-Curated/issues"]')).to_have_count(2)
+        privacy_page.close()
         browser.close()
 
         print({
@@ -146,6 +155,7 @@ def main() -> None:
             "medium": medium_geometry,
             "mobile": geometry,
             "catalog_retry": catalog_attempts["count"],
+            "public_privacy_policy": True,
         })
 
 
