@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import { mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { tmpdir } from "node:os";
-import { normalizeSiteCatalog, normalizeSiteMediaManifest, normalizeSiteMetrics, normalizeSitePreview } from "../tools/curated-site-data.mjs";
+import { normalizeSiteCatalog, normalizeSiteMediaManifest, normalizeSiteMetrics, normalizeSitePreview, normalizeSiteRightsReview } from "../tools/curated-site-data.mjs";
 import { assertSafeArchiveNames } from "../tools/build-site-previews.mjs";
 import { syncReleaseMetrics } from "../tools/sync-release-metrics.mjs";
 
@@ -18,6 +18,8 @@ function theme(overrides = {}) {
     authorId: "promptdirector-editorial",
     author: "PromptDirector 编辑精选",
     license: "PromptDirector 原创",
+    rightsStatus: "verified_original",
+    rightsReviewUrl: "https://wchao6891.github.io/PromptDirector-Curated/reviews/test-featured.json",
     updatedAt: "2026-08-10T00:00:00.000Z",
     coverUrl: "https://wchao6891.github.io/PromptDirector-Curated/covers/test.webp",
     previewUrl: "https://wchao6891.github.io/PromptDirector-Curated/previews/test-featured/preview.json",
@@ -47,6 +49,31 @@ test("catalog requires stable authors and trusted preview URLs without changing 
   assert.equal(value.version, 2);
   assert.equal(value.themes[0].authorId, "promptdirector-editorial");
   assert.throws(() => normalizeSiteCatalog(catalog({ themes: [theme({ previewUrl: "https://attacker.example/preview.json" })] })), /预览地址无效/);
+  assert.throws(() => normalizeSiteCatalog(catalog({ themes: [theme({ rightsStatus: "unverified" })] })), /发布资格无效/);
+  assert.throws(() => normalizeSiteCatalog(catalog({ themes: [theme({ rightsReviewUrl: "https://attacker.example/review.json" })] })), /权利审核记录地址无效/);
+});
+
+test("every public package binds to a matching verified rights review", () => {
+  const item = theme();
+  const value = normalizeSiteRightsReview({
+    format: "prompt-director-curated-rights-review",
+    version: 1,
+    catalogId: item.id,
+    packageId: item.packageId,
+    packageVersion: item.packageVersion,
+    status: item.rightsStatus,
+    reviewedAt: "2026-08-16T00:00:00.000Z",
+    reviewerId: item.authorId,
+    evidence: {
+      origin: "Publisher generation records",
+      entryCount: 1,
+      thirdPartySourceUrlCount: 0,
+      sourceRecordsRetainedByPublisher: true
+    },
+    distributionScope: ["Public preview"]
+  }, item);
+  assert.equal(value.status, "verified_original");
+  assert.throws(() => normalizeSiteRightsReview({ ...value, reviewerId: "someone-else" }, item), /与目录不一致/);
 });
 
 test("preview files bind reviewed cases to the exact catalog package version", () => {

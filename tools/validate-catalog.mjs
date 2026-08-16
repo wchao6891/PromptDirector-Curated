@@ -1,5 +1,5 @@
 import { readFile, readdir, stat } from "node:fs/promises";
-import { normalizeSiteCatalog, normalizeSiteMetrics, normalizeSitePreview } from "./curated-site-data.mjs";
+import { normalizeSiteCatalog, normalizeSiteMetrics, normalizeSitePreview, normalizeSiteRightsReview } from "./curated-site-data.mjs";
 
 const catalogUrl = new URL("../site/catalog.json", import.meta.url);
 const catalog = normalizeSiteCatalog(JSON.parse(await readFile(catalogUrl, "utf8")));
@@ -8,6 +8,9 @@ const metrics = normalizeSiteMetrics(
   catalog
 );
 for (const theme of catalog.themes) {
+  const rightsReviewUrl = new URL(theme.rightsReviewUrl);
+  const rightsReviewPath = new URL(`../site${rightsReviewUrl.pathname.replace(/^\/PromptDirector-Curated/, "")}`, import.meta.url);
+  normalizeSiteRightsReview(JSON.parse(await readFile(rightsReviewPath, "utf8")), theme);
   const previewUrl = new URL(theme.previewUrl);
   const previewPath = new URL(`../site${previewUrl.pathname.replace(/^\/PromptDirector-Curated/, "")}`, import.meta.url);
   const preview = normalizeSitePreview(JSON.parse(await readFile(previewPath, "utf8")), theme);

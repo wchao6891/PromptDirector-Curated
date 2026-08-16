@@ -6,6 +6,9 @@ const METRICS_FORMAT = "prompt-director-curated-metrics";
 const METRICS_VERSION = 1;
 const MEDIA_FORMAT = "prompt-director-curated-media";
 const MEDIA_VERSION = 1;
+const RIGHTS_REVIEW_FORMAT = "prompt-director-curated-rights-review";
+const RIGHTS_REVIEW_VERSION = 1;
+const VERIFIED_RIGHTS_STATUSES = new Set(["verified_original", "verified_authorized"]);
 const SITE_HOST = "wchao6891.github.io";
 const RELEASE_HOSTS = new Set([
   "github.com",
@@ -150,10 +153,59 @@ export function normalizeSiteMediaManifest(value, catalogValue) {
   };
 }
 
+export function normalizeSiteRightsReview(value, themeValue) {
+  const theme = normalizeTheme(themeValue);
+  if (value?.format !== RIGHTS_REVIEW_FORMAT || value.version !== RIGHTS_REVIEW_VERSION) {
+    throw new Error(`${theme.id} 的权利审核记录格式无效`);
+  }
+  const status = clean(value.status);
+  const evidence = value.evidence && !Array.isArray(value.evidence) ? value.evidence : {};
+  const distributionScope = Array.isArray(value.distributionScope)
+    ? value.distributionScope.map(clean).filter(Boolean)
+    : [];
+  if (
+    clean(value.catalogId) !== theme.id
+    || clean(value.packageId) !== theme.packageId
+    || clean(value.packageVersion) !== theme.packageVersion
+    || status !== theme.rightsStatus
+    || clean(value.reviewerId) !== theme.authorId
+    || !distributionScope.length
+  ) {
+    throw new Error(`${theme.id} 的权利审核记录与目录不一致`);
+  }
+  if (
+    !clean(evidence.origin)
+    || evidence.entryCount !== theme.caseCount
+    || !Number.isSafeInteger(evidence.thirdPartySourceUrlCount)
+    || evidence.thirdPartySourceUrlCount < 0
+    || evidence.sourceRecordsRetainedByPublisher !== true
+  ) {
+    throw new Error(`${theme.id} 的权利证据不完整`);
+  }
+  return {
+    format: RIGHTS_REVIEW_FORMAT,
+    version: RIGHTS_REVIEW_VERSION,
+    catalogId: theme.id,
+    packageId: theme.packageId,
+    packageVersion: theme.packageVersion,
+    status,
+    reviewedAt: validIso(value.reviewedAt, `${theme.id} 的权利审核时间无效`),
+    reviewerId: theme.authorId,
+    evidence: {
+      origin: clean(evidence.origin),
+      entryCount: evidence.entryCount,
+      thirdPartySourceUrlCount: evidence.thirdPartySourceUrlCount,
+      sourceRecordsRetainedByPublisher: true
+    },
+    distributionScope
+  };
+}
+
 export function normalizeTheme(value = {}) {
-  const required = ["id", "title", "type", "packageId", "packageVersion", "authorId", "author", "license"];
+  const required = ["id", "title", "type", "packageId", "packageVersion", "authorId", "author", "license", "rightsStatus", "rightsReviewUrl"];
   if (required.some((key) => !clean(value[key]))) throw new Error("目录条目缺少必填字段");
   if (!["editorial", "image_prompt", "video_prompt"].includes(value.type)) throw new Error(`不支持的精选类型：${value.type}`);
+  if (!VERIFIED_RIGHTS_STATUSES.has(value.rightsStatus)) throw new Error(`发布资格无效：${value.id}`);
   const sha256 = clean(value.sha256).toLocaleLowerCase("en-US");
   if (!/^[a-f0-9]{64}$/.test(sha256)) throw new Error(`校验值无效：${value.id}`);
   return {
@@ -165,6 +217,8 @@ export function normalizeTheme(value = {}) {
     authorId: safeId(value.authorId),
     author: clean(value.author),
     license: clean(value.license),
+    rightsStatus: value.rightsStatus,
+    rightsReviewUrl: trustedUrl(value.rightsReviewUrl, new Set([SITE_HOST]), "权利审核记录地址无效"),
     updatedAt: validIso(value.updatedAt, `更新时间无效：${value.id}`),
     coverUrl: trustedUrl(value.coverUrl, new Set([SITE_HOST]), "精选封面地址无效"),
     previewUrl: trustedUrl(value.previewUrl, new Set([SITE_HOST]), "精选预览地址无效"),

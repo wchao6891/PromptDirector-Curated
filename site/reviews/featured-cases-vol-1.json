@@ -1,0 +1,21 @@
+{
+  "format": "prompt-director-curated-rights-review",
+  "version": 1,
+  "catalogId": "featured:vol-1",
+  "packageId": "featured-cases-vol-1",
+  "packageVersion": "1.0.2",
+  "status": "verified_original",
+  "reviewedAt": "2026-08-16T14:37:43.000Z",
+  "reviewerId": "promptdirector-editorial",
+  "evidence": {
+    "origin": "PromptDirector project-generated Guofeng visual evaluation corpus",
+    "entryCount": 20,
+    "thirdPartySourceUrlCount": 0,
+    "sourceRecordsRetainedByPublisher": true
+  },
+  "distributionScope": [
+    "PromptDirector Curated public preview",
+    "PromptDirector Curated release package",
+    "PromptDirector extension import"
+  ]
+}

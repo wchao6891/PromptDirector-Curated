@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import json
 import os
-import re
 from pathlib import Path
 
 from playwright.sync_api import expect, sync_playwright
@@ -12,6 +11,12 @@ SITE_URL = os.environ.get("CURATED_SITE_URL", "http://127.0.0.1:4180")
 CATALOG = json.loads((Path(__file__).parents[1] / "site" / "catalog.json").read_text())
 EXPECTED_PACK_COUNT = len(CATALOG["themes"])
 EXPECTED_VIDEO_PACK_COUNT = sum(theme["type"] == "video_prompt" for theme in CATALOG["themes"])
+
+assert EXPECTED_PACK_COUNT == 1
+assert CATALOG["themes"][0]["id"] == "featured:vol-1"
+assert CATALOG["themes"][0]["caseCount"] == 20
+assert CATALOG["themes"][0]["rightsStatus"] == "verified_original"
+assert CATALOG["themes"][0]["rightsReviewUrl"].endswith("/reviews/featured-cases-vol-1.json")
 
 
 def main() -> None:
@@ -78,43 +83,14 @@ def main() -> None:
         expect(page.locator("#detail-dialog")).not_to_be_visible()
         expect(page.locator(".pack-card").first).to_be_focused()
 
-        page.goto(f"{SITE_URL}?pack=featured%3Ajimeng", wait_until="networkidle")
-        expect(page.locator(".case-card")).to_have_count(24)
-        page.locator(".case-card").nth(2).click()
-        expect(page.locator(".case-detail-heading h2")).to_have_text("即梦 · @啊福")
-        assert page.locator("#detail-content").get_attribute("inert") == ""
-        assert page.locator("#detail-close").get_attribute("inert") == ""
-        portrait_geometry = page.locator(".case-detail-figure img").evaluate(
-            "img => ({naturalWidth: img.naturalWidth, naturalHeight: img.naturalHeight, renderedWidth: img.getBoundingClientRect().width, renderedHeight: img.getBoundingClientRect().height})"
-        )
-        assert portrait_geometry["naturalWidth"] == 900, portrait_geometry
-        assert portrait_geometry["naturalHeight"] == 1600, portrait_geometry
-        assert abs(
-            portrait_geometry["renderedWidth"] / portrait_geometry["renderedHeight"] - 900 / 1600
-        ) < 0.01, portrait_geometry
-        page.keyboard.press("Escape")
-        expect(page.locator(".case-card").nth(2)).to_be_focused()
-        page.keyboard.press("Escape")
-
-        page.goto(f"{SITE_URL}?pack=featured%3Ajimeng-guofeng-community-1", wait_until="networkidle")
-        expect(page.locator(".detail-info h1")).to_have_text("即梦国风投稿精选 · 第 1 期")
-        expect(page.locator(".case-card")).to_have_count(24)
-        page.locator(".case-card").first.click()
-        expect(page.locator(".case-detail-heading h2")).to_have_text("即梦 · @用户San川cg")
-        expect(page.locator(".case-detail-heading p")).to_have_text("@用户San川cg")
-        expect(page.locator(".case-detail-source")).to_contain_text("归原作者或其他权利人")
-        expect(page.locator(".case-detail-source a")).to_have_attribute("href", re.compile(r"^https://jimeng\.jianying\.com/ai-tool/work-detail/"))
-        page.keyboard.press("Escape")
-        page.keyboard.press("Escape")
-
         page.goto(f"{SITE_URL}?pack=featured%3Avol-1", wait_until="networkidle")
         expect(page.locator("#detail-dialog")).to_be_visible()
         expect(page.locator(".detail-info h1")).to_have_text("Vol.1 原创国风视觉")
         page.locator("#detail-close").click()
 
-        page.locator("#search-input").fill("1970s Mediterranean 16mm Documentary")
+        page.locator("#search-input").fill("天宫仙班压阵")
         expect(page.locator(".pack-card")).to_have_count(1, timeout=10_000)
-        expect(page.locator(".pack-card h2")).to_contain_text("EvoLink")
+        expect(page.locator(".pack-card h2")).to_contain_text("Vol.1")
         page.locator("#search-input").fill("")
 
         page.locator("#filter-button").click()
@@ -122,21 +98,6 @@ def main() -> None:
         expect(page.locator(".pack-card")).to_have_count(EXPECTED_VIDEO_PACK_COUNT)
         page.locator("#clear-filters").click()
         expect(page.locator(".pack-card")).to_have_count(EXPECTED_PACK_COUNT)
-
-        page.locator(".pack-card").nth(7).click()
-        expect(page.locator(".case-card")).to_have_count(24)
-        expect(page.locator(".case-video-badge")).to_have_count(24)
-        page.locator(".case-card").first.hover()
-        expect(page.locator(".case-card").first.locator(".case-video-preview")).to_have_count(1)
-        page.locator(".case-card").first.click()
-        expect(page.locator(".case-detail-video")).to_have_count(1)
-        page.keyboard.press("Escape")
-        case_geometry = page.locator(".case-card").evaluate_all(
-            "cards => cards.map(card => ({width: card.offsetWidth, height: card.offsetHeight, top: card.offsetTop}))"
-        )
-        assert case_geometry[0]["height"] < case_geometry[10]["height"], case_geometry
-        assert case_geometry[1]["top"] == case_geometry[0]["top"], case_geometry[:4]
-        page.keyboard.press("Escape")
 
         page.set_viewport_size({"width": 820, "height": 650})
         page.locator(".pack-card").first.click()
@@ -149,8 +110,8 @@ def main() -> None:
         page.keyboard.press("Escape")
 
         page.set_viewport_size({"width": 390, "height": 844})
-        page.locator(".pack-card").nth(1).click()
-        expect(page.locator(".case-card")).to_have_count(24)
+        page.locator(".pack-card").first.click()
+        expect(page.locator(".case-card")).to_have_count(20)
         geometry = page.evaluate("""() => ({viewport: innerWidth, page: document.documentElement.scrollWidth})""")
         assert geometry["page"] <= geometry["viewport"], geometry
         if screenshot_dir:
@@ -180,8 +141,7 @@ def main() -> None:
             "packs": EXPECTED_PACK_COUNT,
             "detail_layers": 3,
             "public_save_buttons": 0,
-            "masonry_natural_heights": True,
-            "real_portrait_ratio": portrait_geometry,
+            "rights_status": CATALOG["themes"][0]["rightsStatus"],
             "inner_case_search": True,
             "medium": medium_geometry,
             "mobile": geometry,
