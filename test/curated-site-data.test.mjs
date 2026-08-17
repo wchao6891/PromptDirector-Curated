@@ -175,10 +175,11 @@ test("release metric sync refuses a digest mismatch and preserves the previous f
 });
 
 test("public cases use visual-only masonry cards and a copy-only case detail", async () => {
-  const [app, html, styles] = await Promise.all([
+  const [app, html, styles, support] = await Promise.all([
     readFile(new URL("../site/app.js", import.meta.url), "utf8"),
     readFile(new URL("../site/index.html", import.meta.url), "utf8"),
-    readFile(new URL("../site/styles.css", import.meta.url), "utf8")
+    readFile(new URL("../site/styles.css", import.meta.url), "utf8"),
+    readFile(new URL("../site/support.html", import.meta.url), "utf8")
   ]);
   assert.match(app, /import \{ createStableMasonry \} from "\.\/masonry\.js"/);
   assert.match(app, /const CASE_PAGE_SIZE = 24/);
@@ -187,6 +188,10 @@ test("public cases use visual-only masonry cards and a copy-only case detail", a
   assert.match(html, />安装到 Chrome<\/a>/);
   assert.match(html, /href="https:\/\/github\.com\/wchao6891\/PromptDirector"/);
   assert.match(html, />查看源码<\/a>/);
+  assert.match(html, /href="support\.html">支持<\/a>/);
+  assert.match(support, /<h1>提示词导演支持<\/h1>/);
+  assert.match(support, /href="https:\/\/github\.com\/wchao6891\/PromptDirector\/issues\/new"/);
+  assert.match(support, /href="privacy\.html"/);
   const card = app.slice(app.indexOf("function createCaseCard"), app.indexOf("function openCaseDetail"));
   assert.match(card, /openCaseDetail\(item, entry, card\)/);
   assert.doesNotMatch(card, /case-footer|case-copy-action|button/);

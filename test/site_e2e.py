@@ -32,6 +32,7 @@ def main() -> None:
         expect(page.locator(".pack-card")).to_have_count(EXPECTED_PACK_COUNT)
         expect(page.locator("#sort-downloads")).to_be_enabled()
         expect(page.locator(".topbar h1")).to_have_text("精选案例")
+        expect(page.locator(".support-link")).to_have_attribute("href", "support.html")
         expect(page.locator(".privacy-link")).to_have_attribute("href", "privacy.html")
         expect(page.locator(".install-link")).to_have_attribute(
             "href", "https://chromewebstore.google.com/detail/iahakaahijddcjjldidbclicedibgpjm"
@@ -149,8 +150,16 @@ def main() -> None:
         expect(privacy_page.locator("h1")).to_have_count(2)
         expect(privacy_page.locator("h1").first).to_have_text("提示词导演隐私政策")
         expect(privacy_page.locator("text=Chrome Web Store Limited Use")).to_have_count(2)
-        expect(privacy_page.locator('a[href="https://github.com/wchao6891/PromptDirector-Curated/issues"]')).to_have_count(2)
+        expect(privacy_page.locator('a[href="support.html"]')).to_have_count(2)
         privacy_page.close()
+
+        support_page = context.new_page()
+        support_page.goto(f"{SITE_URL}/support.html", wait_until="networkidle")
+        expect(support_page.locator("h1")).to_have_count(2)
+        expect(support_page.locator("h1").first).to_have_text("提示词导演支持")
+        expect(support_page.locator('a[href="https://github.com/wchao6891/PromptDirector/issues/new"]')).to_have_count(2)
+        expect(support_page.locator('a[href="privacy.html"]')).to_have_count(2)
+        support_page.close()
         browser.close()
 
         print({
@@ -163,6 +172,7 @@ def main() -> None:
             "mobile": geometry,
             "catalog_retry": catalog_attempts["count"],
             "public_privacy_policy": True,
+            "public_support_page": True,
         })
 
 
