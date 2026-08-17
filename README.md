@@ -2,6 +2,8 @@
 
 PromptDirector 的公开精选案例目录。
 
+普通用户可从 [Chrome Web Store 安装 PromptDirector](https://chromewebstore.google.com/detail/iahakaahijddcjjldidbclicedibgpjm)，再把审核后的精选案例保存到自己的本地资料库。
+
 这个仓库只保存维护者审核后可公开分发的目录、封面和发布材料。插件源码、私人案例、评测资料、同步数据和 API 密钥不属于本仓库。
 
 ## 权利与下架

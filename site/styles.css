@@ -76,6 +76,15 @@ button:focus-visible, input:focus-visible, summary:focus-visible, [tabindex="0"]
 .sort-check { visibility: hidden; }
 .sort-panel button[aria-current="true"] .sort-check { visibility: visible; }
 
+.product-guide { display: flex; align-items: center; justify-content: space-between; gap: 16px; border-bottom: 1px solid var(--border); padding: 9px max(12px, calc((100vw - var(--max-width)) / 2)); background: var(--surface); }
+.product-guide p { display: flex; min-width: 0; align-items: baseline; gap: 8px; margin: 0; font-size: 12px; }
+.product-guide p span { color: var(--muted); }
+.product-actions { display: flex; flex: none; align-items: center; gap: 7px; }
+.product-actions a { display: inline-flex; min-height: 34px; align-items: center; border: 1px solid var(--border); border-radius: var(--radius); padding: 7px 10px; font-size: 12px; font-weight: 800; text-decoration: none; white-space: nowrap; }
+.product-actions .install-link { color: var(--accent-ink); border-color: var(--accent); background: var(--accent); }
+.source-link { color: var(--text); background: var(--surface); }
+.source-link:hover { border-color: var(--border-strong); background: var(--hover); }
+
 .app-shell { width: calc(100% - 12px); max-width: var(--max-width); min-height: calc(100dvh - 58px); margin: 8px auto 48px; }
 .pack-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
 .pack-card { min-width: 0; overflow: hidden; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); cursor: pointer; }
@@ -162,6 +171,8 @@ button:focus-visible, input:focus-visible, summary:focus-visible, [tabindex="0"]
   .topbar { grid-template-columns: auto 1fr; padding: 8px 10px; }
   .header-actions { justify-self: end; }
   .search-shell { grid-column: 1 / -1; grid-row: 2; }
+  .product-guide { align-items: flex-start; padding: 9px 10px; }
+  .product-guide p { display: grid; gap: 2px; }
   .app-shell { width: min(100% - 8px, var(--max-width)); }
   .pack-grid, .loading-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; }
   .case-list { --masonry-card-min-width: 155px; --masonry-gap: 6px; }
@@ -183,6 +194,9 @@ button:focus-visible, input:focus-visible, summary:focus-visible, [tabindex="0"]
 }
 
 @media (max-width: 460px) {
+  .product-guide { flex-direction: column; }
+  .product-actions { width: 100%; }
+  .product-actions a { flex: 1; justify-content: center; }
   .detail-info { gap: 12px; }
   .detail-actions { flex-wrap: wrap; }
   .case-detail-toolbar { top: 8px; right: 8px; }

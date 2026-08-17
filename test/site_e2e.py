@@ -33,6 +33,12 @@ def main() -> None:
         expect(page.locator("#sort-downloads")).to_be_enabled()
         expect(page.locator(".topbar h1")).to_have_text("精选案例")
         expect(page.locator(".privacy-link")).to_have_attribute("href", "privacy.html")
+        expect(page.locator(".install-link")).to_have_attribute(
+            "href", "https://chromewebstore.google.com/detail/iahakaahijddcjjldidbclicedibgpjm"
+        )
+        expect(page.locator(".source-link")).to_have_attribute(
+            "href", "https://github.com/wchao6891/PromptDirector"
+        )
         expect(page.locator("#filter-popover")).to_be_hidden()
         screenshot_dir = os.environ.get("CURATED_SCREENSHOT_DIR")
         if screenshot_dir:
@@ -111,6 +117,7 @@ def main() -> None:
         page.keyboard.press("Escape")
 
         page.set_viewport_size({"width": 390, "height": 844})
+        expect(page.locator(".install-link")).to_be_visible()
         page.locator(".pack-card").first.click()
         expect(page.locator(".case-card")).to_have_count(20)
         geometry = page.evaluate("""() => ({viewport: innerWidth, page: document.documentElement.scrollWidth})""")

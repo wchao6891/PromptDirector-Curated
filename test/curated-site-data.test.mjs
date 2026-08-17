@@ -183,6 +183,10 @@ test("public cases use visual-only masonry cards and a copy-only case detail", a
   assert.match(app, /import \{ createStableMasonry \} from "\.\/masonry\.js"/);
   assert.match(app, /const CASE_PAGE_SIZE = 24/);
   assert.match(html, /id="case-detail-drawer"/);
+  assert.match(html, /href="https:\/\/chromewebstore\.google\.com\/detail\/iahakaahijddcjjldidbclicedibgpjm"/);
+  assert.match(html, />安装到 Chrome<\/a>/);
+  assert.match(html, /href="https:\/\/github\.com\/wchao6891\/PromptDirector"/);
+  assert.match(html, />查看源码<\/a>/);
   const card = app.slice(app.indexOf("function createCaseCard"), app.indexOf("function openCaseDetail"));
   assert.match(card, /openCaseDetail\(item, entry, card\)/);
   assert.doesNotMatch(card, /case-footer|case-copy-action|button/);
