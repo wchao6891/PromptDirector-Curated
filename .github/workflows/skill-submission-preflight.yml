@@ -1,0 +1,52 @@
+name: 精选 Skill 投稿预检
+
+on:
+  issues:
+    types: [opened, edited, reopened, labeled]
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  preflight:
+    if: startsWith(github.event.issue.title, '[Skill 投稿]') || contains(github.event.issue.labels.*.name, 'skill-submission')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: 保存投稿内容
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+        run: printf '%s' "$ISSUE_BODY" > "$RUNNER_TEMP/issue-body.md"
+      - name: 预检纯文本 Skill 投稿
+        id: preflight
+        continue-on-error: true
+        run: node tools/skill-submission-preflight.mjs --issue-body "$RUNNER_TEMP/issue-body.md" --report "$RUNNER_TEMP/skill-preflight-report.json"
+      - name: 保存审核证据
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: skill-submission-preflight-${{ github.event.issue.number }}
+          path: ${{ runner.temp }}/skill-preflight-report.json
+          if-no-files-found: warn
+          retention-days: 30
+      - name: 更新预检状态
+        if: always()
+        uses: actions/github-script@v7
+        env:
+          PREFLIGHT_OK: ${{ steps.preflight.outcome == 'success' }}
+          REPORT_PATH: ${{ runner.temp }}/skill-preflight-report.json
+        with:
+          script: |
+            const fs = require('fs');
+            const marker = '<!-- promptdirector-skill-submission-preflight -->';
+            let report = { ok: false, message: '预检没有生成结果，请稍后重试。' };
+            if (fs.existsSync(process.env.REPORT_PATH)) report = JSON.parse(fs.readFileSync(process.env.REPORT_PATH, 'utf8'));
+            const passed = process.env.PREFLIGHT_OK === 'true' && report.ok === true;
+            const body = passed
+              ? `${marker}\n预检通过：${report.skillId}，共 ${report.fileCount} 个 CC BY 4.0 纯文本文件。稳定作者编号、发布版本和目录编号将在人工审核后确定。`
+              : `${marker}\n预检未通过：${report.message || '投稿包无法安全读取'}\n\n请在 PromptDirector 修改后重新生成并替换附件。`;
+            const comments = await github.paginate(github.rest.issues.listComments, { ...context.repo, issue_number: context.issue.number, per_page: 100 });
+            const previous = comments.find((comment) => comment.user?.type === 'Bot' && comment.body?.includes(marker));
+            if (previous) await github.rest.issues.updateComment({ ...context.repo, comment_id: previous.id, body });
+            else await github.rest.issues.createComment({ ...context.repo, issue_number: context.issue.number, body });

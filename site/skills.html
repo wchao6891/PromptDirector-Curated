@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="浏览和下载 PromptDirector 人工审核的公开创作 Skill。">
+    <title>PromptDirector 精选 Skill</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="topbar skill-topbar">
+      <div class="public-section-title"><h1>精选 Skill</h1><nav aria-label="精选内容"><a href="index.html">精选案例</a><a href="skills.html" aria-current="page">精选 Skill</a></nav></div>
+      <label class="search-shell"><span class="visually-hidden">搜索精选 Skill</span><span class="search-mark" aria-hidden="true"></span><input id="skill-search" type="search" placeholder="搜索 Skill、作者或摘要" autocomplete="off"></label>
+      <div class="header-actions"><a class="support-link" href="support.html">支持</a><a class="privacy-link" href="privacy.html">隐私</a></div>
+    </header>
+    <aside class="product-guide" aria-label="PromptDirector 安装与源码"><p><strong>浏览公开方法，按需下载</strong><span>公共站点不会写入本地资料；安装 PromptDirector 后可在扩展内校验并保存。</span></p><div class="product-actions"><a class="install-link" href="https://chromewebstore.google.com/detail/iahakaahijddcjjldidbclicedibgpjm" target="_blank" rel="noopener noreferrer">安装到 Chrome</a><a class="source-link" href="https://github.com/wchao6891/PromptDirector" target="_blank" rel="noopener noreferrer">查看源码</a></div></aside>
+    <main id="skill-app" class="app-shell" aria-live="polite"><section class="loading-grid skill-loading" aria-label="正在加载精选 Skill"><span></span><span></span><span></span><span></span></section></main>
+    <dialog id="skill-dialog" class="skill-public-dialog" aria-label="精选 Skill 详情"><button id="skill-close" class="dialog-close" type="button" aria-label="关闭详情">×</button><div id="skill-detail"></div></dialog>
+    <script type="module" src="skills.js"></script>
+  </body>
+</html>

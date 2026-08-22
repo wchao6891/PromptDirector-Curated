@@ -1,0 +1,35 @@
+name: 精选 Skill 投稿
+description: 提交由 PromptDirector 生成的纯文本 Skill 快照，等待人工审核。
+title: "[Skill 投稿] "
+labels:
+  - skill-submission
+body:
+  - type: markdown
+    attributes:
+      value: |
+        上传 PromptDirector 生成的 Skill 投稿 ZIP。投稿内容固定按 CC BY 4.0 进入公开审核；稳定作者编号、发布版本和目录编号由审核者确定。自动预检只检查结构、摘要与明显隐私风险，不会自动发布。
+  - type: input
+    id: author
+    attributes:
+      label: 公开署名
+    validations:
+      required: true
+  - type: upload
+    id: package
+    attributes:
+      label: Skill 投稿包
+      description: 选择 PromptDirector 生成的一个 ZIP。
+    validations:
+      required: true
+      accept: ".zip"
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: 公开范围确认
+      options:
+        - label: 我已查看最终文件名和全部纯文本，不包含密钥、本机路径、私人来源或无权公开的内容。
+          required: true
+        - label: 我确认有权将投稿纯文本按 CC BY 4.0 公开，并理解提交不代表一定入选。
+          required: true
+        - label: 我理解 Skill 会作为不可信文本分发，公共站点不会执行脚本或自动安装。
+          required: true

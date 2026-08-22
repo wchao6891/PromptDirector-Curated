@@ -9,6 +9,7 @@ from playwright.sync_api import expect, sync_playwright
 
 SITE_URL = os.environ.get("CURATED_SITE_URL", "http://127.0.0.1:4180")
 CATALOG = json.loads((Path(__file__).parents[1] / "site" / "catalog.json").read_text())
+SKILL_CATALOG = json.loads((Path(__file__).parents[1] / "site" / "skills-catalog.json").read_text())
 EXPECTED_PACK_COUNT = len(CATALOG["themes"])
 EXPECTED_VIDEO_PACK_COUNT = sum(theme["type"] == "video_prompt" for theme in CATALOG["themes"])
 
@@ -160,6 +161,115 @@ def main() -> None:
         expect(support_page.locator('a[href="https://github.com/wchao6891/PromptDirector/issues/new"]')).to_have_count(2)
         expect(support_page.locator('a[href="privacy.html"]')).to_have_count(2)
         support_page.close()
+
+        skill_page = context.new_page()
+        skill_page.goto(f"{SITE_URL}/skills.html", wait_until="networkidle")
+        expect(skill_page.locator(".topbar h1")).to_have_text("精选 Skill")
+        expect(skill_page.locator('nav a[href="index.html"]')).to_have_text("精选案例")
+        expect(skill_page.locator('nav a[href="skills.html"]')).to_have_attribute("aria-current", "page")
+        expect(skill_page.locator(".public-skill-card")).to_have_count(len(SKILL_CATALOG["skills"]))
+        expect(skill_page.locator('.skill-state[data-state="empty"]')).to_contain_text("精选 Skill 目录暂时为空")
+        expect(skill_page.locator('.skill-state[data-state="empty"] a[href="index.html"]')).to_have_text("浏览精选案例")
+        expect(skill_page.locator('[role="alert"]')).to_have_count(0)
+        expect(skill_page.locator("text=保存到本地")).to_have_count(0)
+        expect(skill_page.locator("text=安装 Skill")).to_have_count(0)
+        skill_page.set_viewport_size({"width": 390, "height": 844})
+        assert skill_page.evaluate("document.documentElement.scrollWidth") == 390
+        skill_page.close()
+
+        skill_failure_page = context.new_page()
+        skill_catalog_attempts = {"count": 0}
+
+        def fail_skill_catalog_once(route) -> None:
+            skill_catalog_attempts["count"] += 1
+            if skill_catalog_attempts["count"] == 1:
+                route.fulfill(status=503, content_type="text/plain", body="temporary failure")
+            else:
+                route.continue_()
+
+        skill_failure_page.route(f"{SITE_URL}/skills-catalog.json", fail_skill_catalog_once)
+        skill_failure_page.goto(f"{SITE_URL}/skills.html", wait_until="domcontentloaded")
+        expect(skill_failure_page.locator('.skill-state[data-state="error"]')).to_contain_text("精选 Skill 目录加载失败")
+        expect(skill_failure_page.locator('.skill-state[data-state="error"] button')).to_have_text("重试")
+        skill_failure_page.locator('.skill-state[data-state="error"] button').click()
+        expect(skill_failure_page.locator('.skill-state[data-state="empty"]')).to_be_visible()
+        assert skill_catalog_attempts["count"] == 2
+        skill_failure_page.close()
+
+        searchable_skill_page = context.new_page()
+        searchable_skill_page.route(
+            f"{SITE_URL}/skills-catalog.json",
+            lambda route: route.fulfill(
+                status=200,
+                content_type="application/json",
+                body=json.dumps({
+                    "format": "prompt-director-curated-skills",
+                    "version": 1,
+                    "updatedAt": "2026-08-23T00:00:00.000Z",
+                    "skills": [{
+                        "id": "layout-method@1.0.0",
+                        "skillId": "layout-method",
+                        "version": "1.0.0",
+                        "title": "测试布局方法",
+                        "callName": "layout-method",
+                        "authorId": "test-author",
+                        "author": "测试作者",
+                        "license": "CC BY 4.0",
+                        "reviewStatus": "approved",
+                        "reviewedAt": "2026-08-23T00:00:00.000Z",
+                        "summary": "仅用于浏览器搜索状态测试。",
+                        "downloadUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/test/layout-method.zip",
+                        "sha256": "a" * 64,
+                        "archiveBytes": 100,
+                        "order": 1,
+                    }],
+                }, ensure_ascii=False),
+            ),
+        )
+        searchable_skill_page.goto(f"{SITE_URL}/skills.html", wait_until="networkidle")
+        expect(searchable_skill_page.locator(".public-skill-card")).to_have_count(1)
+        searchable_skill_page.locator("#skill-search").fill("不存在的关键词")
+        expect(searchable_skill_page.locator('.skill-state[data-state="search-empty"]')).to_contain_text("没有匹配的精选 Skill")
+        expect(searchable_skill_page.locator('.skill-state[data-state="search-empty"] button')).to_have_text("清除搜索")
+        searchable_skill_page.locator('.skill-state[data-state="search-empty"] button').click()
+        expect(searchable_skill_page.locator("#skill-search")).to_have_value("")
+        expect(searchable_skill_page.locator(".public-skill-card")).to_have_count(1)
+        searchable_skill_page.close()
+
+        invalid_skill_page = context.new_page()
+        invalid_skill_page.route(
+            f"{SITE_URL}/skills-catalog.json",
+            lambda route: route.fulfill(
+                status=200,
+                content_type="application/json",
+                body=json.dumps({
+                    "format": "prompt-director-curated-skills",
+                    "version": 1,
+                    "updatedAt": "2026-08-23T00:00:00.000Z",
+                    "skills": [{
+                        "id": "unreviewed-method@1.0.0",
+                        "skillId": "unreviewed-method",
+                        "version": "1.0.0",
+                        "title": "不应公开的方法",
+                        "callName": "unreviewed-method",
+                        "authorId": "test-author",
+                        "author": "测试作者",
+                        "license": "MIT",
+                        "reviewStatus": "pending",
+                        "reviewedAt": "2026-08-23T00:00:00.000Z",
+                        "summary": "仅用于非法目录状态测试。",
+                        "downloadUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/test/unreviewed-method.zip",
+                        "sha256": "a" * 64,
+                        "archiveBytes": 100,
+                        "order": 1,
+                    }],
+                }, ensure_ascii=False),
+            ),
+        )
+        invalid_skill_page.goto(f"{SITE_URL}/skills.html", wait_until="networkidle")
+        expect(invalid_skill_page.locator('.skill-state[data-state="error"]')).to_contain_text("精选 Skill 目录加载失败")
+        expect(invalid_skill_page.locator(".public-skill-card")).to_have_count(0)
+        invalid_skill_page.close()
         browser.close()
 
         print({
@@ -173,6 +283,10 @@ def main() -> None:
             "catalog_retry": catalog_attempts["count"],
             "public_privacy_policy": True,
             "public_support_page": True,
+            "public_skill_page": True,
+            "skill_catalog_retry": skill_catalog_attempts["count"],
+            "skill_search_recovery": True,
+            "invalid_skill_catalog_blocked": True,
         })
 
 

@@ -1,8 +1,8 @@
 # PromptDirector Curated
 
-PromptDirector 的公开精选案例目录。
+PromptDirector 的公开精选案例与精选 Skill 目录。两类内容使用独立页面和独立目录，不混入同一内容流。
 
-普通用户可从 [Chrome Web Store 安装 PromptDirector](https://chromewebstore.google.com/detail/iahakaahijddcjjldidbclicedibgpjm)，再把审核后的精选案例保存到自己的本地资料库。
+普通用户可从 [Chrome Web Store 安装 PromptDirector](https://chromewebstore.google.com/detail/iahakaahijddcjjldidbclicedibgpjm)，再把审核后的精选案例保存到自己的本地资料库，或把精选 Skill 保存到本地 Skill 库。
 
 这个仓库只保存维护者审核后可公开分发的目录、封面和发布材料。插件源码、私人案例、评测资料、同步数据和 API 密钥不属于本仓库。
 
@@ -27,6 +27,17 @@ PromptDirector 的公开精选案例目录。
 目录不会自动收录投稿。普通用户不需要 Git、API、命令行或仓库权限，但需要 GitHub 账号提交附件。产品不提供点赞、评论、公开粉丝数或算法排行榜；关注只保存在当前设备。
 
 本人原创或已获明确授权的内容可进入人工审核。第三方公开案例只能作为来源推荐，不能复制媒体或提示词进入公开包；投稿者不能替原作者授予许可。
+
+## 精选 Skill 流程
+
+1. 投稿者在 PromptDirector 的 Skill 详情页选择“投稿到精选 Skill”，检查最终文件清单、全文和隐私提示。
+2. 插件下载独立投稿包并打开 GitHub 投稿表单；不会自动创建公开版本。
+3. 投稿纯文本固定使用 CC BY 4.0；GitHub Action 只做结构、安全、摘要和公开字段预检，不执行包内内容，也不自动发布。
+4. 维护者人工审核方法质量、重复、公开署名、隐私和安全边界，并在通过后分配稳定作者编号、语义版本与目录编号，生成不可变下载包和 SHA-256。
+5. 维护者把审核后的 Skill 编号、版本、作者、固定许可、审核状态、摘要和可信下载地址加入 `site/skills-catalog.json`。
+6. 公共站点只提供浏览与下载；扩展在保存前再次验证地址、大小、摘要、包身份和纯文本边界。同版本重复保存保持幂等，新版本另存，不覆盖本地修改。
+
+精选 Skill 只允许 `SKILL.md` 和声明的 Markdown references，不发布或执行脚本、二进制资产、外部依赖和私人资料。
 
 ## 界面用语
 

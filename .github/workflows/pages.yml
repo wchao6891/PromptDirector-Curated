@@ -32,7 +32,7 @@ jobs:
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Validate catalog
-        run: node tools/validate-catalog.mjs
+        run: node tools/validate-catalog.mjs && node tools/validate-skill-catalog.mjs
       - name: Upload catalog
         uses: actions/upload-pages-artifact@v4
         with:
