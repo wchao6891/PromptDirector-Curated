@@ -64,28 +64,37 @@ function render() {
 }
 
 function card(item) {
-  const button = element("button", "public-skill-card");
-  button.type = "button";
-  button.append(element("h2", "", item.title), element("code", "", `/${item.callName}`), element("p", "", item.summary));
-  const meta = element("footer");
-  meta.append(element("span", "", item.author), element("span", "", `v${item.version} · ${item.license}`));
-  button.append(meta);
-  button.addEventListener("click", () => openDetail(item));
-  return button;
+  const root = element("article", "ui-skill-card public-skill-card");
+  root.append(element("h2", "ui-skill-card-title", item.title), element("p", "ui-skill-card-summary", item.summary));
+  const actions = element("div", "ui-skill-card-actions public-skill-card-actions");
+  const view = element("button", "", "查看说明");
+  view.type = "button";
+  view.addEventListener("click", () => openDetail(item));
+  actions.append(view, downloadLink(item));
+  root.append(actions);
+  return root;
 }
 
 function openDetail(item) {
   state.selected = item.id;
   const root = element("article", "public-skill-detail");
-  root.append(element("h1", "", item.title), element("code", "", `/${item.callName}`), element("p", "", item.summary));
-  const meta = element("div", "public-skill-meta");
-  meta.append(element("span", "", `作者：${item.author}`), element("span", "", `版本：${item.version}`), element("span", "", `许可：${item.license}`), element("span", "", "人工审核通过"));
-  const download = element("a", "public-skill-download", "下载 Skill ZIP");
-  download.href = item.downloadUrl;
-  download.rel = "noopener";
-  root.append(meta, download);
+  root.append(element("h1", "", item.title), element("p", "", item.summary));
+  const maintenance = element("details", "public-skill-maintenance");
+  maintenance.append(element("summary", "", "版本与许可"));
+  const maintenanceCopy = element("div", "public-skill-maintenance-copy");
+  maintenanceCopy.append(element("span", "", `作者：${item.author}`), element("span", "", `版本：${item.version}`), element("span", "", `许可：${item.license}`), element("span", "", "人工审核通过"));
+  maintenance.append(maintenanceCopy);
+  const download = downloadLink(item, "public-skill-download");
+  root.append(maintenance, download);
   elements.detail.replaceChildren(root);
   elements.dialog.showModal();
+}
+
+function downloadLink(item, className = "") {
+  const download = element("a", className, "下载 Skill");
+  download.href = item.downloadUrl;
+  download.rel = "noopener";
+  return download;
 }
 
 function closeDetail() { state.selected = ""; if (elements.dialog.open) elements.dialog.close(); elements.detail.replaceChildren(); }

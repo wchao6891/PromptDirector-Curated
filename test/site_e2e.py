@@ -170,8 +170,23 @@ def main() -> None:
         expect(skill_page.locator(".public-skill-card")).to_have_count(len(SKILL_CATALOG["skills"]))
         if SKILL_CATALOG["skills"]:
             first_skill = SKILL_CATALOG["skills"][0]
-            expect(skill_page.locator(".public-skill-card").first.locator("h2")).to_have_text(first_skill["title"])
-            expect(skill_page.locator(".public-skill-card").first.locator("code")).to_have_text(f'/{first_skill["callName"]}')
+            first_card = skill_page.locator(".public-skill-card").first
+            expect(first_card.locator("h2")).to_have_text(first_skill["title"])
+            card_copy = first_card.text_content()
+            assert first_skill["author"] not in card_copy, card_copy
+            assert first_skill["license"] not in card_copy, card_copy
+            assert f'v{first_skill["version"]}' not in card_copy, card_copy
+            assert f'/{first_skill["callName"]}' not in card_copy, card_copy
+            expect(first_card.get_by_role("button", name="查看说明", exact=True)).to_be_visible()
+            download = first_card.get_by_role("link", name="下载 Skill", exact=True)
+            expect(download).to_have_attribute("href", first_skill["downloadUrl"])
+            first_card.get_by_role("button", name="查看说明", exact=True).click()
+            expect(skill_page.locator("#skill-dialog")).to_be_visible()
+            maintenance = skill_page.locator(".public-skill-maintenance")
+            expect(maintenance.get_by_text(f'许可：{first_skill["license"]}', exact=True)).to_be_hidden()
+            maintenance.locator("summary").click()
+            expect(maintenance.get_by_text(f'许可：{first_skill["license"]}', exact=True)).to_be_visible()
+            skill_page.locator("#skill-close").click()
             expect(skill_page.locator('.skill-state[data-state="empty"]')).to_have_count(0)
         else:
             expect(skill_page.locator('.skill-state[data-state="empty"]')).to_contain_text("精选 Skill 目录暂时为空")
@@ -181,6 +196,17 @@ def main() -> None:
         expect(skill_page.locator("text=安装 Skill")).to_have_count(0)
         skill_page.set_viewport_size({"width": 390, "height": 844})
         assert skill_page.evaluate("document.documentElement.scrollWidth") == 390
+        if SKILL_CATALOG["skills"]:
+            assert skill_page.locator(".public-skill-card").first.evaluate("card => card.getBoundingClientRect().height") < 220
+            skill_page.emulate_media(color_scheme="dark")
+            dark_skill_visual = skill_page.locator(".public-skill-card").first.evaluate("""card => ({
+              background: getComputedStyle(card).backgroundColor,
+              titleSize: getComputedStyle(card.querySelector('.ui-skill-card-title')).fontSize,
+              navWidth: document.querySelector('.public-section-nav').getBoundingClientRect().width
+            })""")
+            assert dark_skill_visual["background"] != "rgb(173, 255, 0)", dark_skill_visual
+            assert dark_skill_visual["titleSize"] == "17px", dark_skill_visual
+            assert dark_skill_visual["navWidth"] < 230, dark_skill_visual
         skill_page.close()
 
         skill_failure_page = context.new_page()

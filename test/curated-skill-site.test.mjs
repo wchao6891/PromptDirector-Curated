@@ -35,17 +35,27 @@ test("public Skill catalog enforces stable identity, version, author, license, r
 });
 
 test("public site provides an independent browse-and-download-only Skill page", async () => {
-  const [casesHtml, skillsHtml, app, catalog] = await Promise.all([
+  const [casesHtml, skillsHtml, app, catalog, styles] = await Promise.all([
     readFile(new URL("../site/index.html", import.meta.url), "utf8"),
     readFile(new URL("../site/skills.html", import.meta.url), "utf8"),
     readFile(new URL("../site/skills.js", import.meta.url), "utf8"),
-    readFile(new URL("../site/skills-catalog.json", import.meta.url), "utf8")
+    readFile(new URL("../site/skills-catalog.json", import.meta.url), "utf8"),
+    readFile(new URL("../site/styles.css", import.meta.url), "utf8")
   ]);
   assert.match(casesHtml, /href="skills\.html">精选 Skill</);
   assert.match(skillsHtml, /href="index\.html">精选案例</);
   assert.match(skillsHtml, /aria-current="page"[^>]*>精选 Skill</);
   assert.match(app, /fetch\("skills-catalog\.json"/);
   assert.match(app, /download\.href = item\.downloadUrl/);
+  assert.match(app, /ui-skill-card public-skill-card/);
+  assert.match(app, /查看说明/);
+  assert.match(app, /下载 Skill/);
+  assert.match(app, /版本与许可/);
+  assert.match(app, /public-skill-maintenance/);
+  assert.match(skillsHtml, /public-section-nav ui-segmented/);
+  assert.match(skillsHtml, /placeholder="搜索 Skill 或用途"/);
+  assert.match(styles, /\.ui-segmented\s*\{/);
+  assert.match(styles, /\.ui-skill-card\s*\{/);
   assert.doesNotMatch(app, /chrome\.|保存到本地|安装 Skill|eval\(|new Function|innerHTML/);
   const parsedCatalog = JSON.parse(catalog);
   assert.deepEqual(normalizeSiteSkillCatalog(parsedCatalog), parsedCatalog);
