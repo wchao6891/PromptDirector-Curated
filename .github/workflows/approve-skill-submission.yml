@@ -1,0 +1,190 @@
+name: 批准并发布精选 Skill
+
+on:
+  issues:
+    types: [labeled]
+
+permissions: {}
+
+concurrency:
+  group: curated-skill-publication
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: github.event.label.name == '批准发布' && github.actor == github.repository_owner
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    outputs:
+      skill_id: ${{ steps.metadata.outputs.skill_id }}
+      version: ${{ steps.metadata.outputs.version }}
+      status: ${{ steps.metadata.outputs.status }}
+    steps:
+      - name: Checkout current catalog
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Save untrusted Issue body as data
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+        run: printf '%s' "$ISSUE_BODY" > "$RUNNER_TEMP/issue-body.md"
+
+      - name: Record review time
+        id: review-time
+        run: echo "reviewed_at=$(date -u +'%Y-%m-%dT%H:%M:%S.000Z')" >> "$GITHUB_OUTPUT"
+
+      - name: Re-download, preflight and prepare publication
+        run: >-
+          node tools/approve-skill-submission.mjs
+          --issue-body "$RUNNER_TEMP/issue-body.md"
+          --catalog site/skills-catalog.json
+          --asset-directory "$RUNNER_TEMP"
+          --result "$RUNNER_TEMP/skill-publication.json"
+          --repository "$GITHUB_REPOSITORY"
+          --reviewed-at "${{ steps.review-time.outputs.reviewed_at }}"
+
+      - name: Read validated publication metadata
+        id: metadata
+        uses: actions/github-script@v7
+        env:
+          RESULT_PATH: ${{ runner.temp }}/skill-publication.json
+        with:
+          script: |
+            const fs = require('fs');
+            const result = JSON.parse(fs.readFileSync(process.env.RESULT_PATH, 'utf8'));
+            for (const [key, value] of Object.entries({
+              skill_id: result.skillId,
+              version: result.version,
+              status: result.status,
+              tag: result.tag,
+              asset_name: result.assetName,
+              asset_path: result.assetPath,
+              sha256: result.sha256,
+              archive_bytes: result.archiveBytes
+            })) core.setOutput(key, String(value));
+
+      - name: Create or verify immutable Release asset
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG: ${{ steps.metadata.outputs.tag }}
+          ASSET_NAME: ${{ steps.metadata.outputs.asset_name }}
+          ASSET_PATH: ${{ steps.metadata.outputs.asset_path }}
+          EXPECTED_SHA256: ${{ steps.metadata.outputs.sha256 }}
+          EXPECTED_BYTES: ${{ steps.metadata.outputs.archive_bytes }}
+          SKILL_ID: ${{ steps.metadata.outputs.skill_id }}
+          VERSION: ${{ steps.metadata.outputs.version }}
+        run: |
+          if ! gh release view "$TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            gh release create "$TAG" "$ASSET_PATH" \
+              --repo "$GITHUB_REPOSITORY" \
+              --title "$SKILL_ID $VERSION" \
+              --notes "PromptDirector 精选 Skill：$SKILL_ID@$VERSION" \
+              --latest=false
+          fi
+          ASSET_LIST="$RUNNER_TEMP/release-assets.txt"
+          gh release view "$TAG" --repo "$GITHUB_REPOSITORY" --json assets --jq '.assets[].name' > "$ASSET_LIST"
+          if [ ! -s "$ASSET_LIST" ]; then
+            gh release upload "$TAG" "$ASSET_PATH" --repo "$GITHUB_REPOSITORY"
+          elif [ "$(wc -l < "$ASSET_LIST" | tr -d ' ')" != "1" ] || ! grep -Fxq -- "$ASSET_NAME" "$ASSET_LIST"; then
+            echo "Release 已包含非预期附件，拒绝覆盖不可变版本" >&2
+            exit 1
+          fi
+          EXISTING_ASSET="$RUNNER_TEMP/existing-$ASSET_NAME"
+          gh release download "$TAG" \
+            --repo "$GITHUB_REPOSITORY" \
+            --pattern "$ASSET_NAME" \
+            --output "$EXISTING_ASSET"
+          printf '%s  %s\n' "$EXPECTED_SHA256" "$EXISTING_ASSET" | sha256sum --check --status
+          test "$(wc -c < "$EXISTING_ASSET" | tr -d ' ')" = "$EXPECTED_BYTES"
+
+      - name: Validate approved catalog
+        run: node tools/validate-skill-catalog.mjs
+
+      - name: Commit catalog only when it changed
+        run: |
+          if git diff --quiet -- site/skills-catalog.json; then
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add site/skills-catalog.json
+          git commit -m "Publish approved Skill ${{ steps.metadata.outputs.skill_id }}@${{ steps.metadata.outputs.version }}"
+          git pull --rebase origin main
+          git push origin HEAD:main
+
+  deploy:
+    needs: publish
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    uses: ./.github/workflows/pages.yml
+
+  complete:
+    needs: [publish, deploy]
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: Mark the Issue published only after Pages succeeds
+        uses: actions/github-script@v7
+        env:
+          SKILL_ID: ${{ needs.publish.outputs.skill_id }}
+          VERSION: ${{ needs.publish.outputs.version }}
+          PUBLICATION_STATUS: ${{ needs.publish.outputs.status }}
+        with:
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const issue_number = context.issue.number;
+            const marker = '<!-- promptdirector-skill-publication -->';
+            try {
+              await github.rest.issues.getLabel({ owner, repo, name: 'published' });
+            } catch (error) {
+              if (error.status !== 404) throw error;
+              await github.rest.issues.createLabel({ owner, repo, name: 'published', color: '2da44e', description: '已通过人工批准并公开发布' });
+            }
+            const wasExisting = process.env.PUBLICATION_STATUS === 'existing';
+            const body = `${marker}\n已${wasExisting ? '确认既有发布' : '批准并发布'}：${process.env.SKILL_ID}@${process.env.VERSION}。目录已完成线上部署。`;
+            const comments = await github.paginate(github.rest.issues.listComments, { owner, repo, issue_number, per_page: 100 });
+            const previous = comments.find((comment) => comment.user?.type === 'Bot' && comment.body?.includes(marker));
+            if (previous) await github.rest.issues.updateComment({ owner, repo, comment_id: previous.id, body });
+            else await github.rest.issues.createComment({ owner, repo, issue_number, body });
+            await github.rest.issues.addLabels({ owner, repo, issue_number, labels: ['published'] });
+            try {
+              await github.rest.issues.removeLabel({ owner, repo, issue_number, name: '批准发布' });
+            } catch (error) {
+              if (error.status !== 404) throw error;
+            }
+            await github.rest.issues.update({ owner, repo, issue_number, state: 'closed', state_reason: 'completed' });
+
+  failure:
+    needs: [publish, deploy, complete]
+    if: >-
+      always() && github.event.label.name == '批准发布' && github.actor == github.repository_owner &&
+      (needs.publish.result == 'failure' || needs.deploy.result == 'failure' || needs.complete.result == 'failure')
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: Keep the Issue open and make retry explicit
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const issue_number = context.issue.number;
+            const marker = '<!-- promptdirector-skill-publication-failed -->';
+            const body = `${marker}\n发布流程未完整完成，Issue 保持开启且不会标记为发布成功。请查看本次 Action 日志；修复后重新添加“批准发布”标签即可安全重试。`;
+            const comments = await github.paginate(github.rest.issues.listComments, { owner, repo, issue_number, per_page: 100 });
+            const previous = comments.find((comment) => comment.user?.type === 'Bot' && comment.body?.includes(marker));
+            if (previous) await github.rest.issues.updateComment({ owner, repo, comment_id: previous.id, body });
+            else await github.rest.issues.createComment({ owner, repo, issue_number, body });
+            try {
+              await github.rest.issues.removeLabel({ owner, repo, issue_number, name: '批准发布' });
+            } catch (error) {
+              if (error.status !== 404) throw error;
+            }

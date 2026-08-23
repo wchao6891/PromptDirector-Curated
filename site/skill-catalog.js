@@ -25,7 +25,7 @@ function normalizeItem(value = {}) {
   const skillId = portableId(value.skillId);
   const version = clean(value.version);
   const title = clean(value.title);
-  const callName = portableId(value.callName);
+  const callName = normalizeSkillCallName(value.callName);
   const authorId = portableId(value.authorId);
   const author = clean(value.author);
   const license = clean(value.license);
@@ -49,6 +49,14 @@ function trustedDownloadUrl(value) {
     const url = new URL(String(value ?? ""));
     return url.protocol === "https:" && RELEASE_HOSTS.has(url.hostname) && !url.username && !url.password && !url.search && !url.hash ? url.href : "";
   } catch { return ""; }
+}
+
+export function normalizeSkillCallName(value) {
+  const raw = String(value ?? "");
+  if (/[\u0000-\u001f\u007f]/.test(raw)) throw new Error("精选 Skill 调用名不能包含控制字符");
+  const name = raw.trim();
+  if (!name || name.length > 80 || /[\\/]/.test(name)) throw new Error("精选 Skill 调用名必须为不含斜杠的 1 至 80 个字符");
+  return name;
 }
 
 function portableId(value) { const text = clean(value).toLocaleLowerCase("en-US"); return /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(text) && text.length <= 63 ? text : ""; }

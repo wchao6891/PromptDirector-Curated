@@ -7,6 +7,7 @@ import test from "node:test";
 import { writePromptDirectorZip } from "../tools/curated-zip.mjs";
 import {
   extractOfficialAttachmentUrls,
+  fetchOfficialAttachment,
   isOfficialAttachmentUrl,
   preflightSubmission,
   readStoredZip
@@ -87,6 +88,47 @@ test("只提取 GitHub 官方投稿附件", () => {
   assert.equal(isOfficialAttachmentUrl(official), true);
   assert.equal(isOfficialAttachmentUrl("https://github.com/example/file.zip"), false);
   assert.equal(isOfficialAttachmentUrl("https://example.com/user-attachments/assets/a"), false);
+});
+
+test("附件下载只允许逐跳跳转到 GitHub 官方文件域名", async () => {
+  const calls = [];
+  const responses = [
+    new Response(null, {
+      status: 302,
+      headers: { location: "https://objects.githubusercontent.com/github-production-repository-file/123/submission.zip" }
+    }),
+    new Response(new Uint8Array([1, 2, 3]), { status: 200 })
+  ];
+  const response = await fetchOfficialAttachment(
+    "https://github.com/user-attachments/files/123/submission.zip",
+    { fetchImpl: async (url, options) => {
+      calls.push({ url, options });
+      return responses.shift();
+    } }
+  );
+
+  assert.equal(response.status, 200);
+  assert.deepEqual(calls.map((call) => call.url), [
+    "https://github.com/user-attachments/files/123/submission.zip",
+    "https://objects.githubusercontent.com/github-production-repository-file/123/submission.zip"
+  ]);
+  assert.equal(calls.every((call) => call.options.redirect === "manual"), true);
+  assert.equal(calls.every((call) => call.options.credentials === "omit"), true);
+});
+
+test("附件下载在离开 GitHub 官方域名前立即拒绝", async () => {
+  let calls = 0;
+  await assert.rejects(
+    fetchOfficialAttachment(
+      "https://github.com/user-attachments/files/123/submission.zip",
+      { fetchImpl: async () => {
+        calls += 1;
+        return new Response(null, { status: 302, headers: { location: "https://example.com/submission.zip" } });
+      } }
+    ),
+    /跳转.*GitHub 官方地址/
+  );
+  assert.equal(calls, 1);
 });
 
 test("即使 ZIP 和摘要有效，额外私人字段仍会被拒绝", async () => {

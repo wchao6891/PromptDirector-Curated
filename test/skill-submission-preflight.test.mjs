@@ -9,17 +9,30 @@ import { writePromptDirectorZip } from "../tools/curated-zip.mjs";
 import { preflightSkillSubmission } from "../tools/skill-submission-preflight.mjs";
 
 test("unpublished Skill submission passes without review-assigned author ID or semantic version", async () => {
-  const fixture = await makeFixture();
+  const fixture = await makeFixture({ callName: "中文构图方法" });
   try {
     const result = await preflightSkillSubmission([{ name: "skill-submission.zip", bytes: fixture.outer }]);
     assert.equal(result.ok, true);
     assert.equal(result.skillId, "composition-method");
     assert.equal(result.author, "Creator One");
+    assert.equal(result.callName, "中文构图方法");
     assert.equal(result.license, "CC BY 4.0");
     assert.equal("version" in result, false);
     assert.equal("authorId" in result, false);
     assert.equal(result.fileCount, 2);
   } finally { await fixture.cleanup(); }
+});
+
+test("unpublished Skill submission rejects unsafe or overlong readable call names", async () => {
+  for (const callName of ["", "bad/name", "bad\\name", "bad\u0000name", "名".repeat(81)]) {
+    const fixture = await makeFixture({ callName });
+    try {
+      await assert.rejects(
+        () => preflightSkillSubmission([{ name: "skill-submission.zip", bytes: fixture.outer }]),
+        /调用名|格式无效/
+      );
+    } finally { await fixture.cleanup(); }
+  }
 });
 
 test("unpublished Skill submission uses the fixed CC BY 4.0 license", async () => {
@@ -101,7 +114,7 @@ async function makeFixture(options = {}) {
     format: "prompt-director-curated-skill-submission",
     version: 1,
     skillId: "composition-method",
-    callName: "composition-method",
+    callName: options.callName ?? "composition-method",
     title: "Composition Method",
     author: "Creator One",
     license: options.license ?? "CC BY 4.0",

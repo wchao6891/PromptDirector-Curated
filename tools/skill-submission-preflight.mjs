@@ -1,8 +1,8 @@
 import { createHash } from "node:crypto";
 import { readFile, writeFile } from "node:fs/promises";
 import { basename, resolve } from "node:path";
-import { extractOfficialAttachmentUrls, isOfficialAttachmentUrl, readStoredZip } from "./submission-preflight.mjs";
-import { PUBLIC_SKILL_LICENSE } from "../site/skill-catalog.js";
+import { extractOfficialAttachmentUrls, fetchOfficialAttachment, readStoredZip } from "./submission-preflight.mjs";
+import { normalizeSkillCallName, PUBLIC_SKILL_LICENSE } from "../site/skill-catalog.js";
 
 const LIMITS = { maxBytes: 16 * 1024 * 1024, maxFiles: 66, maxFileBytes: 1024 * 1024 };
 const decoder = new TextDecoder("utf-8", { fatal: true });
@@ -33,7 +33,18 @@ export async function preflightSkillSubmission(inputFiles) {
   if (skill.name !== normalized.skillId) throw new Error("SKILL.md 身份与投稿清单不一致");
   const digest = sha256(Buffer.from(preview.map((file) => `${file.path}\0${file.text}\0`).join("")));
   if (digest !== normalized.digest) throw new Error("精选 Skill 投稿全文摘要不一致");
-  return { ok: true, skillId: normalized.skillId, author: normalized.author, license: normalized.license, fileCount: files.size, digest, payload };
+  return {
+    ok: true,
+    skillId: normalized.skillId,
+    callName: normalized.callName,
+    title: normalized.title,
+    author: normalized.author,
+    license: normalized.license,
+    summary: normalized.summary,
+    fileCount: files.size,
+    digest,
+    payload
+  };
 }
 
 function validateManifest(value) {
@@ -41,6 +52,8 @@ function validateManifest(value) {
     throw new Error("稳定作者编号、发布版本和目录编号只能由人工审核发布阶段确定");
   }
   const skillId = portableId(value?.skillId);
+  const callName = normalizeSkillCallName(value?.callName);
+  const title = clean(value?.title);
   const author = clean(value?.author);
   const license = clean(value?.license);
   const summary = clean(value?.summary);
@@ -49,11 +62,11 @@ function validateManifest(value) {
   const fileCount = positiveInteger(value?.fileCount);
   const payloadBytes = positiveInteger(value?.payloadBytes);
   if (license !== PUBLIC_SKILL_LICENSE) throw new Error(`精选 Skill 投稿许可必须是 ${PUBLIC_SKILL_LICENSE}`);
-  if (value?.format !== "prompt-director-curated-skill-submission" || value.version !== 1 || !skillId ||
+  if (value?.format !== "prompt-director-curated-skill-submission" || value.version !== 1 || !skillId || !title ||
       !author || value.reviewStatus !== "pending" || !summary || !isHash(digest) || !isHash(payloadSha256) || !fileCount || !payloadBytes) {
     throw new Error("精选 Skill 投稿清单格式无效");
   }
-  return { skillId, author, license, summary, digest, payloadSha256, fileCount, payloadBytes };
+  return { skillId, callName, title, author, license, summary, digest, payloadSha256, fileCount, payloadBytes };
 }
 
 function parseSkillFrontmatter(markdown) {
@@ -83,13 +96,18 @@ async function readInput(value) {
   return { name: basename(path), bytes: new Uint8Array(await readFile(path)) };
 }
 
-async function downloadAttachment(url) {
-  if (!isOfficialAttachmentUrl(url)) throw new Error("附件地址不是 GitHub 官方地址");
-  const response = await fetch(url, { credentials: "omit", redirect: "follow" });
+export async function downloadSkillSubmissionAttachment(url) {
+  const response = await fetchOfficialAttachment(url);
   if (!response.ok) throw new Error(`GitHub 附件下载失败（${response.status}）`);
   const bytes = new Uint8Array(await response.arrayBuffer());
   if (bytes.byteLength > LIMITS.maxBytes) throw new Error("精选 Skill 投稿附件超过安全上限");
   return { name: basename(new URL(url).pathname), bytes };
+}
+
+export async function loadSkillSubmissionFromIssueBody(issueBody) {
+  const urls = extractOfficialAttachmentUrls(String(issueBody ?? ""));
+  const files = await Promise.all(urls.map(downloadSkillSubmissionAttachment));
+  return preflightSkillSubmission(files);
 }
 
 function assertExactNames(files, names) { if (files.size !== names.length || names.some((name) => !files.has(name))) throw new Error("精选 Skill 投稿 ZIP 结构无效"); }
@@ -109,9 +127,7 @@ async function main() {
   let report;
   try {
     if (!issueBodyPath) throw new Error("缺少 GitHub Issue 内容");
-    const urls = extractOfficialAttachmentUrls(await readFile(issueBodyPath, "utf8"));
-    const files = await Promise.all(urls.map(downloadAttachment));
-    const result = await preflightSkillSubmission(files);
+    const result = await loadSkillSubmissionFromIssueBody(await readFile(issueBodyPath, "utf8"));
     report = { ok: true, skillId: result.skillId, author: result.author, license: result.license, fileCount: result.fileCount };
   } catch (error) {
     report = { ok: false, message: error.message || "精选 Skill 投稿预检失败" };

@@ -2,7 +2,7 @@ name: 精选 Skill 投稿预检
 
 on:
   issues:
-    types: [opened, edited, reopened, labeled]
+    types: [opened, edited, reopened]
 
 permissions:
   contents: read

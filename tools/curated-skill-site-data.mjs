@@ -1,1 +1,1 @@
-export { PUBLIC_SKILL_LICENSE, normalizeSiteSkillCatalog } from "../site/skill-catalog.js";
+export { PUBLIC_SKILL_LICENSE, normalizeSiteSkillCatalog, normalizeSkillCallName } from "../site/skill-catalog.js";

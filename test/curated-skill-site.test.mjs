@@ -9,7 +9,7 @@ const item = {
   skillId: "composition-method",
   version: "1.0.0",
   title: "Composition Method",
-  callName: "composition-method",
+  callName: "构图方法",
   authorId: "creator-one",
   author: "Creator One",
   license: "CC BY 4.0",
@@ -25,9 +25,13 @@ const item = {
 test("public Skill catalog enforces stable identity, version, author, license, review and summary", () => {
   const catalog = normalizeSiteSkillCatalog({ format: "prompt-director-curated-skills", version: 1, updatedAt: "2026-08-23T00:00:00.000Z", skills: [item] });
   assert.equal(catalog.skills[0].skillId, "composition-method");
+  assert.equal(catalog.skills[0].callName, "构图方法");
   assert.throws(() => normalizeSiteSkillCatalog({ ...catalog, skills: [{ ...item, reviewStatus: "pending" }] }), /审核|发布/);
   assert.throws(() => normalizeSiteSkillCatalog({ ...catalog, skills: [{ ...item, id: "reviewer-invented-id" }] }), /编号|发布/);
   assert.throws(() => normalizeSiteSkillCatalog({ ...catalog, skills: [{ ...item, license: "MIT" }] }), /许可|发布/);
+  for (const callName of ["", "bad/name", "bad\\name", "bad\u0000name", "名".repeat(81)]) {
+    assert.throws(() => normalizeSiteSkillCatalog({ ...catalog, skills: [{ ...item, callName }] }), /调用名|发布/);
+  }
 });
 
 test("public site provides an independent browse-and-download-only Skill page", async () => {

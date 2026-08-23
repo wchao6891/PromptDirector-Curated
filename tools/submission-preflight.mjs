@@ -289,9 +289,23 @@ export function isOfficialAttachmentUrl(value) {
   }
 }
 
+export async function fetchOfficialAttachment(value, { fetchImpl = globalThis.fetch, maxRedirects = 5 } = {}) {
+  let url = String(value ?? "");
+  for (let redirectCount = 0; redirectCount <= maxRedirects; redirectCount += 1) {
+    if (!isOfficialAttachmentUrl(url)) {
+      throw new Error(redirectCount ? "附件跳转地址不是 GitHub 官方地址" : "附件地址不是 GitHub 官方地址");
+    }
+    const response = await fetchImpl(url, { credentials: "omit", redirect: "manual" });
+    if (![301, 302, 303, 307, 308].includes(response.status)) return response;
+    const location = response.headers.get("location");
+    if (!location) throw new Error("GitHub 附件跳转缺少目标地址");
+    url = new URL(location, url).href;
+  }
+  throw new Error("GitHub 附件跳转次数超过安全上限");
+}
+
 async function downloadAttachment(url, policy) {
-  if (!isOfficialAttachmentUrl(url)) throw new Error("附件地址不是 GitHub 官方地址");
-  const response = await fetch(url, { credentials: "omit", redirect: "follow" });
+  const response = await fetchOfficialAttachment(url);
   if (!response.ok) throw new Error(`GitHub 附件下载失败（${response.status}）`);
   const declared = Number(response.headers.get("content-length") || 0);
   if (declared > policy.maxTransportFileBytes) throw new Error("附件超过上传上限");
