@@ -1,6 +1,24 @@
 {
   "format": "prompt-director-curated-skills",
   "version": 1,
-  "updatedAt": "2026-08-23T00:00:00.000Z",
-  "skills": []
+  "updatedAt": "2026-08-23T05:39:16.000Z",
+  "skills": [
+    {
+      "id": "creative-skill-437b8a2c@1.0.0",
+      "skillId": "creative-skill-437b8a2c",
+      "version": "1.0.0",
+      "title": "中式意境美学·巨构神界",
+      "callName": "中式意境美学·巨构神界",
+      "authorId": "author-40ef3270e01b",
+      "author": "PromptDirector",
+      "license": "CC BY 4.0",
+      "reviewStatus": "approved",
+      "reviewedAt": "2026-08-23T05:39:16.000Z",
+      "summary": "中式意境美学",
+      "downloadUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/skill-creative-skill-437b8a2c-v1.0.0/creative-skill-437b8a2c-1.0.0.zip",
+      "sha256": "56882e67922e9706458d144d773ea26b731cb435ea48e8f9488f96c2dc67f819",
+      "archiveBytes": 5963,
+      "order": 1
+    }
+  ]
 }
