@@ -1,7 +1,7 @@
 {
   "format": "prompt-director-curated-skills",
   "version": 1,
-  "updatedAt": "2026-08-23T05:39:16.000Z",
+  "updatedAt": "2026-08-23T05:41:43.000Z",
   "skills": [
     {
       "id": "creative-skill-437b8a2c@1.0.0",
@@ -19,6 +19,23 @@
       "sha256": "56882e67922e9706458d144d773ea26b731cb435ea48e8f9488f96c2dc67f819",
       "archiveBytes": 5963,
       "order": 1
+    },
+    {
+      "id": "creative-skill-961418f2@1.0.0",
+      "skillId": "creative-skill-961418f2",
+      "version": "1.0.0",
+      "title": "字体技能",
+      "callName": "字体技能",
+      "authorId": "author-40ef3270e01b",
+      "author": "PromptDirector",
+      "license": "CC BY 4.0",
+      "reviewStatus": "approved",
+      "reviewedAt": "2026-08-23T05:41:43.000Z",
+      "summary": "专门字体设计技能，可以路由提炼的所有字体样式",
+      "downloadUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/skill-creative-skill-961418f2-v1.0.0/creative-skill-961418f2-1.0.0.zip",
+      "sha256": "81173329c5831f97c9b089a3ac290af96e9cbbe49c0dd652ac5ff5d9605eccbe",
+      "archiveBytes": 22714,
+      "order": 2
     }
   ]
 }
