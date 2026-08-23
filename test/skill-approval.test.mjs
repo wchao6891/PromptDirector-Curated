@@ -181,6 +181,9 @@ test("repository owner approval is serialized, publishes immutable assets, deplo
   assert.match(approval, /pages: write/);
   assert.match(approval, /id-token: write/);
   assert.match(approval, /tools\/approve-skill-submission\.mjs/);
+  assert.match(approval, /actions\/checkout@v6/);
+  assert.match(approval, /actions\/github-script@v8/);
+  assert.doesNotMatch(approval, /actions\/(?:checkout@v4|github-script@v7)/);
   assert.match(approval, /gh release download/);
   assert.match(approval, /gh release create/);
   assert.match(approval, /gh release upload/);
