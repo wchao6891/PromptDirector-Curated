@@ -168,8 +168,14 @@ def main() -> None:
         expect(skill_page.locator('nav a[href="index.html"]')).to_have_text("精选案例")
         expect(skill_page.locator('nav a[href="skills.html"]')).to_have_attribute("aria-current", "page")
         expect(skill_page.locator(".public-skill-card")).to_have_count(len(SKILL_CATALOG["skills"]))
-        expect(skill_page.locator('.skill-state[data-state="empty"]')).to_contain_text("精选 Skill 目录暂时为空")
-        expect(skill_page.locator('.skill-state[data-state="empty"] a[href="index.html"]')).to_have_text("浏览精选案例")
+        if SKILL_CATALOG["skills"]:
+            first_skill = SKILL_CATALOG["skills"][0]
+            expect(skill_page.locator(".public-skill-card").first.locator("h2")).to_have_text(first_skill["title"])
+            expect(skill_page.locator(".public-skill-card").first.locator("code")).to_have_text(f'/{first_skill["callName"]}')
+            expect(skill_page.locator('.skill-state[data-state="empty"]')).to_have_count(0)
+        else:
+            expect(skill_page.locator('.skill-state[data-state="empty"]')).to_contain_text("精选 Skill 目录暂时为空")
+            expect(skill_page.locator('.skill-state[data-state="empty"] a[href="index.html"]')).to_have_text("浏览精选案例")
         expect(skill_page.locator('[role="alert"]')).to_have_count(0)
         expect(skill_page.locator("text=保存到本地")).to_have_count(0)
         expect(skill_page.locator("text=安装 Skill")).to_have_count(0)
@@ -192,9 +198,28 @@ def main() -> None:
         expect(skill_failure_page.locator('.skill-state[data-state="error"]')).to_contain_text("精选 Skill 目录加载失败")
         expect(skill_failure_page.locator('.skill-state[data-state="error"] button')).to_have_text("重试")
         skill_failure_page.locator('.skill-state[data-state="error"] button').click()
-        expect(skill_failure_page.locator('.skill-state[data-state="empty"]')).to_be_visible()
+        expect(skill_failure_page.locator(".public-skill-card")).to_have_count(len(SKILL_CATALOG["skills"]))
         assert skill_catalog_attempts["count"] == 2
         skill_failure_page.close()
+
+        empty_skill_page = context.new_page()
+        empty_skill_page.route(
+            f"{SITE_URL}/skills-catalog.json",
+            lambda route: route.fulfill(
+                status=200,
+                content_type="application/json",
+                body=json.dumps({
+                    "format": "prompt-director-curated-skills",
+                    "version": 1,
+                    "updatedAt": "2026-08-23T00:00:00.000Z",
+                    "skills": [],
+                }),
+            ),
+        )
+        empty_skill_page.goto(f"{SITE_URL}/skills.html", wait_until="networkidle")
+        expect(empty_skill_page.locator('.skill-state[data-state="empty"]')).to_contain_text("精选 Skill 目录暂时为空")
+        expect(empty_skill_page.locator('.skill-state[data-state="empty"] a[href="index.html"]')).to_have_text("浏览精选案例")
+        empty_skill_page.close()
 
         searchable_skill_page = context.new_page()
         searchable_skill_page.route(

@@ -47,5 +47,10 @@ test("public site provides an independent browse-and-download-only Skill page", 
   assert.match(app, /fetch\("skills-catalog\.json"/);
   assert.match(app, /download\.href = item\.downloadUrl/);
   assert.doesNotMatch(app, /chrome\.|保存到本地|安装 Skill|eval\(|new Function|innerHTML/);
-  assert.deepEqual(JSON.parse(catalog), { format: "prompt-director-curated-skills", version: 1, updatedAt: "2026-08-23T00:00:00.000Z", skills: [] });
+  const parsedCatalog = JSON.parse(catalog);
+  assert.deepEqual(normalizeSiteSkillCatalog(parsedCatalog), parsedCatalog);
+  for (const skill of parsedCatalog.skills) {
+    assert.equal(skill.reviewStatus, "approved");
+    assert.match(skill.downloadUrl, /^https:\/\/github\.com\/wchao6891\/PromptDirector-Curated\/releases\/download\//);
+  }
 });
