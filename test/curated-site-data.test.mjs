@@ -53,7 +53,7 @@ test("catalog requires stable authors and trusted preview URLs without changing 
   assert.throws(() => normalizeSiteCatalog(catalog({ themes: [theme({ rightsReviewUrl: "https://attacker.example/review.json" })] })), /权利审核记录地址无效/);
 });
 
-test("every public package binds to a matching verified rights review", () => {
+test("every public package binds to a matching rights status record", () => {
   const item = theme();
   const value = normalizeSiteRightsReview({
     format: "prompt-director-curated-rights-review",
@@ -206,4 +206,21 @@ test("public cases use visual-only masonry cards and a copy-only case detail", a
   assert.match(app, /image\.width = entry\.width/);
   assert.match(app, /setPackageDetailInert\(true\)/);
   assert.match(app, /renderCatalogFailure\(\)/);
+});
+
+
+test("source selections retain unverified status without becoming authorized", () => {
+  const item = theme({ rightsStatus: "source_unverified", license: "权利归原作者 · 授权未核验" });
+  const value = normalizeSiteCatalog(catalog({ themes: [item] }));
+  assert.equal(value.themes[0].rightsStatus, "source_unverified");
+  const record = {
+    format: "prompt-director-curated-rights-review", version: 1,
+    catalogId: item.id, packageId: item.packageId, packageVersion: item.packageVersion,
+    status: "source_unverified", reviewedAt: item.updatedAt, reviewerId: item.authorId,
+    evidence: { origin: "Historical source links; no authorization evidence provided", entryCount: 1,
+      thirdPartySourceUrlCount: 1, sourceRecordsRetainedByPublisher: true },
+    distributionScope: ["Public preview"]
+  };
+  assert.equal(normalizeSiteRightsReview(record, item).status, "source_unverified");
+  assert.throws(() => normalizeSiteRightsReview({ ...record, status: "verified_authorized" }, item), /与目录不一致/);
 });

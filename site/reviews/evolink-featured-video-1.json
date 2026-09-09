@@ -1,0 +1,20 @@
+{
+  "format": "prompt-director-curated-rights-review",
+  "version": 1,
+  "catalogId": "featured:evolink-video-1",
+  "packageId": "evolink-featured-video-1",
+  "packageVersion": "1.0.0",
+  "status": "source_unverified",
+  "reviewedAt": "2026-09-09T17:40:27.057512Z",
+  "reviewerId": "promptdirector-editorial",
+  "evidence": {
+    "origin": "历史公开案例包及逐案例来源记录；维护者批准恢复分发，未提供再分发授权证据。",
+    "entryCount": 27,
+    "thirdPartySourceUrlCount": 27,
+    "sourceRecordsRetainedByPublisher": true
+  },
+  "distributionScope": [
+    "PromptDirector Curated public preview",
+    "PromptDirector Curated release package"
+  ]
+}

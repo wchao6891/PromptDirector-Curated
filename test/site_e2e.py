@@ -8,12 +8,13 @@ from playwright.sync_api import expect, sync_playwright
 
 
 SITE_URL = os.environ.get("CURATED_SITE_URL", "http://127.0.0.1:4180")
-CATALOG = json.loads((Path(__file__).parents[1] / "site" / "catalog.json").read_text())
+CATALOG = json.loads((Path(__file__).parents[1] / "site" / "public-catalog.json").read_text())
 SKILL_CATALOG = json.loads((Path(__file__).parents[1] / "site" / "skills-catalog.json").read_text())
 EXPECTED_PACK_COUNT = len(CATALOG["themes"])
 EXPECTED_VIDEO_PACK_COUNT = sum(theme["type"] == "video_prompt" for theme in CATALOG["themes"])
 
-assert EXPECTED_PACK_COUNT == 1
+assert EXPECTED_PACK_COUNT > 1
+assert all(t["rightsStatus"] in {"verified_original", "verified_authorized", "source_unverified"} for t in CATALOG["themes"])
 assert CATALOG["themes"][0]["id"] == "featured:vol-1"
 assert CATALOG["themes"][0]["caseCount"] == 20
 assert CATALOG["themes"][0]["rightsStatus"] == "verified_original"
@@ -138,7 +139,7 @@ def main() -> None:
             else:
                 route.continue_()
 
-        failure_page.route(f"{SITE_URL}/catalog.json", fail_catalog_once)
+        failure_page.route(f"{SITE_URL}/public-catalog.json", fail_catalog_once)
         failure_page.goto(SITE_URL, wait_until="domcontentloaded")
         expect(failure_page.locator(".empty-state")).to_contain_text("精选目录加载失败")
         expect(failure_page.locator(".empty-state button")).to_have_text("重试")

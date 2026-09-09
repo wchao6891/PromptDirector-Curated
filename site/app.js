@@ -1,6 +1,6 @@
 import { createStableMasonry } from "./masonry.js";
 
-const CATALOG_URL = "catalog.json";
+const CATALOG_URL = "public-catalog.json";
 const METRICS_URL = "metrics.json";
 const FOLLOW_STORAGE_KEY = "promptdirector.curated.following.v1";
 const CASE_PAGE_SIZE = 24;
@@ -246,7 +246,7 @@ function renderDetail(item, preview, failed = false) {
   const info = element("div", "detail-info");
   info.append(element("h1", "", item.title));
   const meta = element("div", "detail-meta");
-  meta.append(element("span", "", item.author), element("span", "", `${item.caseCount} 个案例`), element("span", "", rightsLabel(item.license)));
+  meta.append(element("span", "", item.author), element("span", "", `${item.caseCount} 个案例`), element("span", "", item.rightsStatus === "source_unverified" ? "权利归原作者 · 授权未核验" : rightsLabel(item.license)));
   info.append(meta);
   const actions = element("div", "detail-actions");
   const download = element("a", "", "下载包");
@@ -416,7 +416,7 @@ function renderCaseDetail(item, entry) {
   prompt.append(element("h3", "", "完整提示词"), element("pre", "case-detail-prompt", entry.text));
   body.append(prompt);
   const source = element("div", "case-detail-source");
-  source.append(element("span", "", entry.rights || rightsLabel(item.license)));
+  source.append(element("span", "", item.rightsStatus === "source_unverified" ? "权利归原作者 · 授权未核验" : (entry.rights || rightsLabel(item.license))));
   if (entry.sourceUrl) {
     const link = element("a", "", "查看来源");
     link.href = entry.sourceUrl;

@@ -8,7 +8,7 @@ const MEDIA_FORMAT = "prompt-director-curated-media";
 const MEDIA_VERSION = 1;
 const RIGHTS_REVIEW_FORMAT = "prompt-director-curated-rights-review";
 const RIGHTS_REVIEW_VERSION = 1;
-const VERIFIED_RIGHTS_STATUSES = new Set(["verified_original", "verified_authorized"]);
+const PUBLISHED_RIGHTS_STATUSES = new Set(["verified_original", "verified_authorized", "source_unverified"]);
 const SITE_HOST = "wchao6891.github.io";
 const RELEASE_HOSTS = new Set([
   "github.com",
@@ -205,7 +205,7 @@ export function normalizeTheme(value = {}) {
   const required = ["id", "title", "type", "packageId", "packageVersion", "authorId", "author", "license", "rightsStatus", "rightsReviewUrl"];
   if (required.some((key) => !clean(value[key]))) throw new Error("目录条目缺少必填字段");
   if (!["editorial", "image_prompt", "video_prompt"].includes(value.type)) throw new Error(`不支持的精选类型：${value.type}`);
-  if (!VERIFIED_RIGHTS_STATUSES.has(value.rightsStatus)) throw new Error(`发布资格无效：${value.id}`);
+  if (!PUBLISHED_RIGHTS_STATUSES.has(value.rightsStatus)) throw new Error(`发布资格无效：${value.id}`);
   const sha256 = clean(value.sha256).toLocaleLowerCase("en-US");
   if (!/^[a-f0-9]{64}$/.test(sha256)) throw new Error(`校验值无效：${value.id}`);
   return {
