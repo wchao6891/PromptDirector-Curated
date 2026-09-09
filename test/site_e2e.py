@@ -33,7 +33,8 @@ def main() -> None:
 
         expect(page.locator(".pack-card")).to_have_count(EXPECTED_PACK_COUNT)
         expect(page.locator("#sort-downloads")).to_be_enabled()
-        expect(page.locator(".topbar h1")).to_have_text("精选案例")
+        expect(page.locator(".public-brand strong")).to_have_text("PromptDirector")
+        expect(page.locator('.public-section-nav [aria-current="page"]')).to_have_text("精选案例")
         expect(page.locator(".support-link")).to_have_attribute("href", "support.html")
         expect(page.locator(".privacy-link")).to_have_attribute("href", "privacy.html")
         expect(page.locator(".install-link")).to_have_attribute(
@@ -165,7 +166,8 @@ def main() -> None:
 
         skill_page = context.new_page()
         skill_page.goto(f"{SITE_URL}/skills.html", wait_until="networkidle")
-        expect(skill_page.locator(".topbar h1")).to_have_text("精选 Skill")
+        expect(skill_page.locator(".public-brand strong")).to_have_text("PromptDirector")
+        expect(skill_page.locator('.public-section-nav [aria-current="page"]')).to_have_text("精选 Skill")
         expect(skill_page.locator('nav a[href="index.html"]')).to_have_text("精选案例")
         expect(skill_page.locator('nav a[href="skills.html"]')).to_have_attribute("aria-current", "page")
         expect(skill_page.locator(".public-skill-card")).to_have_count(len(SKILL_CATALOG["skills"]))

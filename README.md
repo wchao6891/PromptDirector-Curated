@@ -1,5 +1,7 @@
 # PromptDirector Curated
 
+提示词导演，你的视觉创作私人灵感库。
+
 PromptDirector 的公开精选案例与精选 Skill 目录。两类内容使用独立页面和独立目录，不混入同一内容流。
 
 普通用户可从 [Chrome Web Store 安装 PromptDirector](https://chromewebstore.google.com/detail/iahakaahijddcjjldidbclicedibgpjm)，再把审核后的精选案例保存到自己的本地资料库，或把精选 Skill 保存到本地 Skill 库。
