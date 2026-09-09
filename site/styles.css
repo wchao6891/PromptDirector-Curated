@@ -57,8 +57,11 @@ button:focus-visible, input:focus-visible, summary:focus-visible, [tabindex="0"]
 .ui-skill-card-actions > :is(button, a):hover { border-color: var(--border-strong); background: var(--hover); }
 
 .topbar { position: sticky; z-index: 20; top: 0; display: grid; min-height: 58px; grid-template-columns: auto minmax(260px, 720px) auto; align-items: center; justify-content: space-between; gap: 12px; border-bottom: 1px solid var(--border); padding: 9px max(12px, calc((100vw - var(--max-width)) / 2)); background: color-mix(in srgb, var(--surface) 96%, transparent); }
-.topbar h1 { margin: 0; font-size: 17px; line-height: 1.2; }
 .public-section-title { display: flex; align-items: center; gap: 12px; }
+.public-brand { display: grid; min-width: 0; gap: 1px; color: var(--text); text-decoration: none; }
+.public-brand strong, .public-brand span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.public-brand strong { font-size: 14px; line-height: 17px; }
+.public-brand span { color: var(--muted); font-size: 10px; line-height: 13px; }
 .public-section-nav { flex: none; }
 .search-shell { display: grid; min-width: 0; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 8px; border: 1px solid var(--border); border-radius: var(--radius); padding: 0 10px; background: var(--raised); }
 .search-shell:focus-within { border-color: var(--border-strong); }
@@ -99,6 +102,8 @@ button:focus-visible, input:focus-visible, summary:focus-visible, [tabindex="0"]
 .source-link:hover { border-color: var(--border-strong); background: var(--hover); }
 
 .app-shell { width: calc(100% - 12px); max-width: var(--max-width); min-height: calc(100dvh - 58px); margin: 8px auto 48px; }
+.site-footer { display: flex; max-width: var(--max-width); align-items: center; justify-content: space-between; gap: 12px; margin: 0 auto; border-top: 1px solid var(--border); padding: 16px 12px 24px; color: var(--muted); font-size: 11px; }
+.site-footer strong { color: var(--text); }
 .pack-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
 .pack-card { min-width: 0; overflow: hidden; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); cursor: pointer; }
 .pack-card:hover { border-color: var(--border-strong); box-shadow: 0 8px 20px color-mix(in srgb, var(--viewer) 15%, transparent); }

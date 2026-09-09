@@ -25,7 +25,10 @@
 body { min-width: 320px; margin: 0; background: var(--page); }
 a { color: inherit; }
 .policy-header { position: sticky; top: 0; display: flex; min-height: 58px; align-items: center; justify-content: space-between; gap: 16px; border-bottom: 1px solid var(--border); padding: 10px max(16px, calc((100vw - 880px) / 2)); background: color-mix(in srgb, var(--surface) 96%, transparent); }
-.policy-header strong { font-size: 15px; }
+.policy-brand { display: grid; min-width: 0; gap: 1px; }
+.policy-brand strong, .policy-brand span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.policy-brand strong { font-size: 15px; line-height: 18px; }
+.policy-brand span { color: var(--muted); font-size: 10px; line-height: 13px; }
 .policy-header a { border: 1px solid var(--border); border-radius: 5px; padding: 7px 10px; font-size: 12px; font-weight: 700; text-decoration: none; }
 .policy-main { width: calc(100% - 28px); max-width: 880px; margin: 24px auto 64px; }
 .policy-hero { border: 1px solid var(--border); border-radius: 8px; padding: clamp(22px, 5vw, 48px); background: var(--surface); }
@@ -40,4 +43,6 @@ h1 { margin: 0; font-size: clamp(30px, 6vw, 52px); letter-spacing: -.04em; }
 .policy-section li + li { margin-top: 6px; }
 .language-divider { margin-top: 52px; border-top: 4px solid var(--accent); padding-top: 38px; }
 code { border-radius: 4px; padding: 2px 5px; background: var(--surface); font-size: .92em; }
+.policy-footer { display: flex; max-width: 880px; align-items: center; justify-content: space-between; gap: 16px; margin: 0 auto; border-top: 1px solid var(--border); padding: 18px 14px 28px; color: var(--muted); font-size: 11px; }
+.policy-footer strong { color: var(--text); }
 @media (max-width: 600px) { .policy-header { padding-inline: 14px; } .policy-main { margin-top: 14px; } }
