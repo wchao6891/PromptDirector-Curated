@@ -1,7 +1,7 @@
 {
   "format": "prompt-director-curated",
   "version": 2,
-  "updatedAt": "2026-09-13T13:35:33.328Z",
+  "updatedAt": "2026-09-13T13:40:56.851Z",
   "themes": [
     {
       "id": "featured:vol-1",
@@ -278,6 +278,29 @@
       "videoCount": 0,
       "summary": "PromptDirector-即梦精选-视觉设定集-分享，收录原始媒体与提示词。",
       "order": 12
+    },
+    {
+      "id": "cases-1ea9f7e33e0b293d2a12",
+      "title": "即梦精选-电商广告",
+      "type": "image_prompt",
+      "packageId": "cases-1ea9f7e33e0b293d2a12",
+      "packageVersion": "1.0.0",
+      "authorId": "github-258240113",
+      "author": "wchao6891",
+      "license": "第三方来源精选 · 权利归原作者 · 授权未核验",
+      "rightsStatus": "source_unverified",
+      "rightsReviewUrl": "https://wchao6891.github.io/PromptDirector-Curated/reviews/cases-1ea9f7e33e0b293d2a12.json",
+      "updatedAt": "2026-09-13T13:38:39.942Z",
+      "coverUrl": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-1ea9f7e33e0b293d2a12/media/d05734e6c650f4718fe8.webp",
+      "previewUrl": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-1ea9f7e33e0b293d2a12/preview.json",
+      "downloadUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/cases-1ea9f7e33e0b293d2a12-1.0.0/cases-1ea9f7e33e0b293d2a12.zip",
+      "sha256": "21907959be543afe7d94b657285103be0460e68cb1783395729de8d50628bc3e",
+      "archiveBytes": 414150634,
+      "caseCount": 100,
+      "imageCount": 100,
+      "videoCount": 0,
+      "summary": "PromptDirector-即梦精选-电商头图-分享，收录原始媒体与提示词。",
+      "order": 13
     }
   ]
 }
