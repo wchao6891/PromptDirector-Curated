@@ -104,7 +104,7 @@ export async function createReviewDesk({ dataRoot, repoRoot = REPO_ROOT, port = 
       if (path === '/api/sessions' && req.method === 'POST') {
         const input = await body(req), id = randomUUID(), root = sessionRoot(id);
         await mkdir(join(root, 'uploads'), { recursive: true });
-        await save(join(root, 'session.json'), { title: String(input.title || '新审核'), createdAt: new Date().toISOString() });
+        await save(join(root, 'session.json'), { title: String(input.title || '新审核'), selectAll: input.selectAll === true, createdAt: new Date().toISOString() });
         return reply(res, 200, { id });
       }
       const match = path.match(/^\/api\/sessions\/([a-f0-9-]{36})(?:\/(.*))?$/);
@@ -171,7 +171,9 @@ export async function createReviewDesk({ dataRoot, repoRoot = REPO_ROOT, port = 
         if (action === 'entries' && req.method === 'GET') {
           const imported = await json(join(root, 'import.json'));
           let selection = null; try { selection = await json(join(root, 'selection.json')); } catch {}
-          return reply(res, 200, { cleaned: imported.cleaned, duplicateIds: imported.duplicateIds, selection, entries: imported.library.entries.map(entry => ({
+          let issue = null; try { issue = await json(join(root, 'issue.json')); } catch {}
+          const info = await json(join(root, 'session.json'));
+          return reply(res, 200, { selectAll: info.selectAll === true, issue: issue && { title: issue.title, url: issue.url }, cleaned: imported.cleaned, duplicateIds: imported.duplicateIds, selection, entries: imported.library.entries.map(entry => ({
             id: entry.id, title: entry.title, text: entry.text, author: entryAuthor(entry), sourceUrl: entrySource(entry),
             primaryMediaId: entry.primaryMediaId, mediaAssets: entry.mediaAssets.map(asset => ({ ...asset, localUrl: `/api/sessions/${id}/media/${encodeURIComponent(asset.assetPath)}` }))
           })) });

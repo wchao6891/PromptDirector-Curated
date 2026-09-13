@@ -1,9 +1,10 @@
+import { defaultSelection, selectEveryEntry, quickPublish } from './workflow.js';
 const $ = id => document.getElementById(id);
 let token = location.hash.slice(1) || sessionStorage.getItem('review-token');
 if (token) { sessionStorage.setItem('review-token', token); history.replaceState(null, '', location.pathname); }
 const state = { id: '', entries: [], chosen: new Map(), coverId: '', page: 0, ready: false, busy: false };
 const PAGE_SIZE = 24;
-let health, saveTimer, detailEntry;
+let health, saveTimer, detailEntry, selectImported = false;
 async function api(path, value, method) {
   const response = await fetch(path, { method: method || (value === undefined ? 'GET' : 'POST'), headers: { 'x-review-token': token || '', ...(value === undefined ? {} : { 'Content-Type': 'application/json' }) }, ...(value === undefined ? {} : { body: JSON.stringify(value) }) });
   const result = await response.json();
@@ -27,7 +28,8 @@ async function sessionList() {
   }
 }
 async function newSession(title = '新审核') {
-  const result = await api('/api/sessions', { title });
+  clearTimeout(saveTimer);
+  const result = await api('/api/sessions', { title, selectAll: selectImported });
   state.id = result.id; state.ready = false; state.entries = []; state.chosen.clear(); state.page = 0; state.coverId = '';
   $('review').hidden = true; $('ready').hidden = true; $('receipt').hidden = true; $('intake').hidden = false; $('heading').textContent = title;
   await sessionList(); return state.id;
@@ -39,13 +41,13 @@ async function openSession(id) {
   await sessionList();
   if (info.busy) return waitJob();
   try { await loadEntries(); } catch { $('review').hidden = true; $('intake').hidden = false; }
-  if (info.lastError) status(info.lastError, true);
   await showReceipt();
 }
 async function loadEntries() {
   const data = await api(`/api/sessions/${state.id}/entries`);
   state.entries = data.entries; state.chosen.clear();
-  const selection = data.selection;
+  const selection = defaultSelection(data.entries, data.selection, { title: data.issue?.title.replace(/^\[投稿\]\s*/, '') || $('heading').textContent, publisher: health?.account?.login || '', issueUrl: data.issue?.url, selectAll: !data.issue && data.selectAll });
+  selectImported = false;
   for (const entry of state.entries) {
     const previous = (selection?.edits || selection?.entries)?.find(item => item.id === entry.id);
     if (previous) { entry.author = previous.author; entry.sourceUrl = previous.sourceUrl; }
@@ -58,12 +60,12 @@ async function loadEntries() {
   $('evidence').value = selection?.evidence || '';
   $('rights').value = selection?.rightsStatus || 'source_unverified';
   $('preview-edge').value = selection?.previewMaxEdge || 1200;
-  $('confirmed').checked = selection?.confirmed || false;
   $('duplicates').hidden = !data.duplicateIds.length;
   $('duplicates').textContent = `发现 ${data.duplicateIds.length} 组媒体与提示词完全相同的案例，请每组只收录一个。`;
   $('intake').hidden = true; $('review').hidden = false;
   renderCards();
-  status(`预检通过：${state.entries.length} 个案例。${data.cleaned ? '已从普通导出包提取公开字段，私人整理信息不会发布。' : ''}原作者可留空。请检查内容后选择收录。`);
+  await saveSelection();
+  status(`${state.entries.length} 个案例已就绪，原作者可留空。`);
 }
 function filtered() {
   const query = $('search').value.trim().toLowerCase();
@@ -72,7 +74,11 @@ function filtered() {
 function renderCards() {
   const entries = filtered(), pages = Math.max(1, Math.ceil(entries.length / PAGE_SIZE)); state.page = Math.max(0, Math.min(state.page, pages - 1));
   $('cards').replaceChildren();
-  $('counts').textContent = `${state.entries.length} 个案例 · 已选 ${state.chosen.size} 个 · ${state.coverId ? '已设置封面' : '未设置封面'}`;
+  if (!state.chosen.has(state.coverId)) state.coverId = state.entries.find(entry => state.chosen.has(entry.id))?.id || '';
+  $('counts').textContent = `${state.entries.length} 个案例 · 已选 ${state.chosen.size} 个`;
+  $('publish').textContent = state.chosen.size === state.entries.length ? `发布全部 ${state.chosen.size} 个案例` : `发布所选 ${state.chosen.size} 个案例`;
+  $('publish').disabled = state.busy || !state.chosen.size;
+  $('publication-summary').textContent = `${$('rights').selectedOptions[0].textContent} · 原作者可留空 · 封面自动使用首个所选案例，可在详情更换`;
   $('page').textContent = `${state.page + 1} / ${pages}`;
   $('previous').disabled = state.page === 0; $('next').disabled = state.page >= pages - 1;
   for (const entry of entries.slice(state.page * PAGE_SIZE, (state.page + 1) * PAGE_SIZE)) {
@@ -89,12 +95,12 @@ function renderCards() {
 }
 function select(id, value) { if (value) state.chosen.set(id, true); else { state.chosen.delete(id); if (state.coverId === id) state.coverId = ''; } }
 function selection() {
-  return { title: $('title').value, publisher: $('publisher').value, summary: $('summary').value, evidence: $('evidence').value, rightsStatus: $('rights').value, previewMaxEdge: Number($('preview-edge').value), confirmed: $('confirmed').checked, coverId: state.coverId,
+  return { title: $('title').value, publisher: $('publisher').value, summary: $('summary').value, evidence: $('evidence').value, rightsStatus: $('rights').value, previewMaxEdge: Number($('preview-edge').value), confirmed: false, coverId: state.coverId,
     entries: state.entries.filter(entry => state.chosen.has(entry.id)).map(entry => ({ id: entry.id, author: entry.author, sourceUrl: entry.sourceUrl })),
     edits: state.entries.map(entry => ({ id: entry.id, author: entry.author, sourceUrl: entry.sourceUrl })) };
 }
 function dirty() {
-  state.ready = false; $('ready').hidden = true; $('confirmed').checked = false; clearTimeout(saveTimer);
+  state.ready = false; $('ready').hidden = true; clearTimeout(saveTimer); renderCards();
   saveTimer = setTimeout(() => saveSelection().catch(error => status(`审核进度保存失败：${error.message}`, true)), 600);
 }
 async function saveSelection() { if (state.id && state.entries.length) await api(`/api/sessions/${state.id}/selection`, selection()); }
@@ -140,6 +146,7 @@ async function showReceipt() {
 $('new-session').onclick = wrap(() => newSession());
 $('files').onchange = wrap(async () => {
   const files = [...$('files').files]; if (!files.length) return;
+  selectImported = $('import-all').checked;
   await newSession(files.length === 1 ? files[0].name : `${files.length} 卷投稿审核`); busy(true);
   for (const [index, file] of files.entries()) {
     status(`正在保存到本机 ${index + 1}/${files.length}：${file.name}`);
@@ -148,21 +155,26 @@ $('files').onchange = wrap(async () => {
   }
   await api(`/api/sessions/${state.id}/inspect`, {}); await waitJob();
 });
-$('issue-form').onsubmit = wrap(async event => { event.preventDefault(); const url = $('issue-url').value; await newSession('GitHub 投稿审核'); await api(`/api/sessions/${state.id}/issue`, { url }); await waitJob(); });
+$('issue-form').onsubmit = wrap(async event => { event.preventDefault(); selectImported = false; const url = $('issue-url').value; await newSession('GitHub 投稿审核'); await api(`/api/sessions/${state.id}/issue`, { url }); await waitJob(); });
 $('search').oninput = $('only-selected').onchange = () => { state.page = 0; renderCards(); };
 $('previous').onclick = () => { state.page--; renderCards(); }; $('next').onclick = () => { state.page++; renderCards(); };
 for (const [id, value] of [['select-page', true], ['clear-page', false]]) $(id).onclick = () => { filtered().slice(state.page * PAGE_SIZE, (state.page + 1) * PAGE_SIZE).forEach(entry => select(entry.id, value)); renderCards(); dirty(); };
+$('select-all').onclick = () => { state.chosen = selectEveryEntry(state.entries); dirty(); };
+$('clear-all').onclick = () => { state.chosen.clear(); dirty(); };
 $('close-detail').onclick = () => $('detail').close(); $('detail').onclose = () => { applyDetail(); $('detail-media').querySelector('video')?.pause(); detailEntry = null; };
 $('use-cover').onclick = () => { $('detail-selected').checked = true; state.coverId = detailEntry.id; applyDetail(); status('已设为合集封面'); };
 for (const id of ['title', 'publisher', 'summary', 'evidence', 'rights', 'preview-edge']) $(id).oninput = dirty;
-$('save').onclick = wrap(async () => { clearTimeout(saveTimer); await saveSelection(); status('审核进度已保存在本机'); });
-$('prepare').onclick = wrap(async () => { clearTimeout(saveTimer); await saveSelection(); await api(`/api/sessions/${state.id}/prepare`, selection()); await waitJob(); });
+
+async function prepare() { busy(true); clearTimeout(saveTimer); await saveSelection(); await api(`/api/sessions/${state.id}/prepare`, selection()); await waitJob(); if (!state.ready) throw new Error('预览校验未完成，请重试'); }
+$('prepare').onclick = wrap(prepare);
 $('publish').onclick = wrap(async () => {
-  if (!state.ready) throw new Error('请先生成网站预览');
-  if (!$('confirmed').checked) throw new Error('请确认已检查所选案例的内容、隐私与权利');
-  if (!confirm(`将公开发布“${$('title').value}”的 ${state.chosen.size} 个案例及原始媒体，并更新精选网站。确认发布？`)) return;
-  await saveSelection();
-  await api(`/api/sessions/${state.id}/publish`, { confirmPublish: true }); await waitJob();
+  if (!state.chosen.size) throw new Error('请先选择要发布的案例');
+  clearTimeout(saveTimer); busy(true);
+  await quickPublish({ prepare: async () => { if (!state.ready) await prepare(); }, publish: async () => {
+    busy(true);
+    await api(`/api/sessions/${state.id}/selection`, { ...selection(), confirmed: true });
+    await api(`/api/sessions/${state.id}/publish`, { confirmPublish: true }); await waitJob();
+  } });
 });
 try {
   await api('/api/unlock', {}); await sessionList(); health = await api('/api/status');
