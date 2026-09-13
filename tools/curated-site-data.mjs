@@ -65,7 +65,7 @@ export function normalizeSitePreview(value, themeValue) {
     const videoSha256 = hasVideoAsset ? clean(entry?.videoSha256).toLocaleLowerCase("en-US") : "";
     const videoBytes = hasVideoAsset ? positiveInteger(entry?.videoBytes, "精选视频大小无效") : 0;
     const videoMimeType = hasVideoAsset ? clean(entry?.videoMimeType) : "";
-    if (!id || !title || !text || !author || !rights || !mediaKind) throw new Error(`${theme.id} 的预览案例缺少字段`);
+    if (!id || !title || !text || !rights || !mediaKind) throw new Error(`${theme.id} 的预览案例缺少字段`);
     if (hasVideoAsset && (mediaKind !== "video" || !/^[a-f0-9]{64}$/.test(videoSha256) || videoMimeType !== "video/mp4")) {
       throw new Error(`${theme.id} 的精选视频字段无效`);
     }

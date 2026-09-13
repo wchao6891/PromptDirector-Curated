@@ -4,7 +4,7 @@ import { mkdtemp, mkdir, readFile, rm, stat, cp, copyFile } from 'node:fs/promis
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { createReviewDesk } from '../tools/review-desk/server.mjs';
-import { importPackage, preparePackage, reviewSelection, sanitizeLibrary, suggestedAuthor } from '../tools/review-desk/package.mjs';
+import { importPackage, preparePackage, reviewSelection, sanitizeLibrary } from '../tools/review-desk/package.mjs';
 import { mergeCatalog, prepareSitePreview, publishPrepared } from '../tools/review-desk/publish.mjs';
 import { writePromptDirectorZip } from '../tools/curated-zip.mjs';
 import { readStoredZip } from '../tools/submission-preflight.mjs';
@@ -39,7 +39,6 @@ test('普通完整 ZIP 保留原始媒体，剔除私人字段，预览使用实
     assert.equal(imported.cleaned, true);
     assert.equal(imported.library.version, 5);
     assert.doesNotMatch(JSON.stringify(imported.library), /PRIVATE-|localPath|composerSessions/);
-    assert.equal(suggestedAuthor(f.library.entries[0]), '测试作者');
     const prepared = await preparePackage({ root: f.root, selection: selection(), repository: 'wchao6891/PromptDirector-Curated', siteUrl: 'https://wchao6891.github.io/PromptDirector-Curated/', reviewerId: 'github-123', policy });
     const zip = readStoredZip(await readFile(prepared.assets[0].path), { maxBytes: policy.maxSubmissionBytes, maxFiles: policy.maxFileCount, maxFileBytes: policy.maxSubmissionBytes });
     assert.deepEqual(Buffer.from(zip.get('images/a.png')), await readFile(join(f.root, 'source/images/a.png')));
@@ -53,13 +52,23 @@ test('普通完整 ZIP 保留原始媒体，剔除私人字段，预览使用实
   } finally { await f.cleanup(); }
 });
 
-test('预览允许先检查效果，但选择必须具备原作者、来源和收录封面', async () => {
+test('作者可缺失，已有署名保留，来源和收录封面仍需有效', async () => {
   const f = await fixture();
   try {
     const library = sanitizeLibrary(f.library);
     assert.equal(reviewSelection(library, { ...selection(), confirmed: false }).length, 1);
     assert.throws(() => reviewSelection(library, { ...selection(), coverId: 'missing' }), /封面/);
-    assert.throws(() => reviewSelection(library, { ...selection(), entries: [{ id: 'test-entry', author: '', sourceUrl: 'https://example.com/art' }] }), /原作者/);
+    const emptyAuthor = { ...selection(), entries: [{ id: 'test-entry', author: '', sourceUrl: 'https://example.com/art' }] };
+    assert.ok(reviewSelection(library, emptyAuthor)[0].metadataLabels.includes('作者：测试作者'));
+    library.entries[0].mediaAssets[0].sourceAuthor = '';
+    library.entries[0].metadataLabels = [];
+    assert.equal(reviewSelection(library, emptyAuthor)[0].metadataLabels.some(label => label.startsWith('作者：')), false);
+    await importPackage([f.archive], f.root, policy);
+    const imported = await json(join(f.root, 'import.json'));
+    imported.library = library;
+    await save(join(f.root, 'import.json'), imported);
+    const prepared = await preparePackage({ root: f.root, selection: emptyAuthor, repository: 'wchao6891/PromptDirector-Curated', siteUrl: 'https://wchao6891.github.io/PromptDirector-Curated/', reviewerId: 'github-123', policy });
+    await prepareSitePreview(prepared, repoRoot);
     assert.throws(() => reviewSelection(library, { ...selection(), entries: [{ id: 'test-entry', author: '作者', sourceUrl: 'javascript:alert(1)' }] }), /来源/);
   } finally { await f.cleanup(); }
 });

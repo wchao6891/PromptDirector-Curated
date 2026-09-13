@@ -47,7 +47,6 @@ async function loadEntries() {
   state.entries = data.entries; state.chosen.clear();
   const selection = data.selection;
   for (const entry of state.entries) {
-    if (!entry.author && entry.suggestedAuthor) { entry.author = entry.suggestedAuthor; entry.authorSuggested = true; }
     const previous = (selection?.edits || selection?.entries)?.find(item => item.id === entry.id);
     if (previous) { entry.author = previous.author; entry.sourceUrl = previous.sourceUrl; }
     if (selection?.entries.some(item => item.id === entry.id)) state.chosen.set(entry.id, true);
@@ -64,7 +63,7 @@ async function loadEntries() {
   $('duplicates').textContent = `发现 ${data.duplicateIds.length} 组媒体与提示词完全相同的案例，请每组只收录一个。`;
   $('intake').hidden = true; $('review').hidden = false;
   renderCards();
-  status(`预检通过：${state.entries.length} 个案例。${data.cleaned ? '已从普通导出包提取公开字段，私人整理信息不会发布。' : ''}${state.entries.some(entry => entry.authorSuggested) ? '部分署名根据“作者 · 日期”来源标题预填，需打开来源核实。' : ''}请逐项检查后选择收录。`);
+  status(`预检通过：${state.entries.length} 个案例。${data.cleaned ? '已从普通导出包提取公开字段，私人整理信息不会发布。' : ''}原作者可留空。请检查内容后选择收录。`);
 }
 function filtered() {
   const query = $('search').value.trim().toLowerCase();
@@ -85,7 +84,7 @@ function renderCards() {
     const meta = document.createElement('div'); meta.className = 'meta'; const title = document.createElement('h3'); title.textContent = entry.title; meta.append(title);
     const label = document.createElement('label'); label.className = 'select'; const checkbox = document.createElement('input'); checkbox.type = 'checkbox'; checkbox.checked = state.chosen.has(entry.id);
     checkbox.onchange = () => { select(entry.id, checkbox.checked); renderCards(); dirty(); };
-    label.append(checkbox, document.createTextNode('收录')); const author = document.createElement('span'); author.textContent = (entry.author || '待补原作者') + (entry.authorSuggested ? ' · 待核实' : ''); author.className = entry.author && !entry.authorSuggested ? '' : 'missing'; label.append(author); meta.append(label); card.append(meta); $('cards').append(card);
+    label.append(checkbox, document.createTextNode('收录')); const author = document.createElement('span'); author.textContent = entry.author || '未提供作者'; label.append(author); meta.append(label); card.append(meta); $('cards').append(card);
   }
 }
 function select(id, value) { if (value) state.chosen.set(id, true); else { state.chosen.delete(id); if (state.coverId === id) state.coverId = ''; } }

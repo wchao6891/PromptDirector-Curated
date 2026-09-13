@@ -30,10 +30,6 @@ export function entryAuthor(entry) {
     || entry.mediaAssets?.find(asset => asset.sourceAuthor?.trim())?.sourceAuthor.trim() || '';
 }
 export function entrySource(entry) { return httpsUrl(entry.url) || entry.sourcePages?.map(page => httpsUrl(page.url)).find(Boolean) || ''; }
-export function suggestedAuthor(entry) {
-  const title = entry.mediaAssets?.find(asset => asset.id === entry.primaryMediaId)?.sourceTitle || entry.title || '';
-  return String(title).match(/^(.+?)\s+·\s+\d{4}-\d{2}-\d{2}$/)?.[1]?.trim() || '';
-}
 
 export async function importPackage(paths, root, policy, progress = () => {}) {
   progress('正在检查包结构、完整性和媒体');
@@ -102,12 +98,11 @@ export function reviewSelection(library, selection) {
   if (!requested.size || requested.size !== selection.entries.length) throw new Error('至少选择一个案例，且不能重复选择');
   const entries = library.entries.filter(entry => requested.has(entry.id)).map(entry => {
     const edit = requested.get(entry.id);
-    const author = String(edit.author ?? '').trim();
+    const author = String(edit.author ?? '').trim() || entryAuthor(entry);
     const source = httpsUrl(edit.sourceUrl);
-    if (!author) throw new Error(`${entry.title} 缺少原作者署名`);
     if (selection.rightsStatus !== 'verified_original' && !source) throw new Error(`${entry.title} 缺少可核验的来源链接`);
     return { ...entry, url: source, sourcePages: source ? [{ title: entry.title, url: source }] : [],
-      metadataLabels: [`作者：${author}`, `权利：${rightsLabel(selection.rightsStatus)}`] };
+      metadataLabels: [...(author ? [`作者：${author}`] : []), `权利：${rightsLabel(selection.rightsStatus)}`] };
   });
   if (entries.length !== requested.size) throw new Error('所选案例已变化，请重新检查');
   if (!entries.some(entry => entry.id === selection.coverId)) throw new Error('封面必须来自已选案例');

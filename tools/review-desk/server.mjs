@@ -8,7 +8,7 @@ import { join, resolve, extname, dirname, sep } from 'node:path';
 import { homedir } from 'node:os';
 import { pathToFileURL } from 'node:url';
 import { json, save, run, digest } from './common.mjs';
-import { importPackage, preparePackage, entryAuthor, entrySource, suggestedAuthor, selectionDigest } from './package.mjs';
+import { importPackage, preparePackage, entryAuthor, entrySource, selectionDigest } from './package.mjs';
 import { prepareSitePreview, publishPrepared } from './publish.mjs';
 import { extractOfficialAttachmentUrls, downloadAttachment, submissionTransportLimits } from '../submission-preflight.mjs';
 
@@ -172,7 +172,7 @@ export async function createReviewDesk({ dataRoot, repoRoot = REPO_ROOT, port = 
           const imported = await json(join(root, 'import.json'));
           let selection = null; try { selection = await json(join(root, 'selection.json')); } catch {}
           return reply(res, 200, { cleaned: imported.cleaned, duplicateIds: imported.duplicateIds, selection, entries: imported.library.entries.map(entry => ({
-            id: entry.id, title: entry.title, text: entry.text, author: entryAuthor(entry), suggestedAuthor: suggestedAuthor(entry), sourceUrl: entrySource(entry),
+            id: entry.id, title: entry.title, text: entry.text, author: entryAuthor(entry), sourceUrl: entrySource(entry),
             primaryMediaId: entry.primaryMediaId, mediaAssets: entry.mediaAssets.map(asset => ({ ...asset, localUrl: `/api/sessions/${id}/media/${encodeURIComponent(asset.assetPath)}` }))
           })) });
         }

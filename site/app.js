@@ -410,7 +410,8 @@ function renderCaseDetail(item, entry) {
   }
   const body = element("div", "case-detail-body");
   const heading = element("header", "case-detail-heading");
-  heading.append(element("h2", "", entry.title), element("p", "", entry.author));
+  heading.append(element("h2", "", entry.title));
+  if (entry.author) heading.append(element("p", "", entry.author));
   body.append(heading);
   const prompt = element("section", "case-detail-section");
   prompt.append(element("h3", "", "完整提示词"), element("pre", "case-detail-prompt", entry.text));
