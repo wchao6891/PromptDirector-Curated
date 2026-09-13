@@ -1,7 +1,7 @@
 {
   "format": "prompt-director-curated",
   "version": 2,
-  "updatedAt": "2026-09-13T14:05:58.967Z",
+  "updatedAt": "2026-09-13T14:14:04.099Z",
   "themes": [
     {
       "id": "featured:vol-1",
@@ -347,6 +347,29 @@
       "videoCount": 0,
       "summary": "PromptDirector-即梦精选-品牌设计-分享，收录原始媒体与提示词。",
       "order": 15
+    },
+    {
+      "id": "cases-ed99fb86238d9dca13c0",
+      "title": "即梦精选-灵感系列",
+      "type": "image_prompt",
+      "packageId": "cases-ed99fb86238d9dca13c0",
+      "packageVersion": "1.0.0",
+      "authorId": "github-258240113",
+      "author": "wchao6891",
+      "license": "第三方来源精选 · 权利归原作者 · 授权未核验",
+      "rightsStatus": "source_unverified",
+      "rightsReviewUrl": "https://wchao6891.github.io/PromptDirector-Curated/reviews/cases-ed99fb86238d9dca13c0.json",
+      "updatedAt": "2026-09-13T14:11:50.126Z",
+      "coverUrl": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-ed99fb86238d9dca13c0/media/7ff7166e74e747598dff.webp",
+      "previewUrl": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-ed99fb86238d9dca13c0/preview.json",
+      "downloadUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/cases-ed99fb86238d9dca13c0-1.0.0/cases-ed99fb86238d9dca13c0.zip",
+      "sha256": "04f91bbbe7ba3422f8fccce59ef889777e1d77ca572f206024d1f714433ccb50",
+      "archiveBytes": 319255755,
+      "caseCount": 91,
+      "imageCount": 91,
+      "videoCount": 0,
+      "summary": "PromptDirector-即梦精选-灵感系列-分享，收录原始媒体与提示词。",
+      "order": 16
     }
   ]
 }
