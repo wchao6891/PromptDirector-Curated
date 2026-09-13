@@ -1,6 +1,6 @@
 import { createHash } from "node:crypto";
 import { spawn } from "node:child_process";
-import { mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
+import { mkdtemp, readFile, rm, stat, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { basename, join, resolve } from "node:path";
 
@@ -10,16 +10,31 @@ const SUBMISSION_FORMAT = "prompt-director-curated-submission";
 const PART_FORMAT = "prompt-director-curated-submission-part";
 const UTF8_FLAG = 0x0800;
 const STORE_METHOD = 0;
+export const SUPPORTED_CURATED_LIBRARY_VERSIONS = Object.freeze([3, 4, 5]);
+
+export function submissionTransportLimits(policy) {
+  const overhead = policy.transportOverheadBytes ?? 16 * 1024;
+  const payloadBytes = policy.maxTransportFileBytes - overhead;
+  if (!positiveInteger(payloadBytes) || !positiveInteger(policy.maxSubmissionBytes)) throw new Error("投稿容量配置无效");
+  const maxFiles = Math.ceil(policy.maxSubmissionBytes / payloadBytes);
+  return { maxFiles, maxBytes: policy.maxSubmissionBytes + maxFiles * overhead };
+}
 
 export async function preflightSubmission(inputFiles, options = {}) {
   const policy = options.policy ?? JSON.parse(await readFile(options.policyPath ?? DEFAULT_POLICY_PATH, "utf8"));
-  if (!inputFiles.length || inputFiles.length > policy.maxTransportFiles) throw new Error("投稿文件数量超过安全上限");
-  const files = await Promise.all(inputFiles.map(readInputFile));
+  const limits = submissionTransportLimits(policy);
+  if (!inputFiles.length || inputFiles.length > limits.maxFiles) throw new Error(`投稿文件数量无效，当前容量最多支持 ${limits.maxFiles} 个分卷`);
+  const files = [];
+  let totalBytes = 0;
+  for (const input of inputFiles) {
+    if (typeof input === "string" && (await stat(resolve(input))).size > policy.maxTransportFileBytes) throw new Error("单个投稿文件超过上传上限");
+    const file = await readInputFile(input);
+    totalBytes += file.bytes.byteLength;
+    if (totalBytes > limits.maxBytes) throw new Error("投稿文件总大小超过安全上限");
+    files.push(file);
+  }
   if (files.some((file) => file.bytes.byteLength > policy.maxTransportFileBytes)) {
     throw new Error("单个投稿文件超过上传上限");
-  }
-  if (files.reduce((sum, file) => sum + file.bytes.byteLength, 0) > policy.maxTransportFileBytes * policy.maxTransportFiles) {
-    throw new Error("投稿文件总大小超过安全上限");
   }
 
   const archive = await reconstructSubmissionArchive(files, policy);
@@ -93,6 +108,8 @@ export async function reconstructSubmissionArchive(files, policy) {
     throw new Error("投稿分卷不完整");
   }
   parts.sort((a, b) => a.manifest.partIndex - b.manifest.partIndex);
+  const totalBytes = parts.reduce((sum, part) => sum + part.payload.byteLength, 0);
+  if (totalBytes !== identity.archiveBytes || totalBytes > policy.maxSubmissionBytes) throw new Error("重组后的投稿包大小无效");
   const bytes = concat(parts.map((part) => part.payload));
   if (bytes.byteLength !== identity.archiveBytes || bytes.byteLength > policy.maxSubmissionBytes) {
     throw new Error("重组后的投稿包大小无效");
@@ -161,7 +178,7 @@ export function readStoredZip(bytesValue, limits) {
     const dataEnd = dataOffset + size;
     if (localExtraLength || localFlags !== flags || localMethod !== method || localChecksum !== checksum || localSize !== size ||
         localName !== name || dataEnd > directoryOffset) throw new Error("ZIP 文件记录不一致");
-    const data = bytes.slice(dataOffset, dataEnd);
+    const data = bytes.subarray(dataOffset, dataEnd);
     if (crc32(data) !== checksum) throw new Error("ZIP 文件校验失败");
     declaredBytes += data.byteLength;
     if (declaredBytes > limits.maxBytes) throw new Error("ZIP 解压内容超过安全上限");
@@ -178,11 +195,11 @@ export function readStoredZip(bytesValue, limits) {
   return files;
 }
 
-async function inspectPayload(payload, policy, options) {
+export async function inspectPayload(payload, policy, options = {}) {
   const zip = readStoredZip(payload, {
     maxBytes: policy.maxSubmissionBytes,
     maxFiles: policy.maxFileCount,
-    maxFileBytes: Math.max(policy.maxVideoBytes, policy.maxLibraryJsonBytes)
+    maxFileBytes: policy.maxSubmissionBytes
   });
   if (!zip.has("library.json")) throw new Error("投稿内容缺少 library.json");
   for (const name of zip.keys()) {
@@ -192,8 +209,8 @@ async function inspectPayload(payload, policy, options) {
   }
   if (zip.get("library.json").byteLength > policy.maxLibraryJsonBytes) throw new Error("案例清单超过安全上限");
   const library = parseJson(zip.get("library.json"), "案例清单");
-  if (library?.format !== "prompt-case-library" || library.version !== 3 || !Array.isArray(library.entries)) {
-    throw new Error("投稿内容不是 PromptDirector v3 案例包");
+  if (library?.format !== "prompt-case-library" || !SUPPORTED_CURATED_LIBRARY_VERSIONS.includes(library.version) || !Array.isArray(library.entries)) {
+    throw new Error("投稿内容不是受支持的 PromptDirector 案例包");
   }
   if (!library.entries.length || library.entries.length > policy.maxEntries) throw new Error("投稿案例数量无效");
   assertPublicLibraryShape(library);
@@ -220,8 +237,9 @@ async function inspectPayload(payload, policy, options) {
       if (usedPaths.has(path) || !zip.has(path)) throw new Error("投稿媒体路径缺失或重复");
       usedPaths.add(path);
       const bytes = zip.get(path);
-      const limit = asset.kind === "video" ? policy.maxVideoBytes : policy.maxImageBytes;
-      if (!bytes.byteLength || bytes.byteLength > limit) throw new Error("投稿媒体大小超过安全上限");
+      if (!bytes.byteLength || bytes.byteLength > policy.maxSubmissionBytes) throw new Error("投稿媒体大小超过整包容量上限");
+      assertOptionalHttps(asset.sourceUrl);
+      assertOptionalHttps(asset.originalWorkUrl);
       assertMediaSignature(bytes, asset.kind, path);
       probes.push({ bytes, kind: asset.kind, path });
       mediaCount += 1;
@@ -266,7 +284,7 @@ async function readInputFile(value) {
   if (value instanceof Uint8Array) return { name: "submission.zip", bytes: value };
   if (value?.bytes) return { name: String(value.name ?? "submission.zip"), bytes: asBytes(value.bytes) };
   const path = resolve(String(value));
-  return { name: basename(path), bytes: new Uint8Array(await readFile(path)) };
+  return { name: basename(path), bytes: await readFile(path) };
 }
 
 export function extractOfficialAttachmentUrls(body) {
@@ -295,7 +313,13 @@ export async function fetchOfficialAttachment(value, { fetchImpl = globalThis.fe
     if (!isOfficialAttachmentUrl(url)) {
       throw new Error(redirectCount ? "附件跳转地址不是 GitHub 官方地址" : "附件地址不是 GitHub 官方地址");
     }
-    const response = await fetchImpl(url, { credentials: "omit", redirect: "manual" });
+    let response;
+    try { response = await fetchImpl(url, { credentials: "omit", redirect: "manual" }); }
+    catch (cause) {
+      const error = new Error("暂时无法连接 GitHub 附件服务，请稍后重试", { cause });
+      error.errorType = "system";
+      throw error;
+    }
     if (![301, 302, 303, 307, 308].includes(response.status)) return response;
     const location = response.headers.get("location");
     if (!location) throw new Error("GitHub 附件跳转缺少目标地址");
@@ -304,13 +328,23 @@ export async function fetchOfficialAttachment(value, { fetchImpl = globalThis.fe
   throw new Error("GitHub 附件跳转次数超过安全上限");
 }
 
-async function downloadAttachment(url, policy) {
-  const response = await fetchOfficialAttachment(url);
-  if (!response.ok) throw new Error(`GitHub 附件下载失败（${response.status}）`);
+export async function downloadAttachment(url, policy, options = {}) {
+  const response = await fetchOfficialAttachment(url, options);
+  if (!response.ok) {
+    const error = new Error(`GitHub 附件下载失败（${response.status}）`);
+    error.errorType = response.status === 404 ? "submission" : "system";
+    throw error;
+  }
   const declared = Number(response.headers.get("content-length") || 0);
   if (declared > policy.maxTransportFileBytes) throw new Error("附件超过上传上限");
-  const bytes = new Uint8Array(await response.arrayBuffer());
-  if (bytes.byteLength > policy.maxTransportFileBytes) throw new Error("附件超过上传上限");
+  const chunks = [];
+  let received = 0;
+  for await (const chunk of response.body) {
+    received += chunk.byteLength;
+    if (received > policy.maxTransportFileBytes) throw new Error("附件超过上传上限");
+    chunks.push(chunk);
+  }
+  const bytes = concat(chunks);
   return { name: basename(new URL(url).pathname) || "submission.zip", bytes };
 }
 
@@ -341,7 +375,7 @@ function assertPublicLibraryShape(library) {
       assertAllowedKeys(asset, [
         "id", "kind", "usage", "storageMode", "sourceUrl", "sourceTitle", "capturedAt", "mimeType",
         "width", "height", "durationMs", "byteSize", "posterAssetId", "derivedFromAssetId",
-        "reviewStatus", "playbackCapability", "assetPath"
+        "reviewStatus", "playbackCapability", "assetPath", "sourceAuthor", "originalWorkUrl", "sourceFormat", "formatCategory"
       ], "媒体");
     }
   }
@@ -508,16 +542,24 @@ async function main() {
     else if (args[index] === "--payload") payloadPath = args[++index];
     else throw new Error(`未知参数：${args[index]}`);
   }
-  const policy = JSON.parse(await readFile(DEFAULT_POLICY_PATH, "utf8"));
-  if (issueBodyPath) {
-    const body = await readFile(resolve(issueBodyPath), "utf8");
-    const urls = extractOfficialAttachmentUrls(body);
-    if (!urls.length) throw new Error("Issue 中没有找到 GitHub 官方投稿附件");
-    if (urls.length > policy.maxTransportFiles) throw new Error("投稿附件数量超过安全上限");
-    for (const url of urls) files.push(await downloadAttachment(url, policy));
-  }
   let report;
   try {
+    const policy = JSON.parse(await readFile(DEFAULT_POLICY_PATH, "utf8"));
+    if (issueBodyPath) {
+      const body = await readFile(resolve(issueBodyPath), "utf8");
+      const urls = extractOfficialAttachmentUrls(body);
+      if (!urls.length) throw new Error("Issue 中没有找到 GitHub 官方投稿附件");
+      const limits = submissionTransportLimits(policy);
+      if (urls.length > limits.maxFiles) throw new Error(`投稿附件数量超过当前容量支持的 ${limits.maxFiles} 个分卷`);
+      let downloadedBytes = 0;
+      for (const [index, url] of urls.entries()) {
+        const file = await downloadAttachment(url, policy);
+        downloadedBytes += file.bytes.byteLength;
+        if (downloadedBytes > limits.maxBytes) throw new Error("投稿文件总大小超过安全上限");
+        files.push(file);
+        process.stderr.write(`已下载 ${index + 1}/${urls.length} 个投稿文件\n`);
+      }
+    }
     const result = await preflightSubmission(files, { policy });
     report = { ...result, payload: undefined };
     if (payloadPath) await writeFile(resolve(payloadPath), result.payload);
@@ -525,7 +567,7 @@ async function main() {
     const message = error.message || "投稿预检失败";
     report = {
       ok: false,
-      errorType: message.includes("审核环境缺少媒体检查工具") ? "system" : "submission",
+      errorType: error.errorType || (message.includes("审核环境缺少媒体检查工具") ? "system" : "submission"),
       message
     };
     if (reportPath) await writeFile(resolve(reportPath), `${JSON.stringify(report, null, 2)}\n`);

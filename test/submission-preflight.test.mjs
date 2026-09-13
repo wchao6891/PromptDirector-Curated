@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
+import { spawnSync } from "node:child_process";
 import { mkdtemp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
@@ -7,16 +8,18 @@ import test from "node:test";
 import { writePromptDirectorZip } from "../tools/curated-zip.mjs";
 import {
   extractOfficialAttachmentUrls,
+  downloadAttachment,
   fetchOfficialAttachment,
   isOfficialAttachmentUrl,
   preflightSubmission,
-  readStoredZip
+  readStoredZip,
+  submissionTransportLimits
 } from "../tools/submission-preflight.mjs";
 
 const POLICY = {
   maxSubmissionBytes: 128 * 1024 * 1024,
   maxTransportFileBytes: 24 * 1024 * 1024,
-  maxTransportFiles: 6,
+  transportOverheadBytes: 16 * 1024,
   maxFileCount: 4096,
   maxLibraryJsonBytes: 16 * 1024 * 1024,
   maxEntries: 5000,
@@ -24,6 +27,58 @@ const POLICY = {
   maxVideoBytes: 128 * 1024 * 1024,
   maxImagePixels: 40_000_000
 };
+
+test("真实配置支持 46 卷，数量随总容量推导而非单独限制", async () => {
+  const policy = JSON.parse(await readFile(new URL("../submission-policy.json", import.meta.url), "utf8"));
+  assert.equal(policy.maxSubmissionBytes, 2 * 1024 ** 3 - 1);
+  assert.ok(submissionTransportLimits(policy).maxFiles >= 46);
+  const fixture = await makeSubmissionFixture();
+  try {
+    const parts = await makeParts(fixture.root, fixture.outer, fixture.submissionId, 46);
+    const result = await preflightSubmission(parts.reverse(), { policy, skipMediaProbe: true });
+    assert.equal(result.partCount, 46);
+    assert.deepEqual(result.payload, fixture.payload);
+    await assert.rejects(preflightSubmission(parts.slice(1), { policy, skipMediaProbe: true }), /不完整/);
+  } finally { await fixture.cleanup(); }
+});
+
+test("附件实际字节超限时停止读取，不依赖 Content-Length", async () => {
+  await assert.rejects(downloadAttachment("https://github.com/user-attachments/files/1/a.zip", {
+    maxTransportFileBytes: 2
+  }, { fetchImpl: async () => new Response(new Uint8Array([1, 2, 3])) }), /超过上传上限/);
+});
+
+test("GitHub 网络失败归为审核系统异常，不能要求用户重新生成附件", async () => {
+  await assert.rejects(fetchOfficialAttachment('https://github.com/user-attachments/files/1/a.zip', {
+    fetchImpl: async () => { throw new TypeError('fetch failed'); }
+  }), error => error.errorType === 'system');
+});
+
+test("下载前失败也会写出具体预检报告", async () => {
+  const root = await mkdtemp(join(tmpdir(), "preflight-report-test-"));
+  try {
+    const body = join(root, "issue.md");
+    const report = join(root, "report.json");
+    await writeFile(body, "没有附件");
+    const result = spawnSync(process.execPath, [new URL("../tools/submission-preflight.mjs", import.meta.url).pathname,
+      "--issue-body", body, "--report", report], { encoding: "utf8" });
+    assert.equal(result.status, 1);
+    const data = JSON.parse(await readFile(report, "utf8"));
+    assert.equal(data.ok, false);
+    assert.match(data.message, /没有找到 GitHub 官方投稿附件/);
+  } finally { await rm(root, { recursive: true, force: true }); }
+});
+
+test("当前导出版本与公开来源格式字段可审查，大原图不受独立小容量限制", async () => {
+  const fixture = await makeSubmissionFixture({}, { version: 5, imageBytes: 32 * 1024 * 1024 });
+  try {
+    const policy = JSON.parse(await readFile(new URL('../submission-policy.json', import.meta.url), 'utf8'));
+    const parts = await makeParts(fixture.root, fixture.outer, fixture.submissionId, 2);
+    const result = await preflightSubmission(parts, { policy, skipMediaProbe: true });
+    assert.equal(result.caseCount, 1);
+    assert.ok(result.payload.byteLength > 32 * 1024 * 1024);
+  } finally { await fixture.cleanup(); }
+});
 
 test("完整投稿包通过并以 payload 摘要作为 submissionId", async () => {
   const fixture = await makeSubmissionFixture();
@@ -160,17 +215,18 @@ test("投稿表单区分第三方推荐与本人授权，预检不会因标签�
   assert.match(workflow, /投稿文件无需重新上传/);
 });
 
-async function makeSubmissionFixture(entryPatch = {}) {
+async function makeSubmissionFixture(entryPatch = {}, options = {}) {
   const root = await mkdtemp(join(tmpdir(), "promptdirector-preflight-test-"));
   const payloadRoot = join(root, "payload");
   const outerRoot = join(root, "outer");
   await mkdir(join(payloadRoot, "images", "case-1"), { recursive: true });
   await mkdir(outerRoot, { recursive: true });
   const imagePath = "images/case-1/media-1.png";
-  const image = new Uint8Array([137, 80, 78, 71, 13, 10, 26, 10, 0, 0, 0, 0]);
+  const image = new Uint8Array(options.imageBytes || 12);
+  image.set([137, 80, 78, 71, 13, 10, 26, 10]);
   const library = {
     format: "prompt-case-library",
-    version: 3,
+    version: options.version || 3,
     entries: [{
       id: "case-1",
       title: "竖图案例",
@@ -193,7 +249,8 @@ async function makeSubmissionFixture(entryPatch = {}) {
         storageMode: "managed",
         assetPath: imagePath,
         reviewStatus: "unverified",
-        playbackCapability: "unknown"
+        playbackCapability: "unknown",
+        sourceAuthor: '测试作者', originalWorkUrl: 'https://example.com/source', sourceFormat: 'png', formatCategory: 'image'
       }],
       ...entryPatch
     }]
@@ -227,10 +284,9 @@ async function makeSubmissionFixture(entryPatch = {}) {
 
 async function makeParts(root, outer, submissionId, count) {
   const archiveSha256 = hash(outer);
-  const size = Math.ceil(outer.byteLength / count);
   const outputs = [];
   for (let index = 0; index < count; index += 1) {
-    const payload = outer.slice(index * size, Math.min(outer.byteLength, (index + 1) * size));
+    const payload = outer.slice(Math.floor(index * outer.byteLength / count), Math.floor((index + 1) * outer.byteLength / count));
     const partRoot = join(root, `part-${index + 1}`);
     await mkdir(partRoot, { recursive: true });
     await writeFile(join(partRoot, "part.json"), `${JSON.stringify({

@@ -3,23 +3,43 @@ name: 精选投稿预检
 on:
   issues:
     types: [opened, edited, reopened, labeled]
+  workflow_dispatch:
+    inputs:
+      issue_number:
+        description: 投稿 Issue 编号
+        required: true
+        type: string
 
 permissions:
   contents: read
   issues: write
 
+concurrency:
+  group: submission-preflight-${{ github.event.issue.number || inputs.issue_number }}
+  cancel-in-progress: true
+
 jobs:
   preflight:
-    if: startsWith(github.event.issue.title, '[投稿]') || contains(github.event.issue.labels.*.name, 'submission')
+    if: github.event_name == 'workflow_dispatch' || startsWith(github.event.issue.title, '[投稿]') || contains(github.event.issue.labels.*.name, 'submission')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
       - name: 保存投稿内容
+        id: submission
         env:
-          ISSUE_BODY: ${{ github.event.issue.body }}
-        run: |
-          printf '%s' "$ISSUE_BODY" > "$RUNNER_TEMP/issue-body.md"
+          MANUAL_ISSUE_NUMBER: ${{ inputs.issue_number }}
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const value = String(context.payload.issue?.number || process.env.MANUAL_ISSUE_NUMBER || '');
+            if (!/^[1-9][0-9]*$/.test(value) || !Number.isSafeInteger(Number(value))) throw new Error('投稿编号无效');
+            const issue_number = Number(value);
+            const issue = context.payload.issue || (await github.rest.issues.get({ owner: context.repo.owner, repo: context.repo.repo, issue_number })).data;
+            if (!issue.title.startsWith('[投稿]') && !issue.labels.some(label => label.name === 'submission')) throw new Error('这不是案例投稿');
+            fs.writeFileSync(`${process.env.RUNNER_TEMP}/issue-body.md`, issue.body || '');
+            core.setOutput('issue_number', String(issue_number));
 
       - name: 准备媒体检查工具
         run: |
@@ -40,7 +60,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: submission-preflight-${{ github.event.issue.number }}
+          name: submission-preflight-${{ steps.submission.outputs.issue_number }}
           path: |
             ${{ runner.temp }}/preflight-report.json
             ${{ runner.temp }}/review-payload.zip
@@ -48,16 +68,17 @@ jobs:
           retention-days: 30
 
       - name: 更新预检状态
-        if: always()
+        if: always() && steps.submission.outcome == 'success'
         uses: actions/github-script@v7
         env:
           PREFLIGHT_OK: ${{ steps.preflight.outcome == 'success' }}
           REPORT_PATH: ${{ runner.temp }}/preflight-report.json
+          ISSUE_NUMBER: ${{ steps.submission.outputs.issue_number }}
         with:
           script: |
             const fs = require('fs');
             const marker = '<!-- promptdirector-submission-preflight -->';
-            let report = { ok: false, message: '预检没有生成结果，请稍后重试。' };
+            let report = { ok: false, errorType: 'system', message: '预检没有生成结果，请查看运行日志。' };
             if (fs.existsSync(process.env.REPORT_PATH)) {
               report = JSON.parse(fs.readFileSync(process.env.REPORT_PATH, 'utf8'));
             }
@@ -65,7 +86,7 @@ jobs:
             const systemError = report.errorType === 'system';
             const owner = context.repo.owner;
             const repo = context.repo.repo;
-            const issue_number = context.issue.number;
+            const issue_number = Number(process.env.ISSUE_NUMBER);
             for (const name of ['preflight-passed', 'needs-fix', 'preflight-error']) {
               try {
                 await github.rest.issues.getLabel({ owner, repo, name });
@@ -95,9 +116,11 @@ jobs:
             const comments = await github.paginate(github.rest.issues.listComments, {
               owner, repo, issue_number, per_page: 100
             });
-            const previous = comments.find((comment) => comment.user?.type === 'Bot' && comment.body?.includes(marker));
-            if (previous) {
-              await github.rest.issues.updateComment({ owner, repo, comment_id: previous.id, body });
+            const previous = comments.filter((comment) => comment.user?.type === 'Bot' && comment.body?.includes(marker));
+            if (previous.length) {
+              for (const comment of previous) {
+                await github.rest.issues.updateComment({ owner, repo, comment_id: comment.id, body });
+              }
             } else {
               await github.rest.issues.createComment({ owner, repo, issue_number, body });
             }
