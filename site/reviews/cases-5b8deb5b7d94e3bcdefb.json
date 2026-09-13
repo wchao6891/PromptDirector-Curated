@@ -1,0 +1,21 @@
+{
+  "format": "prompt-director-curated-rights-review",
+  "version": 1,
+  "catalogId": "cases-5b8deb5b7d94e3bcdefb",
+  "packageId": "cases-5b8deb5b7d94e3bcdefb",
+  "packageVersion": "1.0.0",
+  "status": "source_unverified",
+  "reviewedAt": "2026-09-13T15:34:36.909Z",
+  "reviewerId": "github-258240113",
+  "evidence": {
+    "origin": "通过本机精选审核台整理，案例来源链接随内容保留。",
+    "entryCount": 113,
+    "thirdPartySourceUrlCount": 113,
+    "sourceRecordsRetainedByPublisher": true
+  },
+  "distributionScope": [
+    "公开网站预览",
+    "原始媒体与提示词 ZIP 下载",
+    "保存到本地资料库"
+  ]
+}

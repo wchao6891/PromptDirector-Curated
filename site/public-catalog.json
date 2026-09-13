@@ -1,7 +1,7 @@
 {
   "format": "prompt-director-curated",
   "version": 2,
-  "updatedAt": "2026-09-13T14:14:04.099Z",
+  "updatedAt": "2026-09-13T15:53:33.511Z",
   "themes": [
     {
       "id": "featured:vol-1",
@@ -370,6 +370,29 @@
       "videoCount": 0,
       "summary": "PromptDirector-即梦精选-灵感系列-分享，收录原始媒体与提示词。",
       "order": 16
+    },
+    {
+      "id": "cases-5b8deb5b7d94e3bcdefb",
+      "title": "小黑盒精选焚诀",
+      "type": "image_prompt",
+      "packageId": "cases-5b8deb5b7d94e3bcdefb",
+      "packageVersion": "1.0.0",
+      "authorId": "github-258240113",
+      "author": "wchao6891",
+      "license": "第三方来源精选 · 权利归原作者 · 授权未核验",
+      "rightsStatus": "source_unverified",
+      "rightsReviewUrl": "https://wchao6891.github.io/PromptDirector-Curated/reviews/cases-5b8deb5b7d94e3bcdefb.json",
+      "updatedAt": "2026-09-13T15:34:36.909Z",
+      "coverUrl": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-5b8deb5b7d94e3bcdefb/media/a4ca32995d5bd2390a0b.webp",
+      "previewUrl": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-5b8deb5b7d94e3bcdefb/preview.json",
+      "downloadUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/cases-5b8deb5b7d94e3bcdefb-1.0.0/cases-5b8deb5b7d94e3bcdefb.zip",
+      "sha256": "6c0c0fbb6d8c4ad2679e8c7200a7edf6f9ac8e23cb7379ec37046b0f08c1fd6d",
+      "archiveBytes": 253455473,
+      "caseCount": 113,
+      "imageCount": 113,
+      "videoCount": 0,
+      "summary": "PromptDirector-小黑盒焚诀-分享，收录原始媒体与提示词。",
+      "order": 17
     }
   ]
 }
