@@ -1,7 +1,7 @@
 {
   "format": "prompt-director-curated-metrics",
   "version": 1,
-  "updatedAt": "2026-09-13T13:58:38.946Z",
+  "updatedAt": "2026-09-13T14:05:58.968Z",
   "downloads": {
     "featured:vol-1": 17,
     "featured:jimeng": 32,
@@ -16,6 +16,7 @@
     "cases-85fe274e06c395c24e8a": 0,
     "cases-1ceeb0d9bc533bf10bcc": 0,
     "cases-1ea9f7e33e0b293d2a12": 0,
-    "cases-4529f91713cffcfe4dc1": 0
+    "cases-4529f91713cffcfe4dc1": 0,
+    "cases-f05a7604a4a889ede786": 0
   }
 }
