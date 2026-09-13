@@ -56,6 +56,10 @@ export function buildPublication(submission, catalogValue, repositoryValue, revi
     downloadUrl: release.downloadUrl,
     sha256,
     archiveBytes: submission.payload.byteLength,
+    ...(submission.cover ? { cover: {
+      path: `skill-previews/${submission.skillId}/${version}/${submission.cover.path.split("/").at(-1)}`,
+      sha256: submission.cover.sha256, byteSize: submission.cover.byteSize
+    } } : {}),
     order: Math.max(0, ...catalog.skills.map((itemValue) => itemValue.order)) + 1
   };
   const nextCatalog = normalizeSiteSkillCatalog({
@@ -69,7 +73,8 @@ export function buildPublication(submission, catalogValue, repositoryValue, revi
     item,
     catalog: nextCatalog,
     asset: { bytes: submission.payload, sha256, archiveBytes: submission.payload.byteLength },
-    release
+    release,
+    cover: submission.cover
   };
 }
 
@@ -149,6 +154,7 @@ async function main() {
   const assetPath = join(assetDirectory, publication.release.assetName);
   await writeAtomic(assetPath, publication.asset.bytes);
   if (publication.status === "publish") {
+    if (publication.cover) await writeAtomic(join(dirname(catalogPath), publication.item.cover.path), publication.cover.bytes);
     await writeAtomic(catalogPath, `${JSON.stringify(publication.catalog, null, 2)}\n`);
   }
   const result = {

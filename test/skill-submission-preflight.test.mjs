@@ -6,6 +6,7 @@ import { join } from "node:path";
 import test from "node:test";
 
 import { writePromptDirectorZip } from "../tools/curated-zip.mjs";
+import { prepareSkillPublication } from "../tools/approve-skill-submission.mjs";
 import { preflightSkillSubmission } from "../tools/skill-submission-preflight.mjs";
 
 test("unpublished Skill submission passes without review-assigned author ID or semantic version", async () => {
@@ -106,6 +107,12 @@ async function makeFixture(options = {}) {
     paths.push(options.extraPath);
     texts.set(options.extraPath, options.extraText);
   }
+  for (const [path, bytes] of Object.entries(options.covers ?? {})) {
+    await mkdir(join(payloadRoot, "assets"), { recursive: true });
+    await writeFile(join(payloadRoot, path), bytes);
+    paths.push(path);
+    texts.set(path, hash(bytes));
+  }
   const payloadPath = join(root, "payload.zip");
   await writePromptDirectorZip(payloadPath, payloadRoot, paths);
   const payload = new Uint8Array(await readFile(payloadPath));
@@ -135,3 +142,35 @@ async function makeFixture(options = {}) {
 }
 
 function hash(value) { return createHash("sha256").update(value).digest("hex"); }
+
+// Deliberately synthetic GIF fixture, never a curated artwork.
+const syntheticCover = Buffer.from("R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7", "base64");
+
+test("v2 preserves a binary outcome cover through preflight and publication", async () => {
+  const fixture = await makeFixture({ covers: { "assets/cover.gif": syntheticCover }, manifest: { version: 2 } });
+  try {
+    const result = await preflightSkillSubmission([fixture.outer]);
+    assert.equal(result.cover.sha256, hash(syntheticCover));
+    assert.deepEqual(Buffer.from(result.cover.bytes), syntheticCover);
+    const publication = await prepareSkillPublication({
+      submissionFiles: [fixture.outer], repository: "creator/catalog", reviewedAt: "2026-09-13T00:00:00Z",
+      catalog: { format: "prompt-director-curated-skills", version: 1, updatedAt: "2026-09-13T00:00:00Z", skills: [] }
+    });
+    assert.equal(publication.item.cover.path, "skill-previews/composition-method/1.0.0/cover.gif");
+    assert.equal(publication.item.cover.sha256, hash(syntheticCover));
+    assert.deepEqual(Buffer.from(publication.cover.bytes), syntheticCover);
+  } finally { await fixture.cleanup(); }
+});
+
+test("v2 rejects missing, duplicate, fake and modified covers without weakening v1 compatibility", async () => {
+  for (const [options, expected] of [
+    [{}, /缺少成果封面/],
+    [{ covers: { "assets/cover.gif": syntheticCover, "assets/cover.png": syntheticCover } }, /只能包含一张/],
+    [{ covers: { "assets/cover.gif": Buffer.from("not an image") } }, /内容与格式不符/],
+    [{ covers: { "assets/cover.gif": syntheticCover }, manifest: { digest: "0".repeat(64) } }, /摘要不一致/]
+  ]) {
+    const fixture = await makeFixture({ ...options, manifest: { version: 2, ...options.manifest } });
+    try { await assert.rejects(() => preflightSkillSubmission([fixture.outer]), expected); }
+    finally { await fixture.cleanup(); }
+  }
+});
