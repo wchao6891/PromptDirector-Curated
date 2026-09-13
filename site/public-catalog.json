@@ -1,7 +1,7 @@
 {
   "format": "prompt-director-curated",
   "version": 2,
-  "updatedAt": "2026-09-13T13:28:42.012Z",
+  "updatedAt": "2026-09-13T13:35:33.328Z",
   "themes": [
     {
       "id": "featured:vol-1",
@@ -255,6 +255,29 @@
       "videoCount": 0,
       "summary": "PromptDirector-即梦精选-国风视觉第二期-分享，收录原始媒体与提示词。",
       "order": 11
+    },
+    {
+      "id": "cases-1ceeb0d9bc533bf10bcc",
+      "title": "即梦精选-视觉设定集",
+      "type": "image_prompt",
+      "packageId": "cases-1ceeb0d9bc533bf10bcc",
+      "packageVersion": "1.0.0",
+      "authorId": "github-258240113",
+      "author": "wchao6891",
+      "license": "第三方来源精选 · 权利归原作者 · 授权未核验",
+      "rightsStatus": "source_unverified",
+      "rightsReviewUrl": "https://wchao6891.github.io/PromptDirector-Curated/reviews/cases-1ceeb0d9bc533bf10bcc.json",
+      "updatedAt": "2026-09-13T13:32:46.326Z",
+      "coverUrl": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-1ceeb0d9bc533bf10bcc/media/67634ab6124de2ce2d71.webp",
+      "previewUrl": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-1ceeb0d9bc533bf10bcc/preview.json",
+      "downloadUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/cases-1ceeb0d9bc533bf10bcc-1.0.0/cases-1ceeb0d9bc533bf10bcc.zip",
+      "sha256": "8915575c037fd4c7da6ee06714c77c67d50a4a0e088fdffefcf018cd5f84ac4e",
+      "archiveBytes": 618858161,
+      "caseCount": 121,
+      "imageCount": 121,
+      "videoCount": 0,
+      "summary": "PromptDirector-即梦精选-视觉设定集-分享，收录原始媒体与提示词。",
+      "order": 12
     }
   ]
 }
