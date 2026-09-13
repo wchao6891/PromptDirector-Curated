@@ -1,7 +1,7 @@
 {
   "format": "prompt-director-curated",
   "version": 2,
-  "updatedAt": "2026-09-09T17:40:27.057512Z",
+  "updatedAt": "2026-09-13T13:28:42.012Z",
   "themes": [
     {
       "id": "featured:vol-1",
@@ -35,6 +35,8 @@
       "authorId": "promptdirector-editorial",
       "author": "PromptDirector 编辑精选",
       "license": "第三方来源精选 · 权利归原作者 · 授权未核验",
+      "rightsStatus": "source_unverified",
+      "rightsReviewUrl": "https://wchao6891.github.io/PromptDirector-Curated/reviews/jimeng-featured.json",
       "updatedAt": "2026-08-02T17:16:18.000Z",
       "coverUrl": "https://wchao6891.github.io/PromptDirector-Curated/covers/jimeng-featured.webp",
       "previewUrl": "https://wchao6891.github.io/PromptDirector-Curated/previews/jimeng-featured/preview.json",
@@ -45,9 +47,7 @@
       "imageCount": 150,
       "videoCount": 0,
       "summary": "150 个来自即梦公开灵感页的图片提示词案例。",
-      "order": 2,
-      "rightsStatus": "source_unverified",
-      "rightsReviewUrl": "https://wchao6891.github.io/PromptDirector-Curated/reviews/jimeng-featured.json"
+      "order": 2
     },
     {
       "id": "featured:aiartworks-mj",
@@ -58,6 +58,8 @@
       "authorId": "promptdirector-editorial",
       "author": "PromptDirector 编辑精选",
       "license": "第三方来源精选 · 权利归原作者 · 授权未核验",
+      "rightsStatus": "source_unverified",
+      "rightsReviewUrl": "https://wchao6891.github.io/PromptDirector-Curated/reviews/aiartworks-mj-featured.json",
       "updatedAt": "2026-08-04T17:36:41.000Z",
       "coverUrl": "https://wchao6891.github.io/PromptDirector-Curated/covers/aiartworks-mj-featured.webp",
       "previewUrl": "https://wchao6891.github.io/PromptDirector-Curated/previews/aiartworks-mj-featured/preview.json",
@@ -68,9 +70,7 @@
       "imageCount": 81,
       "videoCount": 0,
       "summary": "81 个保留原作者与来源信息的 Midjourney 图片提示词案例，已修复《钥匙孔里的茶会》的完整提示词、作者和来源。",
-      "order": 3,
-      "rightsStatus": "source_unverified",
-      "rightsReviewUrl": "https://wchao6891.github.io/PromptDirector-Curated/reviews/aiartworks-mj-featured.json"
+      "order": 3
     },
     {
       "id": "featured:higgsfield",
@@ -81,6 +81,8 @@
       "authorId": "promptdirector-editorial",
       "author": "PromptDirector 编辑精选",
       "license": "第三方来源精选 · 权利归原作者 · 授权未核验",
+      "rightsStatus": "source_unverified",
+      "rightsReviewUrl": "https://wchao6891.github.io/PromptDirector-Curated/reviews/higgsfield-featured.json",
       "updatedAt": "2026-08-02T17:16:18.000Z",
       "coverUrl": "https://wchao6891.github.io/PromptDirector-Curated/covers/higgsfield-featured.webp",
       "previewUrl": "https://wchao6891.github.io/PromptDirector-Curated/previews/higgsfield-featured/preview.json",
@@ -91,9 +93,7 @@
       "imageCount": 56,
       "videoCount": 0,
       "summary": "56 个保留原作者与来源信息的 Higgsfield 图片提示词案例。",
-      "order": 4,
-      "rightsStatus": "source_unverified",
-      "rightsReviewUrl": "https://wchao6891.github.io/PromptDirector-Curated/reviews/higgsfield-featured.json"
+      "order": 4
     },
     {
       "id": "featured:evolink-video-1",
@@ -104,6 +104,8 @@
       "authorId": "promptdirector-editorial",
       "author": "PromptDirector 编辑精选",
       "license": "第三方来源精选 · 权利归原作者 · 授权未核验",
+      "rightsStatus": "source_unverified",
+      "rightsReviewUrl": "https://wchao6891.github.io/PromptDirector-Curated/reviews/evolink-featured-video-1.json",
       "updatedAt": "2026-08-10T17:07:13.000Z",
       "coverUrl": "https://wchao6891.github.io/PromptDirector-Curated/covers/evolink-featured-video-1.webp",
       "previewUrl": "https://wchao6891.github.io/PromptDirector-Curated/previews/evolink-featured-video-1/15c59f93e91e004f90ec/preview.json",
@@ -114,9 +116,7 @@
       "imageCount": 27,
       "videoCount": 27,
       "summary": "EvoLink 精选视频案例第 1 卷；全套共 122 条 Seedance 2.5 视频提示词案例，保留作者账号、原页链接和来源字段。",
-      "order": 5,
-      "rightsStatus": "source_unverified",
-      "rightsReviewUrl": "https://wchao6891.github.io/PromptDirector-Curated/reviews/evolink-featured-video-1.json"
+      "order": 5
     },
     {
       "id": "featured:evolink-video-2",
@@ -127,6 +127,8 @@
       "authorId": "promptdirector-editorial",
       "author": "PromptDirector 编辑精选",
       "license": "第三方来源精选 · 权利归原作者 · 授权未核验",
+      "rightsStatus": "source_unverified",
+      "rightsReviewUrl": "https://wchao6891.github.io/PromptDirector-Curated/reviews/evolink-featured-video-2.json",
       "updatedAt": "2026-08-10T17:07:13.000Z",
       "coverUrl": "https://wchao6891.github.io/PromptDirector-Curated/covers/evolink-featured-video-2.webp",
       "previewUrl": "https://wchao6891.github.io/PromptDirector-Curated/previews/evolink-featured-video-2/eec920db98215d52c810/preview.json",
@@ -137,9 +139,7 @@
       "imageCount": 30,
       "videoCount": 30,
       "summary": "EvoLink 精选视频案例第 2 卷；全套共 122 条 Seedance 2.5 视频提示词案例，保留作者账号、原页链接和来源字段。",
-      "order": 6,
-      "rightsStatus": "source_unverified",
-      "rightsReviewUrl": "https://wchao6891.github.io/PromptDirector-Curated/reviews/evolink-featured-video-2.json"
+      "order": 6
     },
     {
       "id": "featured:evolink-video-3",
@@ -150,6 +150,8 @@
       "authorId": "promptdirector-editorial",
       "author": "PromptDirector 编辑精选",
       "license": "第三方来源精选 · 权利归原作者 · 授权未核验",
+      "rightsStatus": "source_unverified",
+      "rightsReviewUrl": "https://wchao6891.github.io/PromptDirector-Curated/reviews/evolink-featured-video-3.json",
       "updatedAt": "2026-08-10T17:07:13.000Z",
       "coverUrl": "https://wchao6891.github.io/PromptDirector-Curated/covers/evolink-featured-video-3.webp",
       "previewUrl": "https://wchao6891.github.io/PromptDirector-Curated/previews/evolink-featured-video-3/02c170147c11646d15e5/preview.json",
@@ -160,9 +162,7 @@
       "imageCount": 25,
       "videoCount": 25,
       "summary": "EvoLink 精选视频案例第 3 卷；全套共 122 条 Seedance 2.5 视频提示词案例，保留作者账号、原页链接和来源字段。",
-      "order": 7,
-      "rightsStatus": "source_unverified",
-      "rightsReviewUrl": "https://wchao6891.github.io/PromptDirector-Curated/reviews/evolink-featured-video-3.json"
+      "order": 7
     },
     {
       "id": "featured:evolink-video-4",
@@ -173,6 +173,8 @@
       "authorId": "promptdirector-editorial",
       "author": "PromptDirector 编辑精选",
       "license": "第三方来源精选 · 权利归原作者 · 授权未核验",
+      "rightsStatus": "source_unverified",
+      "rightsReviewUrl": "https://wchao6891.github.io/PromptDirector-Curated/reviews/evolink-featured-video-4.json",
       "updatedAt": "2026-08-10T17:07:13.000Z",
       "coverUrl": "https://wchao6891.github.io/PromptDirector-Curated/covers/evolink-featured-video-4.webp",
       "previewUrl": "https://wchao6891.github.io/PromptDirector-Curated/previews/evolink-featured-video-4/a8b2e1ab093856f4feb6/preview.json",
@@ -183,9 +185,7 @@
       "imageCount": 31,
       "videoCount": 31,
       "summary": "EvoLink 精选视频案例第 4 卷；全套共 122 条 Seedance 2.5 视频提示词案例，保留作者账号、原页链接和来源字段。",
-      "order": 8,
-      "rightsStatus": "source_unverified",
-      "rightsReviewUrl": "https://wchao6891.github.io/PromptDirector-Curated/reviews/evolink-featured-video-4.json"
+      "order": 8
     },
     {
       "id": "featured:evolink-video-5",
@@ -196,6 +196,8 @@
       "authorId": "promptdirector-editorial",
       "author": "PromptDirector 编辑精选",
       "license": "第三方来源精选 · 权利归原作者 · 授权未核验",
+      "rightsStatus": "source_unverified",
+      "rightsReviewUrl": "https://wchao6891.github.io/PromptDirector-Curated/reviews/evolink-featured-video-5.json",
       "updatedAt": "2026-08-10T17:07:13.000Z",
       "coverUrl": "https://wchao6891.github.io/PromptDirector-Curated/covers/evolink-featured-video-5.webp",
       "previewUrl": "https://wchao6891.github.io/PromptDirector-Curated/previews/evolink-featured-video-5/49fecbd7fab8f0155ab3/preview.json",
@@ -206,9 +208,7 @@
       "imageCount": 9,
       "videoCount": 9,
       "summary": "EvoLink 精选视频案例第 5 卷；全套共 122 条 Seedance 2.5 视频提示词案例，保留作者账号、原页链接和来源字段。",
-      "order": 9,
-      "rightsStatus": "source_unverified",
-      "rightsReviewUrl": "https://wchao6891.github.io/PromptDirector-Curated/reviews/evolink-featured-video-5.json"
+      "order": 9
     },
     {
       "id": "featured:jimeng-guofeng-community-1",
@@ -219,6 +219,8 @@
       "authorId": "github-wchao6891",
       "author": "即梦国风精选",
       "license": "第三方来源精选 · 权利归原作者 · 授权未核验",
+      "rightsStatus": "source_unverified",
+      "rightsReviewUrl": "https://wchao6891.github.io/PromptDirector-Curated/reviews/jimeng-guofeng-community-1.json",
       "updatedAt": "2026-08-15T15:51:55.631Z",
       "coverUrl": "https://wchao6891.github.io/PromptDirector-Curated/covers/jimeng-guofeng-community-1.webp",
       "previewUrl": "https://wchao6891.github.io/PromptDirector-Curated/previews/jimeng-guofeng-community-1/preview.json",
@@ -229,9 +231,30 @@
       "imageCount": 38,
       "videoCount": 0,
       "summary": "38 个由社区推荐的即梦国风公开案例，逐案例保留原作者、提示词和来源链接。",
-      "order": 10,
+      "order": 10
+    },
+    {
+      "id": "cases-85fe274e06c395c24e8a",
+      "title": "即梦精选-国风视觉第二期",
+      "type": "image_prompt",
+      "packageId": "cases-85fe274e06c395c24e8a",
+      "packageVersion": "1.0.0",
+      "authorId": "github-258240113",
+      "author": "wchao6891",
+      "license": "第三方来源精选 · 权利归原作者 · 授权未核验",
       "rightsStatus": "source_unverified",
-      "rightsReviewUrl": "https://wchao6891.github.io/PromptDirector-Curated/reviews/jimeng-guofeng-community-1.json"
+      "rightsReviewUrl": "https://wchao6891.github.io/PromptDirector-Curated/reviews/cases-85fe274e06c395c24e8a.json",
+      "updatedAt": "2026-09-13T13:26:16.677Z",
+      "coverUrl": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-85fe274e06c395c24e8a/media/d6d99e6256c573cfbbc3.webp",
+      "previewUrl": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-85fe274e06c395c24e8a/preview.json",
+      "downloadUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/cases-85fe274e06c395c24e8a-1.0.0/cases-85fe274e06c395c24e8a.zip",
+      "sha256": "8cc627d61f35102bc4bead4345c9ba9eb9f3c8dac1a2f80bba8842e4084342fc",
+      "archiveBytes": 488934447,
+      "caseCount": 112,
+      "imageCount": 112,
+      "videoCount": 0,
+      "summary": "PromptDirector-即梦精选-国风视觉第二期-分享，收录原始媒体与提示词。",
+      "order": 11
     }
   ]
 }
