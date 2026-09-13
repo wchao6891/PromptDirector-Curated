@@ -65,6 +65,7 @@ function render() {
 
 function card(item) {
   const root = element("article", "ui-skill-card public-skill-card");
+  if (item.cover) root.append(coverImage(item));
   root.append(element("h2", "ui-skill-card-title", item.title), element("p", "ui-skill-card-summary", item.summary));
   const actions = element("div", "ui-skill-card-actions public-skill-card-actions");
   const view = element("button", "", "查看说明");
@@ -78,6 +79,7 @@ function card(item) {
 function openDetail(item) {
   state.selected = item.id;
   const root = element("article", "public-skill-detail");
+  if (item.cover) root.append(coverImage(item, true));
   root.append(element("h1", "", item.title), element("p", "", item.summary));
   const maintenance = element("details", "public-skill-maintenance");
   maintenance.append(element("summary", "", "版本与许可"));
@@ -119,3 +121,14 @@ function statusView(options) {
   return node;
 }
 function element(tag, className = "", text = "") { const node = document.createElement(tag); if (className) node.className = className; if (text) node.textContent = text; return node; }
+
+function coverImage(item, detail = false) {
+  const figure = element("div", detail ? "skill-cover-detail" : "skill-cover-card");
+  const image = element("img");
+  image.src = item.cover.path;
+  image.alt = item.title;
+  image.loading = "lazy";
+  image.addEventListener("error", () => { figure.textContent = "封面读取失败"; }, { once: true });
+  figure.append(image);
+  return figure;
+}

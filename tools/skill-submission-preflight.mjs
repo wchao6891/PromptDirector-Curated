@@ -1,16 +1,19 @@
+import { PORTABLE_LIBRARY_LIMITS } from "../site/lib/resource-limits.js";
+import { isSkillCoverPath, validateSkillCover } from "../site/lib/skill-cover.js";
 import { createHash } from "node:crypto";
 import { readFile, writeFile } from "node:fs/promises";
 import { basename, resolve } from "node:path";
 import { extractOfficialAttachmentUrls, fetchOfficialAttachment, readStoredZip } from "./submission-preflight.mjs";
 import { normalizeSkillCallName, PUBLIC_SKILL_LICENSE } from "../site/skill-catalog.js";
 
-const LIMITS = { maxBytes: 16 * 1024 * 1024, maxFiles: 66, maxFileBytes: 1024 * 1024 };
+const POLICY = JSON.parse(await readFile(new URL("../submission-policy.json", import.meta.url), "utf8"));
+const LIMITS = { maxBytes: PORTABLE_LIBRARY_LIMITS.maxArchiveBytes, maxFiles: PORTABLE_LIBRARY_LIMITS.maxFileCount, maxFileBytes: PORTABLE_LIBRARY_LIMITS.maxFileBytes };
 const decoder = new TextDecoder("utf-8", { fatal: true });
 
 export async function preflightSkillSubmission(inputFiles) {
   if (!Array.isArray(inputFiles) || inputFiles.length !== 1) throw new Error("精选 Skill 投稿必须上传一个完整 ZIP");
   const input = await readInput(inputFiles[0]);
-  const outer = readStoredZip(input.bytes, { maxBytes: LIMITS.maxBytes, maxFiles: 2, maxFileBytes: LIMITS.maxBytes });
+  const outer = readStoredZip(input.bytes, { maxBytes: POLICY.maxSubmissionBytes, maxFiles: 2, maxFileBytes: LIMITS.maxBytes });
   assertExactNames(outer, ["submission.json", "payload.zip"]);
   const manifest = parseJson(outer.get("submission.json"), "精选 Skill 投稿清单");
   const normalized = validateManifest(manifest);
@@ -19,7 +22,15 @@ export async function preflightSkillSubmission(inputFiles) {
   const files = readStoredZip(payload, LIMITS);
   if (files.size !== normalized.fileCount || !files.has("SKILL.md")) throw new Error("精选 Skill 投稿文件数量或 SKILL.md 不一致");
   const preview = [];
+  let cover = null;
   for (const [path, bytes] of files) {
+    if (isSkillCoverPath(path)) {
+      if (cover) throw new Error("每个 Skill 只能包含一张封面");
+      const image = await validateSkillCover(new Blob([bytes]), path);
+      cover = { path, bytes, sha256: sha256(bytes), byteSize: bytes.byteLength, mimeType: image.mimeType };
+      preview.push({ path, sha256: cover.sha256 });
+      continue;
+    }
     if (path !== "SKILL.md" && !/^references\/(?:[A-Za-z0-9._-]+\/)*[A-Za-z0-9._-]+\.md$/i.test(path)) {
       throw new Error(`精选 Skill 投稿包含不允许的文件：${path}`);
     }
@@ -29,9 +40,10 @@ export async function preflightSkillSubmission(inputFiles) {
     if (findings.length) throw new Error(`精选 Skill 投稿包含隐私风险：${path}（${findings[0]}）`);
     preview.push({ path, text });
   }
+  if (normalized.version >= 2 && !cover) throw new Error("精选 Skill 投稿缺少成果封面");
   const skill = parseSkillFrontmatter(preview.find((file) => file.path === "SKILL.md")?.text);
   if (skill.name !== normalized.skillId) throw new Error("SKILL.md 身份与投稿清单不一致");
-  const digest = sha256(Buffer.from(preview.map((file) => `${file.path}\0${file.text}\0`).join("")));
+  const digest = sha256(Buffer.from(preview.map((file) => `${file.path}\0${file.sha256 ?? file.text}\0`).join("")));
   if (digest !== normalized.digest) throw new Error("精选 Skill 投稿全文摘要不一致");
   return {
     ok: true,
@@ -43,7 +55,8 @@ export async function preflightSkillSubmission(inputFiles) {
     summary: normalized.summary,
     fileCount: files.size,
     digest,
-    payload
+    payload,
+    cover
   };
 }
 
@@ -62,11 +75,11 @@ function validateManifest(value) {
   const fileCount = positiveInteger(value?.fileCount);
   const payloadBytes = positiveInteger(value?.payloadBytes);
   if (license !== PUBLIC_SKILL_LICENSE) throw new Error(`精选 Skill 投稿许可必须是 ${PUBLIC_SKILL_LICENSE}`);
-  if (value?.format !== "prompt-director-curated-skill-submission" || value.version !== 1 || !skillId || !title ||
+  if (value?.format !== "prompt-director-curated-skill-submission" || ![1, 2].includes(value.version) || !skillId || !title ||
       !author || value.reviewStatus !== "pending" || !summary || !isHash(digest) || !isHash(payloadSha256) || !fileCount || !payloadBytes) {
     throw new Error("精选 Skill 投稿清单格式无效");
   }
-  return { skillId, callName, title, author, license, summary, digest, payloadSha256, fileCount, payloadBytes };
+  return { version: value.version, skillId, callName, title, author, license, summary, digest, payloadSha256, fileCount, payloadBytes };
 }
 
 function parseSkillFrontmatter(markdown) {
@@ -100,7 +113,7 @@ export async function downloadSkillSubmissionAttachment(url) {
   const response = await fetchOfficialAttachment(url);
   if (!response.ok) throw new Error(`GitHub 附件下载失败（${response.status}）`);
   const bytes = new Uint8Array(await response.arrayBuffer());
-  if (bytes.byteLength > LIMITS.maxBytes) throw new Error("精选 Skill 投稿附件超过安全上限");
+  if (bytes.byteLength > POLICY.maxSubmissionBytes) throw new Error("精选 Skill 投稿附件超过安全上限");
   return { name: basename(new URL(url).pathname), bytes };
 }
 

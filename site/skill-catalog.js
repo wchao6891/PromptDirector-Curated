@@ -1,3 +1,4 @@
+import { normalizeSkillCoverMetadata } from "./lib/skill-cover.js";
 export const PUBLIC_SKILL_LICENSE = "CC BY 4.0";
 
 const FORMAT = "prompt-director-curated-skills";
@@ -36,12 +37,13 @@ function normalizeItem(value = {}) {
   const sha256 = String(value.sha256 ?? "").toLocaleLowerCase("en-US");
   const archiveBytes = positiveInteger(value.archiveBytes);
   const order = positiveInteger(value.order);
+  const cover = normalizeSkillCoverMetadata(value.cover);
   const expectedId = skillId && version ? `${skillId}@${version}` : "";
   if (!id || id !== expectedId || !skillId || !/^\d+\.\d+\.\d+(?:-[a-z0-9.-]+)?$/i.test(version) || !title || !callName || !authorId || !author || license !== PUBLIC_SKILL_LICENSE ||
       reviewStatus !== "approved" || !reviewedAt || !summary || !downloadUrl || !/^[a-f0-9]{64}$/.test(sha256) || !archiveBytes || !order) {
     throw new Error("精选 Skill 编号、许可、发布必填字段或人工审核状态无效");
   }
-  return { id, skillId, version, title, callName, authorId, author, license, reviewStatus, reviewedAt, summary, downloadUrl, sha256, archiveBytes, order };
+  return { id, skillId, version, title, callName, authorId, author, license, reviewStatus, reviewedAt, summary, downloadUrl, sha256, archiveBytes, order, ...(cover ? { cover } : {}) };
 }
 
 function trustedDownloadUrl(value) {
