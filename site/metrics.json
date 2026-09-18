@@ -1,25 +1,25 @@
 {
   "format": "prompt-director-curated-metrics",
   "version": 1,
-  "updatedAt": "2026-09-17T08:45:37.862Z",
+  "updatedAt": "2026-09-18T08:21:40.445Z",
   "downloads": {
-    "featured:vol-1": 17,
+    "featured:vol-1": 18,
     "featured:jimeng": 32,
     "featured:aiartworks-mj": 8,
-    "featured:higgsfield": 22,
+    "featured:higgsfield": 23,
     "featured:evolink-video-1": 4,
-    "featured:evolink-video-2": 3,
+    "featured:evolink-video-2": 4,
     "featured:evolink-video-3": 3,
     "featured:evolink-video-4": 5,
     "featured:evolink-video-5": 25,
-    "featured:jimeng-guofeng-community-1": 3,
-    "cases-85fe274e06c395c24e8a": 0,
+    "featured:jimeng-guofeng-community-1": 6,
+    "cases-85fe274e06c395c24e8a": 1,
     "cases-1ceeb0d9bc533bf10bcc": 0,
     "cases-1ea9f7e33e0b293d2a12": 1,
     "cases-4529f91713cffcfe4dc1": 1,
     "cases-f05a7604a4a889ede786": 0,
     "cases-ed99fb86238d9dca13c0": 0,
-    "cases-5b8deb5b7d94e3bcdefb": 0,
-    "cases-a7126fd0ce35aaf96153": 2
+    "cases-5b8deb5b7d94e3bcdefb": 1,
+    "cases-a7126fd0ce35aaf96153": 3
   }
 }
