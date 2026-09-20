@@ -1,7 +1,7 @@
 {
   "format": "prompt-director-curated",
   "version": 2,
-  "updatedAt": "2026-09-13T16:15:42.439Z",
+  "updatedAt": "2026-09-20T14:31:06.017Z",
   "themes": [
     {
       "id": "featured:vol-1",
@@ -416,6 +416,29 @@
       "videoCount": 0,
       "summary": "PromptDirector-小黑盒精选1-分享，收录原始媒体与提示词。",
       "order": 18
+    },
+    {
+      "id": "cases-3067eed17c7b7ca7d1b3",
+      "title": "小黑盒-高定服饰",
+      "type": "image_prompt",
+      "packageId": "cases-3067eed17c7b7ca7d1b3",
+      "packageVersion": "1.0.0",
+      "authorId": "github-258240113",
+      "author": "wchao6891",
+      "license": "第三方来源精选 · 权利归原作者 · 授权未核验",
+      "rightsStatus": "source_unverified",
+      "rightsReviewUrl": "https://wchao6891.github.io/PromptDirector-Curated/reviews/cases-3067eed17c7b7ca7d1b3.json",
+      "updatedAt": "2026-09-20T14:29:18.652Z",
+      "coverUrl": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-3067eed17c7b7ca7d1b3/media/b5a01bc534e8b4144324.webp",
+      "previewUrl": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-3067eed17c7b7ca7d1b3/preview.json",
+      "downloadUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/cases-3067eed17c7b7ca7d1b3-1.0.0/cases-3067eed17c7b7ca7d1b3.zip",
+      "sha256": "10380f8b4967bd526ea21776051889d25c5d6b5daf142009b09e015b5cae14d3",
+      "archiveBytes": 10181545,
+      "caseCount": 48,
+      "imageCount": 48,
+      "videoCount": 0,
+      "summary": "PromptDirector-小黑盒-高定服饰-分享，收录原始媒体与提示词。",
+      "order": 19
     }
   ]
 }
