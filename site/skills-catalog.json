@@ -1,7 +1,7 @@
 {
   "format": "prompt-director-curated-skills",
   "version": 1,
-  "updatedAt": "2026-08-23T05:41:43.000Z",
+  "updatedAt": "2026-09-25T15:42:15.012Z",
   "skills": [
     {
       "id": "creative-skill-437b8a2c@1.0.0",
@@ -36,6 +36,28 @@
       "sha256": "81173329c5831f97c9b089a3ac290af96e9cbbe49c0dd652ac5ff5d9605eccbe",
       "archiveBytes": 22714,
       "order": 2
+    },
+    {
+      "id": "creative-skill-d22ccd61@1.0.0",
+      "skillId": "creative-skill-d22ccd61",
+      "version": "1.0.0",
+      "title": "Arvin动作技能",
+      "callName": "Arvin动作技能",
+      "authorId": "author-d951649fabc3",
+      "author": "Arvin",
+      "license": "CC BY 4.0",
+      "reviewStatus": "approved",
+      "reviewedAt": "2026-09-25T15:42:15.012Z",
+      "summary": "从 Arvin 的十组国风/仙侠高速动作视频提示词中提炼：全局锁定→动作密度分级→打击反馈公式→位移与特效规则→伪一镜到底调度→场景破坏永久留痕→尾帧目标态→负面清单的结构化写法，用于生成可跨工具复用的高速动作视频提示词。",
+      "downloadUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/skill-creative-skill-d22ccd61-v1.0.0/creative-skill-d22ccd61-1.0.0.zip",
+      "sha256": "ee27945881aeb08054e839ad60cd40a87e96cd5aab43a3d918ecc0b4adfc6d00",
+      "archiveBytes": 964541,
+      "order": 3,
+      "cover": {
+        "path": "skill-previews/creative-skill-d22ccd61/1.0.0/cover.png",
+        "sha256": "af5fa6552f4d01c7b28277556c531e8ce9be206491d2c54256ce48ca34ff7808",
+        "byteSize": 955341
+      }
     }
   ]
 }
