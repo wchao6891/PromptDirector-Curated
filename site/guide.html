@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="跟着真实界面截图，快速学会 PromptDirector：安装、采集、保存、查找、分享和创作。">
+    <title>快速上手 PromptDirector</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="guide.css">
+    <script src="guide.js" defer></script>
+  </head>
+  <body class="guide-page">
+    <header class="topbar guide-topbar">
+      <div class="public-section-title">
+        <a class="public-brand" href="index.html" aria-label="PromptDirector 视觉创作灵感库"><strong>PromptDirector</strong><span>视觉创作灵感库</span></a>
+        <nav class="public-section-nav ui-segmented" aria-label="网站导航">
+          <a class="ui-segmented-item" href="index.html">精选案例</a>
+          <a class="ui-segmented-item" href="skills.html">精选 Skill</a>
+          <a class="ui-segmented-item" href="guide.html" aria-current="page">快速上手</a>
+        </nav>
+      </div>
+      <a class="guide-header-install" href="https://chromewebstore.google.com/detail/iahakaahijddcjjldidbclicedibgpjm" target="_blank" rel="noopener noreferrer">安装插件 ↗</a>
+    </header>
+
+    <main class="guide-main">
+      <section class="guide-hero" aria-labelledby="guide-title">
+        <div class="guide-hero-copy">
+          <p class="guide-kicker">PROMPTDIRECTOR · 新手图文教程</p>
+          <h1 id="guide-title">看图点按钮，<br>存好第一条灵感。</h1>
+          <p>先跟着前四步做一遍。图上的绿色数字，就是要找的位置。</p>
+          <div class="guide-hero-actions">
+            <a class="guide-primary-link" href="#start">从第一步开始 ↓</a>
+            <a class="guide-text-link" href="#topics">直接找功能</a>
+          </div>
+          <p class="guide-version-note">文字以 1.24.1 已发布功能为范围；截图来自用户提供的开发版实际界面。</p>
+        </div>
+        <figure class="guide-hero-preview">
+          <a class="guide-shot" href="guide-assets/library.png" target="_blank" rel="noopener noreferrer" aria-label="查看案例库原始截图">
+            <img src="guide-assets/library.png" alt="PromptDirector 实际案例库界面：左侧导航、顶部搜索和中间案例墙" width="1483" height="852">
+            <span class="guide-target" style="--x:0.3%;--y:7.2%;--w:19.6%;--h:4.4%"><b>案例库</b></span>
+          </a>
+          <figcaption>这是进入插件后的案例库。图片可点开看原图。</figcaption>
+        </figure>
+      </section>
+
+      <nav class="guide-jump" id="topics" aria-label="教程目录">
+        <a href="#start"><b>01</b> 保存第一条</a>
+        <a href="#library"><b>02</b> 获取与整理</a>
+        <a href="#create"><b>03</b> 用案例创作</a>
+        <a href="#more"><b>04</b> 更多入口</a>
+      </nav>
+
+      <section class="guide-section" id="start" aria-labelledby="start-title">
+        <div class="guide-section-heading"><span>01 / FIRST CASE</span><h2 id="start-title">先保存一条案例</h2><p>安装一次，以后看到喜欢的作品就能直接收进库。</p></div>
+        <div class="guide-steps">
+          <article class="guide-step guide-step--install" id="install">
+            <div class="guide-step-copy"><span class="guide-step-number">01</span><h3>安装插件</h3><p>优先打开 Chrome 商店，点“添加至 Chrome”。如需指定 1.24.1 版本，从发布页下载 ZIP 并解压；在 Chrome 地址栏输入 <code>chrome://extensions</code>，开启“开发者模式”，点“加载已解压的扩展程序”，选择解压出的插件文件夹。</p></div>
+            <div class="guide-install-options">
+              <a href="https://chromewebstore.google.com/detail/iahakaahijddcjjldidbclicedibgpjm" target="_blank" rel="noopener noreferrer"><strong>Chrome 商店</strong><span>打开安装页面 ↗</span></a>
+              <a href="https://github.com/wchao6891/PromptDirector/releases/tag/v1.24.1" target="_blank" rel="noopener noreferrer"><strong>1.24.1 发布包</strong><span>下载 ZIP ↗</span></a>
+              <p>装好后，点地址栏右侧的拼图图标，把 PromptDirector 固定在工具栏。下面从点击插件图标开始。</p>
+            </div>
+          </article>
+          <article class="guide-step" id="capture">
+            <div class="guide-step-copy"><span class="guide-step-number">02</span><h3>打开作品，点“网页采集”</h3><p>打开想保存的作品页面，点 Chrome 工具栏中的 PromptDirector 图标，再点采集栏里的绿色“网页采集”。</p><p class="guide-small-note">首次出现授权提示时，点“授权并继续”；插件不会因此自动保存网页。</p></div>
+            <figure class="guide-shot-figure"><a class="guide-shot" href="guide-assets/collector.png" target="_blank" rel="noopener noreferrer" aria-label="查看采集栏原始截图"><img src="guide-assets/collector.png" alt="实际采集栏，绿色网页采集按钮在中间" width="493" height="251" loading="lazy"><span class="guide-target" style="--x:6.4%;--y:47.5%;--w:86.9%;--h:19.5%"><b>1</b></span></a><figcaption><b>1</b> 点绿色“网页采集”。</figcaption></figure>
+          </article>
+          <article class="guide-step" id="save">
+            <div class="guide-step-copy"><span class="guide-step-number">03</span><h3>检查预览，保存案例</h3><p>采集栏会显示找到的文字和媒体。确认是你想要的作品，再点底部“保存案例”。媒体不对时先展开“检查媒体”。</p></div>
+            <figure class="guide-shot-figure"><a class="guide-shot" href="guide-assets/capture-preview.png" target="_blank" rel="noopener noreferrer" aria-label="查看采集预览原始截图"><img src="guide-assets/capture-preview.png" alt="真实网页和采集预览并排，底部有保存案例按钮" width="1286" height="791" loading="lazy"><span class="guide-target" style="--x:63.7%;--y:69.5%;--w:35%;--h:5.4%"><b>1</b></span><span class="guide-target" style="--x:74.6%;--y:93.9%;--w:24.4%;--h:5.3%"><b>2</b></span></a><figcaption><b>1</b> 需要时检查媒体　<b>2</b> 点“保存案例”。</figcaption></figure>
+          </article>
+          <article class="guide-step" id="find">
+            <div class="guide-step-copy"><span class="guide-step-number">04</span><h3>从哪儿进案例库？</h3><p>回到采集栏，点右上角的书架形图标。案例库打开后，刚保存的案例会出现在列表里；也能用顶部搜索框找。</p></div>
+            <div class="guide-shot-stack">
+              <figure class="guide-shot-figure"><a class="guide-shot" href="guide-assets/collector.png" target="_blank" rel="noopener noreferrer" aria-label="查看案例库入口原始截图"><img src="guide-assets/collector.png" alt="采集栏右上角的案例库图标" width="493" height="251" loading="lazy"><span class="guide-target" style="--x:88.6%;--y:21%;--w:7.6%;--h:15.6%"><b>1</b></span></a><figcaption><b>1</b> 采集栏右上角图标：打开灵感库。</figcaption></figure>
+              <figure class="guide-shot-figure"><a class="guide-shot" href="guide-assets/library.png" target="_blank" rel="noopener noreferrer" aria-label="查看案例库原始截图"><img src="guide-assets/library.png" alt="案例库页面，左侧案例库导航和顶部搜索框" width="1483" height="852" loading="lazy"><span class="guide-target" style="--x:0.3%;--y:7.3%;--w:19.6%;--h:4.2%"><b>2</b></span><span class="guide-target" style="--x:32.9%;--y:0.8%;--w:37.3%;--h:4.9%"><b>3</b></span></a><figcaption><b>2</b> 到达“案例库”　<b>3</b> 在顶部搜索。</figcaption></figure>
+            </div>
+          </article>
+          <article class="guide-step guide-step--extra" id="detail">
+            <div class="guide-step-copy"><span class="guide-step-number">✓</span><h3>点开案例看资料</h3><p>点任意案例卡片，就能查看原画面、原始提示词、来源和项目。看完也可以点“以此创作”。</p></div>
+            <figure class="guide-shot-figure"><a class="guide-shot" href="guide-assets/detail.png" target="_blank" rel="noopener noreferrer" aria-label="查看案例详情原始截图"><img src="guide-assets/detail.png" alt="真实案例详情页，左侧媒体，右侧提示词和以此创作按钮" width="1474" height="831" loading="lazy"><span class="guide-target" style="--x:64.7%;--y:72.9%;--w:31%;--h:4.7%"><b>以此创作</b></span></a><figcaption>想继续创作，就点右侧“以此创作”。</figcaption></figure>
+          </article>
+        </div>
+      </section>
+
+      <section class="guide-section" id="library" aria-labelledby="library-title">
+        <div class="guide-section-heading"><span>02 / BUILD YOUR LIBRARY</span><h2 id="library-title">获取与整理资料</h2><p>先找入口，再看点进去的页面。</p></div>
+        <div class="guide-card-grid">
+          <article class="guide-card" id="curated">
+            <div class="guide-card-copy"><span>精选案例</span><h3>把精选包收进自己的库</h3><p>案例库左侧点“精选案例”，打开喜欢的包，再点“保存整包”。</p></div>
+            <div class="guide-card-shots">
+              <figure class="guide-shot-figure"><a class="guide-shot" href="guide-assets/curated-entry.png" target="_blank" rel="noopener noreferrer" aria-label="查看精选案例入口原始截图"><img src="guide-assets/curated-entry.png" alt="案例库左侧的精选案例入口" width="300" height="210" loading="lazy"><span class="guide-target" style="--x:0.8%;--y:61%;--w:97%;--h:18%"><b>1</b></span></a><figcaption><b>1</b> 点左侧“精选案例”。</figcaption></figure>
+              <figure class="guide-shot-figure"><a class="guide-shot" href="guide-assets/curated-gallery.png" target="_blank" rel="noopener noreferrer" aria-label="查看精选案例列表原始截图"><img src="guide-assets/curated-gallery.png" alt="精选案例页面，按创作包展示" width="1484" height="846" loading="lazy"><span class="guide-target" style="--x:0.8%;--y:8.6%;--w:24.1%;--h:59.5%"><b>2</b></span></a><figcaption><b>2</b> 点一个创作包。</figcaption></figure>
+              <figure class="guide-shot-figure"><a class="guide-shot" href="guide-assets/curated-save.png" target="_blank" rel="noopener noreferrer" aria-label="查看保存整包原始截图"><img src="guide-assets/curated-save.png" alt="精选案例包详情，右侧有保存整包按钮" width="1480" height="843" loading="lazy"><span class="guide-target" style="--x:71.3%;--y:41.3%;--w:6.9%;--h:5%"><b>3</b></span></a><figcaption><b>3</b> 点“保存整包”。只想下载 ZIP，可在<a href="index.html">精选网站</a>打开包下载。</figcaption></figure>
+            </div>
+          </article>
+          <article class="guide-card" id="zip">
+            <div class="guide-card-copy"><span>ZIP 导入与分享</span><h3>把案例包带进来、发出去</h3><p>导入：案例库右上角齿轮 →“界面与资料库”→“导入分享包”→“选择 ZIP”。导出：点“管理”，选中案例 →“更多”→“分享”→“下载分享包”。</p></div>
+            <div class="guide-card-shots guide-card-shots--two">
+              <figure class="guide-shot-figure"><a class="guide-shot guide-shot--import-crop" href="guide-assets/settings-import.png" target="_blank" rel="noopener noreferrer" aria-label="查看设置页导入分享包原始截图"><img src="guide-assets/settings-import.png" alt="设置页中的导入分享包和选择 ZIP 按钮" width="884" height="681" loading="lazy"><span class="guide-target" style="--x:10.1%;--y:51%;--w:8%;--h:25%"><b>1</b></span></a><figcaption><b>1</b> 在设置里点“选择 ZIP”。</figcaption></figure>
+              <figure class="guide-shot-figure"><a class="guide-shot" href="guide-assets/batch-menu.png" target="_blank" rel="noopener noreferrer" aria-label="查看案例管理更多菜单原始截图"><img src="guide-assets/batch-menu.png" alt="管理案例后的更多菜单，包含分享和批量分析" width="611" height="343" loading="lazy"><span class="guide-target" style="--x:28%;--y:17%;--w:34%;--h:10%"><b>2</b></span></a><figcaption><b>2</b> 选好案例后，从“更多”点“分享”。</figcaption></figure>
+            </div>
+          </article>
+          <article class="guide-card" id="batch">
+            <div class="guide-card-copy"><span>批量视觉分析</span><h3>一次分析多条画面</h3><p>先在 AI 设置里连好图片或视频分析服务。回到案例库，点右上角“管理”，选中案例 →“更多”→ 对应的批量分析。选视频时图片分析会置灰；运行前查看请求数量和费用。</p></div>
+            <div class="guide-card-shots guide-card-shots--two">
+              <figure class="guide-shot-figure"><a class="guide-shot" href="guide-assets/batch-select.png" target="_blank" rel="noopener noreferrer" aria-label="查看选中多条案例原始截图"><img src="guide-assets/batch-select.png" alt="案例库批量管理状态，11 条案例被选中" width="1486" height="765" loading="lazy"><span class="guide-target" style="--x:80.5%;--y:1.2%;--w:4.8%;--h:5.1%"><b>1</b></span></a><figcaption><b>1</b> 选中案例后点“更多”。</figcaption></figure>
+              <figure class="guide-shot-figure"><a class="guide-shot" href="guide-assets/batch-menu.png" target="_blank" rel="noopener noreferrer" aria-label="查看批量分析菜单原始截图"><img src="guide-assets/batch-menu.png" alt="更多菜单中的批量分析图片置灰，批量分析视频可点击" width="611" height="343" loading="lazy"><span class="guide-target" style="--x:28%;--y:50%;--w:34%;--h:10%"><b>2</b></span><span class="guide-target" style="--x:28%;--y:61%;--w:34%;--h:10%"><b>3</b></span></a><figcaption><b>2</b> 图片项置灰　<b>3</b> 此处选了视频，点视频分析。</figcaption></figure>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="guide-section" id="create" aria-labelledby="create-title">
+        <div class="guide-section-heading"><span>03 / CREATE WITH REFERENCES</span><h2 id="create-title">用案例创作</h2><p>连接自己的 AI 服务，再让案例和 Skill 为下一次创作提供参考。</p></div>
+        <div class="guide-card-grid">
+          <article class="guide-card" id="api">
+            <div class="guide-card-copy"><span>开始前</span><h3>接入 AI 服务</h3><p>案例库右上角齿轮 →“AI 配置”→“服务连接”→“连接 AI 服务”。保存服务后，在“任务模型”页给图片分析、创作规划等任务选择模型。调用服务可能产生费用。</p></div>
+            <div class="guide-card-shots guide-card-shots--two">
+              <figure class="guide-shot-figure"><a class="guide-shot" href="guide-assets/api-service.png" target="_blank" rel="noopener noreferrer" aria-label="查看 AI 服务连接页原始截图"><img src="guide-assets/api-service.png" alt="AI 配置服务连接页，右上角连接 AI 服务按钮" width="879" height="679" loading="lazy"><span class="guide-target" style="--x:87%;--y:29.6%;--w:11%;--h:5.9%"><b>1</b></span></a><figcaption><b>1</b> 点“连接 AI 服务”。</figcaption></figure>
+              <figure class="guide-shot-figure"><a class="guide-shot" href="guide-assets/api-routing.png" target="_blank" rel="noopener noreferrer" aria-label="查看任务模型页原始截图"><img src="guide-assets/api-routing.png" alt="任务模型页，分别为文字、图片和视频任务选择模型" width="884" height="680" loading="lazy"><span class="guide-target" style="--x:2.1%;--y:21.1%;--w:10%;--h:5.3%"><b>2</b></span></a><figcaption><b>2</b> 在“任务模型”页检查各任务用哪个模型。</figcaption></figure>
+            </div>
+          </article>
+          <article class="guide-card" id="composer">
+            <div class="guide-card-copy"><span>创作台</span><h3>直接说你要做什么</h3><p>案例库右上角点“开始创作”。在创作台底部写目标，例如“帮我写一条电影感角色海报提示词”，然后发送。</p></div>
+            <div class="guide-card-shots guide-card-shots--two">
+              <figure class="guide-shot-figure"><a class="guide-shot" href="guide-assets/library.png" target="_blank" rel="noopener noreferrer" aria-label="查看开始创作入口原始截图"><img src="guide-assets/library.png" alt="案例库右上角开始创作按钮" width="1483" height="852" loading="lazy"><span class="guide-target" style="--x:92%;--y:1%;--w:5.2%;--h:4.7%"><b>1</b></span></a><figcaption><b>1</b> 点“开始创作”。</figcaption></figure>
+              <figure class="guide-shot-figure"><a class="guide-shot" href="guide-assets/composer-result.png" target="_blank" rel="noopener noreferrer" aria-label="查看创作台原始截图"><img src="guide-assets/composer-result.png" alt="创作台对话和底部输入框" width="1482" height="844" loading="lazy"><span class="guide-target" style="--x:28.7%;--y:79%;--w:59%;--h:15.5%"><b>2</b></span></a><figcaption><b>2</b> 在底部输入目标，再点绿色发送按钮。</figcaption></figure>
+            </div>
+          </article>
+          <article class="guide-card" id="search">
+            <div class="guide-card-copy"><span>创作台查资料</span><h3>让创作台找库里的内容</h3><p>确认输入框旁的放大镜亮着，然后直接说“帮我找几条雨夜街道参考”。支持查库的模型会显示找到、读取的案例；若当前模型不支持，可用“参考”手选。</p></div>
+            <div class="guide-card-shots guide-card-shots--two">
+              <figure class="guide-shot-figure"><a class="guide-shot" href="guide-assets/composer-search.png" target="_blank" rel="noopener noreferrer" aria-label="查看创作台查库原始截图"><img src="guide-assets/composer-search.png" alt="创作台请求查找库中案例，底部放大镜开启" width="1480" height="841" loading="lazy"><span class="guide-target" style="--x:32.4%;--y:89.2%;--w:2.6%;--h:4.7%"><b>1</b></span><span class="guide-target" style="--x:64%;--y:11.7%;--w:24.3%;--h:6.1%"><b>2</b></span></a><figcaption><b>1</b> 放大镜亮起　<b>2</b> 直接提出查找需求。</figcaption></figure>
+              <figure class="guide-shot-figure"><a class="guide-shot" href="guide-assets/composer-search-result.png" target="_blank" rel="noopener noreferrer" aria-label="查看创作台查找结果原始截图"><img src="guide-assets/composer-search-result.png" alt="创作台显示资料库的查询候选与已保存的 Skill" width="1483" height="847" loading="lazy"><span class="guide-target" style="--x:28.8%;--y:32.4%;--w:59%;--h:16%"><b>结果</b></span></a><figcaption>结果里会列出查到的资料，点“选作参考”可接着用。</figcaption></figure>
+            </div>
+          </article>
+          <article class="guide-card" id="reference">
+            <div class="guide-card-copy"><span>参考案例</span><h3>选画面，再生成提示词</h3><p>创作台底部点“参考”，在“案例”页搜索和勾选想借鉴的作品，再点右下角“应用参考”。回到输入框写创作目标。</p></div>
+            <div class="guide-card-shots">
+              <figure class="guide-shot-figure"><a class="guide-shot" href="guide-assets/composer-reference.png" target="_blank" rel="noopener noreferrer" aria-label="查看创作台参考面板原始截图"><img src="guide-assets/composer-reference.png" alt="创作台参考面板，显示案例搜索、卡片勾选与应用参考按钮" width="1458" height="840" loading="lazy"><span class="guide-target" style="--x:76%;--y:11.7%;--w:22.7%;--h:5.2%"><b>1</b></span><span class="guide-target" style="--x:18.1%;--y:19.3%;--w:2%;--h:3.2%"><b>2</b></span><span class="guide-target" style="--x:94.7%;--y:94.6%;--w:4.5%;--h:4.3%"><b>3</b></span></a><figcaption><b>1</b> 搜案例　<b>2</b> 勾选　<b>3</b> 应用参考。</figcaption></figure>
+            </div>
+          </article>
+          <article class="guide-card" id="skill">
+            <div class="guide-card-copy"><span>创作 Skill</span><h3>把方法保存成 Skill</h3><p>案例库左侧点“创作 Skill”，再点右上角“新建 Skill”。按页面提示选来源案例、写明想提炼的方法，检查草稿后保存。</p></div>
+            <div class="guide-card-shots guide-card-shots--two">
+              <figure class="guide-shot-figure"><a class="guide-shot" href="guide-assets/curated-entry.png" target="_blank" rel="noopener noreferrer" aria-label="查看创作 Skill 入口原始截图"><img src="guide-assets/curated-entry.png" alt="案例库左侧创作 Skill 入口" width="300" height="210" loading="lazy"><span class="guide-target" style="--x:0.8%;--y:80%;--w:97%;--h:18%"><b>1</b></span></a><figcaption><b>1</b> 点左侧“创作 Skill”。</figcaption></figure>
+              <figure class="guide-shot-figure"><a class="guide-shot" href="guide-assets/skills-home.png" target="_blank" rel="noopener noreferrer" aria-label="查看创作 Skill 中心原始截图"><img src="guide-assets/skills-home.png" alt="创作 Skill 中心，右上角新建 Skill 按钮" width="1485" height="845" loading="lazy"><span class="guide-target" style="--x:93.6%;--y:18.1%;--w:5.7%;--h:4.6%"><b>2</b></span></a><figcaption><b>2</b> 点“新建 Skill”。</figcaption></figure>
+            </div>
+          </article>
+          <article class="guide-card" id="combine">
+            <div class="guide-card-copy"><span>Skill + 案例</span><h3>方法和参考一起用</h3><p>创作台点“参考”，在“案例”和“Skill”两个页签分别选好内容，应用后写目标并发送。需要模型直接看图片时，再开启“同时发送原图”。</p></div>
+            <div class="guide-card-shots guide-card-shots--two">
+              <figure class="guide-shot-figure"><a class="guide-shot" href="guide-assets/composer-result.png" target="_blank" rel="noopener noreferrer" aria-label="查看 Skill 与案例组合原始截图"><img src="guide-assets/composer-result.png" alt="创作台已应用 Skill 标签和多个参考案例" width="1482" height="844" loading="lazy"><span class="guide-target" style="--x:18%;--y:66%;--w:23%;--h:4%"><b>Skill</b></span><span class="guide-target" style="--x:29%;--y:71.6%;--w:58%;--h:7%"><b>案例</b></span></a><figcaption>输入框上方能看到已用的 Skill 和参考案例。</figcaption></figure>
+              <figure class="guide-shot-figure"><a class="guide-shot" href="guide-assets/composer-send-original.png" target="_blank" rel="noopener noreferrer" aria-label="查看同时发送原图选项原始截图"><img src="guide-assets/composer-send-original.png" alt="本轮参考输入菜单，可勾选同时发送原图" width="268" height="179" loading="lazy"><span class="guide-target" style="--x:10%;--y:42%;--w:83%;--h:16%"><b>原图</b></span></a><figcaption>只有需要模型看原画面时，才开“同时发送原图”。</figcaption></figure>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="guide-section" id="more" aria-labelledby="more-title">
+        <div class="guide-section-heading"><span>04 / MORE WHEN NEEDED</span><h2 id="more-title">用熟后，再看这些入口</h2><p>下面是你截图里常用的其他功能；第一次保存案例时可以先跳过。</p></div>
+        <div class="guide-more-grid">
+          <article><a class="guide-shot" href="guide-assets/project-menu.png" target="_blank" rel="noopener noreferrer" aria-label="查看项目管理原始截图"><img src="guide-assets/project-menu.png" alt="案例库左侧项目的更多菜单，包含管理案例与批量分析" width="604" height="627" loading="lazy"><span class="guide-target" style="--x:11%;--y:47%;--w:37%;--h:7%"><b>项目</b></span></a><h3>按项目整理</h3><p>左侧“项目”旁点加号新建；项目右侧“…”可管理案例。</p></article>
+          <article><a class="guide-shot" href="guide-assets/category-filter.png" target="_blank" rel="noopener noreferrer" aria-label="查看内容类型筛选原始截图"><img src="guide-assets/category-filter.png" alt="左侧内容类型菜单，含图片提示词、视频提示词、资料文档等" width="298" height="406" loading="lazy"><span class="guide-target" style="--x:1%;--y:10%;--w:95%;--h:9%"><b>分类</b></span></a><h3>按内容类型找</h3><p>左侧展开“内容类型”，直接点图片提示词、视频或文档。</p></article>
+          <article><a class="guide-shot" href="guide-assets/tag-filter.png" target="_blank" rel="noopener noreferrer" aria-label="查看标签筛选原始截图"><img src="guide-assets/tag-filter.png" alt="左侧标签筛选列表，可按视觉风格、光线与色彩等查找" width="305" height="790" loading="lazy"><span class="guide-target" style="--x:1%;--y:30%;--w:95%;--h:7%"><b>标签</b></span></a><h3>按标签找</h3><p>展开“标签筛选”，点主题、风格或色彩标签缩小范围。</p></article>
+          <article><a class="guide-shot" href="guide-assets/list-view.png" target="_blank" rel="noopener noreferrer" aria-label="查看列表视图原始截图"><img src="guide-assets/list-view.png" alt="案例库列表视图，右上角有瀑布流和列表切换按钮" width="1483" height="821" loading="lazy"><span class="guide-target" style="--x:70%;--y:0.5%;--w:5.6%;--h:5%"><b>视图</b></span></a><h3>切换看图方式</h3><p>顶部的画面图标和列表图标，可切换瀑布流与列表。</p></article>
+          <article><a class="guide-shot" href="guide-assets/curated-skills.png" target="_blank" rel="noopener noreferrer" aria-label="查看精选 Skill 原始截图"><img src="guide-assets/curated-skills.png" alt="精选 Skill 页面，可保存公开 Skill 到本地" width="1480" height="508" loading="lazy"><span class="guide-target" style="--x:53.3%;--y:75%;--w:6.5%;--h:7%"><b>保存</b></span></a><h3>下载精选 Skill</h3><p>在“精选 Skill”页点“保存到本地”，之后可在创作台使用。</p></article>
+          <article><a class="guide-shot" href="guide-assets/composer-directions.png" target="_blank" rel="noopener noreferrer" aria-label="查看创作方向菜单原始截图"><img src="guide-assets/composer-directions.png" alt="创作台方向菜单，提供图片创作和视频创作" width="368" height="228" loading="lazy"><span class="guide-target" style="--x:25%;--y:34%;--w:67%;--h:16%"><b>方向</b></span></a><h3>选图片或视频方向</h3><p>创作台底部打开“创作方向”，选图片创作或视频创作。</p></article>
+          <article><a class="guide-shot" href="guide-assets/library-add.png" target="_blank" rel="noopener noreferrer" aria-label="查看添加菜单原始截图"><img src="guide-assets/library-add.png" alt="案例库添加菜单，包含导入本机资料、视频链接和快速笔记" width="318" height="262" loading="lazy"><span class="guide-target" style="--x:6%;--y:21%;--w:89%;--h:27%"><b>添加</b></span></a><h3>导入本机资料</h3><p>案例库右上角“添加”可导入文件、保存视频链接或写快速笔记。</p></article>
+          <article><a class="guide-shot" href="guide-assets/capture-comment.png" target="_blank" rel="noopener noreferrer" aria-label="查看评论提示词采集原始截图"><img src="guide-assets/capture-comment.png" alt="网页评论中的提示词与采集栏的补入当前案例按钮" width="1288" height="843" loading="lazy"><span class="guide-target" style="--x:64.7%;--y:62.5%;--w:11.5%;--h:4.9%"><b>补入</b></span></a><h3>提示词在评论里</h3><p>先采集作品，再将评论中的提示词补入当前案例，保存前核对。</p></article>
+          <article><a class="guide-shot" href="guide-assets/composer-models.png" target="_blank" rel="noopener noreferrer" aria-label="查看创作模型列表原始截图"><img src="guide-assets/composer-models.png" alt="创作台底部的模型选择列表" width="310" height="476" loading="lazy"><span class="guide-target" style="--x:2%;--y:7%;--w:78%;--h:11%"><b>模型</b></span></a><h3>切换创作模型</h3><p>创作台发送按钮旁可切换已连接的模型。</p></article>
+          <article><a class="guide-shot" href="guide-assets/composer-options.png" target="_blank" rel="noopener noreferrer" aria-label="查看创作设置原始截图"><img src="guide-assets/composer-options.png" alt="创作台设置菜单，可选择任务、目标模型和输出语言" width="338" height="450" loading="lazy"><span class="guide-target" style="--x:34%;--y:10%;--w:60%;--h:9%"><b>任务</b></span></a><h3>调整本轮创作</h3><p>点输入框旁的齿轮，可选任务、输出语言等。</p></article>
+          <article><a class="guide-shot" href="guide-assets/method-settings.png" target="_blank" rel="noopener noreferrer" aria-label="查看创作方法设置原始截图"><img src="guide-assets/method-settings.png" alt="设置中的分析与创作规则，可编辑创作方法" width="882" height="681" loading="lazy"><span class="guide-target" style="--x:28.8%;--y:21.9%;--w:10.5%;--h:5.8%"><b>方法</b></span></a><h3>自定义创作方法</h3><p>设置 →“分析与创作规则”→“创作方法”，按需修改。</p></article>
+          <article><a class="guide-shot" href="guide-assets/maintenance.png" target="_blank" rel="noopener noreferrer" aria-label="查看文字标签补全原始截图"><img src="guide-assets/maintenance.png" alt="任务与维护页，包含文字标签补全的开始打标按钮" width="877" height="680" loading="lazy"><span class="guide-target" style="--x:89%;--y:21%;--w:9%;--h:6%"><b>打标</b></span></a><h3>补全旧案例的文字标签</h3><p>设置 →“任务与维护”中查看待补数量，再决定是否开始。</p></article>
+        </div>
+      </section>
+
+      <aside class="guide-end"><div><p class="guide-kicker">需要放大？</p><h2>点击任意截图，带标注放大。</h2><p>所有界面图来自真实插件截图，绿色框只标注点击位置。截图来自开发版，个别名称和布局可能与 1.24.1 略有不同。</p></div><a class="guide-primary-link" href="#topics">回到目录 ↑</a></aside>
+    </main>
+    <dialog class="guide-lightbox" id="guide-lightbox" aria-label="放大查看操作截图">
+      <div class="guide-lightbox-bar"><strong id="guide-lightbox-title">操作截图</strong><button id="guide-lightbox-close" type="button" aria-label="关闭放大截图">关闭 ×</button></div>
+      <div id="guide-lightbox-content"></div>
+    </dialog>
+    <footer class="site-footer"><strong>PromptDirector</strong><span>提示词导演，你的视觉创作私人灵感库。</span><a href="support.html">需要帮助</a></footer>
+  </body>
+</html>

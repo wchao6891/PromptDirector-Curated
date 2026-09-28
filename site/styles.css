@@ -207,7 +207,8 @@ button:focus-visible, input:focus-visible, summary:focus-visible, [tabindex="0"]
 
 @media (max-width: 760px) {
   .topbar { grid-template-columns: auto 1fr; padding: 8px 10px; }
-  .header-actions { justify-self: end; }
+  .public-section-title { grid-column: 1 / -1; flex-wrap: wrap; }
+  .header-actions { grid-column: 1 / -1; grid-row: 3; justify-self: start; }
   .search-shell { grid-column: 1 / -1; grid-row: 2; }
   .product-guide { align-items: flex-start; padding: 9px 10px; }
   .product-guide p { display: grid; gap: 2px; }
