@@ -1,7 +1,7 @@
 {
   "format": "prompt-director-curated",
   "version": 2,
-  "updatedAt": "2026-09-20T14:31:06.017Z",
+  "updatedAt": "2026-09-28T14:09:59.660Z",
   "themes": [
     {
       "id": "featured:vol-1",
@@ -439,6 +439,29 @@
       "videoCount": 0,
       "summary": "PromptDirector-小黑盒-高定服饰-分享，收录原始媒体与提示词。",
       "order": 19
+    },
+    {
+      "id": "cases-ad27222f0bfd93989f6e",
+      "title": "x精选-服装设计",
+      "type": "image_prompt",
+      "packageId": "cases-ad27222f0bfd93989f6e",
+      "packageVersion": "1.0.0",
+      "authorId": "github-258240113",
+      "author": "wchao6891",
+      "license": "第三方来源精选 · 权利归原作者 · 授权未核验",
+      "rightsStatus": "source_unverified",
+      "rightsReviewUrl": "https://wchao6891.github.io/PromptDirector-Curated/reviews/cases-ad27222f0bfd93989f6e.json",
+      "updatedAt": "2026-09-28T14:08:32.466Z",
+      "coverUrl": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-ad27222f0bfd93989f6e/media/c32e54bb8859aaf81f21.webp",
+      "previewUrl": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-ad27222f0bfd93989f6e/preview.json",
+      "downloadUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/cases-ad27222f0bfd93989f6e-1.0.0/cases-ad27222f0bfd93989f6e.zip",
+      "sha256": "8cb8e9c98b028fb775a84e6bd0da8839cf2eea814eacb8063adc7cd175c559f2",
+      "archiveBytes": 5881193,
+      "caseCount": 50,
+      "imageCount": 50,
+      "videoCount": 0,
+      "summary": "PromptDirector-服装设计-分享，收录原始媒体与提示词。",
+      "order": 20
     }
   ]
 }
