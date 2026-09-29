@@ -1,7 +1,7 @@
 {
   "format": "prompt-director-curated-metrics",
   "version": 1,
-  "updatedAt": "2026-09-28T14:09:59.661Z",
+  "updatedAt": "2026-09-29T09:58:00.313Z",
   "downloads": {
     "featured:vol-1": 25,
     "featured:jimeng": 34,
@@ -13,15 +13,15 @@
     "featured:evolink-video-4": 6,
     "featured:evolink-video-5": 27,
     "featured:jimeng-guofeng-community-1": 7,
-    "cases-85fe274e06c395c24e8a": 11,
+    "cases-85fe274e06c395c24e8a": 15,
     "cases-1ceeb0d9bc533bf10bcc": 0,
     "cases-1ea9f7e33e0b293d2a12": 1,
     "cases-4529f91713cffcfe4dc1": 1,
     "cases-f05a7604a4a889ede786": 0,
-    "cases-ed99fb86238d9dca13c0": 1,
+    "cases-ed99fb86238d9dca13c0": 2,
     "cases-5b8deb5b7d94e3bcdefb": 11,
     "cases-a7126fd0ce35aaf96153": 11,
-    "cases-3067eed17c7b7ca7d1b3": 3,
-    "cases-ad27222f0bfd93989f6e": 0
+    "cases-3067eed17c7b7ca7d1b3": 4,
+    "cases-ad27222f0bfd93989f6e": 1
   }
 }
