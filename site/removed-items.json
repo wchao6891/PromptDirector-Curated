@@ -24,6 +24,29 @@
       },
       "fingerprint": "1fcb12b4a1cd00fcf3519b49a9790610df2297dbc7f8b3c98c60fe4423b1c536",
       "removedAt": "2026-10-05T07:58:44.235Z"
+    },
+    {
+      "kind": "skill",
+      "id": "creative-skill-961418f2@1.0.0",
+      "item": {
+        "id": "creative-skill-961418f2@1.0.0",
+        "skillId": "creative-skill-961418f2",
+        "version": "1.0.0",
+        "title": "字体技能",
+        "callName": "字体技能",
+        "authorId": "author-40ef3270e01b",
+        "author": "PromptDirector",
+        "license": "CC BY 4.0",
+        "reviewStatus": "approved",
+        "reviewedAt": "2026-08-23T05:41:43.000Z",
+        "summary": "专门字体设计技能，可以路由提炼的所有字体样式",
+        "downloadUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/skill-creative-skill-961418f2-v1.0.0/creative-skill-961418f2-1.0.0.zip",
+        "sha256": "81173329c5831f97c9b089a3ac290af96e9cbbe49c0dd652ac5ff5d9605eccbe",
+        "archiveBytes": 22714,
+        "order": 2
+      },
+      "fingerprint": "704959c54830cbd3606d27200c2031530f24eb3b652ed339ccf3ff139f3805ec",
+      "removedAt": "2026-10-05T08:01:50.111Z"
     }
   ]
 }
