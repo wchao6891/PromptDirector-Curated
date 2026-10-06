@@ -1,0 +1,95 @@
+/* PromptDirector — English landing page.
+   Loaded after ../styles.css so it only adds what the landing page needs and
+   leaves every shared rule used by the Chinese pages untouched. */
+
+.topbar.landing-topbar { grid-template-columns: auto 1fr; }
+.topbar.landing-topbar .header-actions { justify-self: end; }
+
+.landing-main { max-width: var(--max-width); margin: 0 auto; padding: 0 12px 64px; }
+
+.landing-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 32px;
+  margin: 20px 0 8px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 40px;
+  background: #101416;
+  color: #f6f8f2;
+}
+
+.landing-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 14px;
+  color: #adff00;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2.4px;
+  text-transform: uppercase;
+}
+
+.landing-hero h1 { margin: 0 0 14px; font-size: clamp(28px, 4vw, 43px); line-height: 1.08; letter-spacing: -1px; }
+.landing-hero .landing-lead { max-width: 46ch; margin: 0 0 22px; color: #c3ccc4; font-size: 15px; line-height: 1.7; }
+.landing-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.landing-actions a { display: inline-flex; min-height: 42px; align-items: center; border-radius: var(--radius); padding: 10px 18px; font-size: 13px; font-weight: 800; text-decoration: none; }
+.landing-install { color: #111500; background: #adff00; border: 1px solid #adff00; }
+.landing-install:hover { background: #c3ff4d; }
+.landing-secondary { color: #f6f8f2; background: transparent; border: 1px solid #47524a; }
+.landing-secondary:hover { border-color: #76847a; }
+.landing-trust { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 22px 0 0; padding: 0; color: #a8b4ac; font-size: 11.5px; font-weight: 700; letter-spacing: .4px; list-style: none; }
+.landing-trust li { display: inline-flex; align-items: center; gap: 6px; }
+.landing-trust li::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: #adff00; }
+
+.landing-hero-shot { margin: 0; }
+.landing-hero-shot img { display: block; width: 100%; height: auto; border: 1px solid #2a3230; border-radius: 8px; background: #16191e; }
+.landing-hero-shot figcaption { margin-top: 8px; color: #929c95; font-size: 11px; line-height: 1.5; }
+
+.landing-section { margin-top: 54px; }
+.landing-section > h2 { margin: 0 0 8px; font-size: 22px; line-height: 1.25; letter-spacing: -.4px; }
+.landing-section > p { max-width: 76ch; margin: 0 0 20px; color: var(--muted); font-size: 14px; line-height: 1.7; }
+
+.landing-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+.landing-card { display: grid; gap: 8px; align-content: start; border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; background: var(--surface); }
+.landing-card h3 { margin: 0; font-size: 14px; line-height: 1.35; }
+.landing-card p { margin: 0; color: var(--muted); font-size: 12.5px; line-height: 1.65; }
+.landing-card-index { color: var(--muted); font-size: 11px; font-weight: 800; letter-spacing: 1.6px; }
+
+.landing-chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 14px; padding: 0; list-style: none; }
+.landing-chips li { border: 1px solid var(--border); border-radius: 999px; padding: 5px 11px; background: var(--surface); font-size: 12px; font-weight: 700; }
+.landing-fineprint { max-width: 76ch; margin: 0; color: var(--muted); font-size: 12.5px; line-height: 1.7; }
+
+.landing-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin: 0; padding: 0; list-style: none; counter-reset: landing-step; }
+.landing-steps li { display: grid; gap: 8px; align-content: start; border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; background: var(--surface); }
+.landing-steps li::before { counter-increment: landing-step; content: "0" counter(landing-step); color: var(--muted); font-size: 11px; font-weight: 800; letter-spacing: 1.6px; }
+.landing-steps strong { font-size: 14px; }
+.landing-steps span { color: var(--muted); font-size: 12.5px; line-height: 1.65; }
+
+.landing-shots { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin: 0; }
+.landing-shots figure { margin: 0; }
+.landing-shots img { display: block; width: 100%; height: auto; border: 1px solid var(--border); border-radius: var(--radius); background: var(--raised); }
+.landing-shots figcaption { margin-top: 7px; color: var(--muted); font-size: 11.5px; line-height: 1.55; }
+
+.landing-requirements { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 28px; margin: 0; padding: 0 0 0 18px; color: var(--muted); font-size: 12.5px; line-height: 1.7; }
+.landing-note { margin-top: 18px; border-left: 3px solid var(--accent); padding: 10px 0 10px 14px; color: var(--muted); font-size: 12.5px; line-height: 1.7; }
+
+.landing-footer-links { display: flex; flex-wrap: wrap; gap: 6px 16px; }
+
+@media (max-width: 1080px) {
+  .landing-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 900px) {
+  .landing-hero { grid-template-columns: minmax(0, 1fr); gap: 24px; padding: 26px; }
+  .landing-steps, .landing-shots { grid-template-columns: minmax(0, 1fr); }
+  .landing-requirements { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .landing-main { padding: 0 10px 48px; }
+  .landing-grid { grid-template-columns: minmax(0, 1fr); }
+  .topbar.landing-topbar .header-actions { justify-self: start; }
+}
