@@ -1,7 +1,7 @@
 {
   "format": "prompt-director-curated-metrics",
   "version": 1,
-  "updatedAt": "2026-10-06T10:30:49.428Z",
+  "updatedAt": "2026-10-07T10:24:11.190Z",
   "downloads": {
     "featured:vol-1": 25,
     "featured:jimeng": 35,
@@ -9,8 +9,8 @@
     "featured:higgsfield": 27,
     "featured:evolink-video-1": 8,
     "featured:evolink-video-2": 8,
-    "featured:evolink-video-3": 4,
-    "featured:evolink-video-4": 7,
+    "featured:evolink-video-3": 5,
+    "featured:evolink-video-4": 8,
     "featured:evolink-video-5": 28,
     "featured:jimeng-guofeng-community-1": 7,
     "cases-85fe274e06c395c24e8a": 17,
