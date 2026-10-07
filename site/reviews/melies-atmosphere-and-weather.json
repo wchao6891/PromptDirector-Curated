@@ -1,0 +1,21 @@
+{
+  "format": "prompt-director-curated-rights-review",
+  "version": 1,
+  "catalogId": "melies:atmosphere-and-weather",
+  "packageId": "melies-atmosphere-and-weather",
+  "packageVersion": "1.0.0",
+  "status": "source_unverified",
+  "reviewedAt": "2026-10-07T13:18:21Z",
+  "reviewerId": "github-258240113",
+  "evidence": {
+    "origin": "整理自 Melies Cinematic（melies.co）公开页面，来源链接随内容保留；本合集 氛围与天气（Atmosphere and Weather）共 13 条。",
+    "entryCount": 13,
+    "thirdPartySourceUrlCount": 13,
+    "sourceRecordsRetainedByPublisher": true
+  },
+  "distributionScope": [
+    "公开网站预览",
+    "原始媒体与提示词 ZIP 下载",
+    "保存到本地资料库"
+  ]
+}

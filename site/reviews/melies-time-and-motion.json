@@ -1,0 +1,21 @@
+{
+  "format": "prompt-director-curated-rights-review",
+  "version": 1,
+  "catalogId": "melies:time-and-motion",
+  "packageId": "melies-time-and-motion",
+  "packageVersion": "1.0.0",
+  "status": "source_unverified",
+  "reviewedAt": "2026-10-07T13:18:21Z",
+  "reviewerId": "github-258240113",
+  "evidence": {
+    "origin": "整理自 Melies Cinematic（melies.co）公开页面，来源链接随内容保留；本合集 时间与运动（Time and Motion）共 21 条。",
+    "entryCount": 21,
+    "thirdPartySourceUrlCount": 21,
+    "sourceRecordsRetainedByPublisher": true
+  },
+  "distributionScope": [
+    "公开网站预览",
+    "原始媒体与提示词 ZIP 下载",
+    "保存到本地资料库"
+  ]
+}

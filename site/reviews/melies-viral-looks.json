@@ -1,0 +1,21 @@
+{
+  "format": "prompt-director-curated-rights-review",
+  "version": 1,
+  "catalogId": "melies:viral-looks",
+  "packageId": "melies-viral-looks",
+  "packageVersion": "1.0.0",
+  "status": "source_unverified",
+  "reviewedAt": "2026-10-07T13:18:21Z",
+  "reviewerId": "github-258240113",
+  "evidence": {
+    "origin": "整理自 Melies Cinematic（melies.co）公开页面，来源链接随内容保留；本合集 病毒式观感（Viral Looks）共 44 条。",
+    "entryCount": 44,
+    "thirdPartySourceUrlCount": 44,
+    "sourceRecordsRetainedByPublisher": true
+  },
+  "distributionScope": [
+    "公开网站预览",
+    "原始媒体与提示词 ZIP 下载",
+    "保存到本地资料库"
+  ]
+}
