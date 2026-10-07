@@ -3,7 +3,7 @@ const lightboxContent = document.querySelector('#guide-lightbox-content');
 const lightboxTitle = document.querySelector('#guide-lightbox-title');
 
 if (lightbox && lightboxContent && lightboxTitle && typeof lightbox.showModal === 'function') {
-  document.querySelectorAll('a.guide-shot[href^="guide-assets/"]').forEach((link) => {
+  document.querySelectorAll('a.guide-shot[href*="guide-assets/"]').forEach((link) => {
     link.addEventListener('click', (event) => {
       event.preventDefault();
       const frame = document.createElement('div');

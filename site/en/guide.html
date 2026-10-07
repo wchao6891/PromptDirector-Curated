@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A hands-on visual guide to PromptDirector: install the extension, capture and save your first case, then find, share and create with your own reference library.">
+    <title>PromptDirector quick start</title>
+    <link rel="alternate" hreflang="en" href="https://wchao6891.github.io/PromptDirector-Curated/en/guide.html">
+    <link rel="alternate" hreflang="zh-CN" href="https://wchao6891.github.io/PromptDirector-Curated/guide.html">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../guide.css">
+    <script src="../lang.js" defer></script>
+    <script src="../guide.js" defer></script>
+  </head>
+  <body class="guide-page">
+    <header class="topbar guide-topbar">
+      <div class="public-section-title">
+        <a class="public-brand" href="index.html" aria-label="PromptDirector — visual reference library"><strong>PromptDirector</strong><span>Visual reference library</span></a>
+        <nav class="public-section-nav ui-segmented" aria-label="Site sections">
+          <a class="ui-segmented-item" href="index.html">Overview</a>
+          <a class="ui-segmented-item" href="guide.html" aria-current="page">Quick start</a>
+        </nav>
+      </div>
+      <div class="header-actions">
+        <a class="lang-switch" href="../index.html?lang=zh-CN" hreflang="zh-CN" data-pd-set-lang="zh-CN">中文</a>
+        <a class="guide-header-install" href="https://chromewebstore.google.com/detail/iahakaahijddcjjldidbclicedibgpjm" target="_blank" rel="noopener noreferrer">Add to Chrome ↗</a>
+      </div>
+    </header>
+
+    <main class="guide-main">
+      <section class="guide-hero" aria-labelledby="guide-title">
+        <div class="guide-hero-copy">
+          <p class="guide-kicker">PROMPTDIRECTOR · BEGINNER WALKTHROUGH</p>
+          <h1 id="guide-title">Follow the buttons,<br>save your first find.</h1>
+          <p>Work through the first four steps once. The green numbers in the screenshots mark what to click.</p>
+          <div class="guide-hero-actions">
+            <a class="guide-primary-link" href="#start">Start with step 1 ↓</a>
+            <a class="guide-text-link" href="#topics">Jump to a feature</a>
+          </div>
+          <p class="guide-version-note">Screenshots come from PromptDirector 1.26.0 with the interface in English — the extension follows your Chrome language, and you can pin it in Settings → “Interface language”. The composer steps still show an earlier build.</p>
+        </div>
+        <figure class="guide-hero-preview">
+          <a class="guide-shot" href="guide-assets/library.png" target="_blank" rel="noopener noreferrer" aria-label="View the full case library screenshot">
+            <img src="guide-assets/library.png" alt="PromptDirector's real case library: navigation on the left, search at the top and a wall of cases in the middle" width="2046" height="922">
+            <span class="guide-target" style="--x:0.3%;--y:7.2%;--w:19.6%;--h:4.4%"><b>Case library</b></span>
+          </a>
+          <figcaption>This is the case library you land on after opening the extension. Click an image to open the full-size version.</figcaption>
+        </figure>
+      </section>
+
+      <nav class="guide-jump" id="topics" aria-label="Guide contents">
+        <a href="#start"><b>01</b> Save your first case</a>
+        <a href="#library"><b>02</b> Collect and organize</a>
+        <a href="#create"><b>03</b> Create with cases</a>
+        <a href="#more"><b>04</b> More entry points</a>
+      </nav>
+
+      <section class="guide-section" id="start" aria-labelledby="start-title">
+        <div class="guide-section-heading"><span>01 / FIRST CASE</span><h2 id="start-title">Save your first case</h2><p>Install once, and anything you like can go straight into your library.</p></div>
+        <div class="guide-steps">
+          <article class="guide-step guide-step--install" id="install">
+            <div class="guide-step-copy"><span class="guide-step-number">01</span><h3>Install the extension</h3><p>The quickest way is the Chrome Web Store: click “Add to Chrome”. If you prefer the ZIP from GitHub, download the latest release and unzip it; type <code>chrome://extensions</code> in Chrome's address bar, turn on “Developer mode”, click “Load unpacked”, and select the unzipped extension folder.</p></div>
+            <div class="guide-install-options">
+              <a href="https://chromewebstore.google.com/detail/iahakaahijddcjjldidbclicedibgpjm" target="_blank" rel="noopener noreferrer"><strong>Chrome Web Store</strong><span>Open the install page ↗</span></a>
+              <a href="https://github.com/wchao6891/PromptDirector/releases/tag/v1.24.1" target="_blank" rel="noopener noreferrer"><strong>1.24.1 release package</strong><span>Download the ZIP ↗</span></a>
+              <p>Once it is installed, click the puzzle-piece icon to the right of the address bar and pin PromptDirector to the toolbar. The steps below start with clicking the extension icon.</p>
+            </div>
+          </article>
+          <article class="guide-step" id="capture">
+            <div class="guide-step-copy"><span class="guide-step-number">02</span><h3>Open a work and click “Web capture”</h3><p>Open the page with the work you want to save, click the PromptDirector icon in the Chrome toolbar, then click the green “Web capture” button in the panel.</p><p class="guide-small-note">The first time an authorization prompt appears, click “Authorize and continue”; the extension will not save the page on its own.</p></div>
+            <figure class="guide-shot-figure"><a class="guide-shot" href="guide-assets/collector.png" target="_blank" rel="noopener noreferrer" aria-label="View the full capture bar screenshot"><img src="guide-assets/collector.png" alt="The real capture panel, with the green Web capture button" width="468" height="249" loading="lazy"><span class="guide-target" style="--x:26.5%;--y:47%;--w:66.5%;--h:20%"><b>1</b></span></a><figcaption><b>1</b> Click the green “Web capture”.</figcaption></figure>
+          </article>
+          <article class="guide-step" id="save">
+            <div class="guide-step-copy"><span class="guide-step-number">03</span><h3>Check the preview and save the case</h3><p>The panel shows the text and media it found. If it is the work you want, click “Save case” at the bottom. If the media is wrong, expand “Review media” first.</p></div>
+            <figure class="guide-shot-figure"><a class="guide-shot" href="guide-assets/capture-preview.png" target="_blank" rel="noopener noreferrer" aria-label="View the full capture preview screenshot"><img src="guide-assets/capture-preview.png" alt="The capture panel with the text and media it found, the Review media row and the Save case button" width="466" height="667" loading="lazy"><span class="guide-target" style="--x:3%;--y:77%;--w:94%;--h:6.5%"><b>1</b></span><span class="guide-target" style="--x:38%;--y:92.6%;--w:57.5%;--h:6%"><b>2</b></span></a><figcaption><b>1</b> Review the media if needed. <b>2</b> Click “Save case”.</figcaption></figure>
+          </article>
+          <article class="guide-step" id="find">
+            <div class="guide-step-copy"><span class="guide-step-number">04</span><h3>Open the case library</h3><p>Go back to the panel and click the library icon in the top-right corner. When the case library opens, the case you just saved is in the list; you can also find it with the search box at the top.</p></div>
+            <div class="guide-shot-stack">
+              <figure class="guide-shot-figure"><a class="guide-shot" href="guide-assets/collector.png" target="_blank" rel="noopener noreferrer" aria-label="View the full case library entry screenshot"><img src="guide-assets/collector.png" alt="The case library icon in the top-right corner of the capture panel" width="468" height="249" loading="lazy"><span class="guide-target" style="--x:45%;--y:25%;--w:9%;--h:14%"><b>1</b></span></a><figcaption><b>1</b> The icon in the top-right of the capture panel: open the library.</figcaption></figure>
+              <figure class="guide-shot-figure"><a class="guide-shot" href="guide-assets/library.png" target="_blank" rel="noopener noreferrer" aria-label="View the full case library screenshot"><img src="guide-assets/library.png" alt="The case library page, with case library navigation on the left and the search box at the top" width="2046" height="922" loading="lazy"><span class="guide-target" style="--x:0.3%;--y:7.3%;--w:19.6%;--h:4.2%"><b>2</b></span><span class="guide-target" style="--x:32.9%;--y:0.8%;--w:37.3%;--h:4.9%"><b>3</b></span></a><figcaption><b>2</b> You are in “Case library”. <b>3</b> Search at the top.</figcaption></figure>
+            </div>
+          </article>
+          <article class="guide-step guide-step--extra" id="detail">
+            <div class="guide-step-copy"><span class="guide-step-number">✓</span><h3>Open a case to see its details</h3><p>Click any case card to see the original visual, the original prompt, the source and the project. From there you can also click “Create from this”.</p></div>
+            <figure class="guide-shot-figure"><a class="guide-shot" href="guide-assets/detail.png" target="_blank" rel="noopener noreferrer" aria-label="View the full case detail screenshot"><img src="guide-assets/detail.png" alt="A real case detail page: media on the left, prompt and the Create from this button on the right" width="2048" height="924" loading="lazy"><span class="guide-target" style="--x:64.7%;--y:72.9%;--w:31%;--h:4.7%"><b>Create from this</b></span></a><figcaption>To keep creating, click “Create from this” on the right.</figcaption></figure>
+          </article>
+        </div>
+      </section>
+
+      <section class="guide-section" id="library" aria-labelledby="library-title">
+        <div class="guide-section-heading"><span>02 / BUILD YOUR LIBRARY</span><h2 id="library-title">Collect and organize material</h2><p>Find the entry point first, then see what is behind it.</p></div>
+        <div class="guide-card-grid">
+          <article class="guide-card" id="curated">
+            <div class="guide-card-copy"><span>Curated cases</span><h3>Bring curated packs into your own library</h3><p>In the case library, click “Curated cases” on the left, open a pack you like, then click “Save whole pack”.</p></div>
+            <div class="guide-card-shots">
+              <figure class="guide-shot-figure"><a class="guide-shot" href="guide-assets/curated-entry.png" target="_blank" rel="noopener noreferrer" aria-label="View the full curated cases entry screenshot"><img src="guide-assets/curated-entry.png" alt="The Curated cases entry on the left of the case library" width="336" height="142" loading="lazy"><span class="guide-target" style="--x:0.8%;--y:61%;--w:97%;--h:18%"><b>1</b></span></a><figcaption><b>1</b> Click “Curated cases” on the left.</figcaption></figure>
+              <figure class="guide-shot-figure"><a class="guide-shot" href="guide-assets/curated-gallery.png" target="_blank" rel="noopener noreferrer" aria-label="View the full curated cases list screenshot"><img src="guide-assets/curated-gallery.png" alt="The Curated cases page, showing packs of creations" width="1511" height="917" loading="lazy"><span class="guide-target" style="--x:0.8%;--y:8.6%;--w:24.1%;--h:59.5%"><b>2</b></span></a><figcaption><b>2</b> Click a pack.</figcaption></figure>
+              <figure class="guide-shot-figure"><a class="guide-shot" href="guide-assets/curated-save.png" target="_blank" rel="noopener noreferrer" aria-label="View the full save whole pack screenshot"><img src="guide-assets/curated-save.png" alt="A curated pack detail page, with the Save whole pack button on the right" width="1782" height="918" loading="lazy"><span class="guide-target" style="--x:75.5%;--y:40.4%;--w:9%;--h:4.4%"><b>3</b></span></a><figcaption><b>3</b> Click “Save whole pack”. If you only want the ZIP, open the pack on the <a href="index.html">curated site</a> to download it.</figcaption></figure>
+            </div>
+          </article>
+          <article class="guide-card" id="zip">
+            <div class="guide-card-copy"><span>ZIP import and sharing</span><h3>Bring case packs in and send them out</h3><p>Import: gear icon in the top-right of the case library → “Interface and library” → “Import share package” → “Choose ZIP”. Export: click “Manage”, select cases → “More” → “Share” → “Download shared pack”.</p></div>
+            <div class="guide-card-shots guide-card-shots--two">
+              <figure class="guide-shot-figure"><a class="guide-shot" href="guide-assets/settings-import.png" target="_blank" rel="noopener noreferrer" aria-label="View the full Import share package settings screenshot"><img src="guide-assets/settings-import.png" alt="The Import shared pack and Choose ZIP buttons on the settings page" width="894" height="695" loading="lazy"><span class="guide-target" style="--x:17.5%;--y:75.5%;--w:11%;--h:6.5%"><b>1</b></span></a><figcaption><b>1</b> Click “Choose ZIP” in settings.</figcaption></figure>
+              <figure class="guide-shot-figure"><a class="guide-shot" href="guide-assets/batch-menu.png" target="_blank" rel="noopener noreferrer" aria-label="View the full case management More menu screenshot"><img src="guide-assets/batch-menu.png" alt="The More menu after selecting cases, including Share and batch analysis" width="2048" height="922" loading="lazy"><span class="guide-target" style="--x:84.5%;--y:6.1%;--w:11%;--h:3.9%"><b>2</b></span></a><figcaption><b>2</b> After selecting cases, click “Share” from “More”.</figcaption></figure>
+            </div>
+          </article>
+          <article class="guide-card" id="batch">
+            <div class="guide-card-copy"><span>Batch visual analysis</span><h3>Analyze several visuals at once</h3><p>First connect an image or video analysis service in the AI settings. Back in the case library, click “Manage” in the top-right, select cases → “More” → the matching batch analysis. When videos are selected, image analysis is greyed out; check the number of requests and the cost before you run it.</p></div>
+            <div class="guide-card-shots guide-card-shots--two">
+              <figure class="guide-shot-figure"><a class="guide-shot" href="guide-assets/batch-select.png" target="_blank" rel="noopener noreferrer" aria-label="View the full multi-select screenshot"><img src="guide-assets/batch-select.png" alt="The case library in batch management mode, with 11 cases selected" width="2048" height="922" loading="lazy"><span class="guide-target" style="--x:80.5%;--y:1.2%;--w:4.8%;--h:5.1%"><b>1</b></span></a><figcaption><b>1</b> After selecting cases, click “More”.</figcaption></figure>
+              <figure class="guide-shot-figure"><a class="guide-shot" href="guide-assets/batch-menu.png" target="_blank" rel="noopener noreferrer" aria-label="View the full batch analysis menu screenshot"><img src="guide-assets/batch-menu.png" alt="In the More menu, batch image analysis is greyed out while batch video analysis can be clicked" width="2048" height="922" loading="lazy"><span class="guide-target" style="--x:84.5%;--y:19.4%;--w:11%;--h:3.9%"><b>2</b></span><span class="guide-target" style="--x:84.5%;--y:23.6%;--w:11%;--h:3.9%"><b>3</b></span></a><figcaption><b>2</b> The image option is greyed out. <b>3</b> Videos are selected here, so click video analysis.</figcaption></figure>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="guide-section" id="create" aria-labelledby="create-title">
+        <div class="guide-section-heading"><span>03 / CREATE WITH REFERENCES</span><h2 id="create-title">Create with cases</h2><p>Connect your own AI service, then let cases and Creative Skills feed your next creation.</p></div>
+        <div class="guide-card-grid">
+          <article class="guide-card" id="api">
+            <div class="guide-card-copy"><span>Before you start</span><h3>Connect an AI service</h3><p>Gear icon in the top-right of the case library → “AI settings” → “Service connections” → “Connect AI service”. After saving the service, choose models for image analysis, creation planning and other tasks on the “Task models” page. Calls to the service may cost money.</p></div>
+            <div class="guide-card-shots guide-card-shots--two">
+              <figure class="guide-shot-figure"><a class="guide-shot" href="guide-assets/api-service.png" target="_blank" rel="noopener noreferrer" aria-label="View the full AI service connections screenshot"><img src="guide-assets/api-service.png" alt="The AI settings service connections page, with the Connect AI service button in the top-right" width="888" height="691" loading="lazy"><span class="guide-target" style="--x:80.5%;--y:37.3%;--w:17.5%;--h:5.8%"><b>1</b></span></a><figcaption><b>1</b> Click “Connect AI service”.</figcaption></figure>
+              <figure class="guide-shot-figure"><a class="guide-shot" href="guide-assets/api-routing.png" target="_blank" rel="noopener noreferrer" aria-label="View the full Task models page screenshot"><img src="guide-assets/api-routing.png" alt="The Task models page, where models are chosen for text, image and video tasks" width="894" height="695" loading="lazy"><span class="guide-target" style="--x:2.1%;--y:21.1%;--w:10%;--h:5.3%"><b>2</b></span></a><figcaption><b>2</b> On the “Task models” page, check which model each task uses.</figcaption></figure>
+            </div>
+          </article>
+          <article class="guide-card" id="composer">
+            <div class="guide-card-copy"><span>Composer</span><h3>Just say what you want to make</h3><p>Click “Create” in the top-right of the case library. Write your goal at the bottom of the composer — for example “write me a cinematic character poster prompt” — then send it.</p></div>
+            <div class="guide-card-shots guide-card-shots--two">
+              <figure class="guide-shot-figure"><a class="guide-shot" href="guide-assets/library.png" target="_blank" rel="noopener noreferrer" aria-label="View the full Start creating entry screenshot"><img src="guide-assets/library.png" alt="The “Create” button in the top-right of the case library" width="2046" height="922" loading="lazy"><span class="guide-target" style="--x:92%;--y:1%;--w:5.2%;--h:4.7%"><b>1</b></span></a><figcaption><b>1</b> Click “Start creating”.</figcaption></figure>
+              <figure class="guide-shot-figure"><a class="guide-shot" href="guide-assets/composer-result.png" target="_blank" rel="noopener noreferrer" aria-label="View the full composer screenshot"><img src="guide-assets/composer-result.png" alt="The composer conversation and the input box at the bottom" width="1482" height="844" loading="lazy"><span class="guide-target" style="--x:28.7%;--y:79%;--w:59%;--h:15.5%"><b>2</b></span></a><figcaption><b>2</b> Type your goal at the bottom, then click the green send button.</figcaption></figure>
+            </div>
+          </article>
+          <article class="guide-card" id="search">
+            <div class="guide-card-copy"><span>Search from the composer</span><h3>Let the composer find things in your library</h3><p>Make sure the magnifier next to the input box is on, then just say “find me a few rainy-night street references”. Models that support library search will show the cases they found and read; if the current model does not support it, pick them by hand with “Reference”.</p></div>
+            <div class="guide-card-shots guide-card-shots--two">
+              <figure class="guide-shot-figure"><a class="guide-shot" href="guide-assets/composer-search.png" target="_blank" rel="noopener noreferrer" aria-label="View the full composer library search screenshot"><img src="guide-assets/composer-search.png" alt="The composer asking for cases in the library, with the magnifier at the bottom turned on" width="1480" height="841" loading="lazy"><span class="guide-target" style="--x:32.4%;--y:89.2%;--w:2.6%;--h:4.7%"><b>1</b></span><span class="guide-target" style="--x:64%;--y:11.7%;--w:24.3%;--h:6.1%"><b>2</b></span></a><figcaption><b>1</b> The magnifier is on. <b>2</b> Just ask for what you need.</figcaption></figure>
+              <figure class="guide-shot-figure"><a class="guide-shot" href="guide-assets/composer-search-result.png" target="_blank" rel="noopener noreferrer" aria-label="View the full composer search results screenshot"><img src="guide-assets/composer-search-result.png" alt="The composer showing library search candidates and saved Creative Skills" width="1483" height="847" loading="lazy"><span class="guide-target" style="--x:28.8%;--y:32.4%;--w:59%;--h:16%"><b>Results</b></span></a><figcaption>The results list what was found; click “Use as reference” to keep going.</figcaption></figure>
+            </div>
+          </article>
+          <article class="guide-card" id="reference">
+            <div class="guide-card-copy"><span>Reference cases</span><h3>Pick visuals, then generate a prompt</h3><p>At the bottom of the composer, click “Reference”, search and tick the works you want to learn from on the “Cases” tab, then click “Apply references” in the bottom-right. Go back to the input box and write your goal.</p></div>
+            <div class="guide-card-shots">
+              <figure class="guide-shot-figure"><a class="guide-shot" href="guide-assets/composer-reference.png" target="_blank" rel="noopener noreferrer" aria-label="View the full composer reference panel screenshot"><img src="guide-assets/composer-reference.png" alt="The composer reference panel, showing case search, card checkboxes and the Apply references button" width="1458" height="840" loading="lazy"><span class="guide-target" style="--x:76%;--y:11.7%;--w:22.7%;--h:5.2%"><b>1</b></span><span class="guide-target" style="--x:18.1%;--y:19.3%;--w:2%;--h:3.2%"><b>2</b></span><span class="guide-target" style="--x:94.7%;--y:94.6%;--w:4.5%;--h:4.3%"><b>3</b></span></a><figcaption><b>1</b> Search cases. <b>2</b> Tick them. <b>3</b> Apply references.</figcaption></figure>
+            </div>
+          </article>
+          <article class="guide-card" id="skill">
+            <div class="guide-card-copy"><span>Creative Skill</span><h3>Save a method as a Skill</h3><p>In the case library, click “Creative Skill” on the left, then “New Skill” in the top-right. Follow the page prompts: choose the source cases, describe the method you want to distill, review the draft and save.</p></div>
+            <div class="guide-card-shots guide-card-shots--two">
+              <figure class="guide-shot-figure"><a class="guide-shot" href="guide-assets/curated-entry.png" target="_blank" rel="noopener noreferrer" aria-label="View the full Creative Skill entry screenshot"><img src="guide-assets/curated-entry.png" alt="The Creative Skill entry on the left of the case library" width="336" height="142" loading="lazy"><span class="guide-target" style="--x:0.8%;--y:80%;--w:97%;--h:18%"><b>1</b></span></a><figcaption><b>1</b> Click “Creative Skill” on the left.</figcaption></figure>
+              <figure class="guide-shot-figure"><a class="guide-shot" href="guide-assets/skills-home.png" target="_blank" rel="noopener noreferrer" aria-label="View the full Creative Skill hub screenshot"><img src="guide-assets/skills-home.png" alt="The Creative Skill hub, with the New Skill button in the top-right" width="1534" height="895" loading="lazy"><span class="guide-target" style="--x:93.6%;--y:18.1%;--w:5.7%;--h:4.6%"><b>2</b></span></a><figcaption><b>2</b> Click “New Skill”.</figcaption></figure>
+            </div>
+          </article>
+          <article class="guide-card" id="combine">
+            <div class="guide-card-copy"><span>Skill + cases</span><h3>Use a method and references together</h3><p>In the composer, click “Reference”, choose your material on the “Cases” and “Skill” tabs, apply it, then write your goal and send. If you need the model to look at the images themselves, also turn on “Send original images too”.</p></div>
+            <div class="guide-card-shots guide-card-shots--two">
+              <figure class="guide-shot-figure"><a class="guide-shot" href="guide-assets/composer-result.png" target="_blank" rel="noopener noreferrer" aria-label="View the full Skill and cases combined screenshot"><img src="guide-assets/composer-result.png" alt="The composer with a Skill tag and several reference cases applied" width="1482" height="844" loading="lazy"><span class="guide-target" style="--x:18%;--y:66%;--w:23%;--h:4%"><b>Skill</b></span><span class="guide-target" style="--x:29%;--y:71.6%;--w:58%;--h:7%"><b>Cases</b></span></a><figcaption>Above the input box you can see the Skill and the reference cases in use.</figcaption></figure>
+              <figure class="guide-shot-figure"><a class="guide-shot" href="guide-assets/composer-send-original.png" target="_blank" rel="noopener noreferrer" aria-label="View the full send original images option screenshot"><img src="guide-assets/composer-send-original.png" alt="The reference input menu for this round, where Send original images too can be ticked" width="268" height="179" loading="lazy"><span class="guide-target" style="--x:10%;--y:42%;--w:83%;--h:16%"><b>Originals</b></span></a><figcaption>Only turn on “Send original images too” when the model needs to see the original visuals.</figcaption></figure>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="guide-section" id="more" aria-labelledby="more-title">
+        <div class="guide-section-heading"><span>04 / MORE WHEN NEEDED</span><h2 id="more-title">Once you are comfortable, explore these</h2><p>These are the other features used in your screenshots; you can skip them the first time you save a case.</p></div>
+        <div class="guide-more-grid">
+          <article><a class="guide-shot" href="guide-assets/project-menu.png" target="_blank" rel="noopener noreferrer" aria-label="View the full project management screenshot"><img src="guide-assets/project-menu.png" alt="The More menu for a project on the left of the case library, including Manage cases and batch analysis" width="320" height="310" loading="lazy"><span class="guide-target" style="--x:53.5%;--y:2%;--w:11%;--h:6.5%"><b>Projects</b></span></a><h3>Organize by project</h3><p>Click the plus next to “Projects” on the left to create one; the “…” to the right of a project lets you manage its cases.</p></article>
+          <article><a class="guide-shot" href="guide-assets/category-filter.png" target="_blank" rel="noopener noreferrer" aria-label="View the full content type filter screenshot"><img src="guide-assets/category-filter.png" alt="The Content type menu on the left, with image prompts, video prompts, documents and more" width="295" height="416" loading="lazy"><span class="guide-target" style="--x:1%;--y:10%;--w:95%;--h:9%"><b>Type</b></span></a><h3>Find by content type</h3><p>Expand “Content type” on the left and click image prompts, video or documents.</p></article>
+          <article><a class="guide-shot" href="guide-assets/tag-filter.png" target="_blank" rel="noopener noreferrer" aria-label="View the full tag filter screenshot"><img src="guide-assets/tag-filter.png" alt="The tag filter list on the left, searchable by visual style, lighting and color and more" width="293" height="513" loading="lazy"><span class="guide-target" style="--x:1%;--y:30%;--w:95%;--h:7%"><b>Tags</b></span></a><h3>Find by tag</h3><p>Expand “Tag filter” and click a theme, style or color tag to narrow things down.</p></article>
+          <article><a class="guide-shot" href="guide-assets/list-view.png" target="_blank" rel="noopener noreferrer" aria-label="View the full list view screenshot"><img src="guide-assets/list-view.png" alt="The case library list view, with masonry and list toggle buttons in the top-right" width="2047" height="920" loading="lazy"><span class="guide-target" style="--x:70%;--y:0.5%;--w:5.6%;--h:5%"><b>View</b></span></a><h3>Switch how you browse</h3><p>The picture icon and the list icon at the top switch between masonry and list.</p></article>
+          <article><a class="guide-shot" href="guide-assets/curated-skills.png" target="_blank" rel="noopener noreferrer" aria-label="View the full Curated Skills screenshot"><img src="guide-assets/curated-skills.png" alt="The Curated Skills page, where public Skills can be saved locally" width="411" height="443" loading="lazy"><span class="guide-target" style="--x:49.5%;--y:87.2%;--w:24%;--h:8%"><b>Save</b></span></a><h3>Download curated Skills</h3><p>On the “Curated Skills” page, click “Save locally”; you can then use it in the composer.</p></article>
+          <article><a class="guide-shot" href="guide-assets/composer-directions.png" target="_blank" rel="noopener noreferrer" aria-label="View the full creation direction menu screenshot"><img src="guide-assets/composer-directions.png" alt="The composer direction menu, offering image creation and video creation" width="368" height="228" loading="lazy"><span class="guide-target" style="--x:25%;--y:34%;--w:67%;--h:16%"><b>Direction</b></span></a><h3>Choose image or video</h3><p>Open “Creation direction” at the bottom of the composer and choose image creation or video creation.</p></article>
+          <article><a class="guide-shot" href="guide-assets/library-add.png" target="_blank" rel="noopener noreferrer" aria-label="View the full Add menu screenshot"><img src="guide-assets/library-add.png" alt="The case library Add menu, including import local files, video link and quick note" width="328" height="352" loading="lazy"><span class="guide-target" style="--x:6%;--y:21%;--w:89%;--h:27%"><b>Add</b></span></a><h3>Import local files</h3><p>“Add” in the top-right of the case library imports files, saves video links or writes a quick note.</p></article>
+          <article><a class="guide-shot" href="guide-assets/capture-comment.png" target="_blank" rel="noopener noreferrer" aria-label="View the full comment prompt capture screenshot"><img src="guide-assets/capture-comment.png" alt="A prompt in a page comment and the “Add to this case” button in the capture panel" width="466" height="650" loading="lazy"><span class="guide-target" style="--x:5%;--y:82.5%;--w:29.5%;--h:6.5%"><b>Add in</b></span></a><h3>When the prompt is in the comments</h3><p>Capture the work first, then add the prompt from the comments to the current case, and check it before saving.</p></article>
+          <article><a class="guide-shot" href="guide-assets/composer-models.png" target="_blank" rel="noopener noreferrer" aria-label="View the full creation model list screenshot"><img src="guide-assets/composer-models.png" alt="The model picker at the bottom of the composer" width="310" height="476" loading="lazy"><span class="guide-target" style="--x:2%;--y:7%;--w:78%;--h:11%"><b>Model</b></span></a><h3>Switch the creation model</h3><p>Next to the composer's send button you can switch between connected models.</p></article>
+          <article><a class="guide-shot" href="guide-assets/composer-options.png" target="_blank" rel="noopener noreferrer" aria-label="View the full creation settings screenshot"><img src="guide-assets/composer-options.png" alt="The composer settings menu, where the task, target model and output language can be chosen" width="338" height="450" loading="lazy"><span class="guide-target" style="--x:34%;--y:10%;--w:60%;--h:9%"><b>Task</b></span></a><h3>Adjust this round of creation</h3><p>Click the gear next to the input box to choose the task, the output language and more.</p></article>
+          <article><a class="guide-shot" href="guide-assets/method-settings.png" target="_blank" rel="noopener noreferrer" aria-label="View the full creation method settings screenshot"><img src="guide-assets/method-settings.png" alt="Analysis and creation rules in settings, where the creation method can be edited" width="882" height="681" loading="lazy"><span class="guide-target" style="--x:28.8%;--y:21.9%;--w:10.5%;--h:5.8%"><b>Method</b></span></a><h3>Customize the creation method</h3><p>Settings → “Analysis &amp; creation rules” → “Creation method”, and edit as needed.</p></article>
+          <article><a class="guide-shot" href="guide-assets/maintenance.png" target="_blank" rel="noopener noreferrer" aria-label="View the full text tag backfill screenshot"><img src="guide-assets/maintenance.png" alt="The Tasks and maintenance page, with the Start tagging button for text tag backfill" width="887" height="691" loading="lazy"><span class="guide-target" style="--x:89%;--y:21%;--w:9%;--h:6%"><b>Tag</b></span></a><h3>Backfill text tags for older cases</h3><p>In Settings → “Tasks &amp; maintenance”, check how many are pending, then decide whether to start.</p></article>
+        </div>
+      </section>
+
+      <aside class="guide-end"><div><p class="guide-kicker">Need a closer look?</p><h2>Click any screenshot to enlarge it with its markers.</h2><p>Every interface image is a real screenshot of the extension, and the green boxes only mark where to click. Screenshots come from 1.26.0, so names and layout may differ slightly from your own build or library.</p></div><a class="guide-primary-link" href="#topics">Back to contents ↑</a></aside>
+    </main>
+    <dialog class="guide-lightbox" id="guide-lightbox" aria-label="Enlarge a step screenshot">
+      <div class="guide-lightbox-bar"><strong id="guide-lightbox-title">Step screenshot</strong><button id="guide-lightbox-close" type="button" aria-label="Close the enlarged screenshot">Close ×</button></div>
+      <div id="guide-lightbox-content"></div>
+    </dialog>
+    <footer class="site-footer"><strong>PromptDirector</strong><span>Your private library of visual inspiration.</span><a href="support.html">Get help</a></footer>
+  </body>
+</html>
