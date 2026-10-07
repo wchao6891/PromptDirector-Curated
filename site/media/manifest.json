@@ -1,7 +1,7 @@
 {
   "format": "prompt-director-curated-media",
   "version": 1,
-  "updatedAt": "2026-08-13T17:09:08.183Z",
+  "updatedAt": "2026-10-07T13:28:20.975Z",
   "packages": [
     {
       "packageId": "evolink-featured-video-1",
@@ -888,6 +888,1847 @@
           "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-evolink-featured-video-5-1.0.0-restored-20260910/252a8fc8a67f1d3fc14ed927cb1ead9b109622281fb3bee9cee92c67b4e4b84b.mp4",
           "videoSha256": "252a8fc8a67f1d3fc14ed927cb1ead9b109622281fb3bee9cee92c67b4e4b84b",
           "videoBytes": 6161154,
+          "videoMimeType": "video/mp4"
+        }
+      ]
+    },
+    {
+      "packageId": "melies-camera-movement",
+      "packageVersion": "1.0.0",
+      "releaseTag": "media-melies-camera-movement-1.0.0",
+      "entries": [
+        {
+          "sourceEntryId": "5e639fb5-b718-45f4-8bfb-ec199e0cbc5e",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/e8e07bfaa6d8911c2ae1398e80eebf7beea4e2e69201a40c0e914d2122c065c5.mp4",
+          "videoSha256": "e8e07bfaa6d8911c2ae1398e80eebf7beea4e2e69201a40c0e914d2122c065c5",
+          "videoBytes": 152861,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "4869fa78-a05f-489c-9136-a35596b5cbdd",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/d260736c435842d26e7763cc61dd2f89209bca91ed393cf4ecb9ee6ce3cb3252.mp4",
+          "videoSha256": "d260736c435842d26e7763cc61dd2f89209bca91ed393cf4ecb9ee6ce3cb3252",
+          "videoBytes": 66308,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "a7655990-32f2-47e6-a1da-78b4d47c202e",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/3389dc6f50c5d07a08c8df081154a8ca209c47edd9d42197f88e58294031d101.mp4",
+          "videoSha256": "3389dc6f50c5d07a08c8df081154a8ca209c47edd9d42197f88e58294031d101",
+          "videoBytes": 64985,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "2e9eafc1-acab-4de2-9084-a0a70e7f388a",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/0017a12a3d28a34f71cd6a76dce61475889095bab72987b46ff80bded75f7494.mp4",
+          "videoSha256": "0017a12a3d28a34f71cd6a76dce61475889095bab72987b46ff80bded75f7494",
+          "videoBytes": 51038,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "3ac95b20-5ea5-4e1e-966b-c6f86d77a35b",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/ea71c7f208c8f9b9e75b01848b69244c3d45aaedf858fc417d91047872d061ce.mp4",
+          "videoSha256": "ea71c7f208c8f9b9e75b01848b69244c3d45aaedf858fc417d91047872d061ce",
+          "videoBytes": 52087,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "12d848ca-8bf8-498e-9959-78a6ff164730",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/5fda18d7b106975063f2aa89fdf0125d418ed82e6645a704949e5c61b81c51a0.mp4",
+          "videoSha256": "5fda18d7b106975063f2aa89fdf0125d418ed82e6645a704949e5c61b81c51a0",
+          "videoBytes": 182247,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "5b489a4f-90a5-4ca5-94d8-5a291dcfc2b0",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/5d6cf175ae0994fba2eee603bbe16a722b660209513321cf3e65666aae1d7cbe.mp4",
+          "videoSha256": "5d6cf175ae0994fba2eee603bbe16a722b660209513321cf3e65666aae1d7cbe",
+          "videoBytes": 232929,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "d73110cc-61d6-4d57-8505-ab5eb0a22ef9",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/a424a768ae6566b153e6a4edb0bcdd13f0d2208629b434d38d97bff0eaffbc6c.mp4",
+          "videoSha256": "a424a768ae6566b153e6a4edb0bcdd13f0d2208629b434d38d97bff0eaffbc6c",
+          "videoBytes": 214704,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "23b5383a-9ff0-4c98-afe1-5ffc2f54846c",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/fb6ddd490389182659bd4fbd8b7179bdff4c8c184c115b133a679173de58b3f7.mp4",
+          "videoSha256": "fb6ddd490389182659bd4fbd8b7179bdff4c8c184c115b133a679173de58b3f7",
+          "videoBytes": 72704,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "c4cb24dc-78e9-4726-9af2-f673f31b7cdf",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/64d3226b0e4152ba73c8969047c8e85cc5cc5bf4ff5a2f4fb8e45f3cd86f0023.mp4",
+          "videoSha256": "64d3226b0e4152ba73c8969047c8e85cc5cc5bf4ff5a2f4fb8e45f3cd86f0023",
+          "videoBytes": 159764,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "725edf1b-4d8b-4c07-af2d-2ac2d0a7e681",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/ca185da92a387c3c4e79ae49f145944fef5334148bdf97057a1c988865fdcad9.mp4",
+          "videoSha256": "ca185da92a387c3c4e79ae49f145944fef5334148bdf97057a1c988865fdcad9",
+          "videoBytes": 133474,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "9c9e71b0-49f7-49f2-a70a-d11da7ee5ab1",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/01abb70d0a2bccdd442e8efb46600963c52f66aaaab1fb56497c3f790c2f3cbc.mp4",
+          "videoSha256": "01abb70d0a2bccdd442e8efb46600963c52f66aaaab1fb56497c3f790c2f3cbc",
+          "videoBytes": 55345,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "677eacff-fa85-4d42-aeac-2f0a47e7f075",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/d1bf1a28b41086eccd20719727748a381b13bcb9ce4e169fcc407596e23d0e2d.mp4",
+          "videoSha256": "d1bf1a28b41086eccd20719727748a381b13bcb9ce4e169fcc407596e23d0e2d",
+          "videoBytes": 75638,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "524a0048-45b9-4b9f-9c08-d88a86148c71",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/a18dc0c187686ac83449623ffa6d37b4046b302b231fcf70331ffad48ec1261c.mp4",
+          "videoSha256": "a18dc0c187686ac83449623ffa6d37b4046b302b231fcf70331ffad48ec1261c",
+          "videoBytes": 78069,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "0b6f118c-3d18-4689-a66b-b40c8661aad5",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/f5c623fcb17e71a5538fc375f5a8f59e22a397693a906739a6fcd5eb62c094cf.mp4",
+          "videoSha256": "f5c623fcb17e71a5538fc375f5a8f59e22a397693a906739a6fcd5eb62c094cf",
+          "videoBytes": 58041,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "39f96367-0a29-43c1-b6d3-3911bc61c6b6",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/d8fed102d0614fd5a3b8a4e12cc6e5dc72f124cc4c3b01c4181de2a222687bdb.mp4",
+          "videoSha256": "d8fed102d0614fd5a3b8a4e12cc6e5dc72f124cc4c3b01c4181de2a222687bdb",
+          "videoBytes": 222951,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "ea61fbe1-2f87-4df4-81fe-aead14b6f700",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/a785dc06e6165f60aab4e8b9ab08dbed5a751a485abe4f33d0fbcbdb268b9562.mp4",
+          "videoSha256": "a785dc06e6165f60aab4e8b9ab08dbed5a751a485abe4f33d0fbcbdb268b9562",
+          "videoBytes": 175503,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "015041f4-ba71-4307-8133-edea8e97e1a3",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/87174200106f2dd8e7a6d241253c44d7728db4088d1e74474f7ee6485b391e82.mp4",
+          "videoSha256": "87174200106f2dd8e7a6d241253c44d7728db4088d1e74474f7ee6485b391e82",
+          "videoBytes": 270436,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "abef2cbc-34d9-47e7-b55c-5a0e61e65d4f",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/f27392af9d94a5d07f3564f22322619756595adc933e93b0f572e030fc3f7766.mp4",
+          "videoSha256": "f27392af9d94a5d07f3564f22322619756595adc933e93b0f572e030fc3f7766",
+          "videoBytes": 51724,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "9fcacb7e-0af4-4fcb-a453-f63e050af9a6",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/bce673b260f2304f7060a0dcde0a261a19ccf0fe8f3c867b883bab7f1fec88e9.mp4",
+          "videoSha256": "bce673b260f2304f7060a0dcde0a261a19ccf0fe8f3c867b883bab7f1fec88e9",
+          "videoBytes": 45963,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "e0ae9311-9d6e-4431-9f33-9a75d709fbc6",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/4394272e6697edb8574e6b56c482e81601285864cf26803774b4ed8a568f0806.mp4",
+          "videoSha256": "4394272e6697edb8574e6b56c482e81601285864cf26803774b4ed8a568f0806",
+          "videoBytes": 77863,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "1441ee9d-761a-4880-be33-23db1318c2c5",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/151b6c1527d167a1f295ab9ef62a3fc2b1e65e4e0a1cc9f24961f9918f0f12a5.mp4",
+          "videoSha256": "151b6c1527d167a1f295ab9ef62a3fc2b1e65e4e0a1cc9f24961f9918f0f12a5",
+          "videoBytes": 44896,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "619a1e31-2b0e-40a7-a250-83f2873fe560",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/c98003cf7fddf750b16cc7cfbeef0869655db0ce127f039288d42e61c670f895.mp4",
+          "videoSha256": "c98003cf7fddf750b16cc7cfbeef0869655db0ce127f039288d42e61c670f895",
+          "videoBytes": 95394,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "00c57151-9422-4281-85b5-90392e428096",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/bbed39a1a33996caa463984482ee73f3361b38de1bd0d1f590ce5ed9e2292ba3.mp4",
+          "videoSha256": "bbed39a1a33996caa463984482ee73f3361b38de1bd0d1f590ce5ed9e2292ba3",
+          "videoBytes": 182065,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "e63087ff-6686-4578-a118-92aac5e11a00",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/333b12091396e174b8ce66e272f12283d1a6baf9fc1bba54f71188401a922d8f.mp4",
+          "videoSha256": "333b12091396e174b8ce66e272f12283d1a6baf9fc1bba54f71188401a922d8f",
+          "videoBytes": 145660,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "572add04-0563-4c51-a143-ac884d35a287",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/af6a7adf26da78907d871610f9bcef1d2f05ce652757869ec309a14ec76b0182.mp4",
+          "videoSha256": "af6a7adf26da78907d871610f9bcef1d2f05ce652757869ec309a14ec76b0182",
+          "videoBytes": 441106,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "fa531c1e-6ffa-449c-9a21-d204563c41ed",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/9f9c4e15c9b3ae937dbc4a65be126bf01b7c7aadad5d587757fbaefd6b1d620c.mp4",
+          "videoSha256": "9f9c4e15c9b3ae937dbc4a65be126bf01b7c7aadad5d587757fbaefd6b1d620c",
+          "videoBytes": 325026,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "1c38267e-2993-4373-a42a-5fca1c6d6516",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/e1fb99870be22be5c778fffb3058afe539f735a09c784c12e0da5d670c1469f5.mp4",
+          "videoSha256": "e1fb99870be22be5c778fffb3058afe539f735a09c784c12e0da5d670c1469f5",
+          "videoBytes": 219757,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "b989c1e9-229a-4f42-a8ce-1bde2172bcfd",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/cd9df3987aff4ec2379731cc024093e6638e247ff3eb2fc1a74c7c0eab15b1b9.mp4",
+          "videoSha256": "cd9df3987aff4ec2379731cc024093e6638e247ff3eb2fc1a74c7c0eab15b1b9",
+          "videoBytes": 251049,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "59e3f812-6669-4543-aa44-6b7d9584c3c8",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/275e3495bb01d9863a654dab700742526db4e373a3927c12f6cff9a135ca5c2d.mp4",
+          "videoSha256": "275e3495bb01d9863a654dab700742526db4e373a3927c12f6cff9a135ca5c2d",
+          "videoBytes": 593208,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "e98f00e4-eb27-4a84-b182-5f2df2aec42c",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/c250ec3322f956017394865efd7fc75ccbd65a60c175ce4f718399b01b9bd335.mp4",
+          "videoSha256": "c250ec3322f956017394865efd7fc75ccbd65a60c175ce4f718399b01b9bd335",
+          "videoBytes": 158155,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "755b701a-cc73-4336-b96d-cbf08eb8c442",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/929fa67a3a134de012b0bf3f434c49d2fbbefda66ac7a828f4d7e7b12aacf190.mp4",
+          "videoSha256": "929fa67a3a134de012b0bf3f434c49d2fbbefda66ac7a828f4d7e7b12aacf190",
+          "videoBytes": 23694,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "3aafcf2a-5297-4677-b040-c7066e5e8d7c",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/c42479804083c90c79647b9c3f87d4cde47d556cb1837f0b980173c5a6dea5ed.mp4",
+          "videoSha256": "c42479804083c90c79647b9c3f87d4cde47d556cb1837f0b980173c5a6dea5ed",
+          "videoBytes": 154597,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "64ea4765-2504-4abb-b1a1-c4ea18c2a492",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/67cb76be1e1dede07502f467d790a753c863a569cbf3f5ae19dc0356c418caf1.mp4",
+          "videoSha256": "67cb76be1e1dede07502f467d790a753c863a569cbf3f5ae19dc0356c418caf1",
+          "videoBytes": 69241,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "7051bd8f-5a01-4787-ba3c-017c80e78d68",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/6751f234bf9c076027a5224553d93e59089d51bf10727ee2cbcb28bd9f2a157e.mp4",
+          "videoSha256": "6751f234bf9c076027a5224553d93e59089d51bf10727ee2cbcb28bd9f2a157e",
+          "videoBytes": 130389,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "19d277fe-8cca-42dc-9554-ec621cfe2d24",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/21f377a13c6c7957d51e28026d1ddb18aa86ade84e3d26bb45099a811608e2b7.mp4",
+          "videoSha256": "21f377a13c6c7957d51e28026d1ddb18aa86ade84e3d26bb45099a811608e2b7",
+          "videoBytes": 191517,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "34eb12be-0a90-40db-b45f-f8ecc707c015",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/745aa6d252c93414b0d33319b6d610f8bfe0516d139f4b2c62e5af3cb725c322.mp4",
+          "videoSha256": "745aa6d252c93414b0d33319b6d610f8bfe0516d139f4b2c62e5af3cb725c322",
+          "videoBytes": 226959,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "cb591375-b132-40a2-b347-5557eabcf89f",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/53d37951d8d3c862f7ef3afba1204ffb022dc581a5d9d4daf576a0ccef50e658.mp4",
+          "videoSha256": "53d37951d8d3c862f7ef3afba1204ffb022dc581a5d9d4daf576a0ccef50e658",
+          "videoBytes": 126158,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "ea92403a-8104-4923-80f1-aa5c818d6f50",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/e1c205a8157d75e2bf276cfea8f9a1cfd4c1e119d1ca4c5023e9a7b4e5a14261.mp4",
+          "videoSha256": "e1c205a8157d75e2bf276cfea8f9a1cfd4c1e119d1ca4c5023e9a7b4e5a14261",
+          "videoBytes": 250501,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "3e79d44e-320b-4d46-8ec8-cec42003440b",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/057301b8c564c419913fa044ba6dadf105c6b3d8ec373a116edf8667f1edb40b.mp4",
+          "videoSha256": "057301b8c564c419913fa044ba6dadf105c6b3d8ec373a116edf8667f1edb40b",
+          "videoBytes": 259845,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "f0f07ff2-3920-4630-b6c2-0a18a2f7639d",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/c09bd391d900ad5a7d3a111a07c11efe25eca31f4f1005d3b5902ee69ef334ad.mp4",
+          "videoSha256": "c09bd391d900ad5a7d3a111a07c11efe25eca31f4f1005d3b5902ee69ef334ad",
+          "videoBytes": 175865,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "8226f5b5-65ff-4392-b42c-4ba77f18f3c8",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/8cf9f7442770254172eb52806b4187198965118e59df87a8470f4051f30ba1b1.mp4",
+          "videoSha256": "8cf9f7442770254172eb52806b4187198965118e59df87a8470f4051f30ba1b1",
+          "videoBytes": 228060,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "3a1f0884-e22b-40be-9562-f334a6412b80",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/278c1e421e0d99b4b9ed64439594bd8d5adb949ad92a223e0a006100d8b22d79.mp4",
+          "videoSha256": "278c1e421e0d99b4b9ed64439594bd8d5adb949ad92a223e0a006100d8b22d79",
+          "videoBytes": 66376,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "11c8245a-a070-46a1-b044-32f95698abdf",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/74f1c072a2065a861d3cca4e0f18456e8f7533df4f1c1a1947a55b0a8f0cfff2.mp4",
+          "videoSha256": "74f1c072a2065a861d3cca4e0f18456e8f7533df4f1c1a1947a55b0a8f0cfff2",
+          "videoBytes": 209660,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "4be5918a-83c9-46ff-b444-316827de67ee",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/2b3783922b281ae4809acb1868438c0f35d2747975e467af6fcf569382ea4315.mp4",
+          "videoSha256": "2b3783922b281ae4809acb1868438c0f35d2747975e467af6fcf569382ea4315",
+          "videoBytes": 452549,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "0b671942-ca95-461b-85da-f947cfb1a9e2",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/89fc8c3b34455b9cbe82f4994dab99a16cfd5b72917606b9461ae70c267fa5f4.mp4",
+          "videoSha256": "89fc8c3b34455b9cbe82f4994dab99a16cfd5b72917606b9461ae70c267fa5f4",
+          "videoBytes": 231181,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "62fbc7ca-70d6-4c99-b697-4b969ec1bd40",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/87cda6dfd1e6ba4a3c861ecb6c987355092d6d2d522f7714d0d7799db14a4536.mp4",
+          "videoSha256": "87cda6dfd1e6ba4a3c861ecb6c987355092d6d2d522f7714d0d7799db14a4536",
+          "videoBytes": 133924,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "1fe1d24a-1cc5-49d5-a796-a56bb01b0d80",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/5f6240452fdf998f16b8f99b0ccbe75380969d4d71259471702dcf33e0a973bd.mp4",
+          "videoSha256": "5f6240452fdf998f16b8f99b0ccbe75380969d4d71259471702dcf33e0a973bd",
+          "videoBytes": 147368,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "bad0fe86-c2e8-4082-a185-c6b78c6f3f7e",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/1c4dfdb1d6cd84d28ed354b834e4238961aee98c5bed6852aa22b2fe8620a1e7.mp4",
+          "videoSha256": "1c4dfdb1d6cd84d28ed354b834e4238961aee98c5bed6852aa22b2fe8620a1e7",
+          "videoBytes": 208551,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "b0987080-39e9-47fc-8211-e5cab68dce51",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/919a07ffdd3714e7d7d1b418b0f565aface8d991ba6e9c570da8473fa8885bc8.mp4",
+          "videoSha256": "919a07ffdd3714e7d7d1b418b0f565aface8d991ba6e9c570da8473fa8885bc8",
+          "videoBytes": 85853,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "7276a04c-1ace-4e93-976d-6f2d4eeac0f0",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/7ad28d5f90b97e246c13c5ba41db0aac5b8a57f75bcd70e982f8305888ec2c2a.mp4",
+          "videoSha256": "7ad28d5f90b97e246c13c5ba41db0aac5b8a57f75bcd70e982f8305888ec2c2a",
+          "videoBytes": 251380,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "27ebf52f-49a7-4bfc-bf53-a1ad75400c98",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/257db73c2859aec2bf2311f6dee5d4ab613efbfe7e1a13afa8cfa257a5b18542.mp4",
+          "videoSha256": "257db73c2859aec2bf2311f6dee5d4ab613efbfe7e1a13afa8cfa257a5b18542",
+          "videoBytes": 125372,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "8a2eab27-580e-46c9-9cce-cba4dc0c0b1a",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/b88f0a12d55215074b684c9ac11fd9d1443fae5cc64dfbd881d394f5bfa7a18f.mp4",
+          "videoSha256": "b88f0a12d55215074b684c9ac11fd9d1443fae5cc64dfbd881d394f5bfa7a18f",
+          "videoBytes": 193953,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "77db89b5-917d-4ec7-8396-138358edaa18",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/351f09c5c2b2e5b9510892a208b378985d87c2ca77d54377366007c4e93de0d0.mp4",
+          "videoSha256": "351f09c5c2b2e5b9510892a208b378985d87c2ca77d54377366007c4e93de0d0",
+          "videoBytes": 59055,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "5b1681ce-c189-4fb8-8aac-31a50034e156",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/3d2326ef42d37119ea87052e36c0b1629681c8da4ab6246f6e05813ec4671ec8.mp4",
+          "videoSha256": "3d2326ef42d37119ea87052e36c0b1629681c8da4ab6246f6e05813ec4671ec8",
+          "videoBytes": 98900,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "679a74f1-eef0-480d-bd6d-b369641ff451",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/11913836cc140024a11d8d0127c2cabce1803b44c254be1713ce22b8feedea5a.mp4",
+          "videoSha256": "11913836cc140024a11d8d0127c2cabce1803b44c254be1713ce22b8feedea5a",
+          "videoBytes": 214904,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "d21ca4e4-e9af-48ac-8f4c-63dd69bfcf94",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/754df39ccb41719cb518fae23d3a299fc9f48e643dc987c2e9c3f0b16a9ee785.mp4",
+          "videoSha256": "754df39ccb41719cb518fae23d3a299fc9f48e643dc987c2e9c3f0b16a9ee785",
+          "videoBytes": 102296,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "5d404a10-a1c3-42b4-8f1e-9cf4abcffc24",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/da58fcf7f696dbfcb997b675789e9ec1ef19991fc4097e792a059c54a6eb6fdb.mp4",
+          "videoSha256": "da58fcf7f696dbfcb997b675789e9ec1ef19991fc4097e792a059c54a6eb6fdb",
+          "videoBytes": 198090,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "71dd668b-12ba-48a8-9544-f158d71de328",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/b18d56b81b01c9bc2f00af237373dbb74282d9c0430f9294edbb99e44bfbed97.mp4",
+          "videoSha256": "b18d56b81b01c9bc2f00af237373dbb74282d9c0430f9294edbb99e44bfbed97",
+          "videoBytes": 85157,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "b3aa1dff-5e2b-49b4-b590-54ea7efa66d6",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/1221e72484fc25b4a0afcafa5b4768d2c6e771ec9280516adfc0ac67361ae2ca.mp4",
+          "videoSha256": "1221e72484fc25b4a0afcafa5b4768d2c6e771ec9280516adfc0ac67361ae2ca",
+          "videoBytes": 150344,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "094c0ded-7bf2-47ac-aaf1-7b94b57f9c6f",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/f07aff22abd5096b6b176f77be0987a3c9ccbeb88d6451cc878d3b450bdaa041.mp4",
+          "videoSha256": "f07aff22abd5096b6b176f77be0987a3c9ccbeb88d6451cc878d3b450bdaa041",
+          "videoBytes": 177812,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "10c8b424-c358-4ef2-ba31-a5f8a1f00b63",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/28e1dc1e0b56020fe8013a00a36d285d5db023be96f45b8410dd8d9d29648890.mp4",
+          "videoSha256": "28e1dc1e0b56020fe8013a00a36d285d5db023be96f45b8410dd8d9d29648890",
+          "videoBytes": 180893,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "b2f2e83d-9762-428b-9647-c27bdf818b6b",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/83362a32b658c3e786cdd5eaaff30bf9fa28c41335e5eb37678de54f276c932e.mp4",
+          "videoSha256": "83362a32b658c3e786cdd5eaaff30bf9fa28c41335e5eb37678de54f276c932e",
+          "videoBytes": 91971,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "3a577929-267a-47b1-becc-008a710938df",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/703e88abea7a055d8afa41704c76de88d1fc6a5fb8acb7f954528a3bedb7f29d.mp4",
+          "videoSha256": "703e88abea7a055d8afa41704c76de88d1fc6a5fb8acb7f954528a3bedb7f29d",
+          "videoBytes": 205083,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "4b0da012-7854-4c98-82e9-57a2b7ffb25d",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/bf5322ad0e84239a9a8cf892813632b545bea80588b6b120a3130b8097bf7c2c.mp4",
+          "videoSha256": "bf5322ad0e84239a9a8cf892813632b545bea80588b6b120a3130b8097bf7c2c",
+          "videoBytes": 280001,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "ea00c1ab-2d40-4c3b-a5e0-70f5d5666f16",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/436a4c93d13710d2e00ff73e7d72bec46ce60edece706f8f6d3bb5630afe5885.mp4",
+          "videoSha256": "436a4c93d13710d2e00ff73e7d72bec46ce60edece706f8f6d3bb5630afe5885",
+          "videoBytes": 226792,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "884a8eec-3009-435e-be87-85404e332b23",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/b1c2b8b6db2a57819f469e705805d4f8254dabff9b29383716d42cdfa87dcf83.mp4",
+          "videoSha256": "b1c2b8b6db2a57819f469e705805d4f8254dabff9b29383716d42cdfa87dcf83",
+          "videoBytes": 439252,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "8c1a8855-b8d5-40b1-a60c-b721370e332e",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/1a783ce546a2812644144c85671edb74b7cebb41c6ca2090f7266e83333e8b05.mp4",
+          "videoSha256": "1a783ce546a2812644144c85671edb74b7cebb41c6ca2090f7266e83333e8b05",
+          "videoBytes": 239106,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "ed67b92c-6b5e-479e-ab57-893dff2471ee",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/534822ece9df48e16fb7923b92d9f541fa048f7ffb90c6d456a765ab483eba25.mp4",
+          "videoSha256": "534822ece9df48e16fb7923b92d9f541fa048f7ffb90c6d456a765ab483eba25",
+          "videoBytes": 210442,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "bad9163b-fd18-4bbb-9762-ab39b77036ea",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/e0815766ee3aebd9309723165004b6f6e3ac9453a436ee65a161c6a851131603.mp4",
+          "videoSha256": "e0815766ee3aebd9309723165004b6f6e3ac9453a436ee65a161c6a851131603",
+          "videoBytes": 136687,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "5440d509-07b7-4cce-b0f4-1837e3db7def",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/f1ed7a0ffb106963bcd49c70bacc090ce341333de8272936369327808dd73357.mp4",
+          "videoSha256": "f1ed7a0ffb106963bcd49c70bacc090ce341333de8272936369327808dd73357",
+          "videoBytes": 161278,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "4df48b2c-a30e-4dc3-9b4f-0f6222adcfe0",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/6844d0f73dbfd431fc1cd7b82e0c2f8d23faf26106ff08436e7772e6f3297351.mp4",
+          "videoSha256": "6844d0f73dbfd431fc1cd7b82e0c2f8d23faf26106ff08436e7772e6f3297351",
+          "videoBytes": 238998,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "552a043e-d3c6-4eff-85d0-83711437ea07",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/3ca5db32de45371cb2c2724b5fc1770f7e69b5982ea4d9fda06b555097fcb28d.mp4",
+          "videoSha256": "3ca5db32de45371cb2c2724b5fc1770f7e69b5982ea4d9fda06b555097fcb28d",
+          "videoBytes": 116939,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "9fbb08b7-2fba-46a0-b8c2-9528afd423ee",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/580394410ce58c3336d11772172b6cfa29cee6de78737bccfc268491fd956a70.mp4",
+          "videoSha256": "580394410ce58c3336d11772172b6cfa29cee6de78737bccfc268491fd956a70",
+          "videoBytes": 246784,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "dc5c6e48-5608-46fb-870b-c7d024dfb307",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/c04aea71ab6f7194fcf9d7f381f13b748d2b014610a11775600c35e4f6df4301.mp4",
+          "videoSha256": "c04aea71ab6f7194fcf9d7f381f13b748d2b014610a11775600c35e4f6df4301",
+          "videoBytes": 165044,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "81d25860-15ee-454b-8e41-007a0f281550",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/019469ed9b1e1e3995d3abc42f9d898daf2a77d67c7802f8cc73bc168c0d9ea0.mp4",
+          "videoSha256": "019469ed9b1e1e3995d3abc42f9d898daf2a77d67c7802f8cc73bc168c0d9ea0",
+          "videoBytes": 190469,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "ce972434-eca0-4b66-a4a1-fa64bfed422f",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/47fc3a820b02de1dc146f20565ac3fe042729ac34639b0f75a3a89ab16248135.mp4",
+          "videoSha256": "47fc3a820b02de1dc146f20565ac3fe042729ac34639b0f75a3a89ab16248135",
+          "videoBytes": 249014,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "ae68e665-0f4d-4b3e-b4f7-63404488cf2f",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/32e60fba033bf02217cbc086f5858de4d228ca08917a01cce70bc71a3eace094.mp4",
+          "videoSha256": "32e60fba033bf02217cbc086f5858de4d228ca08917a01cce70bc71a3eace094",
+          "videoBytes": 193499,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "afd87859-1fa9-4cab-b4a5-426b1dcc0096",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/c81a31dd5492081b5e268365c454ab27058246d2fbf0836d6f0c4b63d5f0d5d1.mp4",
+          "videoSha256": "c81a31dd5492081b5e268365c454ab27058246d2fbf0836d6f0c4b63d5f0d5d1",
+          "videoBytes": 200925,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "926538fb-a55b-4f02-9856-7e35a76add79",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/a03b7c234e9ff90571fea275b46962c72d09a6e9be2d6caa4ed2150bccc22c5e.mp4",
+          "videoSha256": "a03b7c234e9ff90571fea275b46962c72d09a6e9be2d6caa4ed2150bccc22c5e",
+          "videoBytes": 196072,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "cfc007df-880f-4295-87ab-f1a83ce8069b",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/09ce7045c096e2ad64b8c664bcd0db3b0a40d64b1d13fb1ca453bb04631e8816.mp4",
+          "videoSha256": "09ce7045c096e2ad64b8c664bcd0db3b0a40d64b1d13fb1ca453bb04631e8816",
+          "videoBytes": 146073,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "5ad9666e-897a-42b6-92b7-47f600ab229b",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/14e027e952eb1f19ea9b306b93a745679bc7604700086ae55bb3302f75497b41.mp4",
+          "videoSha256": "14e027e952eb1f19ea9b306b93a745679bc7604700086ae55bb3302f75497b41",
+          "videoBytes": 140533,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "b4db2577-037c-4a32-bf17-70cc91fbe1f4",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/68dd505a6ee4855d190bc11290bdd05b5a193c443c9ce00d5cdfeba817f2b69b.mp4",
+          "videoSha256": "68dd505a6ee4855d190bc11290bdd05b5a193c443c9ce00d5cdfeba817f2b69b",
+          "videoBytes": 138566,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "81e7bc09-0561-48bc-9728-16a3afae00a4",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/e278a381ef4354385f91385ce86a8bf3f9e0725cdb2df466cb95e773331d2e2e.mp4",
+          "videoSha256": "e278a381ef4354385f91385ce86a8bf3f9e0725cdb2df466cb95e773331d2e2e",
+          "videoBytes": 253581,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "716a4aa0-bc6c-4112-bc02-4c8f7994eebb",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/a8e71b18681f9aa646cb0e90c71a567376d1a791d7eb12b8bf63edff43a6b490.mp4",
+          "videoSha256": "a8e71b18681f9aa646cb0e90c71a567376d1a791d7eb12b8bf63edff43a6b490",
+          "videoBytes": 106987,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "71f4429d-c656-4086-9c8b-fb67aa9fed73",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-movement-1.0.0/26680a3b2418070a6d33f4a10974750a1aa7ff05b2123e06be4157283aa4a80a.mp4",
+          "videoSha256": "26680a3b2418070a6d33f4a10974750a1aa7ff05b2123e06be4157283aa4a80a",
+          "videoBytes": 120680,
+          "videoMimeType": "video/mp4"
+        }
+      ]
+    },
+    {
+      "packageId": "melies-camera-angles",
+      "packageVersion": "1.0.0",
+      "releaseTag": "media-melies-camera-angles-1.0.0",
+      "entries": [
+        {
+          "sourceEntryId": "a33d0c17-2a6d-441b-882c-c5005f34a7fd",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-angles-1.0.0/21b3d6c8128c0156450455335bdd6f3cf2397989ae1db5b930f677f4feea6fb9.mp4",
+          "videoSha256": "21b3d6c8128c0156450455335bdd6f3cf2397989ae1db5b930f677f4feea6fb9",
+          "videoBytes": 21975,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "701c2d0a-67b7-4780-aeab-801a46e959aa",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-angles-1.0.0/1ceaf5af82d0392f04ef445fcc8410b8e130817d3442949faa84b1c4c99282a1.mp4",
+          "videoSha256": "1ceaf5af82d0392f04ef445fcc8410b8e130817d3442949faa84b1c4c99282a1",
+          "videoBytes": 33148,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "55c4459c-57c5-46e4-b4b7-cd77313c23ad",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-angles-1.0.0/5ddc04859f87ce2013d1e020a4960a5a4a4ec320dc3b84a3c166455a04b098d6.mp4",
+          "videoSha256": "5ddc04859f87ce2013d1e020a4960a5a4a4ec320dc3b84a3c166455a04b098d6",
+          "videoBytes": 174646,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "fb43dbc4-700b-42c6-a660-e29bd49374a2",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-angles-1.0.0/6fba1552b95a4f4d732943dd34cd72c28d1ff6a9f2501e6cab2f02dd7ce9a0a4.mp4",
+          "videoSha256": "6fba1552b95a4f4d732943dd34cd72c28d1ff6a9f2501e6cab2f02dd7ce9a0a4",
+          "videoBytes": 83548,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "aa9a001f-6806-4ec6-beaf-596d1839ee6f",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-angles-1.0.0/d639accd6316642d256b1f428dcea921e5f18503a3df4e31153d3a7e4952522d.mp4",
+          "videoSha256": "d639accd6316642d256b1f428dcea921e5f18503a3df4e31153d3a7e4952522d",
+          "videoBytes": 31239,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "eff03a99-d411-4546-bda8-97c335681641",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-angles-1.0.0/9debfa6ae03a1cfa4ba7d3bd88f6c2d92024618017819bb5e562d0985520ea01.mp4",
+          "videoSha256": "9debfa6ae03a1cfa4ba7d3bd88f6c2d92024618017819bb5e562d0985520ea01",
+          "videoBytes": 56096,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "76b160b4-7a1b-4b98-8ae9-d85c2b165ee4",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-angles-1.0.0/e08b3932b792d2073653b2f4a9ad44fd50170efe38a2828fc92aa5e838e12e61.mp4",
+          "videoSha256": "e08b3932b792d2073653b2f4a9ad44fd50170efe38a2828fc92aa5e838e12e61",
+          "videoBytes": 30886,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "ced39beb-3612-4557-a849-f2a77ad5de18",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-angles-1.0.0/e267c03a36def50cb66226ca4be7224a6b057b4cd3482468d88e3db5e9305df8.mp4",
+          "videoSha256": "e267c03a36def50cb66226ca4be7224a6b057b4cd3482468d88e3db5e9305df8",
+          "videoBytes": 46884,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "4a45d26b-7a99-46e2-9bf7-0eb9bc8c46bf",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-angles-1.0.0/198c8608283e9aeaa4c93b54e56e3e1b92f6d4dd2047a3472d9be6bee291a912.mp4",
+          "videoSha256": "198c8608283e9aeaa4c93b54e56e3e1b92f6d4dd2047a3472d9be6bee291a912",
+          "videoBytes": 13583,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "629b9b06-a1d7-4d65-9f6d-021c76814edb",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-angles-1.0.0/0b535f9bf8651ffa3d484cb1c7249f230a91a65fec712b9b25a85bf87d353ff9.mp4",
+          "videoSha256": "0b535f9bf8651ffa3d484cb1c7249f230a91a65fec712b9b25a85bf87d353ff9",
+          "videoBytes": 257516,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "37343e5c-082c-42d8-a637-dcfe541b447e",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-angles-1.0.0/2409f306452d1ac0f26939d1f680db68cbec2d55864a9de798cb1ae009de2e67.mp4",
+          "videoSha256": "2409f306452d1ac0f26939d1f680db68cbec2d55864a9de798cb1ae009de2e67",
+          "videoBytes": 74014,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "f8337e89-4833-40e9-9c53-8ae6ed3bbcc4",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-camera-angles-1.0.0/4d5a08eff847d27200a78d7322b66f5e41e54d63fc09461b36d9ff75537ed136.mp4",
+          "videoSha256": "4d5a08eff847d27200a78d7322b66f5e41e54d63fc09461b36d9ff75537ed136",
+          "videoBytes": 362023,
+          "videoMimeType": "video/mp4"
+        }
+      ]
+    },
+    {
+      "packageId": "melies-framing-and-shot-size",
+      "packageVersion": "1.0.0",
+      "releaseTag": "media-melies-framing-and-shot-size-1.0.0",
+      "entries": [
+        {
+          "sourceEntryId": "f839cd30-9e33-4041-9a9f-aa411c817063",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-framing-and-shot-size-1.0.0/e630329c7021e0ec48f4eed7e1ec7fec5581caed45b0b98718034ef0b302934a.mp4",
+          "videoSha256": "e630329c7021e0ec48f4eed7e1ec7fec5581caed45b0b98718034ef0b302934a",
+          "videoBytes": 52296,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "622add11-3353-40b4-82a7-1f08b47c9232",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-framing-and-shot-size-1.0.0/9b24bf34c70c1f21b28c404e3185e284385877fb8c434e590dbca7d267ef00e4.mp4",
+          "videoSha256": "9b24bf34c70c1f21b28c404e3185e284385877fb8c434e590dbca7d267ef00e4",
+          "videoBytes": 97513,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "218fba18-1d1a-4ff3-85fc-0ad642ccf92d",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-framing-and-shot-size-1.0.0/43aea0125ea34a99c733dabceea632e7b59c24e70001cd5a9ab581def920b4df.mp4",
+          "videoSha256": "43aea0125ea34a99c733dabceea632e7b59c24e70001cd5a9ab581def920b4df",
+          "videoBytes": 44363,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "63c586e1-41d0-4ee0-8457-71a92b9e3214",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-framing-and-shot-size-1.0.0/758f343f96160f76135927f100c1bcaf522d592c2db0e824af53b7d3b28141f2.mp4",
+          "videoSha256": "758f343f96160f76135927f100c1bcaf522d592c2db0e824af53b7d3b28141f2",
+          "videoBytes": 121447,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "b689b842-2452-4061-aa00-a1bff089bb2b",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-framing-and-shot-size-1.0.0/b01d9e9fd3e7b8ec5280eee01b11d552162fad7de1031c2cae42fc9987b1ee60.mp4",
+          "videoSha256": "b01d9e9fd3e7b8ec5280eee01b11d552162fad7de1031c2cae42fc9987b1ee60",
+          "videoBytes": 134597,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "9ff3b713-6f24-4bd3-a4bd-1454fb7518c5",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-framing-and-shot-size-1.0.0/4fe747eeb7e1f6612c54cdd2b8b358609a6d2183bd57386470096b3bc8d5e283.mp4",
+          "videoSha256": "4fe747eeb7e1f6612c54cdd2b8b358609a6d2183bd57386470096b3bc8d5e283",
+          "videoBytes": 18381,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "9b315220-77a2-4d6a-a705-3161190ef7ab",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-framing-and-shot-size-1.0.0/d982aa0e19813c9c131462e92d832c636dde371c9ee4ffc64103a4314e973ded.mp4",
+          "videoSha256": "d982aa0e19813c9c131462e92d832c636dde371c9ee4ffc64103a4314e973ded",
+          "videoBytes": 80352,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "4f71ef82-9d81-4b10-8ba2-24c1882f4a97",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-framing-and-shot-size-1.0.0/9dd194c764ca688a04e2c3b502685b66a1d4c00a0c22b998d879f049659a7999.mp4",
+          "videoSha256": "9dd194c764ca688a04e2c3b502685b66a1d4c00a0c22b998d879f049659a7999",
+          "videoBytes": 24822,
+          "videoMimeType": "video/mp4"
+        }
+      ]
+    },
+    {
+      "packageId": "melies-lighting",
+      "packageVersion": "1.0.0",
+      "releaseTag": "media-melies-lighting-1.0.0",
+      "entries": [
+        {
+          "sourceEntryId": "03b12d8a-ab96-404c-8850-7d87a4eff1d3",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-lighting-1.0.0/508c5cf34121c82659fd5f0b33b17cd9314ae776808ea7885aecdb72c034d4ec.mp4",
+          "videoSha256": "508c5cf34121c82659fd5f0b33b17cd9314ae776808ea7885aecdb72c034d4ec",
+          "videoBytes": 43111,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "dc18dea9-22fc-40ee-8f0e-553f1e1a53cd",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-lighting-1.0.0/98aa992219facccabb447b492e46e6cba654cc8ea86afb960daa2ad1a9062e6e.mp4",
+          "videoSha256": "98aa992219facccabb447b492e46e6cba654cc8ea86afb960daa2ad1a9062e6e",
+          "videoBytes": 105846,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "e0b5910c-8a15-4fdd-87ae-edde2cbc9ccc",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-lighting-1.0.0/80b8f89dc2bc2f8a152bb4eea3956c8eb6c20768c951145c21b80b7e0ad0cce6.mp4",
+          "videoSha256": "80b8f89dc2bc2f8a152bb4eea3956c8eb6c20768c951145c21b80b7e0ad0cce6",
+          "videoBytes": 34584,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "08b37a96-ff28-43b1-b81e-edcdaf32109a",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-lighting-1.0.0/d44dec5a18a7592056a0dba5491933db9efba37816a157b5c72c6106bdda6c9c.mp4",
+          "videoSha256": "d44dec5a18a7592056a0dba5491933db9efba37816a157b5c72c6106bdda6c9c",
+          "videoBytes": 28597,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "d2662f2e-0588-4854-a17c-9b91e258cf41",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-lighting-1.0.0/81a397904721d668dc9e19459913bba36562a46b8f7c7a09f6c3a4ecfded30ba.mp4",
+          "videoSha256": "81a397904721d668dc9e19459913bba36562a46b8f7c7a09f6c3a4ecfded30ba",
+          "videoBytes": 72423,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "f15e507c-460f-4ddb-8365-223325156e22",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-lighting-1.0.0/9aad468953bc5c9b332af20640e136434062feda20897da1bd24fcc5eb1e3dbf.mp4",
+          "videoSha256": "9aad468953bc5c9b332af20640e136434062feda20897da1bd24fcc5eb1e3dbf",
+          "videoBytes": 53605,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "1991a7dd-562b-44d2-a834-fec87c6adf57",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-lighting-1.0.0/e936f1dc0338bdc8b3d7d8511c93d4eda943d37ae278eada1da9e909c66dc0a0.mp4",
+          "videoSha256": "e936f1dc0338bdc8b3d7d8511c93d4eda943d37ae278eada1da9e909c66dc0a0",
+          "videoBytes": 36156,
+          "videoMimeType": "video/mp4"
+        }
+      ]
+    },
+    {
+      "packageId": "melies-composition",
+      "packageVersion": "1.0.0",
+      "releaseTag": "media-melies-composition-1.0.0",
+      "entries": [
+        {
+          "sourceEntryId": "ec649ecb-e6b2-4ce2-9c82-bbca5def237f",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-composition-1.0.0/5d9782e14f324d591bb72b5282785094c053a96099aca1af119dabbc7fb8663a.mp4",
+          "videoSha256": "5d9782e14f324d591bb72b5282785094c053a96099aca1af119dabbc7fb8663a",
+          "videoBytes": 51494,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "2fdade2a-a673-4764-98d3-a2a950d1224d",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-composition-1.0.0/9bdacf854d3346f078405dfb4ad0043d909d2813e821a1158d6959a48007381d.mp4",
+          "videoSha256": "9bdacf854d3346f078405dfb4ad0043d909d2813e821a1158d6959a48007381d",
+          "videoBytes": 59547,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "2941e6b6-b7a4-4453-9982-abc8cacfc032",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-composition-1.0.0/32afd0f3d35f50cf849f5bb260d1280760bb696367e44866cfe2794ab02162b4.mp4",
+          "videoSha256": "32afd0f3d35f50cf849f5bb260d1280760bb696367e44866cfe2794ab02162b4",
+          "videoBytes": 15073,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "3f5b3481-1366-46be-81e0-eb2be9e3d9c4",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-composition-1.0.0/86937f30d2071c325b5508e811cc11bf1315c5d7a9327c560b759da188c74cbc.mp4",
+          "videoSha256": "86937f30d2071c325b5508e811cc11bf1315c5d7a9327c560b759da188c74cbc",
+          "videoBytes": 83389,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "13303e54-18a3-4583-9ed6-ae7b5285ab5d",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-composition-1.0.0/ee6840a7961b3b38a61473763fe63097ef84aae94a48bb3355f6e55ae165ded4.mp4",
+          "videoSha256": "ee6840a7961b3b38a61473763fe63097ef84aae94a48bb3355f6e55ae165ded4",
+          "videoBytes": 38212,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "c17be33d-683c-492b-8d0a-bd37ff2357f0",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-composition-1.0.0/86b2c965acc0ef302a457efd1bd8114af6b289141a307e29535e6efeaf25c125.mp4",
+          "videoSha256": "86b2c965acc0ef302a457efd1bd8114af6b289141a307e29535e6efeaf25c125",
+          "videoBytes": 26644,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "f99d74b7-92dc-4e55-89af-c9566cb4f77a",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-composition-1.0.0/e0a9aa4d41d1f3cb8575c194af95a98fb8f77277d75be5369e3b3eab3cdab208.mp4",
+          "videoSha256": "e0a9aa4d41d1f3cb8575c194af95a98fb8f77277d75be5369e3b3eab3cdab208",
+          "videoBytes": 30371,
+          "videoMimeType": "video/mp4"
+        }
+      ]
+    },
+    {
+      "packageId": "melies-lenses-and-optics",
+      "packageVersion": "1.0.0",
+      "releaseTag": "media-melies-lenses-and-optics-1.0.0",
+      "entries": [
+        {
+          "sourceEntryId": "e6878c06-10e0-467f-968a-a2ec4cc49d4a",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-lenses-and-optics-1.0.0/f9cc6cbc2f08273ebed393b9848715efff515748028dc33c742059f550f7ae01.mp4",
+          "videoSha256": "f9cc6cbc2f08273ebed393b9848715efff515748028dc33c742059f550f7ae01",
+          "videoBytes": 66887,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "0899aca4-d32b-481c-b096-42fecf0ac104",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-lenses-and-optics-1.0.0/c54dbd52035248910d6e3a21eb9324385d979b844f9d9df65c31ecc17d40e021.mp4",
+          "videoSha256": "c54dbd52035248910d6e3a21eb9324385d979b844f9d9df65c31ecc17d40e021",
+          "videoBytes": 58431,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "275d089e-e7e5-49ee-b1cb-8895928a4c05",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-lenses-and-optics-1.0.0/626f2218d8c8c3704cf9c66c6305a3f7a1d68afe7e1d2b28ab2d9c31f83acf50.mp4",
+          "videoSha256": "626f2218d8c8c3704cf9c66c6305a3f7a1d68afe7e1d2b28ab2d9c31f83acf50",
+          "videoBytes": 52077,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "3641168d-da04-4565-8b1f-a4ef7c8a2021",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-lenses-and-optics-1.0.0/3997d4d6ddd51481fc86afb7976a328b3e79c8b1e2f04d7ec1e24527796947f4.mp4",
+          "videoSha256": "3997d4d6ddd51481fc86afb7976a328b3e79c8b1e2f04d7ec1e24527796947f4",
+          "videoBytes": 101223,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "dfe243e0-825c-4db9-8253-ad4d2bb5c4a4",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-lenses-and-optics-1.0.0/3adf42efa40ea6293593256d542d63d9952f406337b53971bc5c316774d4a6ec.mp4",
+          "videoSha256": "3adf42efa40ea6293593256d542d63d9952f406337b53971bc5c316774d4a6ec",
+          "videoBytes": 142103,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "27a106d6-53cf-47bf-85a0-3655b0925f51",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-lenses-and-optics-1.0.0/fd61dbc12491048e1f8c35bd561c80bb1e90de81a76cab6051415c89db8d28d6.mp4",
+          "videoSha256": "fd61dbc12491048e1f8c35bd561c80bb1e90de81a76cab6051415c89db8d28d6",
+          "videoBytes": 69912,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "de020c3e-8338-4e27-b536-b14d5a371d5c",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-lenses-and-optics-1.0.0/87e2e054d7e52c94ac981cbdeb794ed501da7a5c360b6cfe72d3582f0bf0f006.mp4",
+          "videoSha256": "87e2e054d7e52c94ac981cbdeb794ed501da7a5c360b6cfe72d3582f0bf0f006",
+          "videoBytes": 38152,
+          "videoMimeType": "video/mp4"
+        }
+      ]
+    },
+    {
+      "packageId": "melies-color-and-film-look",
+      "packageVersion": "1.0.0",
+      "releaseTag": "media-melies-color-and-film-look-1.0.0",
+      "entries": [
+        {
+          "sourceEntryId": "2aac9cbd-6d83-43a9-9054-8a6a8e7848df",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-color-and-film-look-1.0.0/3153598d161cc48388177a6111eaf9300e325463b4976a86e65a57ebaac13dce.mp4",
+          "videoSha256": "3153598d161cc48388177a6111eaf9300e325463b4976a86e65a57ebaac13dce",
+          "videoBytes": 182527,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "a3a4dab8-1abf-4ad7-8269-7702c54c7d35",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-color-and-film-look-1.0.0/8daf115e6746119e35e3cd5a74173167a3900c7b04e384d971025b3bd625094c.mp4",
+          "videoSha256": "8daf115e6746119e35e3cd5a74173167a3900c7b04e384d971025b3bd625094c",
+          "videoBytes": 328710,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "d68c15eb-e840-446c-9e45-ef764f7d3f8b",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-color-and-film-look-1.0.0/6c5247a6aa51197b2590b529a062c6317d3f481b7cf830079c9a2ea72e65ff91.mp4",
+          "videoSha256": "6c5247a6aa51197b2590b529a062c6317d3f481b7cf830079c9a2ea72e65ff91",
+          "videoBytes": 48930,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "5bf37481-c46a-458d-adeb-129a6a273227",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-color-and-film-look-1.0.0/e858014b2e3145582a1486ae3652303f5a90b7157964a5f7807853100fe859f7.mp4",
+          "videoSha256": "e858014b2e3145582a1486ae3652303f5a90b7157964a5f7807853100fe859f7",
+          "videoBytes": 242082,
+          "videoMimeType": "video/mp4"
+        }
+      ]
+    },
+    {
+      "packageId": "melies-time-and-motion",
+      "packageVersion": "1.0.0",
+      "releaseTag": "media-melies-time-and-motion-1.0.0",
+      "entries": [
+        {
+          "sourceEntryId": "30216f18-51ae-4ee5-a164-3bd4f60c6bf9",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-time-and-motion-1.0.0/7752780194a8dab68378afc48597c5413e1d28efff0b995e2a815054e4f47ff8.mp4",
+          "videoSha256": "7752780194a8dab68378afc48597c5413e1d28efff0b995e2a815054e4f47ff8",
+          "videoBytes": 101794,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "7bdaddeb-b756-412f-9d7c-439f49a579f2",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-time-and-motion-1.0.0/c0fb8ccac2d9c592da7cce06a84240de020970c3100e20aa6afc54f389d577aa.mp4",
+          "videoSha256": "c0fb8ccac2d9c592da7cce06a84240de020970c3100e20aa6afc54f389d577aa",
+          "videoBytes": 148243,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "419b7c1f-a763-4ad4-9f9a-5ddeef1db7cb",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-time-and-motion-1.0.0/3d09d465f96c646786fb352a996e80371c9642ff0b69e0206cb1be66f7163b2a.mp4",
+          "videoSha256": "3d09d465f96c646786fb352a996e80371c9642ff0b69e0206cb1be66f7163b2a",
+          "videoBytes": 205030,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "c985f896-a5a7-4422-8859-a35b109ea8da",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-time-and-motion-1.0.0/d3f509acd3e7ac571934a88cd8ccff467b98abfad25f197e2117d50e8f24fbc1.mp4",
+          "videoSha256": "d3f509acd3e7ac571934a88cd8ccff467b98abfad25f197e2117d50e8f24fbc1",
+          "videoBytes": 213388,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "7e54ee15-9f07-4ec4-a999-fb9d651b3eed",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-time-and-motion-1.0.0/711bdd3e5b922b112129689106ef0cfaf446416c263be6aa2d82240de2b2d21c.mp4",
+          "videoSha256": "711bdd3e5b922b112129689106ef0cfaf446416c263be6aa2d82240de2b2d21c",
+          "videoBytes": 131434,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "e2cf15b7-a89c-4043-9313-43c53386a032",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-time-and-motion-1.0.0/a4c0cbadfb4fee48e65208ff77e7ab6779914eaf82386c74ff1a119d71356faa.mp4",
+          "videoSha256": "a4c0cbadfb4fee48e65208ff77e7ab6779914eaf82386c74ff1a119d71356faa",
+          "videoBytes": 165643,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "6244f55e-9f76-4fdd-845f-3612887c6299",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-time-and-motion-1.0.0/9887eb047d3ca92e83a1e993ad01def547cb54532f1bb15d662d88893f6dff59.mp4",
+          "videoSha256": "9887eb047d3ca92e83a1e993ad01def547cb54532f1bb15d662d88893f6dff59",
+          "videoBytes": 110686,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "2a9a304a-a526-4181-a5fe-5369ecbd54d0",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-time-and-motion-1.0.0/151c6992372c342c6224d954905473621a4a00f7beafe83399cd5afb4e7c944f.mp4",
+          "videoSha256": "151c6992372c342c6224d954905473621a4a00f7beafe83399cd5afb4e7c944f",
+          "videoBytes": 118168,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "cf0c85ad-c281-42ef-b618-fbdfa7de85cd",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-time-and-motion-1.0.0/8b3213f09535dc8e71e3cd663e9013246819e2de1349a72f7d86a00ab5ee83d5.mp4",
+          "videoSha256": "8b3213f09535dc8e71e3cd663e9013246819e2de1349a72f7d86a00ab5ee83d5",
+          "videoBytes": 269496,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "214a8364-97d6-477f-92f8-fdb1485d1687",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-time-and-motion-1.0.0/c9ce3648daa0241479e184ff23528b24297239c85290d2ae3b88551118d834d1.mp4",
+          "videoSha256": "c9ce3648daa0241479e184ff23528b24297239c85290d2ae3b88551118d834d1",
+          "videoBytes": 399462,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "ad2d9d71-ebb6-4581-96f3-d1e212226d81",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-time-and-motion-1.0.0/156bc8cf19377e344e8538a040c0494b328524744e7e2003fca29984d45e173a.mp4",
+          "videoSha256": "156bc8cf19377e344e8538a040c0494b328524744e7e2003fca29984d45e173a",
+          "videoBytes": 319399,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "3d48bc7d-4d81-4d7c-a0d7-1e2346f84645",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-time-and-motion-1.0.0/01aaf6a3371115fa43cb25f24a44362b1deef7a668b914bd6a9ac4ec665f5572.mp4",
+          "videoSha256": "01aaf6a3371115fa43cb25f24a44362b1deef7a668b914bd6a9ac4ec665f5572",
+          "videoBytes": 414307,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "b95facf2-dc7a-46f3-9efc-31c977a117b9",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-time-and-motion-1.0.0/eb200e6acbaea7a45dbd70996b4f61c4a4d3671ba80f3530a5bf6e6091ad057d.mp4",
+          "videoSha256": "eb200e6acbaea7a45dbd70996b4f61c4a4d3671ba80f3530a5bf6e6091ad057d",
+          "videoBytes": 301540,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "fba69552-e445-4a73-9db3-76962da7317e",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-time-and-motion-1.0.0/ff87648b238d702b5c9308ca093a31115e0397a73dd58f478d3a2a2eda46227d.mp4",
+          "videoSha256": "ff87648b238d702b5c9308ca093a31115e0397a73dd58f478d3a2a2eda46227d",
+          "videoBytes": 483362,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "369b5fce-fa6e-476c-b676-8e63115af036",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-time-and-motion-1.0.0/20976b281389cc36331304bde21822c19b850d4c0b5fae62dc0a87ba0ed393a0.mp4",
+          "videoSha256": "20976b281389cc36331304bde21822c19b850d4c0b5fae62dc0a87ba0ed393a0",
+          "videoBytes": 73746,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "72d42424-bf6c-4f74-9594-4b4946f1842c",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-time-and-motion-1.0.0/adbc27621d120139caf905db5b5bcd86e7ec9d42f5caa9f25eeccb55762387d4.mp4",
+          "videoSha256": "adbc27621d120139caf905db5b5bcd86e7ec9d42f5caa9f25eeccb55762387d4",
+          "videoBytes": 616035,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "daddd000-93d3-499d-9304-d65f0ab50b97",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-time-and-motion-1.0.0/73d2dad76f66e6be146b8b145d822789d262273102f5a414ec24fba292c043c2.mp4",
+          "videoSha256": "73d2dad76f66e6be146b8b145d822789d262273102f5a414ec24fba292c043c2",
+          "videoBytes": 269439,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "423845a5-6286-456a-a59a-0dd68b398ef2",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-time-and-motion-1.0.0/304d0ce2bc7cdb05f460fe5f3f99fd3007d842a783d086cddbc891f709d3ee56.mp4",
+          "videoSha256": "304d0ce2bc7cdb05f460fe5f3f99fd3007d842a783d086cddbc891f709d3ee56",
+          "videoBytes": 235508,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "be75729f-d3e1-43c3-a62c-cb835a7d7785",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-time-and-motion-1.0.0/a2e252a67e0b977a1f42c22084d6f8b715a053a89e05264a6a67cd1d5cc23fa5.mp4",
+          "videoSha256": "a2e252a67e0b977a1f42c22084d6f8b715a053a89e05264a6a67cd1d5cc23fa5",
+          "videoBytes": 211450,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "ff68f2fd-4785-4c10-a116-151eaed6064f",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-time-and-motion-1.0.0/3e0ec6ad6712985070857bd2574a790e9613c2165e501d7c19555c899ca4993b.mp4",
+          "videoSha256": "3e0ec6ad6712985070857bd2574a790e9613c2165e501d7c19555c899ca4993b",
+          "videoBytes": 308917,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "77dabe5a-9fca-4bcd-93b7-ad09ea656acc",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-time-and-motion-1.0.0/b92421cef1da8f7b9eb51f9458a511dd0462bdee660e6a32157085d135923a12.mp4",
+          "videoSha256": "b92421cef1da8f7b9eb51f9458a511dd0462bdee660e6a32157085d135923a12",
+          "videoBytes": 118823,
+          "videoMimeType": "video/mp4"
+        }
+      ]
+    },
+    {
+      "packageId": "melies-in-camera-and-optical-effects",
+      "packageVersion": "1.0.0",
+      "releaseTag": "media-melies-in-camera-and-optical-effects-1.0.0",
+      "entries": [
+        {
+          "sourceEntryId": "8e3e6ef4-cb7d-4fd5-b8c1-5898b900dd80",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-in-camera-and-optical-effects-1.0.0/ab96577e5531141ebe782c41ac7b9dd81596033af43887136b44500c280d1ca7.mp4",
+          "videoSha256": "ab96577e5531141ebe782c41ac7b9dd81596033af43887136b44500c280d1ca7",
+          "videoBytes": 74483,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "4323f348-4905-4a6c-9b98-97c754663ed6",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-in-camera-and-optical-effects-1.0.0/53ea53c2e014fa9ad3833fc5b4467ae910de4ee340866211d46be39dfb4bd0d8.mp4",
+          "videoSha256": "53ea53c2e014fa9ad3833fc5b4467ae910de4ee340866211d46be39dfb4bd0d8",
+          "videoBytes": 61112,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "dd3d5ddf-14e2-485c-b57e-879fd693229d",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-in-camera-and-optical-effects-1.0.0/270a46f93b7d8c06e5c52f789f9191239684b974a429273c9f74778c20220563.mp4",
+          "videoSha256": "270a46f93b7d8c06e5c52f789f9191239684b974a429273c9f74778c20220563",
+          "videoBytes": 134985,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "f57c5bf8-5351-4982-a1c1-7bdb6c600328",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-in-camera-and-optical-effects-1.0.0/7f43e050c8c02f88fe7457c723a37ce8894a3c61196d32735dbd68956a5b9373.mp4",
+          "videoSha256": "7f43e050c8c02f88fe7457c723a37ce8894a3c61196d32735dbd68956a5b9373",
+          "videoBytes": 28051,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "3319efc6-3c92-4b95-a90e-54242d73c8f6",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-in-camera-and-optical-effects-1.0.0/124967e097ecf17816591d639d7ffe1c6a65de3055e05de1d6510221f1a23304.mp4",
+          "videoSha256": "124967e097ecf17816591d639d7ffe1c6a65de3055e05de1d6510221f1a23304",
+          "videoBytes": 53678,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "40b97134-746e-47b5-8861-da9dfefe2cba",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-in-camera-and-optical-effects-1.0.0/84b358bd957c1e64ce7536ff4e75a7217ea04a9503c75e0ae00b8287cd9f0b4e.mp4",
+          "videoSha256": "84b358bd957c1e64ce7536ff4e75a7217ea04a9503c75e0ae00b8287cd9f0b4e",
+          "videoBytes": 51434,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "f86854ae-2abf-4257-8a64-8712312643a3",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-in-camera-and-optical-effects-1.0.0/4ba7d40125575c950fee941193c94c878cdfd451eae66e71545d1dd63ee1e6a1.mp4",
+          "videoSha256": "4ba7d40125575c950fee941193c94c878cdfd451eae66e71545d1dd63ee1e6a1",
+          "videoBytes": 68132,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "f8b09a9a-e583-4350-bf87-73dd1290662d",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-in-camera-and-optical-effects-1.0.0/cf3c0eac5a91c2071b910e677de3db05e2a2560c9c03af511f04c62e4fd37ac2.mp4",
+          "videoSha256": "cf3c0eac5a91c2071b910e677de3db05e2a2560c9c03af511f04c62e4fd37ac2",
+          "videoBytes": 456041,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "469f87ec-6f6b-4af5-857b-a83d2c2df0f8",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-in-camera-and-optical-effects-1.0.0/a5cf514a600906f91984c478d49fbe18c064f10b6d7583c6c56b9faef25fde37.mp4",
+          "videoSha256": "a5cf514a600906f91984c478d49fbe18c064f10b6d7583c6c56b9faef25fde37",
+          "videoBytes": 139062,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "e0d3c5f8-aeee-48a2-8fa4-75ea4a462322",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-in-camera-and-optical-effects-1.0.0/522b5648966ea6c4f10a84da6403701e3499d9b253bb9982a77913b7904fefcc.mp4",
+          "videoSha256": "522b5648966ea6c4f10a84da6403701e3499d9b253bb9982a77913b7904fefcc",
+          "videoBytes": 55486,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "91b5f7b4-6218-497d-90e5-5467a9c864c5",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-in-camera-and-optical-effects-1.0.0/93bc6d70b432bf159be0865e38146d334081adc43fdc7059c00a5ac0f7194d5c.mp4",
+          "videoSha256": "93bc6d70b432bf159be0865e38146d334081adc43fdc7059c00a5ac0f7194d5c",
+          "videoBytes": 46935,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "08406e5f-fd85-4824-ad0f-e0557229da7b",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-in-camera-and-optical-effects-1.0.0/1db970f11159ea4c32e8e89a2bf3d9876d3f965ecc174e95ffaa3097bb2dc078.mp4",
+          "videoSha256": "1db970f11159ea4c32e8e89a2bf3d9876d3f965ecc174e95ffaa3097bb2dc078",
+          "videoBytes": 182255,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "8d7c0f70-f983-4519-8e0f-c613854cd66a",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-in-camera-and-optical-effects-1.0.0/75815b4dd5f6cb8585d939274470109bcc2e4241bbd2ba0ad270dbb1eef34b83.mp4",
+          "videoSha256": "75815b4dd5f6cb8585d939274470109bcc2e4241bbd2ba0ad270dbb1eef34b83",
+          "videoBytes": 56986,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "c639da49-f2d6-49d5-8536-ba6a903e66a6",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-in-camera-and-optical-effects-1.0.0/681fd6932344df00ec2627a409c9d7fcf9ce24912855d7b4ec20cb8b5340ddf5.mp4",
+          "videoSha256": "681fd6932344df00ec2627a409c9d7fcf9ce24912855d7b4ec20cb8b5340ddf5",
+          "videoBytes": 529458,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "e8699dd3-713d-4ccf-9409-c507d9a96ce2",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-in-camera-and-optical-effects-1.0.0/e1a83d5e8aace118d81047d59a14d497bb96021d85a1aa85d104137f9a5ab11a.mp4",
+          "videoSha256": "e1a83d5e8aace118d81047d59a14d497bb96021d85a1aa85d104137f9a5ab11a",
+          "videoBytes": 156047,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "8c783092-ce73-4c30-8fef-714b481d7a12",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-in-camera-and-optical-effects-1.0.0/31d047f26304b21ef6aa1ffc320c7c6a94fd5b1f19a5216a827dffd128f7513c.mp4",
+          "videoSha256": "31d047f26304b21ef6aa1ffc320c7c6a94fd5b1f19a5216a827dffd128f7513c",
+          "videoBytes": 129714,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "45c1e1c6-c706-4993-82a4-6e7ca679ad87",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-in-camera-and-optical-effects-1.0.0/1d0b23a39ce3995be56d562c310c935f840d9f6c16ba3e8df6c92cc22ca1d0c9.mp4",
+          "videoSha256": "1d0b23a39ce3995be56d562c310c935f840d9f6c16ba3e8df6c92cc22ca1d0c9",
+          "videoBytes": 142765,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "2d310a25-a523-4ea2-aa36-d5fe8dceaccb",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-in-camera-and-optical-effects-1.0.0/e3f175702f70e6e54425454b2c69d647ff2360c2581bf35187fce005543e183b.mp4",
+          "videoSha256": "e3f175702f70e6e54425454b2c69d647ff2360c2581bf35187fce005543e183b",
+          "videoBytes": 286456,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "cba1708b-dadf-4275-8bc1-d1a4053e8156",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-in-camera-and-optical-effects-1.0.0/73a43c07fe41df5222d50afd3daebe739f35f2ffdb135f3719faee3458b3a736.mp4",
+          "videoSha256": "73a43c07fe41df5222d50afd3daebe739f35f2ffdb135f3719faee3458b3a736",
+          "videoBytes": 242735,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "af3e162b-fc1f-4fdc-8290-105cfabf4e6b",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-in-camera-and-optical-effects-1.0.0/57cb05e5753813652532a9ae7fb0224523fd5026487d250de70d88fe97bc83ed.mp4",
+          "videoSha256": "57cb05e5753813652532a9ae7fb0224523fd5026487d250de70d88fe97bc83ed",
+          "videoBytes": 236095,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "cd456369-2d9c-40ca-a7eb-03ab027559cd",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-in-camera-and-optical-effects-1.0.0/472970f88787ada0b67ab7819fc9ee271c1bae0070f6f0727bda8a134148b882.mp4",
+          "videoSha256": "472970f88787ada0b67ab7819fc9ee271c1bae0070f6f0727bda8a134148b882",
+          "videoBytes": 59873,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "e6dc692f-4563-422d-ba79-5d5228bebafa",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-in-camera-and-optical-effects-1.0.0/787b5e56478953f631d084a83c6f4a1bbfa12e75b57e941eeab2fc47ccd5283e.mp4",
+          "videoSha256": "787b5e56478953f631d084a83c6f4a1bbfa12e75b57e941eeab2fc47ccd5283e",
+          "videoBytes": 151809,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "6fc0881f-c637-4623-b79c-0bbd310b777c",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-in-camera-and-optical-effects-1.0.0/bf74493d330625850675896a7d77e66953fb6eb3f6fb4fc7ed946ec88b4c730e.mp4",
+          "videoSha256": "bf74493d330625850675896a7d77e66953fb6eb3f6fb4fc7ed946ec88b4c730e",
+          "videoBytes": 58217,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "fbc732d5-1fb9-4443-9e64-47cf8e191b3c",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-in-camera-and-optical-effects-1.0.0/83029c190e4fd295c58714d2798a6481e0f0c38e1737d833ec3d2ce410842f3c.mp4",
+          "videoSha256": "83029c190e4fd295c58714d2798a6481e0f0c38e1737d833ec3d2ce410842f3c",
+          "videoBytes": 37172,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "937e017b-0c9a-4244-b3cd-46b5bc383baa",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-in-camera-and-optical-effects-1.0.0/ee5a0a4bc4dda64fb03c3b3a4d82aa6dd883d5c42f8cbc3224c2a1978d4f30c7.mp4",
+          "videoSha256": "ee5a0a4bc4dda64fb03c3b3a4d82aa6dd883d5c42f8cbc3224c2a1978d4f30c7",
+          "videoBytes": 282760,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "19746f64-3797-4df3-8dfa-0ccc1ff8e7c5",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-in-camera-and-optical-effects-1.0.0/3f84dc6273ae44f6e3423f138169b781cca3ff9903063116b075c5eb0db23e2f.mp4",
+          "videoSha256": "3f84dc6273ae44f6e3423f138169b781cca3ff9903063116b075c5eb0db23e2f",
+          "videoBytes": 113451,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "19b62e4f-6599-4d5d-90b7-3a3e8619ddb9",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-in-camera-and-optical-effects-1.0.0/f4422fdd172cd0f8e3afbba7aee13d51420ea790ee18320529e1664df006bde4.mp4",
+          "videoSha256": "f4422fdd172cd0f8e3afbba7aee13d51420ea790ee18320529e1664df006bde4",
+          "videoBytes": 143413,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "ec2e055f-7828-4abb-964e-d552b1c89fd2",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-in-camera-and-optical-effects-1.0.0/dcb822e8d4dfdf764c31106d2aec680ca0c269ad9ed677f2ebcae918155768e8.mp4",
+          "videoSha256": "dcb822e8d4dfdf764c31106d2aec680ca0c269ad9ed677f2ebcae918155768e8",
+          "videoBytes": 70669,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "c6168511-2d7d-4a6d-9344-bb592a9dde1c",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-in-camera-and-optical-effects-1.0.0/31c58f01c7cf0623bba9eef24a381f3edbedea6bccbe6c0495ab478ed3a5e88d.mp4",
+          "videoSha256": "31c58f01c7cf0623bba9eef24a381f3edbedea6bccbe6c0495ab478ed3a5e88d",
+          "videoBytes": 98246,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "78f082b9-9b4f-4286-935c-fa4d9335985a",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-in-camera-and-optical-effects-1.0.0/857def222f58285d1a540de38f6fe8c7345a917044c5929f15674ddf65cb37c9.mp4",
+          "videoSha256": "857def222f58285d1a540de38f6fe8c7345a917044c5929f15674ddf65cb37c9",
+          "videoBytes": 95602,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "d08685eb-876e-43ba-bf2c-ec2972cb21b6",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-in-camera-and-optical-effects-1.0.0/11ad64691c8c3818a48507f99878c36f9a648172f4fe61df953df369ddbca4c3.mp4",
+          "videoSha256": "11ad64691c8c3818a48507f99878c36f9a648172f4fe61df953df369ddbca4c3",
+          "videoBytes": 47916,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "d364f317-2a3d-488d-bb09-edb40d611ac2",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-in-camera-and-optical-effects-1.0.0/814653c42dff742ce18ec74a4a8a150f9f3916105b787e70e4c40be9bec1b72e.mp4",
+          "videoSha256": "814653c42dff742ce18ec74a4a8a150f9f3916105b787e70e4c40be9bec1b72e",
+          "videoBytes": 255186,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "7a00347b-f048-490a-b4d4-b22482156bce",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-in-camera-and-optical-effects-1.0.0/0cdca19c8045514dbb0d21fef8c77f97543cdca35bed11d37a87a88b8152586b.mp4",
+          "videoSha256": "0cdca19c8045514dbb0d21fef8c77f97543cdca35bed11d37a87a88b8152586b",
+          "videoBytes": 219261,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "2524dc2f-4a05-4a2f-a994-607a128fff96",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-in-camera-and-optical-effects-1.0.0/9405e0aacf85b940b65067a1cdae1cefa269d796fc6bda911688814b692fce69.mp4",
+          "videoSha256": "9405e0aacf85b940b65067a1cdae1cefa269d796fc6bda911688814b692fce69",
+          "videoBytes": 162262,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "5804f289-1a8b-4581-88f3-55e3e1d54195",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-in-camera-and-optical-effects-1.0.0/ec4017a9771797c3007070d9816a7d98efb25ee7b20e438672a031e9944a6e00.mp4",
+          "videoSha256": "ec4017a9771797c3007070d9816a7d98efb25ee7b20e438672a031e9944a6e00",
+          "videoBytes": 407971,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "75d33cf2-09dc-48b1-a1c7-8eb7f610902b",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-in-camera-and-optical-effects-1.0.0/27616e04500412a353559bc80298709b46562e17683f801cbdf0a7b70cfcbb29.mp4",
+          "videoSha256": "27616e04500412a353559bc80298709b46562e17683f801cbdf0a7b70cfcbb29",
+          "videoBytes": 49031,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "6cbb0660-8e1d-43e7-8554-c1dc65294b1d",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-in-camera-and-optical-effects-1.0.0/e64d14450218298ab9d8b5622718afa3db3fa4108e5bf7dbfb893d25a354461e.mp4",
+          "videoSha256": "e64d14450218298ab9d8b5622718afa3db3fa4108e5bf7dbfb893d25a354461e",
+          "videoBytes": 225008,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "b1cd3f38-6607-4544-873a-3c1ce527142d",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-in-camera-and-optical-effects-1.0.0/24a38628ecf50a50b0d63e746b8416500a375bbe6b38fd85247057667cf4e835.mp4",
+          "videoSha256": "24a38628ecf50a50b0d63e746b8416500a375bbe6b38fd85247057667cf4e835",
+          "videoBytes": 210064,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "188997eb-5c97-47a4-9387-f36eddefe2d2",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-in-camera-and-optical-effects-1.0.0/851ee6c3e2bde1bab0e7213328673330281087dc0509b80df647ecb31708afd9.mp4",
+          "videoSha256": "851ee6c3e2bde1bab0e7213328673330281087dc0509b80df647ecb31708afd9",
+          "videoBytes": 74659,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "04291dec-cd43-4ff8-996e-f0f85a4122b8",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-in-camera-and-optical-effects-1.0.0/97d66193bfda274ae380392de5247d02f33586a219f41ccd455cf1e3376ad436.mp4",
+          "videoSha256": "97d66193bfda274ae380392de5247d02f33586a219f41ccd455cf1e3376ad436",
+          "videoBytes": 164165,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "e0eee3b8-336d-4dd7-b13f-91fab5482e13",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-in-camera-and-optical-effects-1.0.0/e9468c8b13968a378b10d8747ee18a835fa40435a95e5594172fb2205f32c21a.mp4",
+          "videoSha256": "e9468c8b13968a378b10d8747ee18a835fa40435a95e5594172fb2205f32c21a",
+          "videoBytes": 144049,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "1b3e406d-2039-4789-bde2-c61d8092b0bc",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-in-camera-and-optical-effects-1.0.0/93b4c0d85452b538ccf551e864ec4b81469d048cffd633a987dcb0b9dfd9e8d5.mp4",
+          "videoSha256": "93b4c0d85452b538ccf551e864ec4b81469d048cffd633a987dcb0b9dfd9e8d5",
+          "videoBytes": 73538,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "f7e271d1-f2e7-40df-a78a-67a711a6c01d",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-in-camera-and-optical-effects-1.0.0/bd73b316ab4d14e8049f5b402fb26ecec9317e6f0fb8e35d1e9c79a665dc63ec.mp4",
+          "videoSha256": "bd73b316ab4d14e8049f5b402fb26ecec9317e6f0fb8e35d1e9c79a665dc63ec",
+          "videoBytes": 96493,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "00d4a101-353b-4382-9af4-9e85e15446f2",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-in-camera-and-optical-effects-1.0.0/70cd16fe6c716f95566f78c49c6946f1454dc181db655e64aa75d95369dc50c3.mp4",
+          "videoSha256": "70cd16fe6c716f95566f78c49c6946f1454dc181db655e64aa75d95369dc50c3",
+          "videoBytes": 122003,
+          "videoMimeType": "video/mp4"
+        }
+      ]
+    },
+    {
+      "packageId": "melies-editing-and-transitions",
+      "packageVersion": "1.0.0",
+      "releaseTag": "media-melies-editing-and-transitions-1.0.0",
+      "entries": [
+        {
+          "sourceEntryId": "ca35fa8f-f51d-4be1-bbaa-ca38f44e9212",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-editing-and-transitions-1.0.0/3f7971688d780e371a7745acf90899f58fe20759c121fdccc6e1af39822695a7.mp4",
+          "videoSha256": "3f7971688d780e371a7745acf90899f58fe20759c121fdccc6e1af39822695a7",
+          "videoBytes": 143715,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "863f487b-d005-4235-901f-465c7fb25519",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-editing-and-transitions-1.0.0/c9821a388d5e439f6233fce9325d3031a537f851c33c70d3253d522e6a6ea8a4.mp4",
+          "videoSha256": "c9821a388d5e439f6233fce9325d3031a537f851c33c70d3253d522e6a6ea8a4",
+          "videoBytes": 79420,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "f0f9f61e-0604-4599-9363-7d9e7d121e84",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-editing-and-transitions-1.0.0/528a34dba0ef83f85d262d3fb6eb8932138e63d8c68a941b7e37a6c5883d1b22.mp4",
+          "videoSha256": "528a34dba0ef83f85d262d3fb6eb8932138e63d8c68a941b7e37a6c5883d1b22",
+          "videoBytes": 91567,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "4b49be25-f7b2-48ab-9cff-005368379af1",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-editing-and-transitions-1.0.0/23eb59bf235f969b6cd76c5c616460519c97a75fe00d1947ce5655cb78c2a39a.mp4",
+          "videoSha256": "23eb59bf235f969b6cd76c5c616460519c97a75fe00d1947ce5655cb78c2a39a",
+          "videoBytes": 114352,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "6f866e7e-6d81-44ca-896c-aa123fef8db9",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-editing-and-transitions-1.0.0/46f378eda6b386c0b4f55b979dab435dcfad4d3e490409ea2be926eed07ebf07.mp4",
+          "videoSha256": "46f378eda6b386c0b4f55b979dab435dcfad4d3e490409ea2be926eed07ebf07",
+          "videoBytes": 86073,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "facc612b-af3d-47c0-87a5-fccd303697f2",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-editing-and-transitions-1.0.0/61f51e3952cb5602f87b9c40b5c9651a959899704eded12e0d2d370bb3fb6a53.mp4",
+          "videoSha256": "61f51e3952cb5602f87b9c40b5c9651a959899704eded12e0d2d370bb3fb6a53",
+          "videoBytes": 176361,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "d807ef80-724f-4cc9-9127-fc2e0f78d057",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-editing-and-transitions-1.0.0/156044825283b42fdc2350d38de8442c913028e610146097912913ae3188d89d.mp4",
+          "videoSha256": "156044825283b42fdc2350d38de8442c913028e610146097912913ae3188d89d",
+          "videoBytes": 19012,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "e1ab7043-260f-43f0-974b-7d3ba723a8e3",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-editing-and-transitions-1.0.0/4dec5bb2e31d96b6434433f3e01338b70d97895973709fd623f2e5576a339e42.mp4",
+          "videoSha256": "4dec5bb2e31d96b6434433f3e01338b70d97895973709fd623f2e5576a339e42",
+          "videoBytes": 140165,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "c4b96643-2f61-4c3c-9c26-dcadcd81a6ce",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-editing-and-transitions-1.0.0/15af78d3bdd030f889f4da168be4da9e9b2143ead657c64d64f3fb5ea18e8a47.mp4",
+          "videoSha256": "15af78d3bdd030f889f4da168be4da9e9b2143ead657c64d64f3fb5ea18e8a47",
+          "videoBytes": 108487,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "ddde54a4-32ce-4549-88ea-d670d92a37ac",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-editing-and-transitions-1.0.0/d2dc934603b5be753f22df25a67d9967e5cd14c87e4d35fd36e5ab3ebc65f73f.mp4",
+          "videoSha256": "d2dc934603b5be753f22df25a67d9967e5cd14c87e4d35fd36e5ab3ebc65f73f",
+          "videoBytes": 328853,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "815c0f6a-901a-4f50-b927-eff65d683dd9",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-editing-and-transitions-1.0.0/386a4e98b6da6c95d72cc2e76bf2aa7d029348272f2034cc06ea1ba1fc114ad9.mp4",
+          "videoSha256": "386a4e98b6da6c95d72cc2e76bf2aa7d029348272f2034cc06ea1ba1fc114ad9",
+          "videoBytes": 88979,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "21f011d5-5d28-4745-a5b6-0a359b7eafbd",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-editing-and-transitions-1.0.0/fab9949165b2c491e06963499482bbdae6e252bb24fe3a1c7738de45fb320f67.mp4",
+          "videoSha256": "fab9949165b2c491e06963499482bbdae6e252bb24fe3a1c7738de45fb320f67",
+          "videoBytes": 128755,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "232ba24c-676c-42ce-8b0b-13e7b363dc7f",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-editing-and-transitions-1.0.0/1c394ecea8c1e488720b028edee826050cb3924196ccd6aa410946b89df3a905.mp4",
+          "videoSha256": "1c394ecea8c1e488720b028edee826050cb3924196ccd6aa410946b89df3a905",
+          "videoBytes": 170310,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "495129e0-97de-46ae-8828-14e0954c48fd",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-editing-and-transitions-1.0.0/b116ec1878b7d1b2e6327eb18ef51bee77e9ef1570f62d6d3c6c6ca455d0d742.mp4",
+          "videoSha256": "b116ec1878b7d1b2e6327eb18ef51bee77e9ef1570f62d6d3c6c6ca455d0d742",
+          "videoBytes": 267641,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "03a4cead-07d4-45a3-9b97-4e8c10217c79",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-editing-and-transitions-1.0.0/e5e30e7353a6b1f9bec67737f047cbc2f9f9caa1b6c6a920fbb99a0e1a27536b.mp4",
+          "videoSha256": "e5e30e7353a6b1f9bec67737f047cbc2f9f9caa1b6c6a920fbb99a0e1a27536b",
+          "videoBytes": 59002,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "6861e424-8420-4a02-9613-7fde48915458",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-editing-and-transitions-1.0.0/474a576155896f7da3a636fd40b55c26b1db93af90a1486c94ead56d344756cd.mp4",
+          "videoSha256": "474a576155896f7da3a636fd40b55c26b1db93af90a1486c94ead56d344756cd",
+          "videoBytes": 96139,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "9efb5e2b-be2e-46f7-9ebc-d9efd83fe340",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-editing-and-transitions-1.0.0/11a885143a551d8c3c5b3218c5dc3f0492a9261cef6825188c275e4f4e5c23fe.mp4",
+          "videoSha256": "11a885143a551d8c3c5b3218c5dc3f0492a9261cef6825188c275e4f4e5c23fe",
+          "videoBytes": 484099,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "cb54fdff-0b96-465a-bca5-05c37bcf4f53",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-editing-and-transitions-1.0.0/9a8073bd80532709089a0a2fe94d16ba30207199b16cad7dd0ac8ac1bff00788.mp4",
+          "videoSha256": "9a8073bd80532709089a0a2fe94d16ba30207199b16cad7dd0ac8ac1bff00788",
+          "videoBytes": 512206,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "cdf23565-61de-4e2a-b0eb-87a36e81736b",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-editing-and-transitions-1.0.0/ca61513d2dced1df7a803f0f934ac82b0b1dbd9c93e38f2f2be1cb22a4eaaaf2.mp4",
+          "videoSha256": "ca61513d2dced1df7a803f0f934ac82b0b1dbd9c93e38f2f2be1cb22a4eaaaf2",
+          "videoBytes": 155036,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "4d25851f-5b6c-4cfe-8b7c-7e4f10859979",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-editing-and-transitions-1.0.0/2af7a7a2ab034b0c1d5673dfe3b93b67274de540d1235db3355e7c66a2940790.mp4",
+          "videoSha256": "2af7a7a2ab034b0c1d5673dfe3b93b67274de540d1235db3355e7c66a2940790",
+          "videoBytes": 282235,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "37f569e5-0c30-4672-b8b6-6b60d5084667",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-editing-and-transitions-1.0.0/75728879131cfa985e764a905f2c9a8508387c2340168bf4bb95f0bf1b9526d3.mp4",
+          "videoSha256": "75728879131cfa985e764a905f2c9a8508387c2340168bf4bb95f0bf1b9526d3",
+          "videoBytes": 147601,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "2a77fce1-e571-4323-9013-8e44e088e88a",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-editing-and-transitions-1.0.0/741a508febe65b9c5098a004fb69a98c6a747de793a53c139b4833627ac09e2a.mp4",
+          "videoSha256": "741a508febe65b9c5098a004fb69a98c6a747de793a53c139b4833627ac09e2a",
+          "videoBytes": 225978,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "6d23b000-f3eb-4a8b-a1a6-9348a4e3efb1",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-editing-and-transitions-1.0.0/dcdef5350e50c322385ff84854dd9eeb771bc7141fc25bbd57b1715e69f59253.mp4",
+          "videoSha256": "dcdef5350e50c322385ff84854dd9eeb771bc7141fc25bbd57b1715e69f59253",
+          "videoBytes": 155457,
+          "videoMimeType": "video/mp4"
+        }
+      ]
+    },
+    {
+      "packageId": "melies-atmosphere-and-weather",
+      "packageVersion": "1.0.0",
+      "releaseTag": "media-melies-atmosphere-and-weather-1.0.0",
+      "entries": [
+        {
+          "sourceEntryId": "c52b6187-8caa-40b4-bd5e-f0418977bfad",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-atmosphere-and-weather-1.0.0/0ea042ff8ee868b13efad9a88b68afd49ee73e491868854fcdeb0e819d0f5606.mp4",
+          "videoSha256": "0ea042ff8ee868b13efad9a88b68afd49ee73e491868854fcdeb0e819d0f5606",
+          "videoBytes": 155502,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "e05011bc-83b3-44e0-99e8-95f935828dbb",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-atmosphere-and-weather-1.0.0/81ea7d5c126be30818ddd91e2de8e7acfff335a8f888d56c8af0c8fd5385a8a2.mp4",
+          "videoSha256": "81ea7d5c126be30818ddd91e2de8e7acfff335a8f888d56c8af0c8fd5385a8a2",
+          "videoBytes": 282296,
+          "videoMimeType": "video/mp4"
+        }
+      ]
+    },
+    {
+      "packageId": "melies-genre-looks",
+      "packageVersion": "1.0.0",
+      "releaseTag": "media-melies-genre-looks-1.0.0",
+      "entries": [
+        {
+          "sourceEntryId": "e6ed21a1-9cf2-4eb6-b140-1446d83f9d91",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-genre-looks-1.0.0/a171180e80e13484fd618be4f3fe61a9a73291de9f8579d897e715f6f4b97f6d.mp4",
+          "videoSha256": "a171180e80e13484fd618be4f3fe61a9a73291de9f8579d897e715f6f4b97f6d",
+          "videoBytes": 180854,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "7a544228-3bf5-47e3-a98a-bab1beaeab22",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-genre-looks-1.0.0/32c14f8434d4e695e4e607df80d6d68c9fa9765eca8656a235f7700814282fc9.mp4",
+          "videoSha256": "32c14f8434d4e695e4e607df80d6d68c9fa9765eca8656a235f7700814282fc9",
+          "videoBytes": 191224,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "59b3f90f-7fbb-4551-a18a-33d8d8783d7c",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-genre-looks-1.0.0/b1590fdd94e9132ff55195ebfb029dcd5b0cb87981815d0bafc9a563a8d4da1e.mp4",
+          "videoSha256": "b1590fdd94e9132ff55195ebfb029dcd5b0cb87981815d0bafc9a563a8d4da1e",
+          "videoBytes": 208621,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "f86c3e00-1ee3-4c67-8b4e-04f71b9292af",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-genre-looks-1.0.0/2c8b3adcbc8dc18003130f320553af446b1ed3b4dc440112a9588ca4256b25b0.mp4",
+          "videoSha256": "2c8b3adcbc8dc18003130f320553af446b1ed3b4dc440112a9588ca4256b25b0",
+          "videoBytes": 188313,
+          "videoMimeType": "video/mp4"
+        }
+      ]
+    },
+    {
+      "packageId": "melies-viral-looks",
+      "packageVersion": "1.0.0",
+      "releaseTag": "media-melies-viral-looks-1.0.0",
+      "entries": [
+        {
+          "sourceEntryId": "f69fe096-36b1-41db-a218-a752939aa274",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-viral-looks-1.0.0/55173c8bc656158b976dc3ceacb4594c71ef5db27826de73e98dcae83d426d52.mp4",
+          "videoSha256": "55173c8bc656158b976dc3ceacb4594c71ef5db27826de73e98dcae83d426d52",
+          "videoBytes": 423622,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "e6824f39-c219-4adf-a07a-8007ee5121b3",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-viral-looks-1.0.0/6140c8f37cbe0b5f8eee8cbb1ccb5fc7b2e04135d3e13d4aaf2516615572f4a3.mp4",
+          "videoSha256": "6140c8f37cbe0b5f8eee8cbb1ccb5fc7b2e04135d3e13d4aaf2516615572f4a3",
+          "videoBytes": 552791,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "c5a1a95e-2eca-46f9-a672-59a03cb882fa",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-viral-looks-1.0.0/7c3acfaaf6974950a0ee157513c81ae9dcfe9b8dee80ed675c61fdcbff027e89.mp4",
+          "videoSha256": "7c3acfaaf6974950a0ee157513c81ae9dcfe9b8dee80ed675c61fdcbff027e89",
+          "videoBytes": 107398,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "19c046d0-0c87-4601-8fa0-6397b86cc45f",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-viral-looks-1.0.0/fba0c08fa3556f2c9a0df8b1020ca648e0372675e20343a8bccc5eafbacb1494.mp4",
+          "videoSha256": "fba0c08fa3556f2c9a0df8b1020ca648e0372675e20343a8bccc5eafbacb1494",
+          "videoBytes": 284913,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "70a5b50a-1818-41c6-ac5a-444f71fb2d18",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-viral-looks-1.0.0/80b5627064df00c9fc8c47edb4a55b462f3126e9dc59f28e3ed072336349122d.mp4",
+          "videoSha256": "80b5627064df00c9fc8c47edb4a55b462f3126e9dc59f28e3ed072336349122d",
+          "videoBytes": 153214,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "a214e486-9584-4075-bfbd-46fb860d0a1d",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-viral-looks-1.0.0/b2a6b46c86e7b20e9b3308b2aeb05604cfdc46ab17a51f910207286acc56b558.mp4",
+          "videoSha256": "b2a6b46c86e7b20e9b3308b2aeb05604cfdc46ab17a51f910207286acc56b558",
+          "videoBytes": 377549,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "50021f7d-5064-49e6-b917-2ebd336aa41f",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-viral-looks-1.0.0/a7d99c87a66553a504e7f7730dc38be653b4f53d25af3d641cab24d375dbc999.mp4",
+          "videoSha256": "a7d99c87a66553a504e7f7730dc38be653b4f53d25af3d641cab24d375dbc999",
+          "videoBytes": 183379,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "e223c3e1-7eba-4b3a-932c-0cbeb478ff83",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-viral-looks-1.0.0/de0ec0af35a06605a817d7336033203e0a9879c4ff4c2bbd432de089563d36dd.mp4",
+          "videoSha256": "de0ec0af35a06605a817d7336033203e0a9879c4ff4c2bbd432de089563d36dd",
+          "videoBytes": 99192,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "2929079a-07c9-4591-b79d-7939e710240a",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-viral-looks-1.0.0/62fe6e5af2fe53e2dc1987433af27d6686dad3b93b58bc6d40b6d3c184c634e5.mp4",
+          "videoSha256": "62fe6e5af2fe53e2dc1987433af27d6686dad3b93b58bc6d40b6d3c184c634e5",
+          "videoBytes": 49932,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "450e8e6b-f9ad-46f1-ac0f-b5671cdf0dec",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-viral-looks-1.0.0/75d2c38db689ecd7f767e8464ae7174c0167690ebabe7845218f5e28b9cf1740.mp4",
+          "videoSha256": "75d2c38db689ecd7f767e8464ae7174c0167690ebabe7845218f5e28b9cf1740",
+          "videoBytes": 294978,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "ac35ae90-96d2-4c7a-afe3-ddbbd0505aa1",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-viral-looks-1.0.0/650582158cc94fb4b6f5c592f42fd8f44588cd65295d54082c5c148f30502b95.mp4",
+          "videoSha256": "650582158cc94fb4b6f5c592f42fd8f44588cd65295d54082c5c148f30502b95",
+          "videoBytes": 444506,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "6d91e0de-6de2-4413-8abc-d92a87a40d26",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-viral-looks-1.0.0/3d8c7430670d997cddd780005fbcac1d52243fbb8df4781e64126ca7e5646a36.mp4",
+          "videoSha256": "3d8c7430670d997cddd780005fbcac1d52243fbb8df4781e64126ca7e5646a36",
+          "videoBytes": 91876,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "1ef34ce2-42f6-4a1c-8ec1-d11df6e76a4b",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-viral-looks-1.0.0/f7bbb53f39baf32dbd365579f46be9cd755496dbc764dbb7e4709162bb7b51fc.mp4",
+          "videoSha256": "f7bbb53f39baf32dbd365579f46be9cd755496dbc764dbb7e4709162bb7b51fc",
+          "videoBytes": 193999,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "44f6df25-c4f8-49af-a683-d65af9f84925",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-viral-looks-1.0.0/bd7eaeeb2b55d12c1ae1a5aba5e2a4e758e6c56869cf05c82e8e1f97d49640c6.mp4",
+          "videoSha256": "bd7eaeeb2b55d12c1ae1a5aba5e2a4e758e6c56869cf05c82e8e1f97d49640c6",
+          "videoBytes": 306057,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "e6d74694-393c-4a42-9506-d01cfd2aa6b9",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-viral-looks-1.0.0/1064367d0857c7046b194c11d1e592f1a84eecd0ce72d64bee394ed5c9adc2c7.mp4",
+          "videoSha256": "1064367d0857c7046b194c11d1e592f1a84eecd0ce72d64bee394ed5c9adc2c7",
+          "videoBytes": 188881,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "dc20bcea-a65a-49d6-ba18-098e8a499b58",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-viral-looks-1.0.0/ec463e2060cdd5811c3eefe0b14a9f96b316c6e3a0ee3b0db1fe552788a9c3a3.mp4",
+          "videoSha256": "ec463e2060cdd5811c3eefe0b14a9f96b316c6e3a0ee3b0db1fe552788a9c3a3",
+          "videoBytes": 37229,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "5540a5e1-a13c-42c4-a44a-9c42d9e34961",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-viral-looks-1.0.0/42334af22c5b95c5ecc83b7551db82e9d600fe748238fff0b4c1e50821fcafd5.mp4",
+          "videoSha256": "42334af22c5b95c5ecc83b7551db82e9d600fe748238fff0b4c1e50821fcafd5",
+          "videoBytes": 109882,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "ed40cf6a-5f34-4e9f-8bbd-16997979f53e",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-viral-looks-1.0.0/94f5d3f50845784b166737365c0238e40ab4f2e4c1a151f78dd861717ec094f3.mp4",
+          "videoSha256": "94f5d3f50845784b166737365c0238e40ab4f2e4c1a151f78dd861717ec094f3",
+          "videoBytes": 219191,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "631ce007-4c6b-4603-bc8e-184c390d7861",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-viral-looks-1.0.0/6c5961c6245983d11557fa1aa6f4146837feed23c90feb932d46fffb1a6a6be8.mp4",
+          "videoSha256": "6c5961c6245983d11557fa1aa6f4146837feed23c90feb932d46fffb1a6a6be8",
+          "videoBytes": 358237,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "89d49a7d-c6d6-4062-89b3-4720d29e86bc",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-viral-looks-1.0.0/0271cc685ce4da98d57e173908e3c73f04ae3e6eef4cb05669cbf73d08bb236c.mp4",
+          "videoSha256": "0271cc685ce4da98d57e173908e3c73f04ae3e6eef4cb05669cbf73d08bb236c",
+          "videoBytes": 71110,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "1b1324fb-ea98-4ae8-8dd9-c29ea366f193",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-viral-looks-1.0.0/b2448c164a73b9aafa747d38b991bce1961740632d6890d8bd4fbb0b60ace17b.mp4",
+          "videoSha256": "b2448c164a73b9aafa747d38b991bce1961740632d6890d8bd4fbb0b60ace17b",
+          "videoBytes": 78891,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "d4cf1076-e53e-4dcb-884e-f7c0a6934729",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-viral-looks-1.0.0/c0b1396548506e341d891965c131138b2446e8cc2d625ee496b2cd0522696e8d.mp4",
+          "videoSha256": "c0b1396548506e341d891965c131138b2446e8cc2d625ee496b2cd0522696e8d",
+          "videoBytes": 118131,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "d995a8a2-a459-4daf-852c-5745218e5b20",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-viral-looks-1.0.0/02f4f59076afb01489870d11b9868d646dc82f9613d840da15ceaf7d71a997ca.mp4",
+          "videoSha256": "02f4f59076afb01489870d11b9868d646dc82f9613d840da15ceaf7d71a997ca",
+          "videoBytes": 184178,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "491afa70-33d8-4b31-b6bf-3c15bec246d5",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-viral-looks-1.0.0/8aa1e65f212cfd1f87f3d3b3f804a09eae11018c7187e0a7ba347ca4489bfbd1.mp4",
+          "videoSha256": "8aa1e65f212cfd1f87f3d3b3f804a09eae11018c7187e0a7ba347ca4489bfbd1",
+          "videoBytes": 376504,
+          "videoMimeType": "video/mp4"
+        },
+        {
+          "sourceEntryId": "fc09effa-7f2f-48b6-8bae-9de404701f16",
+          "videoUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/media-melies-viral-looks-1.0.0/f6401efc3f767a62ffc2496f8f78ead229d4e2b4eb20f36aa231c9690bd976ff.mp4",
+          "videoSha256": "f6401efc3f767a62ffc2496f8f78ead229d4e2b4eb20f36aa231c9690bd976ff",
+          "videoBytes": 80219,
           "videoMimeType": "video/mp4"
         }
       ]
