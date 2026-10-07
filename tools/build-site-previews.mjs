@@ -6,6 +6,12 @@ import { basename, dirname, join, resolve, sep } from "node:path";
 import { pathToFileURL } from "node:url";
 import { clean, cleanPrompt, normalizeSiteCatalog, normalizeSiteMediaManifest, normalizeSitePreview, safeId } from "./curated-site-data.mjs";
 
+// The extension exports share packages as prompt-case-library v5 while these tools
+// normalize into the v3 pack the site, reviews and Releases expect; accept the same
+// source range the public submission preflight accepts.
+const CURATED_SOURCE_VERSIONS = new Set([3, 4, 5]);
+
+
 export async function buildSitePreviews({ catalogPath, packagesPath, sitePath, mediaManifestPath = "" }) {
   const catalogValue = JSON.parse(await readFile(resolve(catalogPath), "utf8"));
   const catalog = normalizeSiteCatalog(catalogValue);
@@ -36,7 +42,7 @@ async function buildThemePreview(theme, packageRoot, siteRoot, temporaryRoot, me
   await run("unzip", ["-qq", archivePath, "library.json", ...names.filter((name) => name.startsWith("images/") && !name.endsWith("/")), "-d", extractRoot]);
   await assertNoLinks(extractRoot);
   const library = JSON.parse(await readFile(join(extractRoot, "library.json"), "utf8"));
-  if (library?.format !== "prompt-case-library" || library.version !== 3 || !Array.isArray(library.entries)) {
+  if (library?.format !== "prompt-case-library" || !CURATED_SOURCE_VERSIONS.has(library.version) || !Array.isArray(library.entries)) {
     throw new Error(`${theme.id} 不是审核后的 PromptDirector v3 包`);
   }
   if (library.entries.length !== theme.caseCount) throw new Error(`${theme.id} 的案例数量与目录不一致`);

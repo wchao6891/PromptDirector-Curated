@@ -1,7 +1,7 @@
 {
   "format": "prompt-director-curated-metrics",
   "version": 1,
-  "updatedAt": "2026-10-07T10:24:11.190Z",
+  "updatedAt": "2026-10-07T13:18:21.828Z",
   "downloads": {
     "featured:vol-1": 25,
     "featured:jimeng": 35,
@@ -22,6 +22,19 @@
     "cases-5b8deb5b7d94e3bcdefb": 24,
     "cases-a7126fd0ce35aaf96153": 13,
     "cases-3067eed17c7b7ca7d1b3": 6,
-    "cases-ad27222f0bfd93989f6e": 3
+    "cases-ad27222f0bfd93989f6e": 3,
+    "melies:camera-movement": 0,
+    "melies:camera-angles": 0,
+    "melies:framing-and-shot-size": 0,
+    "melies:lighting": 0,
+    "melies:composition": 0,
+    "melies:lenses-and-optics": 0,
+    "melies:color-and-film-look": 0,
+    "melies:time-and-motion": 0,
+    "melies:in-camera-and-optical-effects": 0,
+    "melies:editing-and-transitions": 0,
+    "melies:atmosphere-and-weather": 0,
+    "melies:genre-looks": 0,
+    "melies:viral-looks": 0
   }
 }
