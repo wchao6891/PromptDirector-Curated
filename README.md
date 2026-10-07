@@ -88,6 +88,25 @@
 8. 发布时提交封面、只读预览、权利记录和带 SHA-256 校验值的目录；网站部署后核对线上结果。
 9. GitHub Action 从 Release Asset API 更新经过摘要核对的累计下载量；失败时不覆盖上次真实快照。
 
+### 维护者本地命令（含视频，按顺序）
+
+本地手动审核台产出的合集包走同一套命令。含视频的合集必须完成第 3、4 步，否则网页上只有封面、点开不能播放：
+
+1. 建包（源包为插件导出的 `prompt-case-library` v3–v5 分享包）：
+   `node tools/build-curated-batch.mjs build.json`
+2. 上传下载包为 Release 附件，写目录、封面与权利记录后同步真实下载量：
+   `gh release create <packageId>-<version> <packageId>.zip`、`node tools/sync-release-metrics.mjs site/public-catalog.json site/metrics.json`
+3. 准备并发布视频媒体附件（不可变 Release，附件按 SHA-256 命名，已发布不可覆盖）：
+   `node tools/prepare-media-releases.mjs site/public-catalog.json <已建包目录> <媒体输出目录> wchao6891/PromptDirector-Curated`
+   然后对每个含视频的包执行一次：
+   `GH_TOKEN=… node tools/publish-media-release.mjs site/public-catalog.json <媒体输出目录>/media-manifest.json <媒体输出目录> wchao6891/PromptDirector-Curated <packageId>`
+4. 带媒体清单生成只读预览，再切换为版本化预览地址：
+   `node tools/build-site-previews.mjs site/public-catalog.json <已建包目录> site <媒体输出目录>/media-manifest.json`
+   `node tools/activate-media-previews.mjs site/public-catalog.json <媒体输出目录>/media-manifest.json site`
+5. 校验并提交：`node tools/validate-catalog.mjs && node tools/validate-skill-catalog.mjs`
+
+`build-site-previews` 在未提供媒体清单而目录中又存在视频合集时会直接报错，避免发出只有封面的静态合集。
+
 目录不会自动收录投稿。普通用户不需要 Git、API、命令行或仓库权限，但需要 GitHub 账号提交附件。产品不提供点赞、评论、公开粉丝数或算法排行榜；关注只保存在当前设备。
 
 第三方来源精选须经维护者人工批准，保留逐案例署名与来源，并如实记录授权状态。投稿者不能替原作者授予许可。

@@ -18,6 +18,12 @@ export async function buildSitePreviews({ catalogPath, packagesPath, sitePath, m
   const mediaByPackage = mediaManifestPath
     ? mediaEntriesByPackage(normalizeSiteMediaManifest(JSON.parse(await readFile(resolve(mediaManifestPath), "utf8")), catalogValue))
     : new Map();
+  // A collection with videos is not complete until its media releases are published; without
+  // the manifest the site would ship posters that cannot play.
+  if (!mediaManifestPath) {
+    const videoThemes = catalog.themes.filter((theme) => theme.videoCount > 0);
+    if (videoThemes.length) throw new Error(`以下合集含视频，需先生成并发布媒体包，再用媒体清单生成预览：${videoThemes.map((theme) => theme.id).join("、")}`);
+  }
   const packageRoot = resolve(packagesPath);
   const siteRoot = resolve(sitePath);
   const temporaryRoot = await mkdtemp(join(tmpdir(), "promptdirector-site-preview-"));
