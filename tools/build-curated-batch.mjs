@@ -16,6 +16,20 @@ import { tmpdir } from "node:os";
 import { spawn } from "node:child_process";
 import { writePromptDirectorZip } from "./curated-zip.mjs";
 
+// The extension exports share packages as prompt-case-library v5 while these tools
+// normalize into the v3 pack the site, reviews and Releases expect; accept the same
+// source range the public submission preflight accepts.
+const CURATED_SOURCE_VERSIONS = new Set([3, 4, 5]);
+// Exports carry only the taxonomy nodes their own cases use, so a package whose cases are
+// all videos can lack the sibling image node that this tool assigns by media kind. Fall back
+// to the product's canonical content nodes instead of failing the build.
+const CANONICAL_CONTENT_NODES = Object.freeze({
+  "content:prompt:image": { id: "content:prompt:image", name: "图片提示词", role: "prompt_image", axis: "content", parentId: null, system: true, status: "active", visibility: "library", order: 0, aliases: [], customized: false },
+  "content:prompt:video": { id: "content:prompt:video", name: "视频提示词", role: "prompt_video", axis: "content", parentId: null, system: true, status: "active", visibility: "library", order: 1, aliases: [], customized: false }
+});
+
+
+
 const configPath = process.argv[2];
 if (!configPath || process.argv.length !== 3) {
   throw new Error("用法：node tools/build-curated-batch.mjs <build-config.json>");
@@ -64,7 +78,7 @@ async function buildPackage(packageConfig) {
   await assertNoLinks(sourceRoot);
 
   const library = JSON.parse(await readFile(join(sourceRoot, "library.json"), "utf8"));
-  if (library?.format !== "prompt-case-library" || library.version !== 3 || !Array.isArray(library.entries)) {
+  if (library?.format !== "prompt-case-library" || !CURATED_SOURCE_VERSIONS.has(library.version) || !Array.isArray(library.entries)) {
     throw new Error(`${packageId} 不是 PromptDirector v3 分享包`);
   }
 
@@ -439,7 +453,7 @@ function normalizePromptForDedupe(value) {
 }
 
 function sanitizeTaxonomy(value = {}, requiredIds = new Set()) {
-  const nodes = [...requiredIds].map((id) => (value.nodes ?? []).find((node) => node?.id === id));
+  const nodes = [...requiredIds].map((id) => (value.nodes ?? []).find((node) => node?.id === id) ?? CANONICAL_CONTENT_NODES[id]);
   if (nodes.some((node) => !node)) throw new Error("分享包缺少所需的图片或视频提示词分类");
   return {
     version: Number.isSafeInteger(value.version) ? value.version : 1,

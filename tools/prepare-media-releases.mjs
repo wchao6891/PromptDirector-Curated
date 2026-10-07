@@ -7,6 +7,12 @@ import { pathToFileURL } from "node:url";
 import { assertSafeArchiveNames } from "./build-site-previews.mjs";
 import { normalizeSiteCatalog, normalizeSiteMediaManifest, safeId } from "./curated-site-data.mjs";
 
+// The extension exports share packages as prompt-case-library v5 while these tools
+// normalize into the v3 pack the site, reviews and Releases expect; accept the same
+// source range the public submission preflight accepts.
+const CURATED_SOURCE_VERSIONS = new Set([3, 4, 5]);
+
+
 export async function prepareMediaReleases({ catalogPath, packagesPath, outputPath, repository }) {
   const catalogValue = JSON.parse(await readFile(resolve(catalogPath), "utf8"));
   const catalog = normalizeSiteCatalog(catalogValue);
@@ -45,7 +51,7 @@ async function preparePackage({ theme, packageRoot, outputRoot, temporaryRoot, r
   await mkdir(extractRoot, { recursive: true });
   await run("unzip", ["-qq", archivePath, "library.json", "-d", extractRoot]);
   const library = JSON.parse(await readFile(join(extractRoot, "library.json"), "utf8"));
-  if (library?.format !== "prompt-case-library" || library.version !== 3 || !Array.isArray(library.entries)) {
+  if (library?.format !== "prompt-case-library" || !CURATED_SOURCE_VERSIONS.has(library.version) || !Array.isArray(library.entries)) {
     throw new Error(`${theme.id} 不是审核后的 PromptDirector v3 包`);
   }
   const videos = library.entries.map((entry) => ({ entry, content: primaryContent(entry) })).filter((item) => item.content?.kind === "video");
