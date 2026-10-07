@@ -1,5 +1,12 @@
 import { createStableMasonry } from "./masonry.js";
 
+// Site locale support: a page may set window.PD_SITE_ROOT when it lives outside the
+// site root (for example /en/) and window.PD_SITE_STRINGS for a translated interface.
+const SITE_ROOT = (typeof window !== "undefined" && window.PD_SITE_ROOT) || "./";
+const UI_STRINGS = (typeof window !== "undefined" && window.PD_SITE_STRINGS) || {};
+const t = (key, fallback) => UI_STRINGS[key] ?? fallback;
+function rootUrl(value) { return new URL(value, new URL(SITE_ROOT, location.href)); }
+
 const CATALOG_URL = "public-catalog.json";
 const METRICS_URL = "metrics.json";
 const FOLLOW_STORAGE_KEY = "promptdirector.curated.following.v1";
@@ -99,11 +106,11 @@ await start();
 
 async function start() {
   try {
-    const catalogResponse = await fetch(CATALOG_URL, { cache: "no-store" });
-    if (!catalogResponse.ok) throw new Error(`目录返回 HTTP ${catalogResponse.status}`);
+    const catalogResponse = await fetch(rootUrl(CATALOG_URL), { cache: "no-store" });
+    if (!catalogResponse.ok) throw new Error(`${t("errorCatalogHttp", "目录返回 HTTP")} ${catalogResponse.status}`);
     const catalog = await catalogResponse.json();
     if (catalog?.format !== "prompt-director-curated" || catalog.version !== 2 || !Array.isArray(catalog.themes)) {
-      throw new Error("目录格式无效");
+      throw new Error(t("errorCatalogFormat", "目录格式无效"));
     }
     state.catalog = catalog.themes;
     renderGallery();
@@ -118,11 +125,11 @@ async function start() {
 
 async function loadMetrics() {
   try {
-    const response = await fetch(METRICS_URL, { cache: "no-store" });
-    if (!response.ok) throw new Error(`指标返回 HTTP ${response.status}`);
+    const response = await fetch(rootUrl(METRICS_URL), { cache: "no-store" });
+    if (!response.ok) throw new Error(`${t("errorMetricsHttp", "指标返回 HTTP")} ${response.status}`);
     const metrics = await response.json();
-    if (metrics?.format !== "prompt-director-curated-metrics" || metrics.version !== 1 || !metrics.downloads) throw new Error("指标格式无效");
-    if (state.catalog.some((item) => !Number.isSafeInteger(metrics.downloads[item.id]) || metrics.downloads[item.id] < 0)) throw new Error("下载指标不完整");
+    if (metrics?.format !== "prompt-director-curated-metrics" || metrics.version !== 1 || !metrics.downloads) throw new Error(t("errorMetricsFormat", "指标格式无效"));
+    if (state.catalog.some((item) => !Number.isSafeInteger(metrics.downloads[item.id]) || metrics.downloads[item.id] < 0)) throw new Error(t("errorMetricsIncomplete", "下载指标不完整"));
     state.metrics = metrics;
     elements.sortDownloads.disabled = false;
     renderGallery();
@@ -136,7 +143,7 @@ async function loadMetrics() {
 function renderGallery() {
   const items = visibleItems();
   if (!items.length) {
-    elements.app.replaceChildren(emptyState("没有结果"));
+    elements.app.replaceChildren(emptyState(t("emptyResults", "没有结果")));
     return;
   }
   const grid = element("section", "pack-grid");
@@ -182,7 +189,7 @@ function createPackCard(item) {
   const copy = element("div", "pack-copy");
   copy.append(element("h2", "", item.title));
   const meta = element("div", "pack-meta");
-  meta.append(element("span", "", item.author), element("span", "", `${item.caseCount} 个案例`));
+  meta.append(element("span", "", item.author), element("span", "", t("caseCount", "{n} 个案例").replace("{n}", String(item.caseCount))));
   copy.append(meta);
   card.append(cover, copy);
   const open = () => openDetail(item.id, card);
@@ -197,7 +204,7 @@ function createPackCard(item) {
 
 async function openDetail(id, returnFocus = null) {
   const item = state.catalog.find((candidate) => candidate.id === id);
-  if (!item) return showToast("案例包不存在");
+  if (!item) return showToast(t("packMissing", "案例包不存在"));
   state.selectedId = item.id;
   if (returnFocus) detailReturnFocus = returnFocus;
   const url = new URL(location.href);
@@ -212,7 +219,7 @@ async function openDetail(id, returnFocus = null) {
     if (state.selectedId === item.id) renderDetail(item, preview);
   } catch (error) {
     console.error(error);
-    showToast("预览加载失败");
+    showToast(t("previewFailed", "预览加载失败"));
     if (state.selectedId === item.id) renderDetail(item, null, true);
   }
 }
@@ -246,25 +253,25 @@ function renderDetail(item, preview, failed = false) {
   const info = element("div", "detail-info");
   info.append(element("h1", "", item.title));
   const meta = element("div", "detail-meta");
-  meta.append(element("span", "", item.author), element("span", "", `${item.caseCount} 个案例`), element("span", "", item.rightsStatus === "source_unverified" ? "权利归原作者 · 授权未核验" : rightsLabel(item.license)));
+  meta.append(element("span", "", item.author), element("span", "", t("caseCount", "{n} 个案例").replace("{n}", String(item.caseCount))), element("span", "", item.rightsStatus === "source_unverified" ? t("rightsUnverified", "权利归原作者 · 授权未核验") : rightsLabel(item.license)));
   info.append(meta);
   const actions = element("div", "detail-actions");
-  const download = element("a", "", "下载包");
+  const download = element("a", "", t("downloadPack", "下载包"));
   download.href = item.downloadUrl;
   download.rel = "noopener";
   const following = state.following.has(item.authorId);
-  const follow = element("button", `follow-action${following ? " is-active" : ""}`, following ? "已关注" : "关注");
+  const follow = element("button", `follow-action${following ? " is-active" : ""}`, following ? t("following", "已关注") : t("follow", "关注"));
   follow.type = "button";
   follow.addEventListener("click", () => toggleFollow(item, follow));
-  const copyLink = element("button", "", "复制链接");
+  const copyLink = element("button", "", t("copyLink", "复制链接"));
   copyLink.type = "button";
-  copyLink.addEventListener("click", () => copyText(publicPackUrl(item.id), copyLink, "已复制"));
+  copyLink.addEventListener("click", () => copyText(publicPackUrl(item.id), copyLink, t("copied", "已复制")));
   actions.append(download, follow, copyLink);
   info.append(actions);
   hero.append(cover, info);
   surface.append(hero);
   const section = element("section", "case-section");
-  const heading = element("h2", "", "包内案例");
+  const heading = element("h2", "", t("casesInPack", "包内案例"));
   heading.append(element("span", "", String(item.caseCount)));
   section.append(heading);
   if (preview) {
@@ -278,15 +285,15 @@ function renderDetail(item, preview, failed = false) {
   }
   if (failed) {
     const failure = element("div", "preview-failure");
-    failure.append(element("span", "", "预览加载失败"));
-    const retry = element("button", "", "重试");
+    failure.append(element("span", "", t("previewFailed", "预览加载失败")));
+    const retry = element("button", "", t("retry", "重试"));
     retry.type = "button";
     retry.addEventListener("click", () => retryPreview(item, retry));
     failure.append(retry);
     section.append(failure);
   } else {
     const loading = element("div", "case-loading");
-    loading.setAttribute("aria-label", "正在加载包内案例");
+    loading.setAttribute("aria-label", t("loadingCases", "正在加载包内案例"));
     section.append(loading);
   }
   surface.append(section);
@@ -406,7 +413,7 @@ function renderCaseDetail(item, entry) {
     caseDetailVideoCleanup = player.destroy;
   } else {
     figure.append(createRemoteImageViewer(entry, siteAssetUrl(entry.previewImageUrl)));
-    if (entry.mediaKind === "video") figure.append(element("span", "case-detail-video-label", "视频暂不可播放"));
+    if (entry.mediaKind === "video") figure.append(element("span", "case-detail-video-label", t("videoUnavailable", "视频暂不可播放")));
   }
   const body = element("div", "case-detail-body");
   const heading = element("header", "case-detail-heading");
@@ -414,12 +421,12 @@ function renderCaseDetail(item, entry) {
   if (entry.author) heading.append(element("p", "", entry.author));
   body.append(heading);
   const prompt = element("section", "case-detail-section");
-  prompt.append(element("h3", "", "完整提示词"), element("pre", "case-detail-prompt", entry.text));
+  prompt.append(element("h3", "", t("fullPrompt", "完整提示词")), element("pre", "case-detail-prompt", entry.text));
   body.append(prompt);
   const source = element("div", "case-detail-source");
-  source.append(element("span", "", item.rightsStatus === "source_unverified" ? "权利归原作者 · 授权未核验" : (entry.rights || rightsLabel(item.license))));
+  source.append(element("span", "", item.rightsStatus === "source_unverified" ? t("rightsUnverified", "权利归原作者 · 授权未核验") : (entry.rights || rightsLabel(item.license))));
   if (entry.sourceUrl) {
-    const link = element("a", "", "查看来源");
+    const link = element("a", "", t("viewSource", "查看来源"));
     link.href = entry.sourceUrl;
     link.target = "_blank";
     link.rel = "noopener noreferrer";
@@ -427,10 +434,10 @@ function renderCaseDetail(item, entry) {
   }
   body.append(source);
   const actions = element("div", "case-detail-actions");
-  const copy = element("button", "", "复制提示词");
+  const copy = element("button", "", t("copyPrompt", "复制提示词"));
   copy.type = "button";
   copy.disabled = !entry.text;
-  copy.addEventListener("click", () => copyText(entry.text, copy, "已复制"));
+  copy.addEventListener("click", () => copyText(entry.text, copy, t("copied", "已复制")));
   actions.append(copy);
   body.append(actions);
   layout.append(figure, body);
@@ -439,12 +446,12 @@ function renderCaseDetail(item, entry) {
 
 async function loadPreview(item) {
   if (state.previews.has(item.id)) return state.previews.get(item.id);
-  if (state.previewFailures.has(item.id)) throw new Error("预览先前加载失败");
+  if (state.previewFailures.has(item.id)) throw new Error(t("errorPreviewPrevious", "预览先前加载失败"));
   try {
     const response = await fetch(siteAssetUrl(item.previewUrl), { cache: "no-cache" });
     if (!response.ok) throw new Error(`预览返回 HTTP ${response.status}`);
     const preview = await response.json();
-    if (preview?.format !== "prompt-director-curated-preview" || preview.version !== 1 || preview.catalogId !== item.id || preview.packageId !== item.packageId || preview.packageVersion !== item.packageVersion || !Array.isArray(preview.entries) || preview.entries.length !== item.caseCount) throw new Error("预览格式无效");
+    if (preview?.format !== "prompt-director-curated-preview" || preview.version !== 1 || preview.catalogId !== item.id || preview.packageId !== item.packageId || preview.packageVersion !== item.packageVersion || !Array.isArray(preview.entries) || preview.entries.length !== item.caseCount) throw new Error(t("errorPreviewFormat", "预览格式无效"));
     preview.entries = preview.entries.map(normalizePreviewEntry);
     state.previews.set(item.id, preview);
     return preview;
@@ -467,7 +474,7 @@ async function retryPreview(item, button) {
     if (state.selectedId === item.id) renderDetail(item, preview);
   } catch (error) {
     console.error(error);
-    showToast("预览加载失败");
+    showToast(t("previewFailed", "预览加载失败"));
     if (state.selectedId === item.id) renderDetail(item, null, true);
   }
 }
@@ -486,7 +493,7 @@ function normalizePreviewEntry(entry) {
   const trustedHosts = new Set(["github.com", "objects.githubusercontent.com", "release-assets.githubusercontent.com"]);
   if (next.mediaKind !== "video" || url.protocol !== "https:" || !trustedHosts.has(url.hostname) || url.username || url.password || url.search || url.hash ||
       !/^[a-f0-9]{64}$/.test(next.videoSha256) || !Number.isSafeInteger(next.videoBytes) || next.videoBytes < 1 || next.videoMimeType !== "video/mp4") {
-    throw new Error("精选视频预览无效");
+    throw new Error(t("errorVideoPreview", "精选视频预览无效"));
   }
   return next;
 }
@@ -550,8 +557,8 @@ function createRemoteVideoPlayer(entry) {
   video.style.aspectRatio = `${entry.width} / ${entry.height}`;
   const failure = element("div", "case-video-error");
   failure.hidden = true;
-  failure.append(element("span", "", "视频加载失败"));
-  const retry = element("button", "", "重试");
+  failure.append(element("span", "", t("videoFailed", "视频加载失败")));
+  const retry = element("button", "", t("retry", "重试"));
   retry.type = "button";
   retry.addEventListener("click", () => {
     failure.hidden = true;
@@ -579,8 +586,8 @@ function createRemoteImageViewer(entry, url) {
   image.height = entry.height;
   const failure = element("div", "case-video-error");
   failure.hidden = true;
-  failure.append(element("span", "", "图片加载失败"));
-  const retry = element("button", "", "重试");
+  failure.append(element("span", "", t("imageFailed", "图片加载失败")));
+  const retry = element("button", "", t("retry", "重试"));
   retry.type = "button";
   retry.addEventListener("click", () => {
     failure.hidden = true;
@@ -608,14 +615,14 @@ function toggleFollow(item, button) {
   const following = state.following.has(item.authorId);
   if (button) {
     button.classList.toggle("is-active", following);
-    button.textContent = following ? "已关注" : "关注";
+    button.textContent = following ? t("following", "已关注") : t("follow", "关注");
   }
 }
 
 function renderCatalogFailure() {
   const failure = emptyState("");
-  failure.append(element("span", "", "精选目录加载失败"));
-  const retry = element("button", "", "重试");
+  failure.append(element("span", "", t("catalogFailed", "精选目录加载失败")));
+  const retry = element("button", "", t("retry", "重试"));
   retry.type = "button";
   retry.addEventListener("click", async () => {
     retry.disabled = true;
@@ -645,9 +652,9 @@ function readFollowing() {
 }
 
 function rightsLabel(license = "") {
-  if (license.includes("PromptDirector 原创")) return "PromptDirector 原创";
-  if (license.includes("权利归原作者")) return "权利归原作者";
-  return license || "权利未标注";
+  if (license.includes("PromptDirector 原创")) return t("licenseOriginal", "PromptDirector 原创");
+  if (license.includes("权利归原作者")) return t("licenseOriginalAuthor", "权利归原作者");
+  return license || t("licenseUnknown", "权利未标注");
 }
 
 function publicPackUrl(id) {
@@ -658,7 +665,7 @@ function publicPackUrl(id) {
 }
 
 function siteAssetUrl(value) {
-  const url = new URL(value, location.href);
+  const url = rootUrl(value);
   if (location.hostname === "wchao6891.github.io") return url.href;
   return `${url.pathname.replace(/^\/PromptDirector-Curated/, "")}${url.search}`;
 }
@@ -677,7 +684,7 @@ async function copyText(value, button, successLabel) {
       }, 1600);
     }
   } catch {
-    showToast("浏览器未允许复制");
+    showToast(t("clipboardDenied", "浏览器未允许复制"));
   }
 }
 
