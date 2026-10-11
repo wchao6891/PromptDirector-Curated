@@ -211,6 +211,7 @@ export function normalizeTheme(value = {}) {
   return {
     id: clean(value.id),
     title: clean(value.title),
+    ...(clean(value.titleEn) ? { titleEn: clean(value.titleEn) } : {}),
     type: value.type,
     packageId: safeId(value.packageId),
     packageVersion: clean(value.packageVersion),

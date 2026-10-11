@@ -6,6 +6,8 @@
 
 [浏览全部案例](https://wchao6891.github.io/PromptDirector-Curated/) · [浏览精选 Skill](https://wchao6891.github.io/PromptDirector-Curated/skills.html) · [安装 PromptDirector](https://chromewebstore.google.com/detail/iahakaahijddcjjldidbclicedibgpjm) · [查看插件源码](https://github.com/wchao6891/PromptDirector)
 
+精选目录的 `title` 保留原包名，可选 `titleEn` 用于英文页面的包名称展示与搜索。译名只属于目录，不改包内案例、提示词或下载文件；未提供译名时显示原名。
+
 ## 从作品开始
 
 以下均是已公开的案例。点击封面可打开**所在合集**，继续查看提示词、原作者与来源；第三方作品的权利状态见案例详情及下方说明。

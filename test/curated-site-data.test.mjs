@@ -224,3 +224,12 @@ test("source selections retain unverified status without becoming authorized", (
   assert.equal(normalizeSiteRightsReview(record, item).status, "source_unverified");
   assert.throws(() => normalizeSiteRightsReview({ ...record, status: "verified_authorized" }, item), /与目录不一致/);
 });
+
+
+test("catalog normalization preserves the optional English pack title without replacing its original or download", () => {
+  const original = normalizeSiteCatalog(catalog({ themes: [theme()] }));
+  const translated = normalizeSiteCatalog(catalog({ themes: [theme({ titleEn: "Curated picks" })] }));
+  assert.equal(translated.themes[0].titleEn, "Curated picks");
+  const { titleEn, ...unchanged } = translated.themes[0];
+  assert.deepEqual(unchanged, original.themes[0]);
+});
