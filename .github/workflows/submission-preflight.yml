@@ -20,7 +20,7 @@ concurrency:
 
 jobs:
   preflight:
-    if: github.event_name == 'workflow_dispatch' || startsWith(github.event.issue.title, '[投稿]') || contains(github.event.issue.labels.*.name, 'submission')
+    if: github.event_name == 'workflow_dispatch' || startsWith(github.event.issue.title, '[投稿]') || startsWith(github.event.issue.title, '[Submission]') || contains(github.event.issue.labels.*.name, 'submission')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -37,7 +37,7 @@ jobs:
             if (!/^[1-9][0-9]*$/.test(value) || !Number.isSafeInteger(Number(value))) throw new Error('投稿编号无效');
             const issue_number = Number(value);
             const issue = context.payload.issue || (await github.rest.issues.get({ owner: context.repo.owner, repo: context.repo.repo, issue_number })).data;
-            if (!issue.title.startsWith('[投稿]') && !issue.labels.some(label => label.name === 'submission')) throw new Error('这不是案例投稿');
+            if (!issue.title.startsWith('[投稿]') && !issue.title.startsWith('[Submission]') && !issue.labels.some(label => label.name === 'submission')) throw new Error('这不是案例投稿');
             fs.writeFileSync(`${process.env.RUNNER_TEMP}/issue-body.md`, issue.body || '');
             core.setOutput('issue_number', String(issue_number));
 
@@ -108,7 +108,10 @@ jobs:
                 if (error.status !== 404) throw error;
               }
             }
-            const body = passed
+            const english = /^(?:\[Submission\])/.test(context.payload.issue?.title || '') || /### Public attribution/.test(fs.readFileSync(`${process.env.RUNNER_TEMP}/issue-body.md`, 'utf8'));
+            const body = english
+              ? `${marker}\n${passed ? `Preflight passed: ${report.caseCount} cases and ${report.mediaCount} media files. Human review is still required before publication.` : systemError ? 'Preflight is temporarily unavailable. Keep the uploaded files; a maintainer can rerun the check after fixing the review environment.' : 'Preflight failed. Check the submission in PromptDirector, export all submission files again and replace the attachments.'}${passed ? '' : `\n\nDiagnostic (original language): ${report.message || 'No diagnostic available.'}`}`
+              : passed
               ? `${marker}\n预检通过：${report.caseCount} 个案例、${report.mediaCount} 个媒体。仍需人工审核后才会发布。`
               : systemError
                 ? `${marker}\n预检系统暂不可用：${report.message || '审核环境异常'}\n\n投稿文件无需重新上传，维护者修复后会重新检查。`

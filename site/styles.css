@@ -252,3 +252,6 @@ html[lang="en"] .detail-info h1 { display: block; overflow: visible; overflow-wr
 @media (prefers-reduced-motion: no-preference) {
   button, input, summary, .pack-card, .case-card, .case-detail-drawer { transition: color 140ms ease, background-color 140ms ease, border-color 140ms ease, box-shadow 140ms ease, transform 120ms ease, opacity 140ms ease; }
 }
+
+.detail-actions .lang-switch { color: var(--muted); border-color: var(--border); background: var(--surface); }
+.detail-actions .lang-switch:hover { color: var(--text); border-color: var(--border-strong); background: var(--hover); }

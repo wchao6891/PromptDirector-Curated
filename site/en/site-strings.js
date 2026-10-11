@@ -3,6 +3,7 @@
 window.PD_SITE_ROOT = "../";
 window.PD_SITE_STRINGS = {
   // catalog page
+  openCase: "View case: {title}",
   openPack: "Open {title}",
   emptyResults: "No results",
   packMissing: "That pack is no longer available",

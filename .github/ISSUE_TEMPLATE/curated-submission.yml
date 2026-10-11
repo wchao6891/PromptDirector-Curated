@@ -6,6 +6,9 @@ labels:
 body:
   - type: markdown
     attributes:
+      value: "[English form](https://github.com/wchao6891/PromptDirector-Curated/issues/new?template=curated-submission-en.yml)"
+  - type: markdown
+    attributes:
       value: |
         上传 PromptDirector 生成的全部投稿 ZIP。投稿不会自动发布，维护者会人工检查质量、重复内容、隐私和授权。
   - type: input

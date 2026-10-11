@@ -1,0 +1,57 @@
+name: Submit curated cases (English)
+description: Submit a case package exported by PromptDirector for human review.
+title: "[Submission] "
+labels:
+  - submission
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Upload all submission ZIP files exported by PromptDirector. Submissions are not published automatically; a maintainer reviews quality, duplicates, privacy and rights.
+  - type: input
+    id: author
+    attributes:
+      label: Public attribution
+      description: Author or team name to display publicly.
+    validations:
+      required: true
+  - type: dropdown
+    id: rights_basis
+    attributes:
+      label: Rights basis
+      description: Third-party public works may be recommended; you cannot grant a CC license on the original author’s behalf.
+      options:
+        - Third-party recommendation (no license granted; rights remain with the original author)
+        - My original work (CC BY 4.0)
+        - My original work (CC BY-SA 4.0)
+        - My original work (CC0 1.0)
+        - Explicit permission from the rights holder (describe its scope below)
+        - Other rights basis (describe below)
+    validations:
+      required: true
+  - type: upload
+    id: package
+    attributes:
+      label: Submission package
+      description: Select the exported ZIP, or all split ZIP parts together.
+    validations:
+      required: true
+      accept: ".zip"
+  - type: textarea
+    id: notes
+    attributes:
+      label: Additional notes
+      description: Optional — describe the creative value, applicable models, or rights information for review.
+  - type: checkboxes
+    id: rights
+    attributes:
+      label: Rights and public disclosure
+      options:
+        - label: For my own or authorized work, I confirm the selected license is valid. For third-party recommendations, I do not grant a license on the author’s behalf.
+          required: true
+        - label: I have retained verifiable attribution and sources, and understand that rights-holder requests may require removal.
+          required: true
+        - label: I have checked the package for private URLs, personal information, keys, drafts and material I cannot disclose.
+          required: true
+        - label: I understand that submissions require human review and acceptance is not guaranteed.
+          required: true

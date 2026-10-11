@@ -1,5 +1,7 @@
 # 权利与来源说明
 
+[English](RIGHTS.en.md) · **简体中文**
+
 PromptDirector Curated 是经编辑筛选的视觉提示词案例目录。
 
 - 公开目录由维护者人工选择原创、已授权及第三方来源精选。

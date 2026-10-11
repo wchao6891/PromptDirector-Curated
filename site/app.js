@@ -270,7 +270,8 @@ function renderDetail(item, preview, failed = false) {
   const copyLink = element("button", "", t("copyLink", "复制链接"));
   copyLink.type = "button";
   copyLink.addEventListener("click", () => copyText(publicPackUrl(item.id), copyLink, t("copied", "已复制")));
-  actions.append(download, follow, copyLink);
+  const language = document.querySelector("[data-pd-set-lang]").cloneNode(true);
+  actions.append(download, follow, copyLink, language);
   info.append(actions);
   hero.append(cover, info);
   surface.append(hero);
@@ -340,7 +341,7 @@ function createCaseCard(item, entry) {
   const card = element("article", "case-card");
   card.dataset.entryId = entry.id;
   card.tabIndex = 0;
-  card.setAttribute("aria-label", `查看案例：${entry.title}`);
+  card.setAttribute("aria-label", t("openCase", "查看案例：{title}").replace("{title}", entry.title));
   const visual = element("div", "case-image-wrap");
   visual.style.aspectRatio = `${entry.width} / ${entry.height}`;
   const image = element("img", "case-visual");
@@ -665,6 +666,7 @@ function publicPackUrl(id) {
   const url = new URL(location.href);
   url.search = "";
   url.searchParams.set("pack", id);
+  url.searchParams.set("lang", document.documentElement.lang === "en" ? "en" : "zh-CN");
   return url.href;
 }
 

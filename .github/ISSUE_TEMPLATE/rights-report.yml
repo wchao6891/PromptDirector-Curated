@@ -4,6 +4,9 @@ title: "[权利反馈] "
 labels:
   - rights-report
 body:
+  - type: markdown
+    attributes:
+      value: "[English form](https://github.com/wchao6891/PromptDirector-Curated/issues/new?template=rights-report-en.yml)"
   - type: input
     id: case
     attributes:
