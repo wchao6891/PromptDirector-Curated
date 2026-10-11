@@ -1,0 +1,35 @@
+name: Submit a curated Skill (English)
+description: Submit an exported Skill snapshot with result covers for human review.
+title: "[Skill submission] "
+labels:
+  - skill-submission
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Upload the Skill submission ZIP exported by PromptDirector. It enters public review under CC BY 4.0. The reviewer assigns the stable author identity, version and catalog ID. Automated checks inspect structure, checksums and obvious privacy risks; they do not publish the Skill.
+  - type: input
+    id: author
+    attributes:
+      label: Public attribution
+    validations:
+      required: true
+  - type: upload
+    id: package
+    attributes:
+      label: Skill submission package
+      description: Select one ZIP exported by PromptDirector.
+    validations:
+      required: true
+      accept: ".zip"
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Public disclosure
+      options:
+        - label: I have reviewed all filenames, method documents and result images; they contain no keys, local paths, private sources or material I cannot disclose.
+          required: true
+        - label: I have the right to publish the method and covers under CC BY 4.0, and understand acceptance is not guaranteed.
+          required: true
+        - label: I understand that Skill content is distributed as untrusted material; the public site does not execute scripts or install it automatically.
+          required: true

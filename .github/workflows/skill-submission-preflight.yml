@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   preflight:
-    if: startsWith(github.event.issue.title, '[Skill 投稿]') || contains(github.event.issue.labels.*.name, 'skill-submission')
+    if: startsWith(github.event.issue.title, '[Skill 投稿]') || startsWith(github.event.issue.title, '[Skill submission]') || contains(github.event.issue.labels.*.name, 'skill-submission')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -43,7 +43,10 @@ jobs:
             let report = { ok: false, message: '预检没有生成结果，请稍后重试。' };
             if (fs.existsSync(process.env.REPORT_PATH)) report = JSON.parse(fs.readFileSync(process.env.REPORT_PATH, 'utf8'));
             const passed = process.env.PREFLIGHT_OK === 'true' && report.ok === true;
-            const body = passed
+            const english = context.payload.issue?.title?.startsWith('[Skill submission]') || /### Public attribution/.test(context.payload.issue?.body || '');
+            const body = english
+              ? `${marker}\n${passed ? `Preflight passed: ${report.skillId}, ${report.fileCount} method and cover files. A reviewer will assign the author identity, release version and catalog ID.` : `Preflight failed. Review the Skill in PromptDirector, export it again and replace the attachment.\n\nDiagnostic (original language): ${report.message || 'No diagnostic available.'}`}`
+              : passed
               ? `${marker}\n预检通过：${report.skillId}，共 ${report.fileCount} 个公开方法与封面文件。稳定作者编号、发布版本和目录编号将在人工审核后确定。`
               : `${marker}\n预检未通过：${report.message || '投稿包无法安全读取'}\n\n请在 PromptDirector 修改后重新生成并替换附件。`;
             const comments = await github.paginate(github.rest.issues.listComments, { ...context.repo, issue_number: context.issue.number, per_page: 100 });

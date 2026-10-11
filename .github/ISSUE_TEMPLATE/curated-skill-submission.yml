@@ -6,6 +6,9 @@ labels:
 body:
   - type: markdown
     attributes:
+      value: "[English form](https://github.com/wchao6891/PromptDirector-Curated/issues/new?template=curated-skill-submission-en.yml)"
+  - type: markdown
+    attributes:
       value: |
         上传 PromptDirector 生成的 Skill 投稿 ZIP。投稿内容固定按 CC BY 4.0 进入公开审核；稳定作者编号、发布版本和目录编号由审核者确定。自动预检只检查结构、摘要与明显隐私风险，不会自动发布。
   - type: input

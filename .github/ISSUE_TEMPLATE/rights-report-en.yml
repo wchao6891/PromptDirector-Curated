@@ -1,0 +1,34 @@
+name: Rights report or removal request (English)
+description: Report possible infringement, attribution errors or content requiring removal.
+title: "[Rights report] "
+labels:
+  - rights-report
+body:
+  - type: input
+    id: case
+    attributes:
+      label: Case or curated pack
+      description: Provide the case or pack name, or a link.
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Original source
+      description: Provide the original publication URL for verification.
+    validations:
+      required: true
+  - type: textarea
+    id: basis
+    attributes:
+      label: Rights details
+      description: Explain your relationship to the work and whether you request attribution correction or removal. Do not post identity documents or other sensitive information.
+    validations:
+      required: true
+  - type: checkboxes
+    id: accuracy
+    attributes:
+      label: Accuracy confirmation
+      options:
+        - label: I confirm this information is accurate and agree to be contacted by the maintainer for verification.
+          required: true
