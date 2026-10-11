@@ -3,6 +3,7 @@
 window.PD_SITE_ROOT = "../";
 window.PD_SITE_STRINGS = {
   // catalog page
+  openPack: "Open {title}",
   emptyResults: "No results",
   packMissing: "That pack is no longer available",
   previewFailed: "Could not load the preview",

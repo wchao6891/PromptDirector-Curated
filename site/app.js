@@ -168,9 +168,13 @@ function visibleItems() {
   return items;
 }
 
+function packTitle(item) {
+  return document.documentElement.lang === "en" ? item.titleEn || item.title : item.title;
+}
+
 function searchableText(item) {
   const preview = state.previews.get(item.id);
-  return [item.title, item.author, ...(preview?.entries ?? []).flatMap((entry) => [entry.title, entry.author, entry.text])]
+  return [item.title, item.titleEn, item.author, ...(preview?.entries ?? []).flatMap((entry) => [entry.title, entry.author, entry.text])]
     .join(" ")
     .toLocaleLowerCase();
 }
@@ -179,7 +183,7 @@ function createPackCard(item) {
   const card = element("article", "pack-card");
   card.dataset.packId = item.id;
   card.tabIndex = 0;
-  card.setAttribute("aria-label", `打开 ${item.title}`);
+  card.setAttribute("aria-label", t("openPack", "打开 {title}").replace("{title}", packTitle(item)));
   const cover = element("span", "pack-cover");
   const image = element("img");
   image.src = siteAssetUrl(item.coverUrl);
@@ -187,7 +191,7 @@ function createPackCard(item) {
   image.loading = "lazy";
   cover.append(image);
   const copy = element("div", "pack-copy");
-  copy.append(element("h2", "", item.title));
+  copy.append(element("h2", "", packTitle(item)));
   const meta = element("div", "pack-meta");
   meta.append(element("span", "", item.author), element("span", "", t("caseCount", "{n} 个案例").replace("{n}", String(item.caseCount))));
   copy.append(meta);
@@ -251,7 +255,7 @@ function renderDetail(item, preview, failed = false) {
   coverImage.alt = "";
   cover.append(coverImage);
   const info = element("div", "detail-info");
-  info.append(element("h1", "", item.title));
+  info.append(element("h1", "", packTitle(item)));
   const meta = element("div", "detail-meta");
   meta.append(element("span", "", item.author), element("span", "", t("caseCount", "{n} 个案例").replace("{n}", String(item.caseCount))), element("span", "", item.rightsStatus === "source_unverified" ? t("rightsUnverified", "权利归原作者 · 授权未核验") : rightsLabel(item.license)));
   info.append(meta);

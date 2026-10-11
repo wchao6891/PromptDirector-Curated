@@ -24,7 +24,8 @@
       "imageCount": 20,
       "videoCount": 0,
       "summary": "20 个由 PromptDirector 项目生成并审核的原创国风视觉案例。",
-      "order": 1
+      "order": 1,
+      "titleEn": "Vol.1 Original Chinese-Inspired Visuals"
     },
     {
       "id": "featured:jimeng",
@@ -47,7 +48,8 @@
       "imageCount": 150,
       "videoCount": 0,
       "summary": "150 个来自即梦公开灵感页的图片提示词案例。",
-      "order": 2
+      "order": 2,
+      "titleEn": "Vol.2 Jimeng Picks"
     },
     {
       "id": "featured:aiartworks-mj",
@@ -70,7 +72,8 @@
       "imageCount": 81,
       "videoCount": 0,
       "summary": "81 个保留原作者与来源信息的 Midjourney 图片提示词案例，已修复《钥匙孔里的茶会》的完整提示词、作者和来源。",
-      "order": 3
+      "order": 3,
+      "titleEn": "Vol.3 AIArtWorks Picks"
     },
     {
       "id": "featured:higgsfield",
@@ -93,7 +96,8 @@
       "imageCount": 56,
       "videoCount": 0,
       "summary": "56 个保留原作者与来源信息的 Higgsfield 图片提示词案例。",
-      "order": 4
+      "order": 4,
+      "titleEn": "Vol.4 Higgsfield Picks"
     },
     {
       "id": "featured:evolink-video-1",
@@ -116,7 +120,8 @@
       "imageCount": 27,
       "videoCount": 27,
       "summary": "EvoLink 精选视频案例第 1 卷；全套共 122 条 Seedance 2.5 视频提示词案例，保留作者账号、原页链接和来源字段。",
-      "order": 5
+      "order": 5,
+      "titleEn": "EvoLink Video Picks · 1/5"
     },
     {
       "id": "featured:evolink-video-2",
@@ -139,7 +144,8 @@
       "imageCount": 30,
       "videoCount": 30,
       "summary": "EvoLink 精选视频案例第 2 卷；全套共 122 条 Seedance 2.5 视频提示词案例，保留作者账号、原页链接和来源字段。",
-      "order": 6
+      "order": 6,
+      "titleEn": "EvoLink Video Picks · 2/5"
     },
     {
       "id": "featured:evolink-video-3",
@@ -162,7 +168,8 @@
       "imageCount": 25,
       "videoCount": 25,
       "summary": "EvoLink 精选视频案例第 3 卷；全套共 122 条 Seedance 2.5 视频提示词案例，保留作者账号、原页链接和来源字段。",
-      "order": 7
+      "order": 7,
+      "titleEn": "EvoLink Video Picks · 3/5"
     },
     {
       "id": "featured:evolink-video-4",
@@ -185,7 +192,8 @@
       "imageCount": 31,
       "videoCount": 31,
       "summary": "EvoLink 精选视频案例第 4 卷；全套共 122 条 Seedance 2.5 视频提示词案例，保留作者账号、原页链接和来源字段。",
-      "order": 8
+      "order": 8,
+      "titleEn": "EvoLink Video Picks · 4/5"
     },
     {
       "id": "featured:evolink-video-5",
@@ -208,7 +216,8 @@
       "imageCount": 9,
       "videoCount": 9,
       "summary": "EvoLink 精选视频案例第 5 卷；全套共 122 条 Seedance 2.5 视频提示词案例，保留作者账号、原页链接和来源字段。",
-      "order": 9
+      "order": 9,
+      "titleEn": "EvoLink Video Picks · 5/5"
     },
     {
       "id": "featured:jimeng-guofeng-community-1",
@@ -231,7 +240,8 @@
       "imageCount": 38,
       "videoCount": 0,
       "summary": "38 个由社区推荐的即梦国风公开案例，逐案例保留原作者、提示词和来源链接。",
-      "order": 10
+      "order": 10,
+      "titleEn": "Jimeng Chinese-Style Community Picks · Vol.1"
     },
     {
       "id": "cases-85fe274e06c395c24e8a",
@@ -254,7 +264,8 @@
       "imageCount": 112,
       "videoCount": 0,
       "summary": "PromptDirector-即梦精选-国风视觉第二期-分享，收录原始媒体与提示词。",
-      "order": 11
+      "order": 11,
+      "titleEn": "Jimeng Picks — Chinese-Inspired Visuals Vol.2"
     },
     {
       "id": "cases-1ceeb0d9bc533bf10bcc",
@@ -277,7 +288,8 @@
       "imageCount": 121,
       "videoCount": 0,
       "summary": "PromptDirector-即梦精选-视觉设定集-分享，收录原始媒体与提示词。",
-      "order": 12
+      "order": 12,
+      "titleEn": "Jimeng Picks — Visual Development"
     },
     {
       "id": "cases-1ea9f7e33e0b293d2a12",
@@ -300,7 +312,8 @@
       "imageCount": 100,
       "videoCount": 0,
       "summary": "PromptDirector-即梦精选-电商头图-分享，收录原始媒体与提示词。",
-      "order": 13
+      "order": 13,
+      "titleEn": "Jimeng Picks — E-Commerce Ads"
     },
     {
       "id": "cases-4529f91713cffcfe4dc1",
@@ -323,7 +336,8 @@
       "imageCount": 100,
       "videoCount": 0,
       "summary": "PromptDirector-即梦精选-海报-分享，收录原始媒体与提示词。",
-      "order": 14
+      "order": 14,
+      "titleEn": "Jimeng Picks — Posters"
     },
     {
       "id": "cases-f05a7604a4a889ede786",
@@ -346,7 +360,8 @@
       "imageCount": 100,
       "videoCount": 0,
       "summary": "PromptDirector-即梦精选-品牌设计-分享，收录原始媒体与提示词。",
-      "order": 15
+      "order": 15,
+      "titleEn": "Jimeng Picks — Brand Design"
     },
     {
       "id": "cases-ed99fb86238d9dca13c0",
@@ -369,7 +384,8 @@
       "imageCount": 91,
       "videoCount": 0,
       "summary": "PromptDirector-即梦精选-灵感系列-分享，收录原始媒体与提示词。",
-      "order": 16
+      "order": 16,
+      "titleEn": "Jimeng Picks — Inspiration"
     },
     {
       "id": "cases-5b8deb5b7d94e3bcdefb",
@@ -392,7 +408,8 @@
       "imageCount": 113,
       "videoCount": 0,
       "summary": "PromptDirector-小黑盒焚诀-分享，收录原始媒体与提示词。",
-      "order": 17
+      "order": 17,
+      "titleEn": "HeyBox Picks — Fen Jue"
     },
     {
       "id": "cases-a7126fd0ce35aaf96153",
@@ -415,7 +432,8 @@
       "imageCount": 162,
       "videoCount": 0,
       "summary": "PromptDirector-小黑盒精选1-分享，收录原始媒体与提示词。",
-      "order": 18
+      "order": 18,
+      "titleEn": "HeyBox Picks"
     },
     {
       "id": "cases-3067eed17c7b7ca7d1b3",
@@ -438,7 +456,8 @@
       "imageCount": 48,
       "videoCount": 0,
       "summary": "PromptDirector-小黑盒-高定服饰-分享，收录原始媒体与提示词。",
-      "order": 19
+      "order": 19,
+      "titleEn": "HeyBox — Haute Couture"
     },
     {
       "id": "cases-ad27222f0bfd93989f6e",
@@ -461,7 +480,8 @@
       "imageCount": 50,
       "videoCount": 0,
       "summary": "PromptDirector-服装设计-分享，收录原始媒体与提示词。",
-      "order": 20
+      "order": 20,
+      "titleEn": "X Picks — Fashion Design"
     },
     {
       "id": "melies:camera-movement",
@@ -484,7 +504,8 @@
       "imageCount": 0,
       "videoCount": 86,
       "summary": "Melies 官网公开的 86 个镜头运动案例，保留原始英文提示词与来源 · 86 Camera Movement cases from melies.co",
-      "order": 21
+      "order": 21,
+      "titleEn": "Melies — Camera Movement"
     },
     {
       "id": "melies:camera-angles",
@@ -507,7 +528,8 @@
       "imageCount": 7,
       "videoCount": 12,
       "summary": "Melies 官网公开的 19 个镜头角度案例，保留原始英文提示词与来源 · 19 Camera Angles cases from melies.co",
-      "order": 22
+      "order": 22,
+      "titleEn": "Melies — Camera Angles"
     },
     {
       "id": "melies:framing-and-shot-size",
@@ -530,7 +552,8 @@
       "imageCount": 17,
       "videoCount": 8,
       "summary": "Melies 官网公开的 25 个取景与景别案例，保留原始英文提示词与来源 · 25 Framing and Shot Size cases from melies.co",
-      "order": 23
+      "order": 23,
+      "titleEn": "Melies — Framing and Shot Size"
     },
     {
       "id": "melies:lighting",
@@ -553,7 +576,8 @@
       "imageCount": 34,
       "videoCount": 7,
       "summary": "Melies 官网公开的 41 个灯光案例，保留原始英文提示词与来源 · 41 Lighting cases from melies.co",
-      "order": 24
+      "order": 24,
+      "titleEn": "Melies — Lighting"
     },
     {
       "id": "melies:composition",
@@ -576,7 +600,8 @@
       "imageCount": 25,
       "videoCount": 7,
       "summary": "Melies 官网公开的 32 个构图案例，保留原始英文提示词与来源 · 32 Composition cases from melies.co",
-      "order": 25
+      "order": 25,
+      "titleEn": "Melies — Composition"
     },
     {
       "id": "melies:lenses-and-optics",
@@ -599,7 +624,8 @@
       "imageCount": 10,
       "videoCount": 7,
       "summary": "Melies 官网公开的 17 个镜头与光学案例，保留原始英文提示词与来源 · 17 Lenses and Optics cases from melies.co",
-      "order": 26
+      "order": 26,
+      "titleEn": "Melies — Lenses and Optics"
     },
     {
       "id": "melies:color-and-film-look",
@@ -622,7 +648,8 @@
       "imageCount": 15,
       "videoCount": 4,
       "summary": "Melies 官网公开的 19 个色彩与胶片感案例，保留原始英文提示词与来源 · 19 Color and Film Look cases from melies.co",
-      "order": 27
+      "order": 27,
+      "titleEn": "Melies — Color and Film Look"
     },
     {
       "id": "melies:time-and-motion",
@@ -645,7 +672,8 @@
       "imageCount": 0,
       "videoCount": 21,
       "summary": "Melies 官网公开的 21 个时间与运动案例，保留原始英文提示词与来源 · 21 Time and Motion cases from melies.co",
-      "order": 28
+      "order": 28,
+      "titleEn": "Melies — Time and Motion"
     },
     {
       "id": "melies:in-camera-and-optical-effects",
@@ -668,7 +696,8 @@
       "imageCount": 13,
       "videoCount": 44,
       "summary": "Melies 官网公开的 57 个机内与光学特效案例，保留原始英文提示词与来源 · 57 In-Camera and Optical Effects cases from melies.co",
-      "order": 29
+      "order": 29,
+      "titleEn": "Melies — In-Camera and Optical Effects"
     },
     {
       "id": "melies:editing-and-transitions",
@@ -691,7 +720,8 @@
       "imageCount": 0,
       "videoCount": 23,
       "summary": "Melies 官网公开的 23 个剪辑与转场案例，保留原始英文提示词与来源 · 23 Editing and Transitions cases from melies.co",
-      "order": 30
+      "order": 30,
+      "titleEn": "Melies — Editing and Transitions"
     },
     {
       "id": "melies:atmosphere-and-weather",
@@ -714,7 +744,8 @@
       "imageCount": 11,
       "videoCount": 2,
       "summary": "Melies 官网公开的 13 个氛围与天气案例，保留原始英文提示词与来源 · 13 Atmosphere and Weather cases from melies.co",
-      "order": 31
+      "order": 31,
+      "titleEn": "Melies — Atmosphere and Weather"
     },
     {
       "id": "melies:genre-looks",
@@ -737,7 +768,8 @@
       "imageCount": 23,
       "videoCount": 4,
       "summary": "Melies 官网公开的 27 个类型风格案例，保留原始英文提示词与来源 · 27 Genre Looks cases from melies.co",
-      "order": 32
+      "order": 32,
+      "titleEn": "Melies — Genre Looks"
     },
     {
       "id": "melies:viral-looks",
@@ -760,7 +792,8 @@
       "imageCount": 19,
       "videoCount": 25,
       "summary": "Melies 官网公开的 44 个病毒式观感案例，保留原始英文提示词与来源 · 44 Viral Looks cases from melies.co",
-      "order": 33
+      "order": 33,
+      "titleEn": "Melies — Viral Looks"
     }
   ]
 }
