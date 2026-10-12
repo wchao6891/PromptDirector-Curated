@@ -1,7 +1,7 @@
 {
   "format": "prompt-director-curated-skills",
   "version": 1,
-  "updatedAt": "2026-10-05T08:01:50.111Z",
+  "updatedAt": "2026-10-12T16:09:34.000Z",
   "skills": [
     {
       "id": "creative-skill-d22ccd61@1.0.0",
@@ -23,6 +23,28 @@
         "path": "skill-previews/creative-skill-d22ccd61/1.0.0/cover.png",
         "sha256": "af5fa6552f4d01c7b28277556c531e8ce9be206491d2c54256ce48ca34ff7808",
         "byteSize": 955341
+      }
+    },
+    {
+      "id": "creative-skill-09f1d3cb@1.0.0",
+      "skillId": "creative-skill-09f1d3cb",
+      "version": "1.0.0",
+      "title": "Promptdirector视觉特效库",
+      "callName": "Promptdirector视觉特效库",
+      "authorId": "author-40ef3270e01b",
+      "author": "PromptDirector",
+      "license": "CC BY 4.0",
+      "reviewStatus": "approved",
+      "reviewedAt": "2026-10-12T16:09:34.000Z",
+      "summary": "从\"视觉特效\"案例库（77例真实提示词）提炼的视频特效写作指南：覆盖流体、火焰/焚烧、刀光/剑气、粒子/能量、物理模拟与环境破碎、毛发/布料六大类，含通用特效铁律、比例配比写法、逐秒节奏与负面清单，并附原始参考提示词文件。当需要写仙侠/国风CG战斗特效、水与墨流体、火焰焚烧、剑光刀光、能量法阵、破碎与重力反馈、发丝衣摆物理时使用。",
+      "downloadUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/skill-creative-skill-09f1d3cb-v1.0.0/creative-skill-09f1d3cb-1.0.0.zip",
+      "sha256": "80501ce7ef30dc428a00a625ee37c0f3aa8966bd9a2f6cb3cb16f9d327b52998",
+      "archiveBytes": 225032,
+      "order": 4,
+      "cover": {
+        "path": "skill-previews/creative-skill-09f1d3cb/1.0.0/cover.webp",
+        "sha256": "933e31e595e97fad0df7a2a480bfd88413965e5757bc56515ff1083df63e245b",
+        "byteSize": 206450
       }
     }
   ]
