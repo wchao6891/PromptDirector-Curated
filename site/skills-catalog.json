@@ -1,7 +1,7 @@
 {
   "format": "prompt-director-curated-skills",
   "version": 1,
-  "updatedAt": "2026-10-12T16:09:34.000Z",
+  "updatedAt": "2026-10-12T16:47:54.227Z",
   "skills": [
     {
       "id": "creative-skill-d22ccd61@1.0.0",
@@ -45,6 +45,138 @@
         "path": "skill-previews/creative-skill-09f1d3cb/1.0.0/cover.webp",
         "sha256": "933e31e595e97fad0df7a2a480bfd88413965e5757bc56515ff1083df63e245b",
         "byteSize": 206450
+      }
+    },
+    {
+      "id": "lira-image-prompts@1.0.0",
+      "skillId": "lira-image-prompts",
+      "version": "1.0.0",
+      "title": "莉拉·图像提示词优化",
+      "callName": "莉拉·图像提示词优化",
+      "authorId": "author-767398e60f9b",
+      "author": "原技能作者（文件未署名）；中文整理：PromptDirector",
+      "license": "CC BY 4.0",
+      "reviewStatus": "approved",
+      "reviewedAt": "2026-10-12T16:47:53.278Z",
+      "summary": "用于角色参考图、场景电影静帧、道具图和原图编辑的提示词优化。涵盖任务拆解、模型分工、身份锚点、构图、光线、材质、配色及精准修改与保留范围。",
+      "downloadUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/skill-lira-image-prompts-v1.0.0/lira-image-prompts-1.0.0.zip",
+      "sha256": "43a47885e0720adcb93e78927fe67595f956905f5efa07675ff374c68f13c404",
+      "archiveBytes": 13655410,
+      "order": 5,
+      "cover": {
+        "path": "skill-previews/lira-image-prompts/1.0.0/cover.png",
+        "sha256": "86e81b817b1d5cb3c7988451bb476644c521fbeab68c88ded22996205f5d531a",
+        "byteSize": 13643927
+      }
+    },
+    {
+      "id": "cinedance@1.0.0",
+      "skillId": "cinedance",
+      "version": "1.0.0",
+      "title": "电影视频提示词导演",
+      "callName": "电影视频提示词导演",
+      "authorId": "author-767398e60f9b",
+      "author": "原技能作者（文件未署名）；中文整理：PromptDirector",
+      "license": "CC BY 4.0",
+      "reviewStatus": "approved",
+      "reviewedAt": "2026-10-12T16:47:53.792Z",
+      "summary": "CINEDANCE V4 中文版：将场景想法转为可制作的视频提示词，控制首帧、空间调度、视线、镜头光学、物理、光线、台词时机与镜头连续性。含三份中文参考资料。",
+      "downloadUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/skill-cinedance-v1.0.0/cinedance-1.0.0.zip",
+      "sha256": "71c367194a5cc0ae8adc2968d1a14fa19848f2fa40a7a9fb31f782969ffc5a3d",
+      "archiveBytes": 1358726,
+      "order": 6,
+      "cover": {
+        "path": "skill-previews/cinedance/1.0.0/cover.jpg",
+        "sha256": "a448fd0b1f6f7cd99cfc29720ecacbcd1129fd8e92b5cab0db216936b70c60c7",
+        "byteSize": 1336922
+      }
+    },
+    {
+      "id": "acting-skill@1.0.0",
+      "skillId": "acting-skill",
+      "version": "1.0.0",
+      "title": "角色表演系统",
+      "callName": "角色表演系统",
+      "authorId": "author-767398e60f9b",
+      "author": "原技能作者（文件未署名）；中文整理：PromptDirector",
+      "license": "CC BY 4.0",
+      "reviewStatus": "approved",
+      "reviewedAt": "2026-10-12T16:47:53.884Z",
+      "summary": "把角色目标、障碍、策略、节拍和潜台词写成可拍摄的行为。涵盖表演主档案、眼神、身体、固定声音、逐场改编、群戏和差表演诊断，含完整示例。",
+      "downloadUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/skill-acting-skill-v1.0.0/acting-skill-1.0.0.zip",
+      "sha256": "02bbce845a337492ef4bddb99c0da19c255b6c1c0c4916b359fe2b2b7809fb0b",
+      "archiveBytes": 4524457,
+      "order": 7,
+      "cover": {
+        "path": "skill-previews/acting-skill/1.0.0/cover.jpg",
+        "sha256": "60382927576f45b6c8c11a1959eee7a67d8f69a728658aa5e9ba79732e90b081",
+        "byteSize": 4506323
+      }
+    },
+    {
+      "id": "tig-blocking-map@1.0.0",
+      "skillId": "tig-blocking-map",
+      "version": "1.0.0",
+      "title": "站位调度图",
+      "callName": "站位调度图",
+      "authorId": "author-f7318bdacd59",
+      "author": "Tigran（原方法）；中文整理：PromptDirector",
+      "license": "CC BY 4.0",
+      "reviewStatus": "approved",
+      "reviewedAt": "2026-10-12T16:47:54.020Z",
+      "summary": "用低饱和彩色轮廓图锁定多角色的位置、姿态和朝向。包含三层防风格渗透、示意图与视频连接模板、参考挂载顺序、版本标签、弹道及运镜路径。",
+      "downloadUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/skill-tig-blocking-map-v1.0.0/tig-blocking-map-1.0.0.zip",
+      "sha256": "6d62d890c65903211a00356ff28d86ca2d6a80515c5cbcd1ed2b835d876423b8",
+      "archiveBytes": 2483455,
+      "order": 8,
+      "cover": {
+        "path": "skill-previews/tig-blocking-map/1.0.0/cover.png",
+        "sha256": "d79563b9cabc1c3eab4aa5df342c2b85b3b0ed47dde347dd0967fb7c9a65d06e",
+        "byteSize": 2469502
+      }
+    },
+    {
+      "id": "frame-break-popout@1.0.0",
+      "skillId": "frame-break-popout",
+      "version": "1.0.0",
+      "title": "人物出黑边",
+      "callName": "人物出黑边",
+      "authorId": "author-b2e850ba1e9f",
+      "author": "Kōda（来源提示词）；PromptDirector（方法整理）",
+      "license": "CC BY 4.0",
+      "reviewStatus": "approved",
+      "reviewedAt": "2026-10-12T16:47:54.106Z",
+      "summary": "将角色跨越上下黑边、跃出画框的效果写成可复用提示词。包含三层合成、静态黑边、机位选择、越界编排、布料动量、模板及来源原词。",
+      "downloadUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/skill-frame-break-popout-v1.0.0/frame-break-popout-1.0.0.zip",
+      "sha256": "206c723b5b27a2fc108515b8d72cc7ce258bc7db012ebf107d69a5b9ed6e65e6",
+      "archiveBytes": 1424049,
+      "order": 9,
+      "cover": {
+        "path": "skill-previews/frame-break-popout/1.0.0/cover.png",
+        "sha256": "b387c5033472d9d6c7f0d3496eacc98e8d26ef32dec37feb66b2762830c97a61",
+        "byteSize": 1392046
+      }
+    },
+    {
+      "id": "tig-acting-task@1.0.0",
+      "skillId": "tig-acting-task",
+      "version": "1.0.0",
+      "title": "表演任务设计",
+      "callName": "表演任务设计",
+      "authorId": "author-f7318bdacd59",
+      "author": "Tigran（原方法）；中文整理：PromptDirector",
+      "license": "CC BY 4.0",
+      "reviewStatus": "approved",
+      "reviewedAt": "2026-10-12T16:47:54.227Z",
+      "summary": "通过共同场景方向、角色动机、个人目标、障碍和针对对手的策略，让角色眼神与倾听持续工作。保留 Tigran 的专门定义、事件分析、身体通道与对照人物设计。",
+      "downloadUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/skill-tig-acting-task-v1.0.0/tig-acting-task-1.0.0.zip",
+      "sha256": "0c55887a3f1d797363fe17f861ad93067848f59225371ee7cfea125dc57c15c9",
+      "archiveBytes": 5673453,
+      "order": 10,
+      "cover": {
+        "path": "skill-previews/tig-acting-task/1.0.0/cover.png",
+        "sha256": "b9cfd94373f9605f1daca82980e0441535bc50c040f9acb740352b60777c5976",
+        "byteSize": 5663733
       }
     }
   ]
