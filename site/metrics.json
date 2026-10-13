@@ -1,12 +1,12 @@
 {
   "format": "prompt-director-curated-metrics",
   "version": 1,
-  "updatedAt": "2026-10-12T11:03:53.832Z",
+  "updatedAt": "2026-10-13T10:47:24.947Z",
   "downloads": {
     "featured:vol-1": 25,
     "featured:jimeng": 37,
     "featured:aiartworks-mj": 18,
-    "featured:higgsfield": 30,
+    "featured:higgsfield": 32,
     "featured:evolink-video-1": 8,
     "featured:evolink-video-2": 8,
     "featured:evolink-video-3": 5,
@@ -22,7 +22,7 @@
     "cases-5b8deb5b7d94e3bcdefb": 26,
     "cases-a7126fd0ce35aaf96153": 14,
     "cases-3067eed17c7b7ca7d1b3": 6,
-    "cases-ad27222f0bfd93989f6e": 4,
+    "cases-ad27222f0bfd93989f6e": 5,
     "melies:camera-movement": 5,
     "melies:camera-angles": 2,
     "melies:framing-and-shot-size": 3,
