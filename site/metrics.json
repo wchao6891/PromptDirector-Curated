@@ -1,7 +1,7 @@
 {
   "format": "prompt-director-curated-metrics",
   "version": 1,
-  "updatedAt": "2026-10-13T10:47:24.947Z",
+  "updatedAt": "2026-10-14T08:50:33.994Z",
   "downloads": {
     "featured:vol-1": 25,
     "featured:jimeng": 37,
@@ -15,7 +15,7 @@
     "featured:jimeng-guofeng-community-1": 7,
     "cases-85fe274e06c395c24e8a": 17,
     "cases-1ceeb0d9bc533bf10bcc": 190,
-    "cases-1ea9f7e33e0b293d2a12": 1,
+    "cases-1ea9f7e33e0b293d2a12": 2,
     "cases-4529f91713cffcfe4dc1": 2,
     "cases-f05a7604a4a889ede786": 0,
     "cases-ed99fb86238d9dca13c0": 6,
