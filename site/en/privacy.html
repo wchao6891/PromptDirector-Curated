@@ -23,6 +23,7 @@
         <p class="eyebrow">Privacy policy</p>
         <h1>PromptDirector Privacy Policy</h1>
         <p class="effective">Effective date: August 16, 2026</p>
+        <p class="effective">Updated: October 18, 2026</p>
       </section>
 
       <section class="policy-section">
@@ -48,6 +49,7 @@
           <li>Page capture, screenshots, visual selection, and list collection run only after the user starts them, and do not bypass logins, CAPTCHAs, paywalls, access controls, or anti-automation restrictions.</li>
           <li>Body text and media are shown to the user for confirmation before saving; only content in the final save plan is written to a case.</li>
           <li>If reading public media fails, the extension may read user-confirmed media through the current page session the user has already authorized. It does not read, store, or export cookies, tokens, or authentication request headers.</li>
+          <li>When the user saves a selected Douyin, YouTube or Bilibili video, an installed local video component may resolve its work URL, download from the original platform and merge audio and video. Only the selected work and media URLs are passed to it. It does not export browser cookies, login request headers or AI keys, or use paid parsing services. Temporary videos are removed after transfer, cancellation or connection closure; saved originals remain in the library.</li>
           <li>PDF, Markdown, SKILL.md, TXT, HTML, and RTF files are saved only after the user explicitly selects them and the real type and size checks pass. Archives, programs, and unknown files are not imported automatically.</li>
           <li>API keys never enter export packages, share packages, composition drafts, diagnostics, or logs.</li>
         </ul>
@@ -66,7 +68,8 @@
 
       <section class="policy-section">
         <h2>Sharing, retention, and deletion</h2>
-        <p>Data leaves local storage only when the user explicitly sends it to a configured AI service, exports or migrates it, or creates and distributes a share package. Local data remains until the user edits or deletes it, clears extension storage, or uninstalls the extension. Users can create a local backup before uninstalling and remove saved API keys and sending authorization in settings.</p>
+        <p>Data leaves extension storage only when the user explicitly sends it to a configured AI service, hands it to a paired local Agent, exports or migrates it, or creates and distributes a share package. Local data remains until the user edits or deletes it, clears extension storage, or uninstalls the extension. Users can create a local backup before uninstalling and remove saved API keys and sending authorization in settings.</p>
+        <p>When Agent connection is enabled, requested case content and originals are delivered to the paired local Agent. Its host may send them to configured models or services according to the user's instructions and its own settings; the host manages that subsequent processing. Disconnecting rejects new Agent requests; submitted tasks continue.</p>
       </section>
 
       <section class="policy-section">
@@ -78,11 +81,15 @@
         <h2>Permission purposes</h2>
         <ul>
           <li><code>activeTab</code> and <code>scripting</code>: access the current page only after a user starts capture, visual selection, or a screenshot action.</li>
+          <li><code>webRequest</code>: identify media response URLs and types on authorized websites for video counts and capture previews. Candidates stay in the browser session and are cleared on navigation or tab closure. This does not read credentials, modify requests, or upload browsing history; cross-origin media still requires site permission.</li>
           <li><code>alarms</code>: schedule or resume local background work; never for tracking.</li>
           <li><code>contextMenus</code> and <code>sidePanel</code>: provide user-triggered capture and the side-panel workspace.</li>
           <li><code>downloads</code> and <code>offscreen</code>: save user-requested files and process screenshots, media, documents, or ZIP archives locally.</li>
           <li><code>storage</code> and <code>unlimitedStorage</code>: retain selected references, media, settings, and local AI configuration.</li>
-          <li>Fixed GitHub and GitHub Pages origins: read the official curated catalog and curated Release resources selected by the user.</li>
+          <li>Fixed GitHub and GitHub Pages origins: read the official curated catalog, selected curated Release resources and video component installers. Local development builds also check official updates and download program updates after user confirmation.</li>
+          <li>Optional <code>downloads.open</code>: requested when the user chooses to install the video component, so their explicit Open installer click can open the downloaded official installer. Downloaded files are not executed automatically.</li>
+          <li>Optional <code>nativeMessaging</code>: requested when enabling Agent connection or installing the video component. A paired Agent can search cases, read selected originals, capture URLs and save materials as requested; this interface does not expose AI service keys. Local video extraction is independent of Agent connection and runs only when saving selected videos.</li>
+          <li>Enabling Agent connection requests optional <code>&lt;all_urls&gt;</code> access so the paired Agent can capture user-requested URLs in a dedicated tab; browsing history is not recorded or uploaded.</li>
           <li>Optional <code>&lt;all_urls&gt;</code>, <code>clipboardRead</code>, and <code>declarativeNetRequestWithHostAccess</code>: used only after the user starts the corresponding feature and grants the required access.</li>
         </ul>
       </section>
