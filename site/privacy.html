@@ -21,6 +21,7 @@
         <p class="eyebrow">Privacy policy</p>
         <h1>提示词导演隐私政策</h1>
         <p class="effective">生效日期：2026 年 8 月 16 日</p>
+        <p class="effective">更新日期：2026 年 10 月 18 日</p>
       </section>
 
       <section class="policy-section">
@@ -46,6 +47,7 @@
           <li>网页采集、截图、选图和列表采集只在用户主动启动后运行，不会绕过登录、验证码、付费墙、访问控制或反自动化限制。</li>
           <li>正文与媒体会在保存前显示给用户确认；只有最终保存方案中的内容会写入案例。</li>
           <li>公开媒体读取失败时，扩展可以在用户已授权的当前网页会话中读取用户已确认的媒体，但不会读取、保存或导出 Cookie、Token 或登录请求头。</li>
+          <li>用户保存所选抖音、YouTube 或 Bilibili 视频时，可由已安装的本机视频组件解析作品地址，向原网站下载并合并音视频。只传入本次作品与媒体地址，不导出浏览器 Cookie、登录请求头或 AI 密钥，不调用付费解析服务。暂存视频在传输完成、取消或连接关闭后清理，正式原件保存在资料库。</li>
           <li>PDF、Markdown、SKILL.md、TXT、HTML 和 RTF 仅在用户明确选择且真实类型与容量校验通过后保存；压缩包、程序和未知文件不会自动导入。</li>
           <li>API Key 不进入导出包、分享包、创作草稿、诊断包或日志。</li>
         </ul>
@@ -64,7 +66,8 @@
 
       <section class="policy-section">
         <h2>分享、保留与删除</h2>
-        <p>数据只会在用户主动发送到已配置的 AI 服务、导出或迁移资料、或创建并分发分享包时离开本地存储。本地数据会保留，直到用户修改或删除、清除扩展数据，或卸载扩展。用户可以在卸载前创建本地备份，并在设置中清除 API Key 和发送授权。</p>
+        <p>数据只会在用户主动发送到已配置的 AI 服务、交给配对的本机 Agent、导出或迁移资料、或创建并分发分享包时离开扩展的本地存储。本地数据会保留，直到用户修改或删除、清除扩展数据，或卸载扩展。用户可以在卸载前创建本地备份，并在设置中清除 API Key 和发送授权。</p>
+        <p>启用 Agent 连接后，所请求的案例内容和原件会交给配对的本机 Agent。Agent 宿主可能按用户指令及其自身设置将材料发送给所配置的模型或服务，这部分处理由宿主管理。断开连接会拒绝新的 Agent 请求，已提交的任务继续执行。</p>
       </section>
 
       <section class="policy-section">
@@ -76,11 +79,15 @@
         <h2>权限用途</h2>
         <ul>
           <li><code>activeTab</code>、<code>scripting</code>：仅在用户主动启动采集、选图或截图操作时访问当前页面。</li>
+          <li><code>webRequest</code>：仅在已授权网站上识别媒体响应地址与类型，用于视频数量角标和采集预览。候选保存在浏览器会话中，换页或关闭标签页后清除；不会读取请求凭据、修改请求或上传浏览记录，跨域媒体仍受网站权限约束。</li>
           <li><code>alarms</code>：安排或恢复本地后台任务，不用于跟踪。</li>
           <li><code>contextMenus</code>、<code>sidePanel</code>：提供右键收藏入口和侧边栏工作区。</li>
           <li><code>downloads</code>、<code>offscreen</code>：保存用户请求的文件，并在本机处理截图、媒体、文档或 ZIP。</li>
           <li><code>storage</code>、<code>unlimitedStorage</code>：保存用户选择的资料、媒体、设置与本地 AI 配置。</li>
-          <li>固定 GitHub 与 GitHub Pages 域名：读取官方精选目录和用户选择的精选 Release 资源。</li>
+          <li>固定 GitHub 与 GitHub Pages 域名：读取官方精选目录、用户选择的精选 Release 资源和视频组件安装包；本地开发版还会检查官方更新，并在用户确认后下载程序更新包。</li>
+          <li>可选的 <code>downloads.open</code>：仅在用户选择安装视频组件时申请，供用户点击“打开安装包”打开已下载的官方安装包；不会自动执行下载文件。</li>
+          <li>可选的 <code>nativeMessaging</code>：在用户启用 Agent 连接或安装视频组件时申请。配对的 Agent 可按指令搜索案例、读取选定原件、采集网址和回存材料，不能通过该接口读取 AI 服务密钥。本机视频解析独立于 Agent 开关，仅在用户保存所选视频时调用。</li>
+          <li>启用 Agent 连接时，可选的 <code>&lt;all_urls&gt;</code> 用于配对 Agent 按用户指令在独立标签页采集网址；不会记录或上传浏览历史。</li>
           <li>可选的 <code>&lt;all_urls&gt;</code>、<code>clipboardRead</code> 与 <code>declarativeNetRequestWithHostAccess</code>：仅在用户主动使用相应功能并授予所需权限后使用。</li>
         </ul>
       </section>
@@ -94,6 +101,7 @@
         <p class="eyebrow">English</p>
         <h1>PromptDirector Privacy Policy</h1>
         <p class="effective">Effective date: August 16, 2026</p>
+        <p class="effective">Updated: October 18, 2026</p>
       </section>
 
       <section class="policy-section" lang="en">
@@ -106,6 +114,7 @@
         <h2>Data handled</h2>
         <p>PromptDirector handles data only when the user explicitly captures, imports, exports, analyzes, generates, or composes with it. This can include selected website text and resources, source URLs and attribution, screenshots, prompts, notes, projects, tags, Creative Skills, settings, and credentials for AI services chosen by the user.</p>
         <p>API keys are excluded from exports, shared packages, drafts, diagnostics, and logs. Page capture runs only after a user action and does not bypass authentication, paywalls, access controls, CAPTCHAs, or anti-automation measures.</p>
+        <p>When the user saves a selected Douyin, YouTube or Bilibili video, an installed local video component may resolve its work URL, download from the original platform and merge audio and video. Only the selected work and media URLs are passed to it. It does not export browser cookies, login request headers or AI keys, or use paid parsing services. Temporary videos are removed after transfer, cancellation or connection closure; saved originals remain in the library.</p>
       </section>
 
       <section class="policy-section" lang="en">
@@ -116,7 +125,8 @@
 
       <section class="policy-section" lang="en">
         <h2>Sharing, retention, and deletion</h2>
-        <p>Data leaves local storage only when the user explicitly sends it to a configured AI service, exports or migrates it, or creates and distributes a share package. Local data remains until the user edits or deletes it, clears extension storage, or uninstalls the extension. Users can create a local backup and remove saved API keys and consent in settings.</p>
+        <p>Data leaves extension storage only when the user explicitly sends it to a configured AI service, hands it to a paired local Agent, exports or migrates it, or creates and distributes a share package. Local data remains until the user edits or deletes it, clears extension storage, or uninstalls the extension. Users can create a local backup and remove saved API keys and consent in settings.</p>
+        <p>When Agent connection is enabled, requested case content and originals are delivered to the paired local Agent. Its host may send them to configured models or services according to the user's instructions and its own settings; the host manages that subsequent processing. Disconnecting rejects new Agent requests; submitted tasks continue.</p>
       </section>
 
       <section class="policy-section" lang="en">
@@ -128,11 +138,15 @@
         <h2>Permission purposes</h2>
         <ul>
           <li><code>activeTab</code> and <code>scripting</code>: access the current page only after a user starts capture, visual selection, or a screenshot action.</li>
+          <li><code>webRequest</code>: identify media response URLs and types on authorized websites for video counts and capture previews. Candidates stay in the browser session and are cleared on navigation or tab closure. This does not read credentials, modify requests, or upload browsing history; cross-origin media still requires site permission.</li>
           <li><code>alarms</code>: schedule or resume local background work; never for tracking.</li>
           <li><code>contextMenus</code> and <code>sidePanel</code>: provide user-triggered capture and the side-panel workspace.</li>
           <li><code>downloads</code> and <code>offscreen</code>: save user-requested files and process screenshots, media, documents, or ZIP archives locally.</li>
           <li><code>storage</code> and <code>unlimitedStorage</code>: retain selected references, media, settings, and local AI configuration.</li>
-          <li>Fixed GitHub and GitHub Pages origins: read the official curated catalog and curated Release resources selected by the user.</li>
+          <li>Fixed GitHub and GitHub Pages origins: read the official curated catalog, selected curated Release resources and video component installers. Local development builds also check official updates and download program updates after user confirmation.</li>
+          <li>Optional <code>downloads.open</code>: requested when the user chooses to install the video component, so their explicit Open installer click can open the downloaded official installer. Downloaded files are not executed automatically.</li>
+          <li>Optional <code>nativeMessaging</code>: requested when enabling Agent connection or installing the video component. A paired Agent can search cases, read selected originals, capture URLs and save materials as requested; this interface does not expose AI service keys. Local video extraction is independent of Agent connection and runs only when saving selected videos.</li>
+          <li>Enabling Agent connection requests optional <code>&lt;all_urls&gt;</code> access so the paired Agent can capture user-requested URLs in a dedicated tab; browsing history is not recorded or uploaded.</li>
           <li>Optional <code>&lt;all_urls&gt;</code>, <code>clipboardRead</code>, and <code>declarativeNetRequestWithHostAccess</code>: used only after the user starts the corresponding feature and grants the required access.</li>
         </ul>
       </section>
