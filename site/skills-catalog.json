@@ -1,7 +1,7 @@
 {
   "format": "prompt-director-curated-skills",
   "version": 1,
-  "updatedAt": "2026-10-19T12:15:52.896Z",
+  "updatedAt": "2026-10-19T12:18:45.698Z",
   "skills": [
     {
       "id": "creative-skill-d22ccd61@1.0.0",
@@ -331,6 +331,28 @@
         "path": "skill-previews/music-dance-lipsync/1.0.0/cover.webp",
         "sha256": "1fa01e27507be0e0b96b7b1f47d6b492baae3c9b5e25f9c2cbb89dd8523ed0b3",
         "byteSize": 99114
+      }
+    },
+    {
+      "id": "pseudo-documentary@1.0.0",
+      "skillId": "pseudo-documentary",
+      "version": "1.0.0",
+      "title": "手机伪实拍与氛围空镜",
+      "callName": "手机伪实拍与氛围空镜",
+      "authorId": "author-40ef3270e01b",
+      "author": "PromptDirector",
+      "license": "CC BY 4.0",
+      "reviewStatus": "approved",
+      "reviewedAt": "2026-10-19T12:18:45.698Z",
+      "summary": "用「手机/DV 质感缺陷+一镜或硬切+生活细节+环境声」做出像真实拍到的 Vlog、伪纪录与空镜。",
+      "downloadUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/skill-pseudo-documentary-v1.0.0/pseudo-documentary-1.0.0.zip",
+      "sha256": "263bdd10ee8dd5114ed2378c9937ce2baebe0c09bf4c4010a6ed413035943d96",
+      "archiveBytes": 103060,
+      "order": 18,
+      "cover": {
+        "path": "skill-previews/pseudo-documentary/1.0.0/cover.webp",
+        "sha256": "e2d235a0b4208f1883e77d20a968d25dae546e069582918d51b1dfa8e07bde55",
+        "byteSize": 96908
       }
     }
   ]
