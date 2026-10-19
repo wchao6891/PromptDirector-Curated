@@ -1,7 +1,7 @@
 {
   "format": "prompt-director-curated",
   "version": 2,
-  "updatedAt": "2026-10-19T13:58:11.284Z",
+  "updatedAt": "2026-10-19T14:04:43.266Z",
   "themes": [
     {
       "id": "featured:vol-1",
@@ -968,6 +968,29 @@
       "videoCount": 12,
       "summary": "12 条左右精选案例，按同一套方法论组织的实战参考。",
       "order": 42
+    },
+    {
+      "id": "cases-15e09c79753fcb0bea4c",
+      "title": "V11 游戏与虚拟世界精选",
+      "type": "video_prompt",
+      "packageId": "cases-15e09c79753fcb0bea4c",
+      "packageVersion": "1.0.0",
+      "authorId": "github-258240113",
+      "author": "PromptDirector 编辑精选",
+      "license": "第三方来源精选 · 权利归原作者 · 授权未核验",
+      "rightsStatus": "source_unverified",
+      "rightsReviewUrl": "https://wchao6891.github.io/PromptDirector-Curated/reviews/cases-15e09c79753fcb0bea4c-1.0.0.json",
+      "updatedAt": "2026-10-19T14:02:11.381Z",
+      "coverUrl": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-15e09c79753fcb0bea4c/media/d995c9df99a160044113.webp",
+      "previewUrl": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-15e09c79753fcb0bea4c/preview.json",
+      "downloadUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/cases-15e09c79753fcb0bea4c-1.0.0/cases-15e09c79753fcb0bea4c.zip",
+      "sha256": "4bbdb9e654f6e3b83b7311c8e938d8d525963a91b3762f0374418c401095bd02",
+      "archiveBytes": 228017618,
+      "caseCount": 9,
+      "imageCount": 9,
+      "videoCount": 9,
+      "summary": "12 条左右精选案例，按同一套方法论组织的实战参考。",
+      "order": 43
     }
   ]
 }
