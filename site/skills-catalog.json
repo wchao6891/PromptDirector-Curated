@@ -1,7 +1,7 @@
 {
   "format": "prompt-director-curated-skills",
   "version": 1,
-  "updatedAt": "2026-10-19T11:51:13.259Z",
+  "updatedAt": "2026-10-19T11:54:07.269Z",
   "skills": [
     {
       "id": "creative-skill-d22ccd61@1.0.0",
@@ -199,6 +199,28 @@
         "path": "skill-previews/game-realism/1.0.0/cover.webp",
         "sha256": "89f35f8199022fe89dbf4088fc25bd51d4a862b14986a73a794797729fa213c8",
         "byteSize": 110124
+      }
+    },
+    {
+      "id": "ads-tvc-structure@1.0.0",
+      "skillId": "ads-tvc-structure",
+      "version": "1.0.0",
+      "title": "30秒广告骨架与产品质感",
+      "callName": "30秒广告骨架与产品质感",
+      "authorId": "author-40ef3270e01b",
+      "author": "PromptDirector",
+      "license": "CC BY 4.0",
+      "reviewStatus": "approved",
+      "reviewedAt": "2026-10-19T11:54:07.269Z",
+      "summary": "用「钩子-场景-产品-反转-slogan」五段式做出可投放的 15–30 秒广告与产品视觉。",
+      "downloadUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/skill-ads-tvc-structure-v1.0.0/ads-tvc-structure-1.0.0.zip",
+      "sha256": "bfd2cc248385cfd3a87da30f27d84f73a1f3a1e8c61ec393b820e6a268cbfa38",
+      "archiveBytes": 92627,
+      "order": 12,
+      "cover": {
+        "path": "skill-previews/ads-tvc-structure/1.0.0/cover.webp",
+        "sha256": "17a2f59df9c6836063f8b830861e936f330b3cab7e8d8e2fcce3a2d8648e8382",
+        "byteSize": 85924
       }
     }
   ]
