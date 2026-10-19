@@ -1,7 +1,7 @@
 {
   "format": "prompt-director-curated-skills",
   "version": 1,
-  "updatedAt": "2026-10-19T11:57:08.116Z",
+  "updatedAt": "2026-10-19T12:01:48.472Z",
   "skills": [
     {
       "id": "creative-skill-d22ccd61@1.0.0",
@@ -243,6 +243,28 @@
         "path": "skill-previews/photoreal-portrait/1.0.0/cover.webp",
         "sha256": "94695dd61df424fe20ce9285751a89d83f2165f5b936df68c9791f796fc69bb2",
         "byteSize": 55800
+      }
+    },
+    {
+      "id": "spectacle-vfx@1.0.0",
+      "skillId": "spectacle-vfx",
+      "version": "1.0.0",
+      "title": "奇观尺度、物理与时间特效",
+      "callName": "奇观尺度、物理与时间特效",
+      "authorId": "author-40ef3270e01b",
+      "author": "PromptDirector",
+      "license": "CC BY 4.0",
+      "reviewStatus": "approved",
+      "reviewedAt": "2026-10-19T12:01:48.472Z",
+      "summary": "用「尺度参照+物理规则+时间操控」做出灾难、巨物、超现实、变身与时间冻结奇观。",
+      "downloadUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/skill-spectacle-vfx-v1.0.0/spectacle-vfx-1.0.0.zip",
+      "sha256": "c1c8aff90760d07042d77cda0bf5268594efd6dc017c8b319ec85f08e483eac5",
+      "archiveBytes": 128016,
+      "order": 14,
+      "cover": {
+        "path": "skill-previews/spectacle-vfx/1.0.0/cover.webp",
+        "sha256": "88d44f752c8140037fa7389594d51e73b676b5bda0a254db7fb18c0ac1cf340c",
+        "byteSize": 121422
       }
     }
   ]
