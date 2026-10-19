@@ -1,7 +1,7 @@
 {
   "format": "prompt-director-curated",
   "version": 2,
-  "updatedAt": "2026-08-16T14:37:43.000Z",
+  "updatedAt": "2026-10-19T13:25:29.195Z",
   "themes": [
     {
       "id": "featured:vol-1",
@@ -24,8 +24,7 @@
       "imageCount": 20,
       "videoCount": 0,
       "summary": "20 个由 PromptDirector 项目生成并审核的原创国风视觉案例。",
-      "order": 1,
-      "titleEn": "Vol.1 Original Chinese-Inspired Visuals"
+      "order": 1
     }
   ]
 }

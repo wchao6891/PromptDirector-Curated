@@ -1,7 +1,7 @@
 {
   "format": "prompt-director-curated",
   "version": 2,
-  "updatedAt": "2026-10-19T13:16:15.287Z",
+  "updatedAt": "2026-10-19T13:25:29.195Z",
   "themes": [
     {
       "id": "featured:vol-1",
@@ -928,22 +928,22 @@
       "title": "V03 剧情短剧精选",
       "type": "video_prompt",
       "packageId": "cases-c841d8e0b8020dda28c3",
-      "packageVersion": "1.0.0",
+      "packageVersion": "1.0.1",
       "authorId": "github-258240113",
       "author": "PromptDirector 编辑精选",
       "license": "第三方来源精选 · 权利归原作者 · 授权未核验",
       "rightsStatus": "source_unverified",
-      "rightsReviewUrl": "https://wchao6891.github.io/PromptDirector-Curated/reviews/cases-c841d8e0b8020dda28c3-1.0.0.json",
-      "updatedAt": "2026-10-19T13:14:39.150Z",
-      "coverUrl": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-c841d8e0b8020dda28c3/media/67736ab13b8b14c3171d.webp",
-      "previewUrl": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-c841d8e0b8020dda28c3/preview.json",
-      "downloadUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/cases-c841d8e0b8020dda28c3-1.0.0/cases-c841d8e0b8020dda28c3.zip",
-      "sha256": "45d38538876d2356470a0c3c3cb34e569d67fe362f02aa6755e2fc7b3e10997d",
-      "archiveBytes": 65268610,
-      "caseCount": 6,
-      "imageCount": 6,
-      "videoCount": 6,
-      "summary": "6 条剧情案例，覆盖对白正反打、情绪曲线与反转落点。",
+      "rightsReviewUrl": "https://wchao6891.github.io/PromptDirector-Curated/reviews/cases-c841d8e0b8020dda28c3-1.0.1.json",
+      "updatedAt": "2026-10-19T13:23:07.400Z",
+      "coverUrl": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-c841d8e0b8020dda28c3/1.0.1/media/29f004a41ff8a95a0999.webp",
+      "previewUrl": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-c841d8e0b8020dda28c3/1.0.1/preview.json",
+      "downloadUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/cases-c841d8e0b8020dda28c3-1.0.1/cases-c841d8e0b8020dda28c3-1.0.1.zip",
+      "sha256": "9df8bd5f64608769100e33b6ebb38dac6e43606bffbe6b84e8ae447bb52735cf",
+      "archiveBytes": 114831394,
+      "caseCount": 12,
+      "imageCount": 12,
+      "videoCount": 12,
+      "summary": "12 条左右精选案例，按同一套方法论组织的实战参考。",
       "order": 41
     }
   ]
