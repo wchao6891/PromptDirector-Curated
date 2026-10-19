@@ -1,7 +1,7 @@
 {
   "format": "prompt-director-curated",
   "version": 2,
-  "updatedAt": "2026-10-19T12:43:48.245Z",
+  "updatedAt": "2026-10-19T12:54:22.006Z",
   "themes": [
     {
       "id": "featured:vol-1",
@@ -830,6 +830,29 @@
       "videoCount": 6,
       "summary": "6 条舞蹈/卡点/对口型案例，覆盖 BPM 分段、动作编排与口型同步。",
       "order": 36
+    },
+    {
+      "id": "cases-a11838df4ddcdd6931e4",
+      "title": "V04 恐怖惊悚精选",
+      "type": "video_prompt",
+      "packageId": "cases-a11838df4ddcdd6931e4",
+      "packageVersion": "1.0.0",
+      "authorId": "github-258240113",
+      "author": "PromptDirector 编辑精选",
+      "license": "第三方来源精选 · 权利归原作者 · 授权未核验",
+      "rightsStatus": "source_unverified",
+      "rightsReviewUrl": "https://wchao6891.github.io/PromptDirector-Curated/reviews/cases-a11838df4ddcdd6931e4-1.0.0.json",
+      "updatedAt": "2026-10-19T12:52:43.506Z",
+      "coverUrl": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-a11838df4ddcdd6931e4/media/aa6b839038d354e96082.webp",
+      "previewUrl": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-a11838df4ddcdd6931e4/preview.json",
+      "downloadUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/cases-a11838df4ddcdd6931e4-1.0.0/cases-a11838df4ddcdd6931e4.zip",
+      "sha256": "23cacfdbe734e18c5efbc723a5db4980172b31411c8ab6d1d3dc55da5badee2b",
+      "archiveBytes": 66352909,
+      "caseCount": 6,
+      "imageCount": 6,
+      "videoCount": 6,
+      "summary": "6 条恐怖案例，覆盖钩子、秒级分镜与伪纪录质感。",
+      "order": 37
     }
   ]
 }
