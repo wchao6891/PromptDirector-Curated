@@ -18,7 +18,7 @@ for (const catalogName of ["catalog.json", "public-catalog.json"]) {
     const previewUrl = new URL(theme.previewUrl);
     const previewPath = new URL(`../site${previewUrl.pathname.replace(/^\/PromptDirector-Curated/, "")}`, import.meta.url);
     const preview = normalizeSitePreview(JSON.parse(await readFile(previewPath, "utf8")), theme);
-    for (const entry of preview.entries) {
+    for (const entry of preview.entries.flatMap(entry => entry.media?.length ? entry.media : [entry])) {
       const imageUrl = new URL(entry.previewImageUrl);
       const imagePath = new URL(`../site${imageUrl.pathname.replace(/^\/PromptDirector-Curated/, "")}`, import.meta.url);
       const info = await stat(imagePath);

@@ -1,7 +1,7 @@
 {
   "format": "prompt-director-curated",
   "version": 2,
-  "updatedAt": "2026-10-19T12:06:43.673Z",
+  "updatedAt": "2026-10-19T12:43:48.245Z",
   "themes": [
     {
       "id": "featured:vol-1",
@@ -807,6 +807,29 @@
       "videoCount": 6,
       "summary": "6 条可投放广告与产品视觉案例，覆盖钩子结构、产品微距与品牌收尾。",
       "order": 35
+    },
+    {
+      "id": "cases-c92476a8b91dad853e46",
+      "title": "V09 音乐舞蹈与对口型精选",
+      "type": "video_prompt",
+      "packageId": "cases-c92476a8b91dad853e46",
+      "packageVersion": "1.0.0",
+      "authorId": "github-258240113",
+      "author": "PromptDirector 编辑精选",
+      "license": "第三方来源精选 · 权利归原作者 · 授权未核验",
+      "rightsStatus": "source_unverified",
+      "rightsReviewUrl": "https://wchao6891.github.io/PromptDirector-Curated/reviews/cases-c92476a8b91dad853e46-1.0.0.json",
+      "updatedAt": "2026-10-19T12:42:08.040Z",
+      "coverUrl": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-c92476a8b91dad853e46/media/77bca457b63cb81cd9e6.webp",
+      "previewUrl": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-c92476a8b91dad853e46/preview.json",
+      "downloadUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/cases-c92476a8b91dad853e46-1.0.0/cases-c92476a8b91dad853e46.zip",
+      "sha256": "6f13a4923ed0365af57955ac8311277fd72eb62b9a664d17ed9ef05165b9c69b",
+      "archiveBytes": 68319972,
+      "caseCount": 6,
+      "imageCount": 6,
+      "videoCount": 6,
+      "summary": "6 条舞蹈/卡点/对口型案例，覆盖 BPM 分段、动作编排与口型同步。",
+      "order": 36
     }
   ]
 }
