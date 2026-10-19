@@ -1,7 +1,7 @@
 {
   "format": "prompt-director-curated-skills",
   "version": 1,
-  "updatedAt": "2026-10-19T11:54:07.269Z",
+  "updatedAt": "2026-10-19T11:57:08.116Z",
   "skills": [
     {
       "id": "creative-skill-d22ccd61@1.0.0",
@@ -221,6 +221,28 @@
         "path": "skill-previews/ads-tvc-structure/1.0.0/cover.webp",
         "sha256": "17a2f59df9c6836063f8b830861e936f330b3cab7e8d8e2fcce3a2d8648e8382",
         "byteSize": 85924
+      }
+    },
+    {
+      "id": "photoreal-portrait@1.0.0",
+      "skillId": "photoreal-portrait",
+      "version": "1.0.0",
+      "title": "超写实人像质感与换装",
+      "callName": "超写实人像质感与换装",
+      "authorId": "author-40ef3270e01b",
+      "author": "PromptDirector",
+      "license": "CC BY 4.0",
+      "reviewStatus": "approved",
+      "reviewedAt": "2026-10-19T11:57:08.116Z",
+      "summary": "用「焦段+光位+皮肤质感+微表情」做出怼脸、美妆、时尚、换装类超写实人像。",
+      "downloadUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/skill-photoreal-portrait-v1.0.0/photoreal-portrait-1.0.0.zip",
+      "sha256": "b61703e05cbf0f46d042106f8bf7cccbd2ea76af86a6563ee31d252a5e287b59",
+      "archiveBytes": 61953,
+      "order": 13,
+      "cover": {
+        "path": "skill-previews/photoreal-portrait/1.0.0/cover.webp",
+        "sha256": "94695dd61df424fe20ce9285751a89d83f2165f5b936df68c9791f796fc69bb2",
+        "byteSize": 55800
       }
     }
   ]
