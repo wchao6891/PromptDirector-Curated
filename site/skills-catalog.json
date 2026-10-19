@@ -1,7 +1,7 @@
 {
   "format": "prompt-director-curated-skills",
   "version": 1,
-  "updatedAt": "2026-10-19T12:01:48.472Z",
+  "updatedAt": "2026-10-19T12:09:54.515Z",
   "skills": [
     {
       "id": "creative-skill-d22ccd61@1.0.0",
@@ -265,6 +265,28 @@
         "path": "skill-previews/spectacle-vfx/1.0.0/cover.webp",
         "sha256": "88d44f752c8140037fa7389594d51e73b676b5bda0a254db7fb18c0ac1cf340c",
         "byteSize": 121422
+      }
+    },
+    {
+      "id": "short-drama-emotion@1.0.0",
+      "skillId": "short-drama-emotion",
+      "version": "1.0.0",
+      "title": "短剧情绪曲线与对白调度",
+      "callName": "短剧情绪曲线与对白调度",
+      "authorId": "author-40ef3270e01b",
+      "author": "PromptDirector",
+      "license": "CC BY 4.0",
+      "reviewStatus": "approved",
+      "reviewedAt": "2026-10-19T12:09:54.515Z",
+      "summary": "用「场景-冲突-情绪升级-反转」四段式与正反打，做出 15–60 秒有落点的短剧。",
+      "downloadUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/skill-short-drama-emotion-v1.0.0/short-drama-emotion-1.0.0.zip",
+      "sha256": "edeebee1a6108dd966b368499d5cc5e353cbfe7aef8bb25f0fdc7bef647c5c1f",
+      "archiveBytes": 59165,
+      "order": 15,
+      "cover": {
+        "path": "skill-previews/short-drama-emotion/1.0.0/cover.webp",
+        "sha256": "54d56f248c9c4c8d8b9358984ccabade1e398320abc0e3dc775c99dd7886b4f2",
+        "byteSize": 53054
       }
     }
   ]
