@@ -1,7 +1,7 @@
 {
   "format": "prompt-director-curated",
   "version": 2,
-  "updatedAt": "2026-10-19T12:54:22.006Z",
+  "updatedAt": "2026-10-19T12:58:16.623Z",
   "themes": [
     {
       "id": "featured:vol-1",
@@ -853,6 +853,29 @@
       "videoCount": 6,
       "summary": "6 条恐怖案例，覆盖钩子、秒级分镜与伪纪录质感。",
       "order": 37
+    },
+    {
+      "id": "cases-0651f642797edd4693a7",
+      "title": "V06 写实动作与追逐精选",
+      "type": "video_prompt",
+      "packageId": "cases-0651f642797edd4693a7",
+      "packageVersion": "1.0.0",
+      "authorId": "github-258240113",
+      "author": "PromptDirector 编辑精选",
+      "license": "第三方来源精选 · 权利归原作者 · 授权未核验",
+      "rightsStatus": "source_unverified",
+      "rightsReviewUrl": "https://wchao6891.github.io/PromptDirector-Curated/reviews/cases-0651f642797edd4693a7-1.0.0.json",
+      "updatedAt": "2026-10-19T12:56:43.599Z",
+      "coverUrl": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-0651f642797edd4693a7/media/c07751a1f20fa0b54dc9.webp",
+      "previewUrl": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-0651f642797edd4693a7/preview.json",
+      "downloadUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/cases-0651f642797edd4693a7-1.0.0/cases-0651f642797edd4693a7.zip",
+      "sha256": "cbf6e63ade9b0fef7634b67098380aa8f4b89d629fa805e3dfddc0f3da90aad3",
+      "archiveBytes": 55608762,
+      "caseCount": 6,
+      "imageCount": 6,
+      "videoCount": 6,
+      "summary": "6 条写实动作案例，覆盖镜头载体、连续动作与物理反馈。",
+      "order": 38
     }
   ]
 }
