@@ -1,7 +1,7 @@
 {
   "format": "prompt-director-curated",
   "version": 2,
-  "updatedAt": "2026-10-19T14:15:51.897Z",
+  "updatedAt": "2026-10-19T14:22:24.064Z",
   "themes": [
     {
       "id": "featured:vol-1",
@@ -991,6 +991,29 @@
       "videoCount": 9,
       "summary": "12 条左右精选案例，按同一套方法论组织的实战参考。",
       "order": 43
+    },
+    {
+      "id": "cases-839cf1bfbcbae095777b",
+      "title": "V07 角色与IP一致性精选",
+      "type": "video_prompt",
+      "packageId": "cases-839cf1bfbcbae095777b",
+      "packageVersion": "1.0.0",
+      "authorId": "github-258240113",
+      "author": "PromptDirector 编辑精选",
+      "license": "第三方来源精选 · 权利归原作者 · 授权未核验",
+      "rightsStatus": "source_unverified",
+      "rightsReviewUrl": "https://wchao6891.github.io/PromptDirector-Curated/reviews/cases-839cf1bfbcbae095777b-1.0.0.json",
+      "updatedAt": "2026-10-19T14:19:46.629Z",
+      "coverUrl": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-839cf1bfbcbae095777b/media/6f7342734759481d5ee6.webp",
+      "previewUrl": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-839cf1bfbcbae095777b/preview.json",
+      "downloadUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/cases-839cf1bfbcbae095777b-1.0.0/cases-839cf1bfbcbae095777b.zip",
+      "sha256": "6bcbe5670bbf4d951ca11f2574c233580f8afb4714798667c7b4ec1d0f5ae743",
+      "archiveBytes": 139231247,
+      "caseCount": 12,
+      "imageCount": 12,
+      "videoCount": 12,
+      "summary": "12 条左右精选案例，按同一套方法论组织的实战参考。",
+      "order": 44
     }
   ]
 }
