@@ -1,7 +1,7 @@
 {
   "format": "prompt-director-curated-metrics",
   "version": 1,
-  "updatedAt": "2026-10-19T09:08:59.689Z",
+  "updatedAt": "2026-10-19T12:02:44.300Z",
   "downloads": {
     "featured:vol-1": 25,
     "featured:jimeng": 38,
@@ -35,6 +35,7 @@
     "melies:editing-and-transitions": 3,
     "melies:atmosphere-and-weather": 2,
     "melies:genre-looks": 3,
-    "melies:viral-looks": 3
+    "melies:viral-looks": 3,
+    "cases-0152f32b423764db6414": 0
   }
 }
