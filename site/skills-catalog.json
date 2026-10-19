@@ -1,7 +1,7 @@
 {
   "format": "prompt-director-curated-skills",
   "version": 1,
-  "updatedAt": "2026-10-19T12:13:13.882Z",
+  "updatedAt": "2026-10-19T12:15:52.896Z",
   "skills": [
     {
       "id": "creative-skill-d22ccd61@1.0.0",
@@ -309,6 +309,28 @@
         "path": "skill-previews/live-action-action/1.0.0/cover.webp",
         "sha256": "cf943f43a314d88b66c7c252487cf3789c62a2ca4c2ab1249e2a2be0e71158c7",
         "byteSize": 58166
+      }
+    },
+    {
+      "id": "music-dance-lipsync@1.0.0",
+      "skillId": "music-dance-lipsync",
+      "version": "1.0.0",
+      "title": "BPM卡点与口型同步",
+      "callName": "BPM卡点与口型同步",
+      "authorId": "author-40ef3270e01b",
+      "author": "PromptDirector",
+      "license": "CC BY 4.0",
+      "reviewStatus": "approved",
+      "reviewedAt": "2026-10-19T12:15:52.896Z",
+      "summary": "用「BPM 分段+动作序列+卡点剪辑+口型驱动」做出舞蹈 MV 与对口型表演。",
+      "downloadUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/skill-music-dance-lipsync-v1.0.0/music-dance-lipsync-1.0.0.zip",
+      "sha256": "3ba52e6f7debdbca9302d895ccbe4e6205831174f2ba1a2ac2f079df957ec5ee",
+      "archiveBytes": 104574,
+      "order": 17,
+      "cover": {
+        "path": "skill-previews/music-dance-lipsync/1.0.0/cover.webp",
+        "sha256": "1fa01e27507be0e0b96b7b1f47d6b492baae3c9b5e25f9c2cbb89dd8523ed0b3",
+        "byteSize": 99114
       }
     }
   ]
