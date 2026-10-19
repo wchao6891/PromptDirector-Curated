@@ -1,4 +1,3 @@
-import { PORTABLE_LIBRARY_LIMITS } from "../site/lib/resource-limits.js";
 import { isSkillCoverPath, validateSkillCover } from "../site/lib/skill-cover.js";
 import { createHash } from "node:crypto";
 import { readFile, writeFile } from "node:fs/promises";
@@ -7,7 +6,7 @@ import { extractOfficialAttachmentUrls, fetchOfficialAttachment, readStoredZip }
 import { normalizeSkillCallName, PUBLIC_SKILL_LICENSE } from "../site/skill-catalog.js";
 
 const POLICY = JSON.parse(await readFile(new URL("../submission-policy.json", import.meta.url), "utf8"));
-const LIMITS = { maxBytes: PORTABLE_LIBRARY_LIMITS.maxArchiveBytes, maxFiles: PORTABLE_LIBRARY_LIMITS.maxFileCount, maxFileBytes: PORTABLE_LIBRARY_LIMITS.maxFileBytes };
+const LIMITS = { maxBytes: POLICY.maxSubmissionBytes, maxFiles: POLICY.maxFileCount, maxFileBytes: POLICY.maxSubmissionBytes };
 const decoder = new TextDecoder("utf-8", { fatal: true });
 
 export async function preflightSkillSubmission(inputFiles) {
@@ -31,14 +30,16 @@ export async function preflightSkillSubmission(inputFiles) {
       preview.push({ path, sha256: cover.sha256 });
       continue;
     }
-    if (path !== "SKILL.md" && !/^references\/(?:[A-Za-z0-9._-]+\/)*[A-Za-z0-9._-]+\.md$/i.test(path)) {
+    if (normalized.version < 3 && path !== "SKILL.md" && !/^references\/(?:[A-Za-z0-9._-]+\/)*[A-Za-z0-9._-]+\.md$/i.test(path)) {
       throw new Error(`精选 Skill 投稿包含不允许的文件：${path}`);
     }
     let text;
-    try { text = decoder.decode(bytes); } catch { throw new Error(`精选 Skill 投稿不是有效 UTF-8 文本：${path}`); }
-    const findings = findPrivacyRisks(text);
+    try { text = decoder.decode(bytes); if (text.includes('\0')) text = undefined; } catch {
+      if (normalized.version < 3 || path === 'SKILL.md') throw new Error(`精选 Skill 投稿不是有效 UTF-8 文本：${path}`);
+    }
+    const findings = text === undefined ? [] : findPrivacyRisks(text);
     if (findings.length) throw new Error(`精选 Skill 投稿包含隐私风险：${path}（${findings[0]}）`);
-    preview.push({ path, text });
+    preview.push({ path, text, ...(normalized.version >= 3 ? { sha256: sha256(bytes) } : {}) });
   }
   if (normalized.version >= 2 && !cover) throw new Error("精选 Skill 投稿缺少成果封面");
   const skill = parseSkillFrontmatter(preview.find((file) => file.path === "SKILL.md")?.text);
@@ -75,7 +76,7 @@ function validateManifest(value) {
   const fileCount = positiveInteger(value?.fileCount);
   const payloadBytes = positiveInteger(value?.payloadBytes);
   if (license !== PUBLIC_SKILL_LICENSE) throw new Error(`精选 Skill 投稿许可必须是 ${PUBLIC_SKILL_LICENSE}`);
-  if (value?.format !== "prompt-director-curated-skill-submission" || ![1, 2].includes(value.version) || !skillId || !title ||
+  if (value?.format !== "prompt-director-curated-skill-submission" || ![1, 2, 3].includes(value.version) || !skillId || !title ||
       !author || value.reviewStatus !== "pending" || !summary || !isHash(digest) || !isHash(payloadSha256) || !fileCount || !payloadBytes) {
     throw new Error("精选 Skill 投稿清单格式无效");
   }

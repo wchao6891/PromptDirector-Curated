@@ -1,7 +1,7 @@
 {
   "format": "prompt-director-curated-skills",
   "version": 1,
-  "updatedAt": "2026-10-12T16:47:54.227Z",
+  "updatedAt": "2026-10-19T11:51:13.259Z",
   "skills": [
     {
       "id": "creative-skill-d22ccd61@1.0.0",
@@ -177,6 +177,28 @@
         "path": "skill-previews/tig-acting-task/1.0.0/cover.png",
         "sha256": "b9cfd94373f9605f1daca82980e0441535bc50c040f9acb740352b60777c5976",
         "byteSize": 5663733
+      }
+    },
+    {
+      "id": "game-realism@1.0.0",
+      "skillId": "game-realism",
+      "version": "1.0.0",
+      "title": "游戏实机感与HUD视角",
+      "callName": "游戏实机感与HUD视角",
+      "authorId": "author-40ef3270e01b",
+      "author": "PromptDirector",
+      "license": "CC BY 4.0",
+      "reviewStatus": "approved",
+      "reviewedAt": "2026-10-19T11:51:13.259Z",
+      "summary": "用「视角+任务目标+关卡空间+HUD」做出3A实机、游戏预告与互动影游质感。",
+      "downloadUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/skill-game-realism-v1.0.0/game-realism-1.0.0.zip",
+      "sha256": "c234aa74255c75288b0a19adea53d74818dacaec210eeecb1a7b4460f9a23921",
+      "archiveBytes": 115719,
+      "order": 11,
+      "cover": {
+        "path": "skill-previews/game-realism/1.0.0/cover.webp",
+        "sha256": "89f35f8199022fe89dbf4088fc25bd51d4a862b14986a73a794797729fa213c8",
+        "byteSize": 110124
       }
     }
   ]
