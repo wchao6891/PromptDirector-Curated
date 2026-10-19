@@ -1,7 +1,7 @@
 {
   "format": "prompt-director-curated",
   "version": 2,
-  "updatedAt": "2026-10-19T14:22:24.064Z",
+  "updatedAt": "2026-10-19T14:32:55.403Z",
   "themes": [
     {
       "id": "featured:vol-1",
@@ -1014,6 +1014,29 @@
       "videoCount": 12,
       "summary": "12 条左右精选案例，按同一套方法论组织的实战参考。",
       "order": 44
+    },
+    {
+      "id": "cases-d8fbcd1a05ba01c7f2c8",
+      "title": "V08 视觉奇观与特效精选",
+      "type": "video_prompt",
+      "packageId": "cases-d8fbcd1a05ba01c7f2c8",
+      "packageVersion": "1.0.0",
+      "authorId": "github-258240113",
+      "author": "PromptDirector 编辑精选",
+      "license": "第三方来源精选 · 权利归原作者 · 授权未核验",
+      "rightsStatus": "source_unverified",
+      "rightsReviewUrl": "https://wchao6891.github.io/PromptDirector-Curated/reviews/cases-d8fbcd1a05ba01c7f2c8-1.0.0.json",
+      "updatedAt": "2026-10-19T14:30:32.434Z",
+      "coverUrl": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-d8fbcd1a05ba01c7f2c8/media/c2600891eb9d9e6d06d2.webp",
+      "previewUrl": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-d8fbcd1a05ba01c7f2c8/preview.json",
+      "downloadUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/cases-d8fbcd1a05ba01c7f2c8-1.0.0/cases-d8fbcd1a05ba01c7f2c8.zip",
+      "sha256": "699555e874e72fe1fef89772d2ecd425d54b40f1077ccc056cb35098afb87f33",
+      "archiveBytes": 133000912,
+      "caseCount": 12,
+      "imageCount": 12,
+      "videoCount": 12,
+      "summary": "12 条左右精选案例，按同一套方法论组织的实战参考。",
+      "order": 45
     }
   ]
 }
