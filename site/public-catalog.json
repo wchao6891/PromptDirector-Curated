@@ -1,7 +1,7 @@
 {
   "format": "prompt-director-curated",
   "version": 2,
-  "updatedAt": "2026-10-19T13:48:23.225Z",
+  "updatedAt": "2026-10-19T13:58:11.284Z",
   "themes": [
     {
       "id": "featured:vol-1",
@@ -945,6 +945,29 @@
       "videoCount": 12,
       "summary": "12 条左右精选案例，按同一套方法论组织的实战参考。",
       "order": 41
+    },
+    {
+      "id": "cases-8987f96b85f0ac8fe26f",
+      "title": "V10 生活流、伪纪录与空镜精选",
+      "type": "video_prompt",
+      "packageId": "cases-8987f96b85f0ac8fe26f",
+      "packageVersion": "1.0.0",
+      "authorId": "github-258240113",
+      "author": "PromptDirector 编辑精选",
+      "license": "第三方来源精选 · 权利归原作者 · 授权未核验",
+      "rightsStatus": "source_unverified",
+      "rightsReviewUrl": "https://wchao6891.github.io/PromptDirector-Curated/reviews/cases-8987f96b85f0ac8fe26f-1.0.0.json",
+      "updatedAt": "2026-10-19T13:56:07.580Z",
+      "coverUrl": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-8987f96b85f0ac8fe26f/media/571a07736f062a68f9e3.webp",
+      "previewUrl": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-8987f96b85f0ac8fe26f/preview.json",
+      "downloadUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/cases-8987f96b85f0ac8fe26f-1.0.0/cases-8987f96b85f0ac8fe26f.zip",
+      "sha256": "55574677c96e5ac5f4c296137d4c23584acdd6bbbef8d3e151e199bbee8b1803",
+      "archiveBytes": 86484746,
+      "caseCount": 12,
+      "imageCount": 12,
+      "videoCount": 12,
+      "summary": "12 条左右精选案例，按同一套方法论组织的实战参考。",
+      "order": 42
     }
   ]
 }
