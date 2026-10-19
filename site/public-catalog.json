@@ -1,7 +1,7 @@
 {
   "format": "prompt-director-curated",
   "version": 2,
-  "updatedAt": "2026-10-19T12:02:44.299Z",
+  "updatedAt": "2026-10-19T12:06:43.673Z",
   "themes": [
     {
       "id": "featured:vol-1",
@@ -784,6 +784,29 @@
       "videoCount": 6,
       "summary": "6 条国风/3D 国漫/2D 手绘战斗案例，覆盖资产锁定、招式节奏与命中特效。",
       "order": 34
+    },
+    {
+      "id": "cases-21c770663b9db475989f",
+      "title": "V01 商业广告与产品视觉精选",
+      "type": "video_prompt",
+      "packageId": "cases-21c770663b9db475989f",
+      "packageVersion": "1.0.0",
+      "authorId": "github-258240113",
+      "author": "PromptDirector 编辑精选",
+      "license": "第三方来源精选 · 权利归原作者 · 授权未核验",
+      "rightsStatus": "source_unverified",
+      "rightsReviewUrl": "https://wchao6891.github.io/PromptDirector-Curated/reviews/cases-21c770663b9db475989f-1.0.0.json",
+      "updatedAt": "2026-10-19T12:05:00.919Z",
+      "coverUrl": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-21c770663b9db475989f/media/a39419ed3996dae19fd0.webp",
+      "previewUrl": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-21c770663b9db475989f/preview.json",
+      "downloadUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/cases-21c770663b9db475989f-1.0.0/cases-21c770663b9db475989f.zip",
+      "sha256": "7503dce15140933961d65624c3b4ed199bd8b07496a0edeeab5d7f3e8a5fcaec",
+      "archiveBytes": 63535967,
+      "caseCount": 6,
+      "imageCount": 6,
+      "videoCount": 6,
+      "summary": "6 条可投放广告与产品视觉案例，覆盖钩子结构、产品微距与品牌收尾。",
+      "order": 35
     }
   ]
 }
