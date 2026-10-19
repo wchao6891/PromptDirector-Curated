@@ -20,20 +20,22 @@ export function buildPublication(submission, catalogValue, repositoryValue, revi
   if (submission?.license !== PUBLIC_SKILL_LICENSE || !(submission.payload instanceof Uint8Array)) {
     throw new Error("精选 Skill 投稿尚未通过完整预检");
   }
-  if (catalog.skills.some(item => item.skillId === submission.skillId && authorKey(item.author) !== authorKey(submission.author))) throw new Error('同一精选 Skill 的公开署名不一致，拒绝替换稳定作者身份');
   const sha256 = hash(submission.payload);
   const existing = catalog.skills.find((item) => item.skillId === submission.skillId && item.sha256 === sha256);
   if (existing) {
     return {
       status: "existing",
-      item: { ...existing, title: submission.title, callName: normalizeSkillCallName(submission.callName), summary: submission.summary },
-      catalog: { ...catalog, skills: catalog.skills.map(item => item.id === existing.id ? { ...item, title: submission.title, callName: normalizeSkillCallName(submission.callName), summary: submission.summary } : item) },
+      item: existing,
+      catalog,
       asset: { bytes: submission.payload, sha256, archiveBytes: submission.payload.byteLength },
       release: releaseIdentity(existing.skillId, existing.version, repository)
     };
   }
 
   const existingVersions = catalog.skills.filter((item) => item.skillId === submission.skillId);
+  if (existingVersions.some((item) => authorKey(item.author) !== authorKey(submission.author))) {
+    throw new Error("同一精选 Skill 的公开署名不一致，拒绝替换稳定作者身份");
+  }
   const version = nextPatchVersion(existingVersions);
   const release = releaseIdentity(submission.skillId, version, repository);
   const callName = submission.callName === submission.skillId

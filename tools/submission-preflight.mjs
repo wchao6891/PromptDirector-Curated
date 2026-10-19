@@ -195,28 +195,6 @@ export function readStoredZip(bytesValue, limits) {
   return files;
 }
 
-export function assertCaseMediaRelations(entry) {
-  const assets = Array.isArray(entry?.mediaAssets) ? entry.mediaAssets : [];
-  const label = String(entry?.title || entry?.id || '未命名案例');
-  const fail = reason => { throw new Error(`${label}：${reason}`); };
-  const byId = new Map();
-  for (const asset of assets) {
-    if (typeof asset?.id !== 'string' || !asset.id || byId.has(asset.id)) fail('媒体编号缺失或重复');
-    byId.set(asset.id, asset);
-  }
-  const content = assets.filter(asset => asset.usage === 'content' && ['image', 'video'].includes(asset.kind));
-  if (!content.length || !content.some(asset => asset.id === entry.primaryMediaId)) fail('主媒体必须指向本案例的内容图片或视频');
-  const posters = new Set();
-  for (const asset of content) {
-    if (asset.kind !== 'video') continue;
-    const poster = byId.get(asset.posterAssetId);
-    if (poster?.kind !== 'image' || poster.usage !== 'poster' || posters.has(poster.id) ||
-        (poster.derivedFromAssetId && poster.derivedFromAssetId !== asset.id)) fail('视频封面引用缺失或不匹配');
-    posters.add(poster.id);
-  }
-  if (assets.some(asset => !content.includes(asset) && !posters.has(asset.id))) fail('存在未关联的封面或不支持的媒体');
-}
-
 export async function inspectPayload(payload, policy, options = {}) {
   const zip = readStoredZip(payload, {
     maxBytes: policy.maxSubmissionBytes,
@@ -246,18 +224,22 @@ export async function inspectPayload(payload, policy, options = {}) {
     assertOptionalHttps(entry?.url);
     for (const page of entry?.sourcePages ?? []) assertOptionalHttps(page?.url);
     const assets = Array.isArray(entry?.mediaAssets) ? entry.mediaAssets : [];
-    assertCaseMediaRelations(entry);
+    const content = assets.filter((asset) => asset?.usage === "content" && ["image", "video"].includes(asset?.kind));
+    if (content.length !== 1 || assets.length !== (content[0].kind === "video" ? 2 : 1)) throw new Error("案例媒体关系无效");
+    if (content[0].kind === "video") {
+      const poster = assets.find((asset) => asset?.id === content[0].posterAssetId);
+      if (poster?.kind !== "image" || poster?.usage !== "poster") throw new Error("视频案例缺少唯一封面");
+    }
     for (const asset of assets) {
       if (asset?.storageMode !== "managed") throw new Error("投稿媒体必须是已保存的本地文件");
       const path = String(asset?.assetPath ?? "");
       assertSafeMediaPath(path, asset.kind);
-      if (!zip.has(path)) throw new Error("投稿媒体路径缺失");
-      assertOptionalHttps(asset.sourceUrl);
-      assertOptionalHttps(asset.originalWorkUrl);
-      if (usedPaths.has(path)) continue;
+      if (usedPaths.has(path) || !zip.has(path)) throw new Error("投稿媒体路径缺失或重复");
       usedPaths.add(path);
       const bytes = zip.get(path);
       if (!bytes.byteLength || bytes.byteLength > policy.maxSubmissionBytes) throw new Error("投稿媒体大小超过整包容量上限");
+      assertOptionalHttps(asset.sourceUrl);
+      assertOptionalHttps(asset.originalWorkUrl);
       assertMediaSignature(bytes, asset.kind, path);
       probes.push({ bytes, kind: asset.kind, path });
       mediaCount += 1;
@@ -371,18 +353,10 @@ function assertPublicLibraryShape(library) {
     "format", "version", "schemaVersion", "exportedAt", "settings", "taxonomy", "facetCatalog",
     "classificationRules", "organizerState", "compoundCases", "entries"
   ], "案例包");
-  if ((library.classificationRules ?? []).length ||
+  if ((library.classificationRules ?? []).length || (library.compoundCases ?? []).length ||
       (library.organizerState?.collections ?? []).length || (library.facetCatalog?.facets ?? []).length ||
       (library.facetCatalog?.nodes ?? []).length) {
-    throw new Error("投稿包包含不需要公开的分类或项目数据");
-  }
-  const members = new Set(), caseIds = new Set(library.entries.map(entry => entry.id)), compoundIds = new Set(caseIds);
-  for (const compound of library.compoundCases ?? []) {
-    assertAllowedKeys(compound, ['id', 'title', 'memberEntryIds', 'coverVisualId', 'customLabels', 'createdAt', 'updatedAt'], '组合');
-    if (!compound.id || compoundIds.has(compound.id) || !compound.title || !Array.isArray(compound.memberEntryIds) || compound.memberEntryIds.length < 2 || (compound.customLabels ?? []).length) throw new Error('组合案例结构无效');
-    compoundIds.add(compound.id);
-    for (const id of compound.memberEntryIds) { if (!caseIds.has(id) || members.has(id)) throw new Error('组合成员缺失或重复'); members.add(id); }
-    if (compound.coverVisualId && !library.entries.some(entry => compound.memberEntryIds.includes(entry.id) && entry.mediaAssets.some(asset => asset.id === compound.coverVisualId))) throw new Error('组合封面关系无效');
+    throw new Error("投稿包包含不需要公开的分类、组合或项目数据");
   }
   for (const entry of library.entries) {
     assertAllowedKeys(entry, [
@@ -390,12 +364,8 @@ function assertPublicLibraryShape(library) {
       "customLabels", "metadataLabels", "url", "sourcePages", "mediaAssets", "primaryMediaId",
       "timeNotes", "mediaPrompts", "visualSetAnalyses", "videoAnalyses"
     ], "案例");
-    for (const key of ["facetAssignments", "customLabels", "timeNotes", "visualSetAnalyses", "videoAnalyses"]) {
+    for (const key of ["facetAssignments", "customLabels", "timeNotes", "mediaPrompts", "visualSetAnalyses", "videoAnalyses"]) {
       if (!Array.isArray(entry[key]) || entry[key].length) throw new Error("投稿案例包含不需要公开的个人数据");
-    }
-    for (const prompt of entry.mediaPrompts ?? []) {
-      assertAllowedKeys(prompt, ['assetId', 'text', 'source', 'textRevision', 'updatedAt'], '媒体提示词');
-      if (!entry.mediaAssets.some(asset => asset.id === prompt.assetId) || !['manual', 'webpage', 'embedded'].includes(prompt.source) || !String(prompt.text ?? '').trim()) throw new Error('媒体原提示词关系无效');
     }
     if (!(entry.metadataLabels ?? []).every((label) => /^(?:作者|权利)[:：]/u.test(String(label)))) {
       throw new Error("投稿案例包含非公开元数据");

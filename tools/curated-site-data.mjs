@@ -80,9 +80,6 @@ export function normalizeSitePreview(value, themeValue) {
       sourceUrl,
       mediaKind,
       previewImageUrl,
-      ...(Array.isArray(entry.media) ? { media: entry.media.map(asset => normalizeSitePreview({ format: value.format, version: value.version, catalogId: value.catalogId, packageId: value.packageId, packageVersion: value.packageVersion, entries: [{ ...entry, ...asset, media: undefined, compound: undefined }] }, { ...theme, caseCount: 1 }).entries[0]) } : {}),
-      ...(entry.compound ? { compound: { id: clean(entry.compound.id), title: clean(entry.compound.title), memberEntryIds: Array.isArray(entry.compound.memberEntryIds) ? entry.compound.memberEntryIds.map(clean) : [] } } : {}),
-
       ...(hasVideoAsset ? { videoUrl, videoSha256, videoBytes, videoMimeType } : {}),
       width: positiveInteger(entry?.width, "预览宽度无效"),
       height: positiveInteger(entry?.height, "预览高度无效")
@@ -214,6 +211,7 @@ export function normalizeTheme(value = {}) {
   return {
     id: clean(value.id),
     title: clean(value.title),
+    ...(clean(value.titleEn) ? { titleEn: clean(value.titleEn) } : {}),
     type: value.type,
     packageId: safeId(value.packageId),
     packageVersion: clean(value.packageVersion),
