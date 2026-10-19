@@ -13,7 +13,7 @@
 .guide-hero-copy > p.guide-version-note { margin-top: 20px; font-size: 12px; }
 .guide-hero-preview { margin: 0; }
 .guide-hero-preview figcaption { margin-top: 9px; color: var(--muted); font-size: 12px; }
-.guide-jump { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin: 0 0 96px; scroll-margin-top: 92px; }
+.guide-jump { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; margin: 0 0 96px; scroll-margin-top: 92px; }
 .guide-jump a { display: flex; align-items: center; gap: 10px; min-height: 62px; border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 17px; color: var(--text); background: var(--surface); font-size: 14px; font-weight: 800; text-decoration: none; }
 .guide-jump a:hover { border-color: #9bc900; box-shadow: inset 3px 0 var(--accent); }
 .guide-jump b { color: #759d00; font-size: 12px; }
@@ -116,3 +116,7 @@
   .guide-topbar .ui-segmented-item { padding: 4px 7px; }
   .guide-install-options { grid-template-columns: 1fr; }
 }
+.guide-card-shots--one { grid-template-columns: minmax(0, 1fr); }
+.guide-card-shots--one .guide-shot { max-height: none; }
+.guide-card-shots .guide-shot--natural { display: inline-block; width: auto; max-width: 100%; }
+.guide-card-shots .guide-shot--natural img { width: auto; max-width: 100%; }

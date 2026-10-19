@@ -36,7 +36,7 @@
             <a class="guide-primary-link" href="#start">从第一步开始 ↓</a>
             <a class="guide-text-link" href="#topics">直接找功能</a>
           </div>
-          <p class="guide-version-note">文字以 1.26.0 的功能为范围；截图为早期版本界面，个别按钮名称与位置请以你实际安装的版本为准。</p>
+          <p class="guide-version-note">文字以 1.27.0 的功能为范围。前四步沿用早期版本截图；第 05 节的新功能配 1.27.0 截图。个别按钮名称与位置请以你实际安装的版本为准。</p>
         </div>
         <figure class="guide-hero-preview">
           <a class="guide-shot" href="guide-assets/library.png" target="_blank" rel="noopener noreferrer" aria-label="查看案例库原始截图">
@@ -52,6 +52,7 @@
         <a href="#library"><b>02</b> 获取与整理</a>
         <a href="#create"><b>03</b> 用案例创作</a>
         <a href="#more"><b>04</b> 更多入口</a>
+        <a href="#new"><b>05</b> 1.27 新功能</a>
       </nav>
 
       <section class="guide-section" id="start" aria-labelledby="start-title">
@@ -180,7 +181,49 @@
         </div>
       </section>
 
-      <aside class="guide-end"><div><p class="guide-kicker">需要放大？</p><h2>点击任意截图，带标注放大。</h2><p>所有界面图来自真实插件截图，绿色框只标注点击位置。截图来自开发版，个别名称和布局可能与 1.24.1 略有不同。</p></div><a class="guide-primary-link" href="#topics">回到目录 ↑</a></aside>
+      <section class="guide-section" id="new" aria-labelledby="new-title">
+        <div class="guide-section-heading"><span>05 / NEW IN 1.27</span><h2 id="new-title">这次更新，多了这些能力</h2><p>前四步已经能完成日常采集。下面这些是 1.27 版补充的能力，按需再看。</p></div>
+        <div class="guide-card-grid">
+          <article class="guide-card" id="assistant">
+            <div class="guide-card-copy"><span>1.27 新增</span><h3>让助手在旁边帮你</h3><p>点采集栏右上角的“助手”，用平常话说：帮我采集当前视频、打开案例库、找几条雨夜街道参考。它在当前页面读取，结果和保存流程与手动采集一致，原图、原词和你的编辑都会保留。</p></div>
+            <div class="guide-card-shots">
+              <figure class="guide-shot-figure"><a class="guide-shot" href="guide-assets/v127-assistant-bar.jpg" target="_blank" rel="noopener noreferrer" aria-label="查看采集栏助手入口原始截图"><img src="guide-assets/v127-assistant-bar.jpg" alt="真实采集栏，右上角有助手和案例库入口" width="558" height="232" loading="lazy"><span class="guide-target" style="--x:70.9%;--y:21.5%;--w:13.3%;--h:16.4%"><b>1</b></span></a><figcaption><b>1</b> 点采集栏右上角“助手”。</figcaption></figure>
+              <figure class="guide-shot-figure"><a class="guide-shot" href="guide-assets/v127-assistant-prompts.jpg" target="_blank" rel="noopener noreferrer" aria-label="查看助手示例问题原始截图"><img src="guide-assets/v127-assistant-prompts.jpg" alt="助手面板上的示例问题：这个怎么采集、打开案例库、查找案例" width="561" height="200" loading="lazy"><span class="guide-target" style="--x:2%;--y:38%;--w:96%;--h:21%"><b>2</b></span></a><figcaption><b>2</b> 点一个示例问题，或按自己的话说。</figcaption></figure>
+              <figure class="guide-shot-figure"><a class="guide-shot" href="guide-assets/v127-assistant-input.jpg" target="_blank" rel="noopener noreferrer" aria-label="查看助手输入框原始截图"><img src="guide-assets/v127-assistant-input.jpg" alt="助手底部输入框，可选模型并发送" width="561" height="172" loading="lazy"><span class="guide-target" style="--x:2%;--y:23%;--w:96%;--h:68%"><b>3</b></span></a><figcaption><b>3</b> 在底部输入目标，按绿色箭头发送。</figcaption></figure>
+            </div>
+          </article>
+          <article class="guide-card" id="similar">
+            <div class="guide-card-copy"><span>案例详情</span><h3>从一条案例找到相似参考</h3><p>打开任意案例，向下滚动到“相似资料”。这里会列出库里与它相近的案例，点一张就能继续看，也可以直接用它“以此创作”。看视频时还能在具体时间点记创作笔记，之后跳回那一帧。</p></div>
+            <div class="guide-card-shots guide-card-shots--one">
+              <figure class="guide-shot-figure"><a class="guide-shot" href="guide-assets/v127-similar-cases.jpg" target="_blank" rel="noopener noreferrer" aria-label="查看相似资料原始截图"><img src="guide-assets/v127-similar-cases.jpg" alt="案例详情下方的相似资料区域，列出库中相近案例" width="1600" height="716" loading="lazy"><span class="guide-target" style="--x:0.2%;--y:44.5%;--w:7.6%;--h:2.9%"><b>相似资料</b></span></a><figcaption>案例详情底部会按相近程度列出库里的其他参考。</figcaption></figure>
+            </div>
+          </article>
+          <article class="guide-card" id="code">
+            <div class="guide-card-copy"><span>代码案例</span><h3>代码案例也能一起看源码</h3><p>保存的是代码类案例时，详情右侧会出现“查看源码”。展开即可读完整的 HTML/CSS/JS，复制后继续改。</p></div>
+            <div class="guide-card-shots guide-card-shots--one">
+              <figure class="guide-shot-figure"><a class="guide-shot" href="guide-assets/v127-detail-code.jpg" target="_blank" rel="noopener noreferrer" aria-label="查看代码案例源码原始截图"><img src="guide-assets/v127-detail-code.jpg" alt="代码案例详情，右侧有查看源码和完整代码区" width="1600" height="719" loading="lazy"><span class="guide-target" style="--x:82.3%;--y:7.2%;--w:6.5%;--h:3.3%"><b>查看源码</b></span></a><figcaption>点右侧“查看源码”，展开后可直接读代码。</figcaption></figure>
+            </div>
+          </article>
+          <article class="guide-card" id="video">
+            <div class="guide-card-copy"><span>1.27 新增</span><h3>视频采集与本地视频组件</h3><p>在「设置 → 界面与资料库」找到“视频采集”。只想先收藏可保持“仅保存在线播放”；需要本机原件时安装可选的<a href="https://github.com/wchao6891/PromptDirector/blob/main/docs/VIDEO_COMPONENT.md" target="_blank" rel="noopener noreferrer">免费视频组件</a>，装好后这里会显示“视频组件已就绪”。抖音、Bilibili、YouTube 等页面都支持视频采集。</p></div>
+            <div class="guide-card-shots guide-card-shots--two">
+              <figure class="guide-shot-figure"><a class="guide-shot" href="guide-assets/v127-settings-video.jpg" target="_blank" rel="noopener noreferrer" aria-label="查看视频采集设置原始截图"><img src="guide-assets/v127-settings-video.jpg" alt="设置界面与资料库页的视频采集区域，含仅保存在线播放和本机视频解析" width="883" height="683" loading="lazy"><span class="guide-target" style="--x:3%;--y:77%;--w:32%;--h:17%"><b>视频采集</b></span></a><figcaption>两个选项在同一个设置页：是否只保存在线播放、本机视频解析是否就绪。</figcaption></figure>
+            </div>
+          </article>
+          <article class="guide-card" id="tidy">
+            <div class="guide-card-copy"><span>资料库维护</span><h3>旧资料、重复案例和回收站</h3><p>设置 →“任务与维护”集中处理旧资料：补全文字标签、补全资料索引、检查重复案例，右侧按钮会显示当前进度。删除的案例不会立刻消失，先去左侧最下方的“回收站”。</p></div>
+            <div class="guide-card-shots guide-card-shots--two">
+              <figure class="guide-shot-figure"><a class="guide-shot" href="guide-assets/v127-maintenance.jpg" target="_blank" rel="noopener noreferrer" aria-label="查看任务与维护原始截图"><img src="guide-assets/v127-maintenance.jpg" alt="任务与维护页，含文字标签补全、资料索引自动补全和案例排重" width="876" height="336" loading="lazy"><span class="guide-target" style="--x:1.5%;--y:42.5%;--w:38%;--h:8%"><b>1</b></span><span class="guide-target" style="--x:89.4%;--y:55%;--w:10.2%;--h:8.5%"><b>2</b></span><span class="guide-target" style="--x:89.4%;--y:64.5%;--w:10.2%;--h:8.5%"><b>3</b></span></a><figcaption><b>1</b> 查看补全状态　<b>2</b> 需要时补索引　<b>3</b> 查看重复案例。</figcaption></figure>
+              <figure class="guide-shot-figure"><a class="guide-shot guide-shot--natural" href="guide-assets/v127-recycle-bin.jpg" target="_blank" rel="noopener noreferrer" aria-label="查看回收站入口原始截图"><img src="guide-assets/v127-recycle-bin.jpg" alt="案例库左侧最下方的回收站入口" width="360" height="180" loading="lazy"><span class="guide-target" style="--x:1.5%;--y:74%;--w:34%;--h:22%"><b>回收站</b></span></a><figcaption>删错了？到左侧最下方“回收站”找回。</figcaption></figure>
+            </div>
+          </article>
+          <article class="guide-card" id="sync">
+            <div class="guide-card-copy"><span>设置与连接</span><h3>备份、同步和 Agent 连接</h3><p>同一页继续向下，还有 Agent 连接、备份与同步、跨设备同步。“复制连接指令”可以交给 Codex、Claude Code 或 WorkBuddy；“备份资料库”保存整库，换电脑后用“恢复资料库”读回。详见<a href="https://github.com/wchao6891/PromptDirector/blob/main/connector/INSTALL.md" target="_blank" rel="noopener noreferrer">Agent 安装说明</a>。</p></div>
+          </article>
+        </div>
+      </section>
+
+      <aside class="guide-end"><div><p class="guide-kicker">需要放大？</p><h2>点击任意截图，带标注放大。</h2><p>所有界面图来自真实插件截图，绿色框只标注点击位置。前四步沿用早期版本截图，第 05 节为新功能截图；个别名称和布局可能与 1.27.0 略有不同。</p></div><a class="guide-primary-link" href="#topics">回到目录 ↑</a></aside>
     </main>
     <dialog class="guide-lightbox" id="guide-lightbox" aria-label="放大查看操作截图">
       <div class="guide-lightbox-bar"><strong id="guide-lightbox-title">操作截图</strong><button id="guide-lightbox-close" type="button" aria-label="关闭放大截图">关闭 ×</button></div>
