@@ -1,7 +1,7 @@
 {
   "format": "prompt-director-curated",
   "version": 2,
-  "updatedAt": "2026-10-19T12:58:16.623Z",
+  "updatedAt": "2026-10-19T13:04:48.320Z",
   "themes": [
     {
       "id": "featured:vol-1",
@@ -876,6 +876,29 @@
       "videoCount": 6,
       "summary": "6 条写实动作案例，覆盖镜头载体、连续动作与物理反馈。",
       "order": 38
+    },
+    {
+      "id": "cases-188037bfd925a5121795",
+      "title": "V12 教程与工作流精选",
+      "type": "video_prompt",
+      "packageId": "cases-188037bfd925a5121795",
+      "packageVersion": "1.0.0",
+      "authorId": "github-258240113",
+      "author": "PromptDirector 编辑精选",
+      "license": "第三方来源精选 · 权利归原作者 · 授权未核验",
+      "rightsStatus": "source_unverified",
+      "rightsReviewUrl": "https://wchao6891.github.io/PromptDirector-Curated/reviews/cases-188037bfd925a5121795-1.0.0.json",
+      "updatedAt": "2026-10-19T13:02:59.733Z",
+      "coverUrl": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-188037bfd925a5121795/media/98ccc71dad3c42ecdf57.webp",
+      "previewUrl": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-188037bfd925a5121795/preview.json",
+      "downloadUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/cases-188037bfd925a5121795-1.0.0/cases-188037bfd925a5121795.zip",
+      "sha256": "32f3fb685edac83c0e56f777e0fca8ce05c7ac8e673d77ad3c6da39157e4e5ec",
+      "archiveBytes": 72906415,
+      "caseCount": 6,
+      "imageCount": 6,
+      "videoCount": 6,
+      "summary": "6 条教程案例，覆盖 Prompt 结构、一致性与后期流程。",
+      "order": 39
     }
   ]
 }
