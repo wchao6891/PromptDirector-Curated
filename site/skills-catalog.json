@@ -1,7 +1,7 @@
 {
   "format": "prompt-director-curated-skills",
   "version": 1,
-  "updatedAt": "2026-10-19T12:09:54.515Z",
+  "updatedAt": "2026-10-19T12:13:13.882Z",
   "skills": [
     {
       "id": "creative-skill-d22ccd61@1.0.0",
@@ -287,6 +287,28 @@
         "path": "skill-previews/short-drama-emotion/1.0.0/cover.webp",
         "sha256": "54d56f248c9c4c8d8b9358984ccabade1e398320abc0e3dc775c99dd7886b4f2",
         "byteSize": 53054
+      }
+    },
+    {
+      "id": "live-action-action@1.0.0",
+      "skillId": "live-action-action",
+      "version": "1.0.0",
+      "title": "动作镜头语法与物理反馈",
+      "callName": "动作镜头语法与物理反馈",
+      "authorId": "author-40ef3270e01b",
+      "author": "PromptDirector",
+      "license": "CC BY 4.0",
+      "reviewStatus": "approved",
+      "reviewedAt": "2026-10-19T12:13:13.882Z",
+      "summary": "用「镜头载体+连续动作线+物理反馈+Foley」做出写实枪战、追逐、跑酷与极限 POV。",
+      "downloadUrl": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/skill-live-action-action-v1.0.0/live-action-action-1.0.0.zip",
+      "sha256": "0bce22fd789b3957b43f9d464cfeccae7b2887a09ec316372c2da5e2b0b5428b",
+      "archiveBytes": 64596,
+      "order": 16,
+      "cover": {
+        "path": "skill-previews/live-action-action/1.0.0/cover.webp",
+        "sha256": "cf943f43a314d88b66c7c252487cf3789c62a2ca4c2ab1249e2a2be0e71158c7",
+        "byteSize": 58166
       }
     }
   ]
