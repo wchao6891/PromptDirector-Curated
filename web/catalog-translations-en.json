@@ -137,71 +137,71 @@
     }
   },
   "skills": {
-    "creative-skill-d22ccd61@1.0.0": {
+    "creative-skill-d22ccd61": {
       "title": "Arvin · High-Speed Action",
       "summary": "A structured approach drawn from ten sets of Arvin’s Chinese-inspired fantasy action prompts: global constraints, action-density levels, impact feedback, movement and effects, simulated continuous takes, lasting environmental damage, final-frame targets and negative constraints. Use it to write high-speed action prompts across tools."
     },
-    "creative-skill-09f1d3cb@1.0.0": {
+    "creative-skill-09f1d3cb": {
       "title": "PromptDirector · Visual Effects Library",
       "summary": "A video-effects writing guide distilled from 77 reference prompts. It covers fluids, fire and burning, blade and sword energy, particles and energy, physical simulation and environmental destruction, and hair and cloth. Includes shared constraints, proportional descriptions, second-by-second pacing, negative constraints and original reference prompts. Use it for fantasy combat, water and ink, fire, energy formations, destruction, gravity and fabric motion."
     },
-    "lira-image-prompts@1.0.0": {
+    "lira-image-prompts": {
       "title": "Lira · Image Prompt Refinement",
       "summary": "Refine prompts for character reference images, cinematic scene stills, props and image edits. Covers task breakdown, model roles, identity anchors, composition, lighting, materials, color and precise boundaries for changes and preservation."
     },
-    "cinedance@1.0.0": {
+    "cinedance": {
       "title": "CINEDANCE · Cinematic Video Direction",
       "summary": "The Chinese edition of CINEDANCE V4 turns scene ideas into production-ready video prompts. Control the first frame, blocking, eyelines, optics, physics, lighting, dialogue timing and shot continuity. Includes three Chinese reference documents."
     },
-    "acting-skill@1.0.0": {
+    "acting-skill": {
       "title": "Character Performance System",
       "summary": "Turn character objectives, obstacles, tactics, beats and subtext into filmable behavior. Covers performance profiles, eyelines, physicality, consistent voices, scene adaptation, ensemble scenes and diagnosing weak performances, with complete examples."
     },
-    "tig-blocking-map@1.0.0": {
+    "tig-blocking-map": {
       "title": "Character Blocking Maps",
       "summary": "Use low-saturation, color-coded diagrams to lock character positions, poses and orientations. Includes three layers of protection against style leakage, diagram-to-video templates, reference attachment order, version labels, projectile paths and camera paths."
     },
-    "frame-break-popout@1.0.0": {
+    "frame-break-popout": {
       "title": "Breaking the Frame",
       "summary": "Write reusable prompts for characters crossing letterbox bars and emerging from the frame. Includes three-layer compositing, static bars, camera placement, boundary-crossing choreography, cloth momentum, templates and original source wording."
     },
-    "tig-acting-task@1.0.0": {
+    "tig-acting-task": {
       "title": "Acting Task Design",
       "summary": "Keep eyelines and listening active through a shared scene direction, character motivation, individual objectives, obstacles and tactics aimed at the scene partner. Preserves Tigran’s specific definitions, event analysis, physical channels and contrasting character design."
     },
-    "reference-role-binding@1.0.1": {
+    "reference-role-binding": {
       "title": "Reference Roles and Character Consistency",
       "summary": "Define distinct roles for character sheets, first frames, locations, actions and product references to avoid swapped faces, mixed costumes, copied layouts and rigid poses."
     },
-    "freeze-rewind-staging@1.0.1": {
+    "freeze-rewind-staging": {
       "title": "Time Freeze, Orbit and Rewind",
       "summary": "Control the time states of the world, characters and camera separately. Use parallax, exceptions to frozen motion and causal resets to make freezes and rewinds readable."
     },
-    "continuous-camera-route@1.0.1": {
+    "continuous-camera-route": {
       "title": "Spatial Routes for Continuous Takes",
       "summary": "Connect locations and camera paths before staging chases and reveals. Distinguish true long takes, occlusion-based transitions and montage."
     },
-    "gameplay-state-feedback@1.0.1": {
+    "gameplay-state-feedback": {
       "title": "Gameplay Actions and Feedback",
       "summary": "Connect objectives, player actions, enemy states, environmental changes and HUD feedback into readable gameplay instead of adding an interface to a cinematic shot."
     },
-    "product-benefit-proof@1.0.1": {
+    "product-benefit-proof": {
       "title": "Show the Product Benefit",
       "summary": "Choose demonstration actions, usage contexts and sound changes that prove real product benefits while preserving product identity. Distinguish UGC, material showcases and functional advertising."
     },
-    "handheld-capture-logic@1.0.1": {
+    "handheld-capture-logic": {
       "title": "Handheld Realism and Camera Operator Logic",
       "summary": "Build believable vlogs and on-location footage around who holds the phone, why the camera turns, when focus slips and how shots connect. Avoid mechanically adding shake and grain."
     },
-    "dance-motion-continuity@1.0.1": {
+    "dance-motion-continuity": {
       "title": "Dance Balance, Continuity and Musical Timing",
       "summary": "Describe dance as a continuous transfer of supporting feet, weight and movement direction, with edits driven by music. Keep lip sync distinct from dance choreography."
     },
-    "vfx-state-continuity@1.0.1": {
+    "vfx-state-continuity": {
       "title": "VFX Triggers, Transformations and Continuity",
       "summary": "Specify when effects begin, where they attach, how they transform and how they end so energy, transformations and reconstruction retain traceable object relationships."
     },
-    "scale-and-contact@1.0.1": {
+    "scale-and-contact": {
       "title": "Scale Through Context and Contact",
       "summary": "Establish scale through familiar objects, shared framing, contact reactions and camera distance, so giant and miniature subjects depend on visible evidence rather than adjectives."
     }
