@@ -1,0 +1,65 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFile} from 'node:fs/promises';
+import {buildPackage,mapAssetUrls} from '../tools/website-data.mjs';
+const legacy='https://wchao6891.github.io/PromptDirector-Curated/';
+const theme={id:'test',packageId:'test-package',imageCount:1,videoCount:1};
+const video={id:'video',title:'A film',text:'Original prompt\nLine 2',author:'Creator',mediaKind:'video',previewImageUrl:legacy+'previews/cover.webp',videoUrl:'https://github.com/owner/repo/releases/download/media/video.mp4'};
+test('a video cover must never turn a video-only package into mixed cases',()=>{
+ const {pack,details,search}=buildPackage(theme,{entries:[video]},'2026-10-01T00:00:00Z',legacy);
+ assert.deepEqual(pack.caseCounts,{image:0,video:1});assert.equal(pack.entries[0].text,undefined);
+ assert.equal(details[0].text,video.text);assert.equal(search[0][1],video.text);
+ assert.equal(pack.entries[0].previewImageUrl,'previews/cover.webp');assert.equal(details[0].videoUrl,video.videoUrl);
+});
+test('a mixed compound retains member prompts, sources and both filter types',()=>{
+ const first={...video,id:'a',compound:{title:'Sequence',memberEntryIds:['a','b']},sourceUrl:'https://example.com/a'};
+ const second={...video,id:'b',mediaKind:'image',text:'Second prompt',sourceUrl:'https://example.com/b'};
+ const {pack,details}=buildPackage(theme,{entries:[first,second]},'2026-10-01T00:00:00Z',legacy);
+ assert.equal(pack.entries.length,1);assert.deepEqual(pack.caseCounts,{image:1,video:1});
+ assert.deepEqual(details[0].media.map(x=>[x.text,x.sourceUrl]),[[video.text,first.sourceUrl],[second.text,second.sourceUrl]]);
+});
+test('stable case links survive preview reorder and text edits',()=>{
+ const a=buildPackage(theme,{entries:[video]},'2026-10-01T00:00:00Z',legacy);
+ const b=buildPackage({...theme,updatedAt:'2026-11-01T00:00:00Z'},{entries:[{...video,id:'new'},{...video,text:'Edited'}]},a.pack.publishedAt,legacy);
+ assert.equal(a.pack.entries[0].key,b.pack.entries[1].key);assert.equal(a.pack.publishedAt,b.pack.publishedAt);
+});
+test('only asset fields are relocated; prompt text and source attribution are not rewritten',()=>{
+ const value={previewImageUrl:legacy+'x.webp',text:legacy+'original',sourceUrl:legacy+'author',media:[{videoUrl:legacy+'v.mp4'}]};
+ const output=mapAssetUrls(value,legacy);assert.equal(output.text,value.text);assert.equal(output.sourceUrl,value.sourceUrl);assert.equal(output.media[0].videoUrl,'v.mp4');
+});
+test('unknown first publication dates fail instead of silently sorting by edit date',()=>{
+ assert.throws(()=>buildPackage(theme,{entries:[video]},undefined,legacy),/first publication/);
+});
+const readJSON=async path=>JSON.parse(await readFile(new URL(path,import.meta.url),'utf8'));
+test('production catalog exports every reviewed case, and keeps full prompts out of the initial index',async()=>{
+ const index=await readJSON('../dist/website/website/index.json');const source=await readJSON('../site/public-catalog.json');
+ assert.equal(index.packs.length,source.themes.length);
+ for(const p of index.packs){
+  const original=source.themes.find(t=>t.id===p.id);assert.equal(p.downloadUrl,original.downloadUrl);assert.equal(p.sha256,original.sha256);
+  const details=await readJSON('../dist/website/'+p.detailsUrl);
+  assert.equal(details.length,p.entries.length);assert.ok(p.entries.every(e=>!Object.hasOwn(e,'text')));
+  assert.ok(details.every(e=>typeof e.text==='string'));assert.ok(p.entries.every(e=>!e.previewImageUrl.startsWith(legacy)));
+ }
+});
+test('English metadata covers the current catalog, including newly replaced Skills',async()=>{
+ const t=await readJSON('../web/catalog-translations-en.json');const c=await readJSON('../site/public-catalog.json');const s=await readJSON('../site/skills-catalog.json');
+ for(const p of c.themes)assert.ok(t.packs[p.id]?.title,p.id);
+ for(const skill of s.skills)assert.ok(t.skills[skill.id]?.summary,skill.id);
+});
+
+import vm from 'node:vm';
+test('detail reads share in-flight requests and a failure can be retried',async()=>{
+ let calls=0;const context=vm.createContext({URL,Map,Set,document:{currentScript:{src:'https://promptdirector.cn/website-data.js'}},fetch:async()=>{calls++;if(calls===1)throw Error('network');return {ok:true,json:async()=>[{id:'case',text:'complete'}]}}});
+ vm.runInContext(await readFile(new URL('../web/website-data.js',import.meta.url),'utf8'),context);
+ await assert.rejects(vm.runInContext("readCase({detailsUrl:'website/details/p.json'},'case')",context),/network/);
+ const [a,b]=await vm.runInContext("Promise.all([readCase({detailsUrl:'website/details/p.json'},'case'),readCase({detailsUrl:'website/details/p.json'},'case')])",context);
+ assert.equal(calls,2);assert.equal(a.text,'complete');assert.equal(b.text,'complete');
+});
+test('following import merges without losing current authors and rejects unrelated JSON',async()=>{
+ const key='promptdirector.curated.following.v1';const values=new Map([[key,'["existing"]']]);const status={textContent:''},input={value:'file'};const nodes={'#transfer-status':status,'#export-following':{},'#import-following':input};
+ const context=vm.createContext({document:{documentElement:{lang:'en'},querySelector:s=>nodes[s]},localStorage:{getItem:k=>values.get(k),setItem:(k,v)=>values.set(k,v)},Set,JSON});
+ vm.runInContext(await readFile(new URL('../site/following-transfer.js',import.meta.url),'utf8'),context);
+ await input.onchange({target:{files:[{text:async()=>JSON.stringify({format:'promptdirector-following',version:1,authors:['new','existing'],language:'en'})}],value:'file'}});
+ assert.deepEqual(JSON.parse(values.get(key)),['existing','new']);assert.match(status.textContent,/preserved/);
+ await input.onchange({target:{files:[{text:async()=>'{}'}],value:'file'}});assert.deepEqual(JSON.parse(values.get(key)),['existing','new']);assert.match(status.textContent,/Could not import/);
+});

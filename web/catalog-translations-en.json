@@ -1,0 +1,220 @@
+{
+  "packs": {
+    "featured:vol-1": {
+      "title": "Vol. 1 · Original Chinese-Inspired Visuals"
+    },
+    "featured:jimeng": {
+      "title": "Vol. 2 · Jimeng Selections"
+    },
+    "featured:aiartworks-mj": {
+      "title": "Vol. 3 · AIArtWorks Selections"
+    },
+    "featured:higgsfield": {
+      "title": "Vol. 4 · Higgsfield Selections"
+    },
+    "featured:evolink-video-1": {
+      "title": "EvoLink Video Selections · 1/5"
+    },
+    "featured:evolink-video-2": {
+      "title": "EvoLink Video Selections · 2/5"
+    },
+    "featured:evolink-video-3": {
+      "title": "EvoLink Video Selections · 3/5"
+    },
+    "featured:evolink-video-4": {
+      "title": "EvoLink Video Selections · 4/5"
+    },
+    "featured:evolink-video-5": {
+      "title": "EvoLink Video Selections · 5/5"
+    },
+    "featured:jimeng-guofeng-community-1": {
+      "title": "Jimeng Chinese-Inspired Community Selections · Vol. 1"
+    },
+    "cases-85fe274e06c395c24e8a": {
+      "title": "Jimeng · Chinese-Inspired Visuals, Vol. 2"
+    },
+    "cases-1ceeb0d9bc533bf10bcc": {
+      "title": "Jimeng · Visual Development"
+    },
+    "cases-1ea9f7e33e0b293d2a12": {
+      "title": "Jimeng · E-commerce Advertising"
+    },
+    "cases-4529f91713cffcfe4dc1": {
+      "title": "Jimeng · Poster Design"
+    },
+    "cases-f05a7604a4a889ede786": {
+      "title": "Jimeng · Brand Design"
+    },
+    "cases-ed99fb86238d9dca13c0": {
+      "title": "Jimeng · Inspiration Series"
+    },
+    "cases-5b8deb5b7d94e3bcdefb": {
+      "title": "Xiaoheihe · Fen Jue Selections"
+    },
+    "cases-a7126fd0ce35aaf96153": {
+      "title": "Xiaoheihe · Selected Cases"
+    },
+    "cases-3067eed17c7b7ca7d1b3": {
+      "title": "Xiaoheihe · Couture"
+    },
+    "cases-ad27222f0bfd93989f6e": {
+      "title": "X · Fashion Design"
+    },
+    "melies:camera-movement": {
+      "title": "Melies · Camera Movement"
+    },
+    "melies:camera-angles": {
+      "title": "Melies · Camera Angles"
+    },
+    "melies:framing-and-shot-size": {
+      "title": "Melies · Framing and Shot Size"
+    },
+    "melies:lighting": {
+      "title": "Melies · Lighting"
+    },
+    "melies:composition": {
+      "title": "Melies · Composition"
+    },
+    "melies:lenses-and-optics": {
+      "title": "Melies · Lenses and Optics"
+    },
+    "melies:color-and-film-look": {
+      "title": "Melies · Color and Film Look"
+    },
+    "melies:time-and-motion": {
+      "title": "Melies · Time and Motion"
+    },
+    "melies:in-camera-and-optical-effects": {
+      "title": "Melies · In-Camera and Optical Effects"
+    },
+    "melies:editing-and-transitions": {
+      "title": "Melies · Editing and Transitions"
+    },
+    "melies:atmosphere-and-weather": {
+      "title": "Melies · Atmosphere and Weather"
+    },
+    "melies:genre-looks": {
+      "title": "Melies · Genre Looks"
+    },
+    "melies:viral-looks": {
+      "title": "Melies · Viral Looks"
+    },
+    "cases-0152f32b423764db6414": {
+      "title": "V05 · Fantasy Action and Combat"
+    },
+    "cases-21c770663b9db475989f": {
+      "title": "V01 · Commercials and Product Visuals"
+    },
+    "cases-c92476a8b91dad853e46": {
+      "title": "V09 · Music, Dance and Lip Sync"
+    },
+    "cases-a11838df4ddcdd6931e4": {
+      "title": "V04 · Horror and Suspense"
+    },
+    "cases-0651f642797edd4693a7": {
+      "title": "V06 · Realistic Action and Chases"
+    },
+    "cases-188037bfd925a5121795": {
+      "title": "V12 · Tutorials and Workflows"
+    },
+    "cases-439ddc0a3f2ea802932f": {
+      "title": "V02 · Fashion, Portraits and Styling"
+    },
+    "cases-c841d8e0b8020dda28c3": {
+      "title": "V03 · Short Drama"
+    },
+    "cases-8987f96b85f0ac8fe26f": {
+      "title": "V10 · Everyday Life, Mock Documentaries and Atmosphere"
+    },
+    "cases-15e09c79753fcb0bea4c": {
+      "title": "V11 · Games and Virtual Worlds"
+    },
+    "cases-839cf1bfbcbae095777b": {
+      "title": "V07 · Character and IP Consistency"
+    },
+    "cases-d8fbcd1a05ba01c7f2c8": {
+      "title": "V08 · Spectacle and Visual Effects"
+    }
+  },
+  "skills": {
+    "creative-skill-d22ccd61@1.0.0": {
+      "title": "Arvin · High-Speed Action",
+      "summary": "A structured approach drawn from ten sets of Arvin’s Chinese-inspired fantasy action prompts: global constraints, action-density levels, impact feedback, movement and effects, simulated continuous takes, lasting environmental damage, final-frame targets and negative constraints. Use it to write high-speed action prompts across tools."
+    },
+    "creative-skill-09f1d3cb@1.0.0": {
+      "title": "PromptDirector · Visual Effects Library",
+      "summary": "A video-effects writing guide distilled from 77 reference prompts. It covers fluids, fire and burning, blade and sword energy, particles and energy, physical simulation and environmental destruction, and hair and cloth. Includes shared constraints, proportional descriptions, second-by-second pacing, negative constraints and original reference prompts. Use it for fantasy combat, water and ink, fire, energy formations, destruction, gravity and fabric motion."
+    },
+    "lira-image-prompts@1.0.0": {
+      "title": "Lira · Image Prompt Refinement",
+      "summary": "Refine prompts for character reference images, cinematic scene stills, props and image edits. Covers task breakdown, model roles, identity anchors, composition, lighting, materials, color and precise boundaries for changes and preservation."
+    },
+    "cinedance@1.0.0": {
+      "title": "CINEDANCE · Cinematic Video Direction",
+      "summary": "The Chinese edition of CINEDANCE V4 turns scene ideas into production-ready video prompts. Control the first frame, blocking, eyelines, optics, physics, lighting, dialogue timing and shot continuity. Includes three Chinese reference documents."
+    },
+    "acting-skill@1.0.0": {
+      "title": "Character Performance System",
+      "summary": "Turn character objectives, obstacles, tactics, beats and subtext into filmable behavior. Covers performance profiles, eyelines, physicality, consistent voices, scene adaptation, ensemble scenes and diagnosing weak performances, with complete examples."
+    },
+    "tig-blocking-map@1.0.0": {
+      "title": "Character Blocking Maps",
+      "summary": "Use low-saturation, color-coded diagrams to lock character positions, poses and orientations. Includes three layers of protection against style leakage, diagram-to-video templates, reference attachment order, version labels, projectile paths and camera paths."
+    },
+    "frame-break-popout@1.0.0": {
+      "title": "Breaking the Frame",
+      "summary": "Write reusable prompts for characters crossing letterbox bars and emerging from the frame. Includes three-layer compositing, static bars, camera placement, boundary-crossing choreography, cloth momentum, templates and original source wording."
+    },
+    "tig-acting-task@1.0.0": {
+      "title": "Acting Task Design",
+      "summary": "Keep eyelines and listening active through a shared scene direction, character motivation, individual objectives, obstacles and tactics aimed at the scene partner. Preserves Tigran’s specific definitions, event analysis, physical channels and contrasting character design."
+    },
+    "reference-role-binding@1.0.1": {
+      "title": "Reference Roles and Character Consistency",
+      "summary": "Define distinct roles for character sheets, first frames, locations, actions and product references to avoid swapped faces, mixed costumes, copied layouts and rigid poses."
+    },
+    "freeze-rewind-staging@1.0.1": {
+      "title": "Time Freeze, Orbit and Rewind",
+      "summary": "Control the time states of the world, characters and camera separately. Use parallax, exceptions to frozen motion and causal resets to make freezes and rewinds readable."
+    },
+    "continuous-camera-route@1.0.1": {
+      "title": "Spatial Routes for Continuous Takes",
+      "summary": "Connect locations and camera paths before staging chases and reveals. Distinguish true long takes, occlusion-based transitions and montage."
+    },
+    "gameplay-state-feedback@1.0.1": {
+      "title": "Gameplay Actions and Feedback",
+      "summary": "Connect objectives, player actions, enemy states, environmental changes and HUD feedback into readable gameplay instead of adding an interface to a cinematic shot."
+    },
+    "product-benefit-proof@1.0.1": {
+      "title": "Show the Product Benefit",
+      "summary": "Choose demonstration actions, usage contexts and sound changes that prove real product benefits while preserving product identity. Distinguish UGC, material showcases and functional advertising."
+    },
+    "handheld-capture-logic@1.0.1": {
+      "title": "Handheld Realism and Camera Operator Logic",
+      "summary": "Build believable vlogs and on-location footage around who holds the phone, why the camera turns, when focus slips and how shots connect. Avoid mechanically adding shake and grain."
+    },
+    "dance-motion-continuity@1.0.1": {
+      "title": "Dance Balance, Continuity and Musical Timing",
+      "summary": "Describe dance as a continuous transfer of supporting feet, weight and movement direction, with edits driven by music. Keep lip sync distinct from dance choreography."
+    },
+    "vfx-state-continuity@1.0.1": {
+      "title": "VFX Triggers, Transformations and Continuity",
+      "summary": "Specify when effects begin, where they attach, how they transform and how they end so energy, transformations and reconstruction retain traceable object relationships."
+    },
+    "scale-and-contact@1.0.1": {
+      "title": "Scale Through Context and Contact",
+      "summary": "Establish scale through familiar objects, shared framing, contact reactions and camera distance, so giant and miniature subjects depend on visible evidence rather than adjectives."
+    }
+  },
+  "labels": {
+    "PromptDirector 编辑精选": "PromptDirector Editorial",
+    "PromptDirector 原创": "Original work by PromptDirector",
+    "归原作者或其他权利人": "Rights belong to the original creator or other rights holders",
+    "权利归原作者": "Rights belong to the original creator",
+    "第三方来源精选 · 权利归原作者 · 授权未核验": "Curated third-party source · Rights belong to the original creator · License unverified",
+    "未署名": "Uncredited",
+    "Tigran（原方法）；中文整理：PromptDirector": "Tigran (original method); Chinese adaptation by PromptDirector",
+    "Kōda（来源提示词）；PromptDirector（方法整理）": "Kōda (source prompts); methods compiled by PromptDirector",
+    "PromptDirector 编辑整理 · 案例原作者见包内来源": "Curated by PromptDirector · Original creators credited in the package"
+  }
+}
