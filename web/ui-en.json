@@ -43,11 +43,9 @@
   "此案例未提供提示词。": "No prompt was provided for this case.",
   "关注仅在本次页面有效": "This follow is saved for this session only",
   "原型案例链接已复制": "Prototype case link copied",
-  "合集链接已复制": "Collection link copied",
   "联系方式已复制": "Contact details copied",
   "正文已复制": "Text copied",
   "链接已复制": "Link copied",
-  "复制合集链接": "Copy collection link",
   "复制案例链接": "Copy case link",
   "复制微信号": "Copy WeChat ID",
   "复制邮箱": "Copy email address",
@@ -142,7 +140,7 @@
   "精选案例暂时无法读取。": "Could not load the curated cases.",
   "重试": "Retry",
   "Spot it. Save it. 刷到就存，要用就有。浏览精选视觉案例、完整提示词与创作 Skill。": "Spot it. Save it. Browse curated visual cases, complete prompts and creative Skills.",
-  "未找到这个案例。": "Case not found.",
+  "未找到这个案例。": "This case could not be found.",
   "迁移关注": "Move follows",
   "上架": "Published",
   "PromptDirector 编辑精选": "PromptDirector Editorial",
@@ -151,5 +149,8 @@
   "但真正动手时，才发现手头没有一套好用的创作资产。参考案例、视觉设定，还有能让模型稳定理解的提示词方法，都需要一点点积累。": "When I started, I realized I didn’t have a useful set of creative assets. References, visual development, and prompting methods that models could interpret consistently—all of it had to be built up, piece by piece.",
   "于是我想，索性做一个采集插件吧。看到好的案例，就一键保存下来。没想到随着开发逐渐深入，功能也一点点丰富，最终成了你现在看到的样子。": "So I thought: why not make a browser extension to collect them? Whenever I came across a good example, I could save it with one click. As development continued, more features grew out of that idea, eventually becoming the tool you see today.",
   "这个插件里，有我认真投入的时间和心力。希望你会喜欢，也希望它能帮你把一个创作念头，慢慢变成作品。": "I’ve put a lot of time and care into this extension. I hope you enjoy it, and that it helps you turn a creative idea into something real.",
-  "PromptDirector 插件会永久免费，并持续开源更新。": "The PromptDirector extension will always be free, with continued open-source updates."
+  "PromptDirector 插件会永久免费，并持续开源更新。": "The PromptDirector extension will always be free, with continued open-source updates.",
+  "返回全部合集": "Back to collections",
+  "返回所属合集": "Back to collection",
+  "互动功能暂时无法读取，请刷新重试": "Interactive features could not load. Please refresh to retry."
 }

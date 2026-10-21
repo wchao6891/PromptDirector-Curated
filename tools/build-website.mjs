@@ -4,7 +4,10 @@ import {execFileSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 import {resolve,relative,dirname,join} from 'node:path';
 import {buildPackage,localAsset,mapAssetUrls} from './website-data.mjs';
-import {normalizeSiteCatalog,normalizeSitePreview} from './curated-site-data.mjs';
+import {normalizeSiteCatalog,normalizeSitePreview,normalizeSiteMetrics} from './curated-site-data.mjs';
+import {prepareWebsiteImages} from './website-images.mjs';
+import {renderWebsite,addMetadata} from './website-render.mjs';
+import {parseHTML} from 'linkedom';
 const root=fileURLToPath(new URL('../',import.meta.url));
 const source=join(root,'site'),web=join(root,'web'),out=join(root,'dist/website');
 const json=async p=>JSON.parse(await readFile(p,'utf8'));
@@ -50,15 +53,19 @@ for(const name of ['catalog.json','public-catalog.json','skills-catalog.json','m
  await writeFile(join(out,name),text.split(config.legacyOrigin).join(config.origin+'/'));
 }
 await cp(join(source,'following.html'),join(out,'following.html'));await cp(join(source,'en/following.html'),join(out,'en/following.html'));await cp(join(source,'following-transfer.js'),join(out,'following-transfer.js'));
-for(const name of ['guide.css','guide.js','privacy.css','lang.js'])await cp(join(source,name),join(out,name));
+for(const name of ['guide.css','guide.js','privacy.css'])await cp(join(source,name),join(out,name));
 await cp(join(web,'assets'),join(out,'assets'),{recursive:true});
 await cp(join(web,'style.css'),join(out,'style.css'));
 await cp(join(web,'website-data.js'),join(out,'website-data.js'));
+await cp(join(web,'lang.js'),join(out,'lang.js'));
+await prepareWebsiteImages({root,source,out,index,skills:skills.skills});
 await mkdir(join(out,'website/details'),{recursive:true});
 for(const [path,value] of detailOutputs)await writeFile(join(out,path),JSON.stringify(value));
 await writeFile(join(out,'website/index.json'),JSON.stringify(index));
 await writeFile(join(out,'website/search.json'),JSON.stringify(search));
-await writeFile(join(out,'website/site.json'),JSON.stringify({skills:skills.skills,contact:config.contact,origin:config.origin}));
+const metrics=normalizeSiteMetrics(await json(join(source,'metrics.json')),catalog);
+const metadata={skills:skills.skills,contact:config.contact,origin:config.origin,metrics};
+await writeFile(join(out,'website/site.json'),JSON.stringify(metadata));
 await writeFile(join(out,'catalog-en.js'),'const catalogEnglish='+JSON.stringify(translations)+';\n');
 for(const name of ['app','site-pages']){
  const zh=await readFile(join(web,name+'.js'),'utf8');
@@ -72,7 +79,7 @@ const template=await readFile(join(web,'index.html'),'utf8');
 for(const english of [false,true]){
  let page=english?translate(template).replace('lang="zh-CN"','lang="en"'):template;
  if(english){
-  page=page.replace('href="en/index.html" hreflang="en" data-pd-set-lang="en">EN','href="../index.html" hreflang="zh-CN" data-pd-set-lang="zh-CN">中文')
+  page=page.replace('<base href="/">','<base href="/en/">').replace('href="en/index.html" hreflang="en" data-pd-set-lang="en">EN','href="../index.html" hreflang="zh-CN" data-pd-set-lang="zh-CN">中文')
    .replace(/(src|href)="(style.css|lang.js|website-data.js|assets\/brand.svg)"/g,'$1="../$2"')
    .replace('src="app.js"','src="../app-en.js"').replace('src="site-pages.js"','src="../site-pages-en.js"')
    .replace('<script src="../app-en.js"','<script src="../catalog-en.js"></script><script src="../app-en.js"')
@@ -90,11 +97,23 @@ for(const english of [false,true]){
   doc=doc.replace('</head>',`<link rel="stylesheet" href="${english?'../':''}style.css"><link rel="icon" href="${english?'../':''}assets/brand.svg"></head>`);
   doc=doc.split(config.legacyOrigin).join(config.origin+'/');
   doc=doc.replaceAll('href="overview.html"','href="index.html?view=about"').replaceAll('href="skills.html"','href="index.html?view=skills"');
-  await writeFile(join(out,dir,name+'.html'),doc);
+  const parsed=parseHTML(doc).document;
+  const base=parsed.createElement('base');base.setAttribute('href',english?'/en/':'/');parsed.head.prepend(base);
+  addMetadata(parsed,{title:parsed.title,description:parsed.querySelector('meta[name="description"]')?.content||parsed.title,url:config.origin+'/'+dir+name,english,config});
+  await writeFile(join(out,dir,name+'.html'),'<!doctype html>'+parsed.documentElement.outerHTML);
  }
  // Preserve old human page links within the new site, including query and language.
  for(const [name,view] of [['skills','skills'],['overview','about']])await writeFile(join(out,dir,name+'.html'),`<!doctype html><html lang="${english?'en':'zh-CN'}"><meta charset="utf-8"><title>PromptDirector</title><a href="index.html?view=${view}">PromptDirector</a><script>const u=new URL('index.html',location);u.search=location.search;u.searchParams.set('view','${view}');u.hash=location.hash;location.replace(u.href)</script></html>`);
 }
+const urls=await renderWebsite({out,index,metadata,details:new Map(detailOutputs),config});
+urls.push(...['guide','privacy','support'].flatMap(p=>[config.origin+'/'+p,config.origin+'/en/'+p]));
+const notFound=parseHTML(await readFile(join(out,'index.html'),'utf8')).document;
+notFound.querySelector('#app').innerHTML='<section class="empty"><h1>页面未找到</h1><p>Page not found</p><a class="back" href="/">返回首页 / Back to home</a></section>';
+notFound.querySelector('title').textContent='404 · PromptDirector';
+for(const node of notFound.querySelectorAll('[data-page-meta],script[src]'))node.remove();
+const noindex=notFound.createElement('meta');noindex.setAttribute('name','robots');noindex.setAttribute('content','noindex');notFound.head.append(noindex);
+await writeFile(join(out,'404.html'),'<!doctype html>'+notFound.documentElement.outerHTML);
 await writeFile(join(out,'robots.txt'),`User-agent: *\nAllow: /\nSitemap: ${config.origin}/sitemap.xml\n`);
-await writeFile(join(out,'sitemap.xml'),`<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${['','en/','guide.html','en/guide.html','privacy.html','en/privacy.html','support.html','en/support.html'].map(p=>`<url><loc>${config.origin}/${p}</loc></url>`).join('')}</urlset>`);
-console.log(JSON.stringify({packages:index.packs.length,cases:index.packs.reduce((n,p)=>n+p.entries.length,0),skills:skills.skills.length,indexBytes:bytes(JSON.stringify(index)),searchBytes:bytes(JSON.stringify(search)),output:relative(root,out)}));
+await writeFile(join(out,'sitemap.xml'),`<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urls.map(url=>`<url><loc>${url.replaceAll('&','&amp;')}</loc></url>`).join('')}</urlset>`);
+await writeFile(join(out,'_headers'),'/website/thumbs/*\n  Cache-Control: public, max-age=31536000, immutable\n/website/*.json\n  Cache-Control: public, max-age=0, must-revalidate\n');
+console.log(JSON.stringify({packages:index.packs.length,cases:index.packs.reduce((n,p)=>n+p.entries.length,0),skills:skills.skills.length,pages:urls.length,indexBytes:bytes(JSON.stringify(index)),searchBytes:bytes(JSON.stringify(search)),output:relative(root,out)}));

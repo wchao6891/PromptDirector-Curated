@@ -4,9 +4,10 @@ The website uses the same reviewed content in `site/` as the existing curated si
 
 ## Build and preview
 
-Use Node.js 22 or newer. No package installation is required.
+Use Node.js 22 or newer. Install the locked build dependencies first.
 
 ```sh
+npm ci
 node tools/build-website.mjs
 node --test test/website.test.mjs
 python3 -m http.server 8768 --bind 127.0.0.1 --directory dist/website
@@ -25,6 +26,8 @@ Existing catalog/preview/media/download URLs must keep responding directly while
 ## Data and behavior
 
 - The initial index contains titles, attribution, thumbnails, media types and stable IDs. Prompt text is fetched per collection when opening a case; full-text search loads its separate text index on demand. Failures remain retryable.
+- HTML is prerendered at build time (with homepage styles embedded to avoid a blocking stylesheet request), so visitors and crawlers can read the first screen without downloading the full catalog. Each collection, case, Skill and contributor has a stable, bilingual page with canonical metadata and sitemap discovery. Existing query URLs remain supported.
+- Responsive WebP card images are separate from original detail previews and downloads. Build caching uses existing Git object IDs; generated image URLs can be cached immutably.
 - A case URL uses the catalog ID and original entry ID, never its list position. Compound cases retain all member media, full prompt text and per-member sources.
 - Package type is derived from case media types. A video poster is not an image case. A mixed compound appears in both filters.
 - Default sorting uses first publication, not later edits. `web/publication-dates.json` preserves the first catalog appearance of existing packages from Git history. New entries may supply `publishedAt`; otherwise a complete Git history determines their first appearance. Shallow builds with unknown dates fail rather than invent dates. Use `fetch-depth: 0` in CI. English display metadata is maintained in `web/catalog-translations-en.json`; publishing must add translations for new IDs (the website tests report gaps).

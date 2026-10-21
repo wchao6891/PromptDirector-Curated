@@ -71,3 +71,64 @@ test('following import merges without losing current authors and rejects unrelat
  assert.deepEqual(JSON.parse(values.get(key)),['existing','new']);assert.match(status.textContent,/preserved/);
  await input.onchange({target:{files:[{text:async()=>'{}'}],value:'file'}});assert.deepEqual(JSON.parse(values.get(key)),['existing','new']);assert.match(status.textContent,/Could not import/);
 });
+
+import {parseHTML} from 'linkedom';
+import {access} from 'node:fs/promises';
+const builtDocument=async path=>parseHTML(await readFile(new URL('../dist/website/'+path,import.meta.url),'utf8')).document;
+test('the first screen is usable HTML before the catalog request, with lightweight images and crawlable case links',async()=>{
+ const doc=await builtDocument('index.html');assert.ok(doc.querySelector('#app[data-prerendered]'));
+ assert.equal(doc.querySelectorAll('#grid a[data-case]').length,48);assert.equal(doc.querySelector('#app .loading'),null);
+ const hero=doc.querySelector('.cinema img');assert.equal(hero.getAttribute('fetchpriority'),'high');assert.match(hero.getAttribute('src'),/^\/website\/thumbs\//);
+ for(const link of doc.querySelectorAll('#grid a[data-case]')){assert.match(link.href,/^\/cases\//);await access(new URL('../dist/website'+decodeURIComponent(link.href)+'index.html',import.meta.url));}
+ assert.equal(doc.querySelector('footer a[href="following.html"]'),null);assert.equal(doc.querySelector('footer a[href="guide.html"]'),null);
+ assert.ok(doc.querySelector('header a[href="guide.html"]'));assert.ok(doc.querySelector('footer a[href="privacy.html"]'));
+});
+test('bilingual canonical case pages retain the full reviewed prompt and source while old data stays separate',async()=>{
+ const index=await readJSON('../dist/website/website/index.json');
+ const pack=index.packs.find(p=>p.caseCounts.video),details=await readJSON('../dist/website/'+pack.detailsUrl),entry=details.find(e=>e.text?.length>100);
+ for(const prefix of ['', 'en/']){
+  const path=prefix+'cases/'+encodeURIComponent(pack.packageId)+'/'+encodeURIComponent(entry.id)+'/';
+  const doc=await builtDocument(path+'index.html');
+  assert.equal(doc.querySelector('link[rel="canonical"]').href,'https://promptdirector.cn/'+path);
+  assert.equal(doc.querySelector('link[hreflang="en"]').href,'https://promptdirector.cn/en/'+path.replace(/^en\//,''));
+  assert.equal(doc.querySelector('base').getAttribute('href'),prefix?'/en/':'/');
+  assert.equal(JSON.parse(doc.querySelector('#initial-case-data').textContent).entry.text,entry.text);
+  const first=entry.media?.[0]||entry;assert.equal(doc.querySelector('#prompt').textContent,first.text??entry.text);
+  assert.equal(doc.querySelector('#caseSource').href,first.sourceUrl||entry.sourceUrl||'');
+  assert.equal(doc.querySelectorAll('.standalone-detail h1').length,1);
+ }
+});
+test('the sitemap discovers every stable case page in both languages without query duplicates',async()=>{
+ const index=await readJSON('../dist/website/website/index.json');const sitemap=await readFile(new URL('../dist/website/sitemap.xml',import.meta.url),'utf8');
+ const locations=[...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map(m=>m[1]);assert.equal(new Set(locations).size,locations.length);
+ for(const p of index.packs)for(const e of p.entries)for(const prefix of ['', 'en/'])assert.ok(locations.includes(`https://promptdirector.cn/${prefix}cases/${encodeURIComponent(p.packageId)}/${encodeURIComponent(e.id)}/`),e.id);
+ assert.ok(locations.includes('https://promptdirector.cn/privacy'));assert.ok(locations.every(u=>!u.includes('?')));
+});
+test('responsive card previews do not replace original media and download identities',async()=>{
+ const index=await readJSON('../dist/website/website/index.json');
+ for(const p of index.packs){const details=await readJSON('../dist/website/'+p.detailsUrl);for(const e of p.entries){assert.ok(e.thumbnails.length>0);assert.equal(e.previewImageUrl,details.find(d=>d.id===e.id).previewImageUrl);assert.ok(e.thumbnails.every(t=>t.width<=768));}}
+});
+test('both stable paths and existing shared query links resolve to the same catalog identities',async()=>{
+ const index=await readJSON('../dist/website/website/index.json'),metadata=await readJSON('../dist/website/website/site.json'),p=index.packs[0],e=p.entries[0];
+ const context=vm.createContext({URL,Map,Set,document:{currentScript:{src:'https://promptdirector.cn/website-data.js'},documentElement:{lang:'en'}},data:index,siteData:metadata});
+ vm.runInContext(await readFile(new URL('../web/website-data.js',import.meta.url),'utf8'),context);
+ context.location=new URL(`https://promptdirector.cn/en/cases/${encodeURIComponent(p.packageId)}/${encodeURIComponent(e.id)}/`);
+ assert.equal(vm.runInContext('pageRoute().case',context),e.key);
+ context.location=new URL('https://promptdirector.cn/en/?case='+encodeURIComponent(e.key));assert.equal(vm.runInContext('pageRoute().case',context),e.key);
+});
+
+import {addMetadata} from '../tools/website-render.mjs';
+test('case titles cannot break out of structured data into executable markup',()=>{
+ const document=parseHTML('<!doctype html><html><head><title></title></head><body></body></html>').document;
+ const title='</script><script id="untrusted">alert(1)</script>';
+ addMetadata(document,{title,description:title,url:'https://promptdirector.cn/cases/p/id/',entry:{title},english:false,config:{origin:'https://promptdirector.cn'}});
+ const parsed=parseHTML(document.toString()).document;
+ assert.equal(parsed.querySelector('#untrusted'),null);assert.equal(parsed.querySelectorAll('script').length,1);
+ assert.equal(JSON.parse(parsed.querySelector('script').textContent).name,title);
+});
+
+test('download sorting starts with the same verified snapshot without a second render or invented zeroes',async()=>{
+ const metadata=await readJSON('../dist/website/website/site.json');assert.deepEqual(metadata.metrics,await readJSON('../site/metrics.json'));
+ const doc=await builtDocument('collections/index.html');assert.equal(doc.querySelector('#sort option[value="downloads"]').hasAttribute('disabled'),false);
+ assert.doesNotMatch(doc.querySelector('#collection-grid').textContent,/(?:^|[^0-9])0 次整包下载/);
+});

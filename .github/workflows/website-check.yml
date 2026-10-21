@@ -3,7 +3,7 @@ on:
   pull_request:
   push:
     branches: [main]
-    paths: ["web/**", "site/**", "tools/**", "test/website.test.mjs", ".github/workflows/website-check.yml"]
+    paths: ["package*.json", "web/**", "site/**", "tools/**", "test/website.test.mjs", ".github/workflows/website-check.yml"]
   workflow_dispatch:
 permissions:
   contents: read
@@ -17,6 +17,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+      - run: npm ci
       - run: node tools/validate-catalog.mjs && node tools/validate-skill-catalog.mjs
       - run: node tools/build-website.mjs
       - run: node --test test/website.test.mjs

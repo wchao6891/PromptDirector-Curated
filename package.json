@@ -1,0 +1,19 @@
+{
+  "name": "promptdirector-curated-website",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Static PromptDirector website built from the reviewed curated catalog",
+  "license": "Apache-2.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "node tools/build-website.mjs",
+    "test": "node --test test/website.test.mjs"
+  },
+  "devDependencies": {
+    "linkedom": "0.18.14",
+    "sharp": "0.35.5"
+  },
+  "type": "module"
+}
