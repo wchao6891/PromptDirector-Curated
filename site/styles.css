@@ -139,9 +139,6 @@ button:focus-visible, input:focus-visible, summary:focus-visible, [tabindex="0"]
 .public-skill-detail { display: grid; gap: 16px; padding: 28px; }
 .public-skill-detail h1, .public-skill-detail p { margin: 0; }
 .public-skill-detail p { color: var(--muted); line-height: 1.6; }
-.public-skill-maintenance { border-top: 1px solid var(--border); padding-top: 12px; color: var(--muted); font-size: 11px; }
-.public-skill-maintenance summary { width: max-content; cursor: pointer; color: var(--text); font-weight: 750; }
-.public-skill-maintenance-copy { display: flex; flex-wrap: wrap; gap: 6px 14px; padding-top: 10px; }
 .public-skill-download { justify-self: start; border-radius: var(--radius); padding: 9px 12px; color: var(--accent-ink); background: var(--accent); font-size: 12px; font-weight: 800; text-decoration: none; }
 
 .detail-dialog { width: 100%; max-width: none; height: 100dvh; max-height: none; margin: 0; border: 0; padding: 0; color: var(--text); background: var(--page); }
