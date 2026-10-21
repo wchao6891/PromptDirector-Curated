@@ -24,17 +24,14 @@ function renderSitePage(next){
 }
 function skillCover(s){return s.cover?previewImage({previewImageUrl:s.cover.path,thumbnails:s.cover.thumbnails,width:s.cover.width,height:s.cover.height,title:s.title},{className:"skill-cover"}):''}
 function renderSkills(){
+ if(!data)return;
  const items=siteData.skills.filter(s=>(!onlyFollowing||following.has(s.authorId))&&(!authorId||s.authorId===authorId)&&[s.title,s.originalTitle,s.callName,s.summary,s.author].join(' ').toLowerCase().includes(skillQuery.toLowerCase())).sort((a,b)=>skillSort==='recommended'?a.order-b.order:Date.parse(b.reviewedAt)-Date.parse(a.reviewedAt)||a.order-b.order);
  $('#skillGrid').innerHTML=items.map(s=>`<article class="skill-card"><a class="skill-open" href="${skillPath(s)}" data-skill="${esc(s.id)}">${skillCover(s)}<h2>${esc(s.title)}</h2><p>${esc(s.summary)}</p></a><div class="skill-actions">${authorLink(s)}<a href="${esc(s.downloadUrl)}">下载 ↓</a></div></article>`).join('')||'<p class="empty">暂无匹配的 Skill</p>';
 }
 function openSkill(id){closeDetail();const u=new URL(skillPath(siteData.skills.find(s=>s.id===id)),location.origin);u.searchParams.delete('author');u.searchParams.delete('pack');u.hash='';history.pushState(null,'',u);authorId='';view='skill';render();window.scrollTo(0,0)}
 document.addEventListener('click',e=>{
- const b=e.target.closest('button,a');if(!b||!data)return;if(b.tagName==='A'&&(e.metaKey||e.ctrlKey||e.shiftKey||e.altKey))return;if(b.dataset.skill||b.dataset.author)e.preventDefault();
- if(b.dataset.follow){
-  const id=b.dataset.follow;following.has(id)?following.delete(id):following.add(id);
-  try{localStorage.setItem(followingKey,JSON.stringify([...following]))}catch{notify('关注仅在本次页面有效')}
-  document.querySelectorAll('[data-follow]').forEach(el=>{el.textContent=following.has(el.dataset.follow)?'已关注':'关注上传者';el.setAttribute('aria-pressed',following.has(el.dataset.follow))});
- }
+ const b=e.target.closest('button,a');if(!b)return;if(b.tagName==='A'&&(e.metaKey||e.ctrlKey||e.shiftKey||e.altKey))return;if(data&&(b.dataset.skill||b.dataset.author))e.preventDefault();
+ if(!data)return;
  if(b.id==='followedOnly'){onlyFollowing=!onlyFollowing;limit=48;collectionLimit=12;render()}
  if(b.dataset.author){e.preventDefault();closeDetail();authorId=b.dataset.author;view='author';onlyFollowing=false;kind='';collectionQuery='';skillQuery='';const u=new URL(authorPath({authorId}),location.origin);u.searchParams.delete('pack');u.searchParams.delete('skill');u.hash='';history.pushState(null,'',u);render();window.scrollTo(0,0)}
  if(b.dataset.skill)openSkill(b.dataset.skill);
@@ -51,7 +48,10 @@ async function renderCasePage(key){
  try{
   const detail=await readCase(item.pack,item.id);if(request!==casePageRequest||view!=='case')return;
   const entry={...item,...detail};selected=entry;
-  app.innerHTML=`<article class="standalone-case"><a class="back" href="${packPath(item.pack)}" data-pack="${esc(item.pack.id)}">← 返回所属合集</a><div class="standalone-detail">${caseMarkup(entry,true)}</div></article>`;
+  if(app.querySelector('.standalone-case')?.dataset.casePage===key){bindMediaError(entry,Number(app.querySelector('.media-tabs .active')?.dataset.media||0));return}
+  app.innerHTML=`<article class="standalone-case" data-case-page="${esc(key)}"><a class="back" href="${packPath(item.pack)}" data-pack="${esc(item.pack.id)}">← 返回所属合集</a><div class="standalone-detail">${caseMarkup(entry,true)}</div></article>`;
   showMedia(entry);
  }catch{if(view!=='case')return;app.innerHTML='<p class="empty">案例暂时无法读取 <button id="retryStandalone">重试</button></p>';document.querySelector('#retryStandalone').onclick=()=>renderCasePage(key)}
 }
+
+startWebsite();
