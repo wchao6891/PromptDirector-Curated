@@ -169,39 +169,39 @@
       "title": "Acting Task Design",
       "summary": "Keep eyelines and listening active through a shared scene direction, character motivation, individual objectives, obstacles and tactics aimed at the scene partner. Preserves Tigran’s specific definitions, event analysis, physical channels and contrasting character design."
     },
-    "reference-role-binding@1.0.0": {
+    "reference-role-binding@1.0.1": {
       "title": "Reference Roles and Character Consistency",
       "summary": "Define distinct roles for character sheets, first frames, locations, actions and product references to avoid swapped faces, mixed costumes, copied layouts and rigid poses."
     },
-    "freeze-rewind-staging@1.0.0": {
+    "freeze-rewind-staging@1.0.1": {
       "title": "Time Freeze, Orbit and Rewind",
       "summary": "Control the time states of the world, characters and camera separately. Use parallax, exceptions to frozen motion and causal resets to make freezes and rewinds readable."
     },
-    "continuous-camera-route@1.0.0": {
+    "continuous-camera-route@1.0.1": {
       "title": "Spatial Routes for Continuous Takes",
       "summary": "Connect locations and camera paths before staging chases and reveals. Distinguish true long takes, occlusion-based transitions and montage."
     },
-    "gameplay-state-feedback@1.0.0": {
+    "gameplay-state-feedback@1.0.1": {
       "title": "Gameplay Actions and Feedback",
       "summary": "Connect objectives, player actions, enemy states, environmental changes and HUD feedback into readable gameplay instead of adding an interface to a cinematic shot."
     },
-    "product-benefit-proof@1.0.0": {
+    "product-benefit-proof@1.0.1": {
       "title": "Show the Product Benefit",
       "summary": "Choose demonstration actions, usage contexts and sound changes that prove real product benefits while preserving product identity. Distinguish UGC, material showcases and functional advertising."
     },
-    "handheld-capture-logic@1.0.0": {
+    "handheld-capture-logic@1.0.1": {
       "title": "Handheld Realism and Camera Operator Logic",
       "summary": "Build believable vlogs and on-location footage around who holds the phone, why the camera turns, when focus slips and how shots connect. Avoid mechanically adding shake and grain."
     },
-    "dance-motion-continuity@1.0.0": {
+    "dance-motion-continuity@1.0.1": {
       "title": "Dance Balance, Continuity and Musical Timing",
       "summary": "Describe dance as a continuous transfer of supporting feet, weight and movement direction, with edits driven by music. Keep lip sync distinct from dance choreography."
     },
-    "vfx-state-continuity@1.0.0": {
+    "vfx-state-continuity@1.0.1": {
       "title": "VFX Triggers, Transformations and Continuity",
       "summary": "Specify when effects begin, where they attach, how they transform and how they end so energy, transformations and reconstruction retain traceable object relationships."
     },
-    "scale-and-contact@1.0.0": {
+    "scale-and-contact@1.0.1": {
       "title": "Scale Through Context and Contact",
       "summary": "Establish scale through familiar objects, shared framing, contact reactions and camera distance, so giant and miniature subjects depend on visible evidence rather than adjectives."
     }

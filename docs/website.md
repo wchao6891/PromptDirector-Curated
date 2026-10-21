@@ -44,7 +44,7 @@ This is a deployment recipe, not an active deployment. Connect the curated GitHu
 | --- | --- |
 | Framework | None |
 | Production branch | `main` |
-| Build command | `node tools/build-website.mjs` |
+| Build command | `if [ "$(git rev-parse --is-shallow-repository)" = true ]; then git fetch --unshallow; fi && node tools/build-website.mjs` |
 | Build output | `dist/website` |
 | Node.js | 22 or newer |
 
