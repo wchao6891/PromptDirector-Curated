@@ -15,7 +15,7 @@ export async function prepareWebsiteImages({root,source,out,index,skills}){
  for(const s of skills)add(s.cover?.path,cardWidths);
  const hero=index.packs.find(p=>p.id===index.featuredCase.pack)?.entries.find(e=>e.id===index.featuredCase.entry);
  if(hero)add(hero.previewImageUrl,[1280,1600]);
- const results=new Map(),dimensions=new Map(),queue=[...wanted],cache=join(root,'.cache/website-images');
+ const results=new Map(),dimensions=new Map(),generated=new Map(),queue=[...wanted],cache=join(root,'.cache/website-images');
  sharp.concurrency(1);
  async function worker(){while(queue.length){
   const [path,widths]=queue.shift(),input=resolve(source,path);
@@ -29,9 +29,12 @@ export async function prepareWebsiteImages({root,source,out,index,skills}){
   const variants=[];
   for(const size of [...new Set(widths.map(w=>Math.min(w,width)))].sort((a,b)=>a-b)){
    const relative=`website/thumbs/${identity}/${size}-q${quality}.webp`,cached=join(cache,identity,`${size}-q${quality}.webp`);
-   await mkdir(join(cache,identity),{recursive:true});
-   try{await stat(cached)}catch(e){if(e.code!=='ENOENT')throw e;await sharp(input).rotate().resize({width:size,withoutEnlargement:true}).webp({quality}).toFile(cached);}
-   await mkdir(join(out,'website/thumbs',identity),{recursive:true});await copyFile(cached,join(out,relative));
+   if(!generated.has(cached))generated.set(cached,(async()=>{
+    await mkdir(join(cache,identity),{recursive:true});
+    try{await stat(cached)}catch(e){if(e.code!=='ENOENT')throw e;await sharp(input).rotate().resize({width:size,withoutEnlargement:true}).webp({quality}).toFile(cached);}
+    await mkdir(join(out,'website/thumbs',identity),{recursive:true});await copyFile(cached,join(out,relative));
+   })());
+   await generated.get(cached);
    variants.push({url:relative,width:size});
   }
   results.set(path,variants);
