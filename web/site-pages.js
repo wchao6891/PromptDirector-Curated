@@ -48,7 +48,8 @@ async function renderCasePage(key){
  try{
   const detail=await readCase(item.pack,item.id);if(request!==casePageRequest||view!=='case')return;
   const entry={...item,...detail};selected=entry;
-  app.innerHTML=`<article class="standalone-case"><a class="back" href="${packPath(item.pack)}" data-pack="${esc(item.pack.id)}">← 返回所属合集</a><div class="standalone-detail">${caseMarkup(entry,true)}</div></article>`;
+  if(app.querySelector('.standalone-case')?.dataset.casePage===key){bindMediaError(entry,Number(app.querySelector('.media-tabs .active')?.dataset.media||0));return}
+  app.innerHTML=`<article class="standalone-case" data-case-page="${esc(key)}"><a class="back" href="${packPath(item.pack)}" data-pack="${esc(item.pack.id)}">← 返回所属合集</a><div class="standalone-detail">${caseMarkup(entry,true)}</div></article>`;
   showMedia(entry);
  }catch{if(view!=='case')return;app.innerHTML='<p class="empty">案例暂时无法读取 <button id="retryStandalone">重试</button></p>';document.querySelector('#retryStandalone').onclick=()=>renderCasePage(key)}
 }

@@ -67,13 +67,23 @@ function showMedia(e,idx=0){
  $('#media-content video')?.pause();
  const video=m.mediaKind==='video'&&m.videoUrl;
  $('#media-content').innerHTML=video?`<video controls playsinline preload="metadata" poster="${esc(m.previewImageUrl||e.previewImageUrl)}" src="${esc(video)}"></video>`:`<img src="${esc(m.previewImageUrl||e.previewImageUrl)}" alt="${esc(m.title||e.title)}">`;
- const element=$('#media-content video, #media-content img');
- element.addEventListener('error',()=>{const message=document.createElement('p');message.className='media-error';message.innerHTML='<span>素材暂时无法加载</span> <button id="retryMedia">重试</button>';$('#media-content').append(message);$('#retryMedia').onclick=()=>showMedia(e,idx)},{once:true});
+ bindMediaError(e,idx);
  const tabs=$('.media-tabs');if(tabs)tabs.innerHTML=media.map((m,i)=>`<button data-media="${i}" class="${i===idx?'active':''}">素材 ${i+1}</button>`).join('');
  $('#prompt').textContent=(m.text??e.text)||'此案例未提供提示词。';
  const rights=m.rights||e.rights||'权利归原作者';$('#caseRights').textContent=typeof catalogEnglish!=='undefined'?catalogEnglish.labels[rights]||rights:rights;
  const author=m.author||e.author||'来源精选';$('#caseAuthor').textContent=typeof catalogEnglish!=='undefined'?catalogEnglish.labels[author]||author:author;
  const source=$('#caseSource');source.href=m.sourceUrl||e.sourceUrl||'';source.hidden=!source.getAttribute('href');
+}
+const mediaErrorBindings=new WeakSet();
+function bindMediaError(e,idx=0){
+ const element=$('#media-content video, #media-content img');if(!element||mediaErrorBindings.has(element))return;
+ mediaErrorBindings.add(element);
+ const onError=()=>{
+  if(!element.isConnected||element.parentElement.querySelector('.media-error'))return;
+  const message=document.createElement('p');message.className='media-error';message.innerHTML='<span>素材暂时无法加载</span> <button id="retryMedia">重试</button>';element.parentElement.append(message);message.querySelector('button').onclick=()=>showMedia(e,idx);
+ };
+ element.addEventListener('error',onError,{once:true});
+ if(element.error||(element.tagName==='IMG'&&element.complete&&!element.naturalWidth))onError();
 }
 function caseMarkup(e,standalone=false){const heading=standalone?'h1':'h2';return `<div class="detail-media"><div id="media-content"></div>${mediaItems(e).length>1?'<div class="media-tabs"></div>':''}</div><section class="detail-info"><div class="eyebrow">${esc(e.pack.title)}</div><${heading} title="${esc(e.title)}">${esc(label(e))}</${heading}><p class="author"><span id="caseAuthor"></span> <a id="caseSource" target="_blank" rel="noopener noreferrer">查看来源 ↗</a></p><div class="prompt-head"><h3>完整提示词</h3><button id="copyPrompt" class="text-action">复制</button></div><p id="prompt" class="prompt"></p><p id="caseRights" class="rights">${esc(typeof catalogEnglish!=='undefined'?catalogEnglish.labels[e.rights]||e.rights:e.rights)}</p><div class="uploader-row"><span>上传者 ${authorLink(e.pack)}</span>${followButton(e.pack)}</div><div class="detail-actions"><a class="text-action" href="${packPath(e.pack)}" data-pack="${esc(e.pack.id)}">查看所属合集 ↗</a><button id="share">复制案例链接</button></div></section>`;}
 async function openCase(key,update=true){
