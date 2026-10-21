@@ -43,3 +43,7 @@ This repository contains public catalogs, previews and release materials. Privat
 3. For packs containing video, prepare immutable media assets with `tools/prepare-media-releases.mjs`, then publish them with `tools/publish-media-release.mjs`. These tools require the catalog, reviewed package/media directories, repository and package ID; see the [full command sequence](README.zh-CN.md#维护者本地命令含视频按顺序). Never overwrite published media assets.
 4. Generate read-only previews with `tools/build-site-previews.mjs` and activate versioned previews with `tools/activate-media-previews.mjs`, using the media manifest. Video packs without a media manifest are rejected to avoid publishing covers without playable media.
 5. Validate with `node tools/validate-catalog.mjs && node tools/validate-skill-catalog.mjs`, submit the reviewed changes and verify the deployed website. A failed metrics refresh retains the last verified snapshot.
+
+## Brand website development
+
+The new individual-case website is built from the same reviewed catalog. See [build, localization and migration documentation](docs/website.md). The existing site and extension data endpoints remain available during migration.
