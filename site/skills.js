@@ -92,13 +92,8 @@ function openDetail(item) {
   const root = element("article", "public-skill-detail");
   if (item.cover) root.append(coverImage(item, true));
   root.append(element("h1", "", item.title), element("p", "", item.summary));
-  const maintenance = element("details", "public-skill-maintenance");
-  maintenance.append(element("summary", "", t("versionLicense", "版本与许可")));
-  const maintenanceCopy = element("div", "public-skill-maintenance-copy");
-  maintenanceCopy.append(element("span", "", t("skillAuthor", "作者：{value}").replace("{value}", item.author)), element("span", "", t("skillVersion", "版本：{value}").replace("{value}", item.version)), element("span", "", t("skillLicense", "许可：{value}").replace("{value}", item.license)), element("span", "", t("humanReviewed", "人工审核通过")));
-  maintenance.append(maintenanceCopy);
   const download = downloadLink(item, "public-skill-download");
-  root.append(maintenance, download);
+  root.append(download);
   elements.detail.replaceChildren(root);
   elements.dialog.showModal();
 }

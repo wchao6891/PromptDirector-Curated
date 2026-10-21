@@ -45,20 +45,23 @@ test("public site provides an independent browse-and-download-only Skill page", 
   assert.match(casesHtml, /href="skills\.html">精选 Skill</);
   assert.match(skillsHtml, /href="index\.html">精选案例</);
   assert.match(skillsHtml, /aria-current="page"[^>]*>精选 Skill</);
-  assert.match(app, /fetch\("skills-catalog\.json"/);
+  assert.match(app, /fetch\(siteAssetUrl\("skills-catalog\.json"\)/);
   assert.match(app, /download\.href = item\.downloadUrl/);
   assert.match(app, /ui-skill-card public-skill-card/);
   assert.match(app, /查看说明/);
   assert.match(app, /下载 Skill/);
-  assert.match(app, /版本与许可/);
-  assert.match(app, /public-skill-maintenance/);
+  assert.doesNotMatch(app, /版本与许可|public-skill-maintenance/);
   assert.match(skillsHtml, /public-section-nav ui-segmented/);
   assert.match(skillsHtml, /placeholder="搜索 Skill 或用途"/);
   assert.match(styles, /\.ui-segmented\s*\{/);
   assert.match(styles, /\.ui-skill-card\s*\{/);
   assert.doesNotMatch(app, /chrome\.|保存到本地|安装 Skill|eval\(|new Function|innerHTML/);
   const parsedCatalog = JSON.parse(catalog);
-  assert.deepEqual(normalizeSiteSkillCatalog(parsedCatalog), parsedCatalog);
+  assert.deepEqual(normalizeSiteSkillCatalog(parsedCatalog), {
+    ...parsedCatalog,
+    updatedAt: new Date(parsedCatalog.updatedAt).toISOString(),
+    skills: parsedCatalog.skills.map(skill => ({ ...skill, reviewedAt: new Date(skill.reviewedAt).toISOString() }))
+  });
   for (const skill of parsedCatalog.skills) {
     assert.equal(skill.reviewStatus, "approved");
     assert.match(skill.downloadUrl, /^https:\/\/github\.com\/wchao6891\/PromptDirector-Curated\/releases\/download\//);

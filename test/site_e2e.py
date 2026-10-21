@@ -185,10 +185,8 @@ def main() -> None:
             expect(download).to_have_attribute("href", first_skill["downloadUrl"])
             first_card.get_by_role("button", name="查看说明", exact=True).click()
             expect(skill_page.locator("#skill-dialog")).to_be_visible()
-            maintenance = skill_page.locator(".public-skill-maintenance")
-            expect(maintenance.get_by_text(f'许可：{first_skill["license"]}', exact=True)).to_be_hidden()
-            maintenance.locator("summary").click()
-            expect(maintenance.get_by_text(f'许可：{first_skill["license"]}', exact=True)).to_be_visible()
+            expect(skill_page.locator(".public-skill-maintenance")).to_have_count(0)
+            expect(skill_page.locator("#skill-dialog").get_by_role("link", name="下载 Skill", exact=True)).to_be_visible()
             skill_page.locator("#skill-close").click()
             expect(skill_page.locator('.skill-state[data-state="empty"]')).to_have_count(0)
         else:
