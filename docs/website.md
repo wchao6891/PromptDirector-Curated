@@ -36,9 +36,9 @@ Existing catalog/preview/media/download URLs must keep responding directly while
 
 Before production deployment: verify actual domain hosting and HTTPS, file-size/bandwidth limits, video playback, current and old extension catalog/preview/package import, and the store's privacy/support links. New extension URLs and host permissions are a separate release. Retire the old deployment only after stored media references, follows, shared links and supported extension versions have a verified migration path.
 
-## Proposed Cloudflare Pages setup
+## Cloudflare Pages deployment
 
-This is a deployment recipe, not an active deployment. Connect the curated GitHub repository to a Pages project after the website changes are reviewed and merged. Keep the existing GitHub Pages project and its domain settings unchanged.
+The `promptdirector` Pages project deploys this repository's `main` branch to [promptdirector.pages.dev](https://promptdirector.pages.dev/). Its custom domain is [promptdirector.cn](https://promptdirector.cn/). The existing GitHub Pages project retains its original address and domain settings for current extensions.
 
 | Setting | Value |
 | --- | --- |
@@ -48,7 +48,7 @@ This is a deployment recipe, not an active deployment. Connect the curated GitHu
 | Build output | `dist/website` |
 | Node.js | 22 or newer |
 
-The publication-date builder requires complete Git history for newly introduced packages without explicit `publishedAt`. If the hosting checkout is shallow, fetch full history before running the build. Verify the preview deployment before connecting the production domain.
+The publication-date builder requires complete Git history for newly introduced packages without explicit `publishedAt`; the build command fetches it when needed. Verify preview deployments before publishing changes. Skill translations use stable `skillId` keys, so a package version change preserves its display translation while download identities and URLs come from the current reviewed catalog. Update the English wording whenever a method's displayed meaning changes.
 
 Add `promptdirector.cn` to the same Cloudflare account, copy and verify its existing DNS records, then change the authoritative nameservers at the domain registrar to the pair assigned by Cloudflare. This does not transfer domain registration. Add the domain through the Pages project's Custom domains screen and wait for DNS and HTTPS activation. Preserve mail and other existing service records. Do not use a CNAME on the legacy GitHub Pages deployment.
 

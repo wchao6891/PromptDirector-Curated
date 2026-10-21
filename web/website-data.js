@@ -28,7 +28,7 @@ async function readCase(pack,id){
 function localizeCatalogs(data,siteData){
  if(typeof catalogEnglish==='undefined')return;
  for(const p of data.packs){p.originalTitle=p.title;Object.assign(p,catalogEnglish.packs[p.id]);p.author=catalogEnglish.labels[p.author]||p.author;for(const e of p.entries)e.author=catalogEnglish.labels[e.author]||e.author;}
- for(const s of siteData.skills){s.originalTitle=s.title;s.originalSummary=s.summary;Object.assign(s,catalogEnglish.skills[s.id]);s.author=catalogEnglish.labels[s.author]||s.author;}
+ for(const s of siteData.skills){s.originalTitle=s.title;s.originalSummary=s.summary;Object.assign(s,catalogEnglish.skills[s.skillId]);s.author=catalogEnglish.labels[s.author]||s.author;}
 }
 const followingKey='promptdirector.curated.following.v1';
 function readFollowing(){try{const list=JSON.parse(localStorage.getItem(followingKey)||'[]');return new Set(Array.isArray(list)?list.filter(x=>typeof x==='string'):[])}catch{return new Set()}}

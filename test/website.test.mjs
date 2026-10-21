@@ -44,10 +44,18 @@ test('production catalog exports every reviewed case, and keeps full prompts out
 test('English metadata covers the current catalog, including newly replaced Skills',async()=>{
  const t=await readJSON('../web/catalog-translations-en.json');const c=await readJSON('../site/public-catalog.json');const s=await readJSON('../site/skills-catalog.json');
  for(const p of c.themes)assert.ok(t.packs[p.id]?.title,p.id);
- for(const skill of s.skills)assert.ok(t.skills[skill.id]?.summary,skill.id);
+ for(const skill of s.skills)assert.ok(t.skills[skill.skillId]?.summary,skill.id);
 });
 
 import vm from 'node:vm';
+test('a Skill package version update keeps its English display metadata and original download identity',async()=>{
+ const context=vm.createContext({URL,Map,Set,document:{currentScript:{src:'https://promptdirector.cn/website-data.js'}},catalogEnglish:{packs:{},skills:{method:{title:'Method',summary:'Complete method'}},labels:{}}});
+ vm.runInContext(await readFile(new URL('../web/website-data.js',import.meta.url),'utf8'),context);
+ const metadata={skills:[{skillId:'method',id:'method@1.0.2',title:'方法',summary:'完整方法',downloadUrl:'https://example.com/method-1.0.2.zip'}]};
+ context.metadata=metadata;vm.runInContext('localizeCatalogs({packs:[]},metadata)',context);
+ assert.equal(metadata.skills[0].title,'Method');assert.equal(metadata.skills[0].summary,'Complete method');
+ assert.equal(metadata.skills[0].id,'method@1.0.2');assert.equal(metadata.skills[0].downloadUrl,'https://example.com/method-1.0.2.zip');
+});
 test('detail reads share in-flight requests and a failure can be retried',async()=>{
  let calls=0;const context=vm.createContext({URL,Map,Set,document:{currentScript:{src:'https://promptdirector.cn/website-data.js'}},fetch:async()=>{calls++;if(calls===1)throw Error('network');return {ok:true,json:async()=>[{id:'case',text:'complete'}]}}});
  vm.runInContext(await readFile(new URL('../web/website-data.js',import.meta.url),'utf8'),context);
