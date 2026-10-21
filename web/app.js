@@ -2,6 +2,7 @@
 const $=s=>document.querySelector(s), esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 let siteData,onlyFollowing=false,authorId='',following=readFollowing(),skillQuery='',skillSort='newest';
 
+let catalogLoading=true;
 let data,all=[],shown=[],view='explore',kind='',query='',packId='',filterPack='',selected=null,sort='newest',limit=48,collectionQuery='',collectionLimit=12;
 const app=$('#app'),dialog=$('#detail');
 const label=e=>{const title=e.title.length>90?e.title.split(' on X:')[0]:e.title;return title.length>90?title.slice(0,90)+'…':title};
@@ -23,9 +24,10 @@ function followedFilter(){return `<button class="filter follow-filter ${onlyFoll
 function authorLink(p){return `<a class="author-link" href="${authorPath(p)}" title="${esc(p.author)}" data-author="${esc(p.authorId)}">${esc(p.author)}</a>`}
 function followButton(p){return `<button class="follow-action" data-follow="${esc(p.authorId)}" aria-pressed="${following.has(p.authorId)}">${following.has(p.authorId)?'已关注':'关注上传者'}</button>`}
 function packPicker(){return `<details class="pack-picker"><summary>${esc(data.packs.find(p=>p.id===filterPack)?.title||'所有合集')} <span>⌄</span></summary><div class="pack-menu"><input aria-label="搜索合集" placeholder="搜索合集名称或作者"><div id="pack-options"></div></div></details>`}
-function renderPackOptions(q=''){const el=$('#pack-options');if(!el)return;const packs=orderedPacks().filter(p=>[p.title,p.originalTitle,p.author].join(' ').toLowerCase().includes(q.toLowerCase()));el.innerHTML=`<button data-filter-pack="" class="${!filterPack?'active':''}">所有合集 <span>${data.packs.length}</span></button>`+packs.map(p=>`<button data-filter-pack="${esc(p.id)}" class="${filterPack===p.id?'active':''}"><span>${esc(p.title)}</span><small>${p.caseCount}</small></button>`).join('')+(!packs.length?'<p class="picker-empty">没有匹配的合集</p>':'')}
+function renderPackOptions(q=''){if(!data)return;const el=$('#pack-options');if(!el)return;const packs=orderedPacks().filter(p=>[p.title,p.originalTitle,p.author].join(' ').toLowerCase().includes(q.toLowerCase()));el.innerHTML=`<button data-filter-pack="" class="${!filterPack?'active':''}">所有合集 <span>${data.packs.length}</span></button>`+packs.map(p=>`<button data-filter-pack="${esc(p.id)}" class="${filterPack===p.id?'active':''}"><span>${esc(p.title)}</span><small>${p.caseCount}</small></button>`).join('')+(!packs.length?'<p class="picker-empty">没有匹配的合集</p>':'')}
 function countColumns(){return innerWidth<761?2:innerWidth<1051?3:innerWidth>=1600?5:4}
 function renderGrid(){
+ if(!data)return;
  const rank=new Map(orderedPacks().map((p,i)=>[p.id,i]));
  shown=all.filter(e=>(!onlyFollowing||following.has(e.pack.authorId))&&(!authorId||e.pack.authorId===authorId)&&(!packId||e.pack.id===packId)&&(!filterPack||e.pack.id===filterPack)&&hasKind(e,kind)&&(!query||[e.title,e.author,e.pack.title,e.pack.originalTitle,searchText?.get(e.key)].join(' ').toLowerCase().includes(query.toLowerCase()))).sort((a,b)=>rank.get(a.pack.id)-rank.get(b.pack.id)||a.entryOrder-b.entryOrder);
  const grid=$('#grid');if(!grid)return;pauseCardVideo();
@@ -37,11 +39,12 @@ function renderGrid(){
  grid.innerHTML=cols.map(col=>`<div class="column">${col.map(e=>`<a class="case" href="${casePath(e)}" data-case="${esc(e.key)}" aria-label="查看案例：${esc(label(e))}"><div class="picture">${image(e)}</div><div class="caption"><strong>${esc(label(e))}</strong><span class="kind">${hasKind(e,'video')?'▷ 视频':'图片'}</span></div>${showCardAuthor(e.author)?`<p class="byline">${esc(e.author)}</p>`:''}</a>`).join('')}</div>`).join('');
 }
 function renderCollections(){
+ if(!data)return;
  const packs=orderedPacks().filter(p=>(!onlyFollowing||following.has(p.authorId))&&(!authorId||p.authorId===authorId)&&(!kind||caseCounts(p)[kind]>0)&&[p.title,p.originalTitle,p.author,p.summary].join(' ').toLowerCase().includes(collectionQuery.toLowerCase()));
  $('#collection-grid').innerHTML=packs.slice(0,collectionLimit).map(p=>`<article class="collection"><a class="collection-open" href="${packPath(p)}" data-pack="${esc(p.id)}"><div class="collection-images">${p.entries.slice(0,3).map(image).join('')}</div><div class="collection-title"><h2>${esc(p.title)}</h2><span>↗</span></div><p>${p.caseCount} 个案例 · ${packTypeLabel(p)}<span class="collection-date">上架 ${dateLabel(p)}</span></p></a>${showCardAuthor(p.author)||downloadLabel(p)?`<div class="collection-meta">${showCardAuthor(p.author)?authorLink(p):''}${downloadLabel(p)?`<span>${downloadLabel(p)}</span>`:''}</div>`:''}</article>`).join('')||'<p class="empty">没有匹配的合集</p>';
  $('#morePacks').hidden=packs.length<=collectionLimit;
 }
-function render(){renderView();updatePageMetadata()}
+function render(){if(!data)return;renderView();updatePageMetadata()}
 function renderView(){
  document.body.className='variant-B';pauseCardVideo();
  document.querySelectorAll('[data-view]').forEach(b=>b.classList.toggle('active',b.dataset.view===(view==='skill'?'skills':view)));
@@ -91,8 +94,24 @@ async function openCase(key,update=true){
 }
 function closeDetail(update=true){detailRequest++;dialog.querySelectorAll('video').forEach(v=>v.pause());dialog.close();selected=null;returnFocus?.focus?.();if(update){const u=new URL(location);u.searchParams.delete('case');history.replaceState(null,'',u)}updatePageMetadata()}
 function goView(next){closeDetail();view=next;authorId='';onlyFollowing=false;const u=new URL(viewPath(next),location.origin);u.searchParams.delete('pack');u.searchParams.delete('author');u.searchParams.delete('skill');u.hash='';history.pushState(null,'',u);packId='';filterPack='';kind='';query='';collectionQuery='';limit=48;collectionLimit=12;render();window.scrollTo(0,0)}
+function toggleFollow(id){
+ following.has(id)?following.delete(id):following.add(id);
+ try{localStorage.setItem(followingKey,JSON.stringify([...following]))}catch{notify('关注仅在本次页面有效')}
+ document.querySelectorAll('[data-follow]').forEach(el=>{el.textContent=following.has(el.dataset.follow)?'已关注':'关注上传者';el.setAttribute('aria-pressed',following.has(el.dataset.follow))});
+}
 document.addEventListener('click',event=>{
- const b=event.target.closest('button,a');if(!b)return;if(b.tagName==='A'&&(event.metaKey||event.ctrlKey||event.shiftKey||event.altKey))return;if(!data){if(b.id==='copyPrompt')copy($('#prompt').textContent,'正文已复制');return}if(b.dataset.case||b.dataset.pack||b.dataset.author||b.dataset.skill)event.preventDefault();
+ const b=event.target.closest('button,a');if(!b)return;if(b.dataset.follow){toggleFollow(b.dataset.follow);return}if(b.tagName==='A'&&(event.metaKey||event.ctrlKey||event.shiftKey||event.altKey))return;if(!data){
+  if(b.id==='copyPrompt')copy($('#prompt').textContent,'正文已复制');
+  else if(b.tagName!=='A'){
+   if(b.hasAttribute('data-kind'))kind=b.dataset.kind;
+   if(b.hasAttribute('data-filter-pack'))filterPack=b.dataset.filterPack;
+   if(b.id==='followedOnly')onlyFollowing=!onlyFollowing;
+   if(b.id==='moreCases')limit+=48;
+   if(b.id==='morePacks')collectionLimit+=12;
+   notify(catalogLoading?'正在读取精选案例…':'互动功能暂时无法读取，请刷新重试');
+  }
+  return;
+ }if(b.dataset.case||b.dataset.pack||b.dataset.author||b.dataset.skill)event.preventDefault();
  if(b.matches('.brand')){event.preventDefault();goView('explore')}
  if(b.dataset.view){event.preventDefault();goView(b.dataset.view)}
  if(b.hasAttribute('data-kind')){kind=b.dataset.kind;limit=48;collectionLimit=12;render()}
@@ -133,11 +152,11 @@ function restoreRoute(){
 }
 addEventListener('popstate',restoreRoute);
 async function startWebsite(){
+ catalogLoading=true;
  if(!app.dataset.prerendered)app.innerHTML='<p class="loading" role="status">正在读取精选案例…</p>';
  try{
   [data,siteData]=await readWebsite();localizeCatalogs(data,siteData);all=[];
   data.packs.forEach(p=>p.entries.forEach((e,i)=>{e.pack=p;e.entryOrder=i;all.push(e)}));
   restoreRoute();
- }catch{if(!app.dataset.prerendered)app.innerHTML='<p class="empty">精选案例暂时无法读取。<button id="retryCatalog">重试</button></p>';else notify('互动功能暂时无法读取，请刷新重试')}
+ }catch{if(!app.dataset.prerendered)app.innerHTML='<p class="empty">精选案例暂时无法读取。<button id="retryCatalog">重试</button></p>';else notify('互动功能暂时无法读取，请刷新重试')}finally{catalogLoading=false}
 }
-startWebsite();

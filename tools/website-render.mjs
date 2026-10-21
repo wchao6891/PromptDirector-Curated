@@ -20,7 +20,7 @@ export async function renderWebsite({out,index,metadata,details,config}){
   sandbox.fetch=async url=>{const path=new URL(url).pathname.slice(1);if(!details.has(path))throw Error('Unreviewed build request: '+path);return {ok:true,json:async()=>structuredClone(details.get(path))}};
   const context=vm.createContext(sandbox);
   for(const file of ['website-data.js',...(english?['catalog-en.js']:[]),english?'app-en.js':'app.js',english?'site-pages-en.js':'site-pages.js']){
-   let code=await readFile(join(out,file),'utf8');if(file==='app.js'||file==='app-en.js')code=code.replace(/startWebsite\(\);\s*$/,'');vm.runInContext(code,context,{filename:file});
+   let code=await readFile(join(out,file),'utf8');code=code.replace(/startWebsite\(\);\s*$/,'');vm.runInContext(code,context,{filename:file});
   }
   vm.runInContext('data=resolveMedia(structuredClone(inputIndex));siteData=resolveMedia(structuredClone(inputMetadata));localizeCatalogs(data,siteData);data.packs.forEach(p=>p.entries.forEach((e,i)=>{e.pack=p;e.entryOrder=i;all.push(e)}));',context);
   const defaultDescription=english?'Spot it. Save it. Explore curated visual references, complete prompts and creative Skills with PromptDirector, the free, open-source Chrome extension.':'Spot it. Save it. 刷到就存，要用就有。浏览精选视觉案例、完整提示词与创作 Skill。PromptDirector 是永久免费、持续开源的创作灵感采集插件。';

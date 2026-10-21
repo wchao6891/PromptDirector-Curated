@@ -132,3 +132,21 @@ test('download sorting starts with the same verified snapshot without a second r
  const doc=await builtDocument('collections/index.html');assert.equal(doc.querySelector('#sort option[value="downloads"]').hasAttribute('disabled'),false);
  assert.doesNotMatch(doc.querySelector('#collection-grid').textContent,/(?:^|[^0-9])0 次整包下载/);
 });
+
+test('a visitor can search and choose a media filter while the prerendered page waits for a slow catalog',async()=>{
+ const window=parseHTML(await readFile(new URL('../dist/website/index.html',import.meta.url),'utf8')),document=window.document;
+ Object.defineProperty(document,'currentScript',{value:{src:'https://promptdirector.cn/website-data.js'}});
+ const dialog=document.querySelector('#detail');dialog.close=()=>{dialog.open=false};dialog.showModal=()=>{dialog.open=true};
+ const index=await readJSON('../dist/website/website/index.json'),metadata=await readJSON('../dist/website/website/site.json');
+ const entry=index.packs.flatMap(p=>p.entries).find(e=>e.mediaKind==='video');let release;const gate=new Promise(r=>release=r);
+ const context=vm.createContext({document,URL,URLSearchParams,Map,Set,innerWidth:390,location:new URL('https://promptdirector.cn/'),localStorage:{getItem:()=>null,setItem(){}},history:{replaceState(){},pushState(){}},addEventListener(){},window:{scrollTo(){}},setTimeout:()=>0,clearTimeout(){},fetch:async url=>{await gate;return{ok:true,json:async()=>structuredClone(url.endsWith('/search.json')?[[entry.key,'pending search phrase']]:url.endsWith('/index.json')?index:metadata)}}});
+ for(const file of ['website-data','app'])vm.runInContext(await readFile(new URL('../web/'+file+'.js',import.meta.url),'utf8'),context);
+ const started=vm.runInContext(await readFile(new URL('../web/site-pages.js',import.meta.url),'utf8'),context);
+ document.querySelector('[data-kind="video"]').dispatchEvent(new window.Event('click',{bubbles:true}));
+ const input=document.querySelector('[aria-label="搜索案例"]');input.value='pending search phrase';input.dispatchEvent(new window.Event('input',{bubbles:true}));
+ assert.ok(document.querySelector('.cinema'));assert.match(document.querySelector('#toast').textContent,/正在读取/);
+ release();await started;await vm.runInContext('searchPromise',context);
+ assert.equal(document.querySelectorAll('#grid [data-case]').length,1);assert.equal(document.querySelector('#grid [data-case]').dataset.case,entry.key);
+ assert.equal(document.querySelector('[data-kind="video"]').getAttribute('aria-pressed'),'true');
+ assert.equal(document.querySelector('[aria-label="搜索案例"]').value,'pending search phrase');
+});
