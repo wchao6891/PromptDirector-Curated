@@ -1,0 +1,93 @@
+{
+  "version": 1,
+  "completenessScope": "library-field-exact",
+  "cases": [
+    {
+      "id": "C010",
+      "title": "Umesh on X: \"A breathtaking sequence with Seedance 2! Prompt : An unbroken, continuous ultra-wide cinematic aerial shot begins in the stratosphere, revealing an immense frozen mountain range beneath glowing storm clouds. The camera plunges at breathtaking speed through layers of mist and https://t.co/NZQpAnQMAB\" / X",
+      "author": [
+        "Umesh"
+      ],
+      "sourceUrls": [
+        "https://x.com/umesh_ai/status/2079167694885257230"
+      ],
+      "purpose": "空中俯冲、贴地跟车与隧道出口",
+      "rightsStatus": "source_unverified",
+      "originalPromptFiles": [
+        "C010-prompt-1.txt"
+      ],
+      "bodyFiles": [
+        "C010-prompt-1.txt"
+      ],
+      "mediaLinks": [
+        {
+          "kind": "video",
+          "url": "https://x.com/umesh_ai/status/2079167694885257230"
+        },
+        {
+          "kind": "video",
+          "url": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-8987f96b85f0ac8fe26f/media/0b12357dd6040b9ca2cf.webp"
+        }
+      ],
+      "previewFile": "C010-preview.webp"
+    },
+    {
+      "id": "C089",
+      "title": "Umesh · When the cat gets bored at night! Prompt ⤵️",
+      "author": [
+        "Umesh"
+      ],
+      "sourceUrls": [
+        "https://x.com/umesh_ai/status/2083473547679477965"
+      ],
+      "purpose": "跟猫穿过连续生活空间",
+      "rightsStatus": "source_unverified",
+      "originalPromptFiles": [
+        "C089-prompt-1.txt"
+      ],
+      "bodyFiles": [
+        "C089-prompt-1.txt"
+      ],
+      "mediaLinks": [
+        {
+          "kind": "video",
+          "url": "https://x.com/umesh_ai/status/2083473547679477965"
+        },
+        {
+          "kind": "video",
+          "url": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-8987f96b85f0ac8fe26f/media/d01ab70f46a9745c6efe.webp"
+        }
+      ],
+      "previewFile": "C089-preview.webp"
+    },
+    {
+      "id": "C180",
+      "title": "Umesh · No limit to imagination! Prompt ⤵️ And whatever surprises are waiting around the bend, drive str",
+      "author": [
+        "Umesh"
+      ],
+      "sourceUrls": [
+        "https://x.com/umesh_ai/status/2103139301920006418"
+      ],
+      "purpose": "道路坍塌中主体与摄影机双路径",
+      "rightsStatus": "source_unverified",
+      "originalPromptFiles": [
+        "C180-prompt-1.txt"
+      ],
+      "bodyFiles": [
+        "C180-prompt-1.txt"
+      ],
+      "mediaLinks": [
+        {
+          "kind": "video",
+          "url": "https://x.com/umesh_ai/status/2103139301920006418"
+        },
+        {
+          "kind": "video",
+          "url": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-0651f642797edd4693a7/1.0.2/media/b18ad42e730d55e07743.webp"
+        }
+      ],
+      "previewFile": "C180-preview.webp"
+    }
+  ]
+}

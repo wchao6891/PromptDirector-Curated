@@ -1,0 +1,93 @@
+{
+  "version": 1,
+  "completenessScope": "library-field-exact",
+  "cases": [
+    {
+      "id": "C063",
+      "title": "TSUBAKI · Mission: Attend Class Undetected Made with Seedance 2.5 on @Flovaai #FlovaAI #FlovaCPP Prompt be",
+      "author": [
+        "TSUBAKI"
+      ],
+      "sourceUrls": [
+        "https://x.com/AI__TSUBAKI/status/2098766209839923543"
+      ],
+      "purpose": "潜行路线、警戒状态与任务完成",
+      "rightsStatus": "source_unverified",
+      "originalPromptFiles": [
+        "C063-prompt-1.txt"
+      ],
+      "bodyFiles": [
+        "C063-prompt-1.txt"
+      ],
+      "mediaLinks": [
+        {
+          "kind": "video",
+          "url": "https://x.com/AI__TSUBAKI/status/2098766209839923543"
+        },
+        {
+          "kind": "video",
+          "url": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-15e09c79753fcb0bea4c/media/6e992c3081a003fc58ce.webp"
+        }
+      ],
+      "previewFile": "C063-preview.webp"
+    },
+    {
+      "id": "C159",
+      "title": "Amira Zairi · Created a 30-second AAA gameplay concept with Seedance 2.5 0n @runwayml Prompt 👇🏻",
+      "author": [
+        "Amira Zairi"
+      ],
+      "sourceUrls": [
+        "https://x.com/azed_ai/status/2100222523535409655"
+      ],
+      "purpose": "移动、交互、机关与Boss反馈",
+      "rightsStatus": "source_unverified",
+      "originalPromptFiles": [
+        "C159-prompt-1.txt"
+      ],
+      "bodyFiles": [
+        "C159-prompt-1.txt"
+      ],
+      "mediaLinks": [
+        {
+          "kind": "video",
+          "url": "https://x.com/azed_ai/status/2100222523535409655"
+        },
+        {
+          "kind": "video",
+          "url": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-15e09c79753fcb0bea4c/media/9781c6c08808e37304ad.webp"
+        }
+      ],
+      "previewFile": "C159-preview.webp"
+    },
+    {
+      "id": "C219",
+      "title": "Ai Girllie · Now creating these livestream-style video games through Wan 3.0 on @budgetpixel is so easy. 🎮🔥",
+      "author": [
+        "Ai Girllie"
+      ],
+      "sourceUrls": [
+        "https://x.com/Inshrah_ali_/status/2104256509077328333"
+      ],
+      "purpose": "瞄准模式切换及需要纠正的计数",
+      "rightsStatus": "source_unverified",
+      "originalPromptFiles": [
+        "C219-prompt-1.txt"
+      ],
+      "bodyFiles": [
+        "C219-prompt-1.txt"
+      ],
+      "mediaLinks": [
+        {
+          "kind": "video",
+          "url": "https://x.com/Inshrah_ali_/status/2104256509077328333"
+        },
+        {
+          "kind": "video",
+          "url": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-15e09c79753fcb0bea4c/media/8e3ace4996b683a7db5e.webp"
+        }
+      ],
+      "previewFile": "C219-preview.webp"
+    }
+  ]
+}

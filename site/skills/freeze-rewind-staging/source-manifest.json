@@ -1,0 +1,93 @@
+{
+  "version": 1,
+  "completenessScope": "library-field-exact",
+  "cases": [
+    {
+      "id": "C001",
+      "title": "Stanzin Raghu on X: \"You could literally adapt this for anything A single continuous handheld handycam shot in slow motion, drifting and weaving organically through a massive frozen orc battlefield, every warrior suspended mid-combat like a living diorama. Orcs are locked in fierce poses—axes frozen https://t.co/75OLMcT19w\" / X",
+      "author": [
+        "Stanzin Raghu"
+      ],
+      "sourceUrls": [
+        "https://x.com/WordTrafficker/status/2077616872577712171"
+      ],
+      "purpose": "冻结战场中的穿行摄影机",
+      "rightsStatus": "source_unverified",
+      "originalPromptFiles": [
+        "C001-prompt-1.txt"
+      ],
+      "bodyFiles": [
+        "C001-prompt-1.txt"
+      ],
+      "mediaLinks": [
+        {
+          "kind": "video",
+          "url": "https://x.com/WordTrafficker/status/2077616872577712171"
+        },
+        {
+          "kind": "video",
+          "url": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-d8fbcd1a05ba01c7f2c8/media/07a0a7597efcfcc1c8be.webp"
+        }
+      ],
+      "previewFile": "C001-preview.webp"
+    },
+    {
+      "id": "C032",
+      "title": "Seedance 2.5 frozen time + rewind effect",
+      "author": [
+        "TechHalla"
+      ],
+      "sourceUrls": [
+        "https://x.com/techhalla/status/2083389002552664385"
+      ],
+      "purpose": "事故冻结、倒放与规避事故",
+      "rightsStatus": "source_unverified",
+      "originalPromptFiles": [
+        "C032-prompt-1.txt"
+      ],
+      "bodyFiles": [
+        "C032-prompt-1.txt"
+      ],
+      "mediaLinks": [
+        {
+          "kind": "video",
+          "url": "https://x.com/techhalla/status/2083389002552664385"
+        },
+        {
+          "kind": "video",
+          "url": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-d8fbcd1a05ba01c7f2c8/1.0.1/media/df2b4f64c786bb0f42b2.webp"
+        }
+      ],
+      "previewFile": "C032-preview.webp"
+    },
+    {
+      "id": "C257",
+      "title": "Dmiao豆苗啊 · Datingtime 半扎低马尾女友+无袖圆领小黑裙女友 360° BULLET TIME Prompt👇 以参考图片作为第一帧、人物身份、服装、姿势、室内空间和构图参考。 10-secon",
+      "author": [
+        "Dmiao豆苗啊"
+      ],
+      "sourceUrls": [
+        "https://x.com/nima2qisi2/status/2109604241363058694"
+      ],
+      "purpose": "身体静止、眼神例外与真实环绕",
+      "rightsStatus": "source_unverified",
+      "originalPromptFiles": [
+        "C257-prompt-1.txt"
+      ],
+      "bodyFiles": [
+        "C257-prompt-1.txt"
+      ],
+      "mediaLinks": [
+        {
+          "kind": "video",
+          "url": "https://x.com/nima2qisi2/status/2109604241363058694"
+        },
+        {
+          "kind": "video",
+          "url": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-439ddc0a3f2ea802932f/1.0.2/media/e836e2b2057fe92d35f6.webp"
+        }
+      ],
+      "previewFile": "C257-preview.webp"
+    }
+  ]
+}
