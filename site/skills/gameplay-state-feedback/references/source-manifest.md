@@ -1,3 +1,6 @@
+# 来源字段映射
+
+```json
 {
   "version": 1,
   "completenessScope": "library-field-exact",
@@ -14,10 +17,10 @@
       "purpose": "潜行路线、警戒状态与任务完成",
       "rightsStatus": "source_unverified",
       "originalPromptFiles": [
-        "C063-prompt-1.txt"
+        "C063-prompt-1.md"
       ],
       "bodyFiles": [
-        "C063-prompt-1.txt"
+        "C063-prompt-1.md"
       ],
       "mediaLinks": [
         {
@@ -29,7 +32,7 @@
           "url": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-15e09c79753fcb0bea4c/media/6e992c3081a003fc58ce.webp"
         }
       ],
-      "previewFile": "C063-preview.webp"
+      "previewUrl": "https://wchao6891.github.io/PromptDirector-Curated/skill-reference-media/gameplay-state-feedback/C063-preview.webp"
     },
     {
       "id": "C159",
@@ -43,10 +46,10 @@
       "purpose": "移动、交互、机关与Boss反馈",
       "rightsStatus": "source_unverified",
       "originalPromptFiles": [
-        "C159-prompt-1.txt"
+        "C159-prompt-1.md"
       ],
       "bodyFiles": [
-        "C159-prompt-1.txt"
+        "C159-prompt-1.md"
       ],
       "mediaLinks": [
         {
@@ -58,7 +61,7 @@
           "url": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-15e09c79753fcb0bea4c/media/9781c6c08808e37304ad.webp"
         }
       ],
-      "previewFile": "C159-preview.webp"
+      "previewUrl": "https://wchao6891.github.io/PromptDirector-Curated/skill-reference-media/gameplay-state-feedback/C159-preview.webp"
     },
     {
       "id": "C219",
@@ -72,10 +75,10 @@
       "purpose": "瞄准模式切换及需要纠正的计数",
       "rightsStatus": "source_unverified",
       "originalPromptFiles": [
-        "C219-prompt-1.txt"
+        "C219-prompt-1.md"
       ],
       "bodyFiles": [
-        "C219-prompt-1.txt"
+        "C219-prompt-1.md"
       ],
       "mediaLinks": [
         {
@@ -87,7 +90,8 @@
           "url": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-15e09c79753fcb0bea4c/media/8e3ace4996b683a7db5e.webp"
         }
       ],
-      "previewFile": "C219-preview.webp"
+      "previewUrl": "https://wchao6891.github.io/PromptDirector-Curated/skill-reference-media/gameplay-state-feedback/C219-preview.webp"
     }
   ]
 }
+```

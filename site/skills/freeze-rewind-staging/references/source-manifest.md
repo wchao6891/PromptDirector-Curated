@@ -1,3 +1,6 @@
+# 来源字段映射
+
+```json
 {
   "version": 1,
   "completenessScope": "library-field-exact",
@@ -14,10 +17,10 @@
       "purpose": "冻结战场中的穿行摄影机",
       "rightsStatus": "source_unverified",
       "originalPromptFiles": [
-        "C001-prompt-1.txt"
+        "C001-prompt-1.md"
       ],
       "bodyFiles": [
-        "C001-prompt-1.txt"
+        "C001-prompt-1.md"
       ],
       "mediaLinks": [
         {
@@ -29,7 +32,7 @@
           "url": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-d8fbcd1a05ba01c7f2c8/media/07a0a7597efcfcc1c8be.webp"
         }
       ],
-      "previewFile": "C001-preview.webp"
+      "previewUrl": "https://wchao6891.github.io/PromptDirector-Curated/skill-reference-media/freeze-rewind-staging/C001-preview.webp"
     },
     {
       "id": "C032",
@@ -43,10 +46,10 @@
       "purpose": "事故冻结、倒放与规避事故",
       "rightsStatus": "source_unverified",
       "originalPromptFiles": [
-        "C032-prompt-1.txt"
+        "C032-prompt-1.md"
       ],
       "bodyFiles": [
-        "C032-prompt-1.txt"
+        "C032-prompt-1.md"
       ],
       "mediaLinks": [
         {
@@ -58,7 +61,7 @@
           "url": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-d8fbcd1a05ba01c7f2c8/1.0.1/media/df2b4f64c786bb0f42b2.webp"
         }
       ],
-      "previewFile": "C032-preview.webp"
+      "previewUrl": "https://wchao6891.github.io/PromptDirector-Curated/skill-reference-media/freeze-rewind-staging/C032-preview.webp"
     },
     {
       "id": "C257",
@@ -72,10 +75,10 @@
       "purpose": "身体静止、眼神例外与真实环绕",
       "rightsStatus": "source_unverified",
       "originalPromptFiles": [
-        "C257-prompt-1.txt"
+        "C257-prompt-1.md"
       ],
       "bodyFiles": [
-        "C257-prompt-1.txt"
+        "C257-prompt-1.md"
       ],
       "mediaLinks": [
         {
@@ -87,7 +90,8 @@
           "url": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-439ddc0a3f2ea802932f/1.0.2/media/e836e2b2057fe92d35f6.webp"
         }
       ],
-      "previewFile": "C257-preview.webp"
+      "previewUrl": "https://wchao6891.github.io/PromptDirector-Curated/skill-reference-media/freeze-rewind-staging/C257-preview.webp"
     }
   ]
 }
+```

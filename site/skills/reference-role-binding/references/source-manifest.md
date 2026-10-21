@@ -1,3 +1,6 @@
+# 来源字段映射
+
+```json
 {
   "version": 1,
   "completenessScope": "library-field-exact",
@@ -14,10 +17,10 @@
       "purpose": "角色卡的视图与部件",
       "rightsStatus": "source_unverified",
       "originalPromptFiles": [
-        "C000-prompt-1.txt"
+        "C000-prompt-1.md"
       ],
       "bodyFiles": [
-        "C000-prompt-1.txt"
+        "C000-prompt-1.md"
       ],
       "mediaLinks": [
         {
@@ -29,7 +32,7 @@
           "url": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-839cf1bfbcbae095777b/media/6f7342734759481d5ee6.webp"
         }
       ],
-      "previewFile": "C000-preview.webp"
+      "previewUrl": "https://wchao6891.github.io/PromptDirector-Curated/skill-reference-media/reference-role-binding/C000-preview.webp"
     },
     {
       "id": "C006",
@@ -43,10 +46,10 @@
       "purpose": "从角色卡分区读取同一个人",
       "rightsStatus": "source_unverified",
       "originalPromptFiles": [
-        "C006-prompt-1.txt"
+        "C006-prompt-1.md"
       ],
       "bodyFiles": [
-        "C006-prompt-1.txt"
+        "C006-prompt-1.md"
       ],
       "mediaLinks": [
         {
@@ -58,7 +61,7 @@
           "url": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-839cf1bfbcbae095777b/media/f9107e2bc595f6713150.webp"
         }
       ],
-      "previewFile": "C006-preview.webp"
+      "previewUrl": "https://wchao6891.github.io/PromptDirector-Curated/skill-reference-media/reference-role-binding/C006-preview.webp"
     },
     {
       "id": "C013",
@@ -72,10 +75,10 @@
       "purpose": "只继承身份，不复制姿态与背景",
       "rightsStatus": "source_unverified",
       "originalPromptFiles": [
-        "C013-prompt-1.txt"
+        "C013-prompt-1.md"
       ],
       "bodyFiles": [
-        "C013-prompt-1.txt"
+        "C013-prompt-1.md"
       ],
       "mediaLinks": [
         {
@@ -87,7 +90,7 @@
           "url": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-15e09c79753fcb0bea4c/media/d995c9df99a160044113.webp"
         }
       ],
-      "previewFile": "C013-preview.webp"
+      "previewUrl": "https://wchao6891.github.io/PromptDirector-Curated/skill-reference-media/reference-role-binding/C013-preview.webp"
     },
     {
       "id": "C193",
@@ -99,10 +102,10 @@
       "purpose": "需要保留版式时的相反规则",
       "rightsStatus": "source_unverified",
       "originalPromptFiles": [
-        "C193-prompt-1.txt"
+        "C193-prompt-1.md"
       ],
       "bodyFiles": [
-        "C193-prompt-1.txt"
+        "C193-prompt-1.md"
       ],
       "mediaLinks": [
         {
@@ -114,7 +117,7 @@
           "url": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-439ddc0a3f2ea802932f/1.0.2/media/3b87ee0923abb4f91bcc.webp"
         }
       ],
-      "previewFile": "C193-preview.webp"
+      "previewUrl": "https://wchao6891.github.io/PromptDirector-Curated/skill-reference-media/reference-role-binding/C193-preview.webp"
     },
     {
       "id": "C213",
@@ -128,10 +131,10 @@
       "purpose": "动作视频与外观图片分工",
       "rightsStatus": "source_unverified",
       "originalPromptFiles": [
-        "C213-prompt-1.txt"
+        "C213-prompt-1.md"
       ],
       "bodyFiles": [
-        "C213-prompt-1.txt"
+        "C213-prompt-1.md"
       ],
       "mediaLinks": [
         {
@@ -143,7 +146,8 @@
           "url": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-c92476a8b91dad853e46/1.0.2/media/860d7ecbee280eb6609c.webp"
         }
       ],
-      "previewFile": "C213-preview.webp"
+      "previewUrl": "https://wchao6891.github.io/PromptDirector-Curated/skill-reference-media/reference-role-binding/C213-preview.webp"
     }
   ]
 }
+```

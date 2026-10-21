@@ -1,3 +1,6 @@
+# 来源字段映射
+
+```json
 {
   "version": 1,
   "completenessScope": "library-field-exact",
@@ -14,10 +17,10 @@
       "purpose": "光效与实体武器分离、按事件开启",
       "rightsStatus": "source_unverified",
       "originalPromptFiles": [
-        "C177-prompt-1.txt"
+        "C177-prompt-1.md"
       ],
       "bodyFiles": [
-        "C177-prompt-1.txt"
+        "C177-prompt-1.md"
       ],
       "mediaLinks": [
         {
@@ -29,7 +32,7 @@
           "url": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-0152f32b423764db6414/1.0.2/media/8e76ff6508e0cbab7baa.webp"
         }
       ],
-      "previewFile": "C177-preview.webp"
+      "previewUrl": "https://wchao6891.github.io/PromptDirector-Curated/skill-reference-media/vfx-state-continuity/C177-preview.webp"
     },
     {
       "id": "C179",
@@ -43,10 +46,10 @@
       "purpose": "粒子来源、建筑重建和光线交接",
       "rightsStatus": "source_unverified",
       "originalPromptFiles": [
-        "C179-prompt-1.txt"
+        "C179-prompt-1.md"
       ],
       "bodyFiles": [
-        "C179-prompt-1.txt"
+        "C179-prompt-1.md"
       ],
       "mediaLinks": [
         {
@@ -58,7 +61,7 @@
           "url": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-0152f32b423764db6414/1.0.2/media/e92dc0f7d9adb128c339.webp"
         }
       ],
-      "previewFile": "C179-preview.webp"
+      "previewUrl": "https://wchao6891.github.io/PromptDirector-Curated/skill-reference-media/vfx-state-continuity/C179-preview.webp"
     },
     {
       "id": "C141",
@@ -72,10 +75,10 @@
       "purpose": "一根绳形成终帧字形",
       "rightsStatus": "source_unverified",
       "originalPromptFiles": [
-        "C141-prompt-1.txt"
+        "C141-prompt-1.md"
       ],
       "bodyFiles": [
-        "C141-prompt-1.txt"
+        "C141-prompt-1.md"
       ],
       "mediaLinks": [
         {
@@ -87,7 +90,7 @@
           "url": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-d8fbcd1a05ba01c7f2c8/media/5a0a4a9bdaa09343dc1c.webp"
         }
       ],
-      "previewFile": "C141-preview.webp"
+      "previewUrl": "https://wchao6891.github.io/PromptDirector-Curated/skill-reference-media/vfx-state-continuity/C141-preview.webp"
     },
     {
       "id": "C082",
@@ -101,10 +104,10 @@
       "purpose": "车身部件映射到机械龙结构",
       "rightsStatus": "source_unverified",
       "originalPromptFiles": [
-        "C082-prompt-1.txt"
+        "C082-prompt-1.md"
       ],
       "bodyFiles": [
-        "C082-prompt-1.txt"
+        "C082-prompt-1.md"
       ],
       "mediaLinks": [
         {
@@ -116,7 +119,8 @@
           "url": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-d8fbcd1a05ba01c7f2c8/1.0.1/media/a8a62a9594683fdb8697.webp"
         }
       ],
-      "previewFile": "C082-preview.webp"
+      "previewUrl": "https://wchao6891.github.io/PromptDirector-Curated/skill-reference-media/vfx-state-continuity/C082-preview.webp"
     }
   ]
 }
+```

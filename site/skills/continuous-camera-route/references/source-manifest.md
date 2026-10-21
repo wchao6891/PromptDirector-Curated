@@ -1,3 +1,6 @@
+# 来源字段映射
+
+```json
 {
   "version": 1,
   "completenessScope": "library-field-exact",
@@ -14,10 +17,10 @@
       "purpose": "空中俯冲、贴地跟车与隧道出口",
       "rightsStatus": "source_unverified",
       "originalPromptFiles": [
-        "C010-prompt-1.txt"
+        "C010-prompt-1.md"
       ],
       "bodyFiles": [
-        "C010-prompt-1.txt"
+        "C010-prompt-1.md"
       ],
       "mediaLinks": [
         {
@@ -29,7 +32,7 @@
           "url": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-8987f96b85f0ac8fe26f/media/0b12357dd6040b9ca2cf.webp"
         }
       ],
-      "previewFile": "C010-preview.webp"
+      "previewUrl": "https://wchao6891.github.io/PromptDirector-Curated/skill-reference-media/continuous-camera-route/C010-preview.webp"
     },
     {
       "id": "C089",
@@ -43,10 +46,10 @@
       "purpose": "跟猫穿过连续生活空间",
       "rightsStatus": "source_unverified",
       "originalPromptFiles": [
-        "C089-prompt-1.txt"
+        "C089-prompt-1.md"
       ],
       "bodyFiles": [
-        "C089-prompt-1.txt"
+        "C089-prompt-1.md"
       ],
       "mediaLinks": [
         {
@@ -58,7 +61,7 @@
           "url": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-8987f96b85f0ac8fe26f/media/d01ab70f46a9745c6efe.webp"
         }
       ],
-      "previewFile": "C089-preview.webp"
+      "previewUrl": "https://wchao6891.github.io/PromptDirector-Curated/skill-reference-media/continuous-camera-route/C089-preview.webp"
     },
     {
       "id": "C180",
@@ -72,10 +75,10 @@
       "purpose": "道路坍塌中主体与摄影机双路径",
       "rightsStatus": "source_unverified",
       "originalPromptFiles": [
-        "C180-prompt-1.txt"
+        "C180-prompt-1.md"
       ],
       "bodyFiles": [
-        "C180-prompt-1.txt"
+        "C180-prompt-1.md"
       ],
       "mediaLinks": [
         {
@@ -87,7 +90,8 @@
           "url": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-0651f642797edd4693a7/1.0.2/media/b18ad42e730d55e07743.webp"
         }
       ],
-      "previewFile": "C180-preview.webp"
+      "previewUrl": "https://wchao6891.github.io/PromptDirector-Curated/skill-reference-media/continuous-camera-route/C180-preview.webp"
     }
   ]
 }
+```

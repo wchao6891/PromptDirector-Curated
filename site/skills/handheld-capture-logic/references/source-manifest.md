@@ -1,3 +1,6 @@
+# 来源字段映射
+
+```json
 {
   "version": 1,
   "completenessScope": "library-field-exact",
@@ -14,10 +17,10 @@
       "purpose": "手机焦距、人物靠近与隐藏剪辑的区分",
       "rightsStatus": "source_unverified",
       "originalPromptFiles": [
-        "C026-prompt-1.txt"
+        "C026-prompt-1.md"
       ],
       "bodyFiles": [
-        "C026-prompt-1.txt"
+        "C026-prompt-1.md"
       ],
       "mediaLinks": [
         {
@@ -29,7 +32,7 @@
           "url": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-c841d8e0b8020dda28c3/1.0.2/media/1bf97217e7ecbbcd39f3.webp"
         }
       ],
-      "previewFile": "C026-preview.webp"
+      "previewUrl": "https://wchao6891.github.io/PromptDirector-Curated/skill-reference-media/handheld-capture-logic/C026-preview.webp"
     },
     {
       "id": "C098",
@@ -43,10 +46,10 @@
       "purpose": "跟随人物事件的纪实摄影",
       "rightsStatus": "source_unverified",
       "originalPromptFiles": [
-        "C098-prompt-1.txt"
+        "C098-prompt-1.md"
       ],
       "bodyFiles": [
-        "C098-prompt-1.txt"
+        "C098-prompt-1.md"
       ],
       "mediaLinks": [
         {
@@ -58,7 +61,7 @@
           "url": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-8987f96b85f0ac8fe26f/media/76f1afa2458c8b8e49a4.webp"
         }
       ],
-      "previewFile": "C098-preview.webp"
+      "previewUrl": "https://wchao6891.github.io/PromptDirector-Curated/skill-reference-media/handheld-capture-logic/C098-preview.webp"
     },
     {
       "id": "C188",
@@ -70,10 +73,10 @@
       "purpose": "副驾拍摄、反应延迟与数字变焦",
       "rightsStatus": "source_unverified",
       "originalPromptFiles": [
-        "C188-prompt-1.txt"
+        "C188-prompt-1.md"
       ],
       "bodyFiles": [
-        "C188-prompt-1.txt"
+        "C188-prompt-1.md"
       ],
       "mediaLinks": [
         {
@@ -85,7 +88,7 @@
           "url": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-c841d8e0b8020dda28c3/1.0.2/media/4381268dda29fbefb2b3.webp"
         }
       ],
-      "previewFile": "C188-preview.webp"
+      "previewUrl": "https://wchao6891.github.io/PromptDirector-Curated/skill-reference-media/handheld-capture-logic/C188-preview.webp"
     },
     {
       "id": "C051",
@@ -99,10 +102,10 @@
       "purpose": "直射光下的皮肤和微距移动",
       "rightsStatus": "source_unverified",
       "originalPromptFiles": [
-        "C051-prompt-1.txt"
+        "C051-prompt-1.md"
       ],
       "bodyFiles": [
-        "C051-prompt-1.txt"
+        "C051-prompt-1.md"
       ],
       "mediaLinks": [
         {
@@ -114,7 +117,7 @@
           "url": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-439ddc0a3f2ea802932f/media/67a49a16d3ee8105e0e7.webp"
         }
       ],
-      "previewFile": "C051-preview.webp"
+      "previewUrl": "https://wchao6891.github.io/PromptDirector-Curated/skill-reference-media/handheld-capture-logic/C051-preview.webp"
     },
     {
       "id": "C119",
@@ -128,10 +131,10 @@
       "purpose": "窗光人像与克制的固定近景",
       "rightsStatus": "source_unverified",
       "originalPromptFiles": [
-        "C119-prompt-1.txt"
+        "C119-prompt-1.md"
       ],
       "bodyFiles": [
-        "C119-prompt-1.txt"
+        "C119-prompt-1.md"
       ],
       "mediaLinks": [
         {
@@ -143,7 +146,8 @@
           "url": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-439ddc0a3f2ea802932f/media/bbe0b8a253b3de3828f8.webp"
         }
       ],
-      "previewFile": "C119-preview.webp"
+      "previewUrl": "https://wchao6891.github.io/PromptDirector-Curated/skill-reference-media/handheld-capture-logic/C119-preview.webp"
     }
   ]
 }
+```

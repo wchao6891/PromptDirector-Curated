@@ -1,3 +1,6 @@
+# 来源字段映射
+
+```json
 {
   "version": 1,
   "completenessScope": "library-field-exact",
@@ -14,10 +17,10 @@
       "purpose": "街舞动作类型与可读景别",
       "rightsStatus": "source_unverified",
       "originalPromptFiles": [
-        "C106-prompt-1.txt"
+        "C106-prompt-1.md"
       ],
       "bodyFiles": [
-        "C106-prompt-1.txt"
+        "C106-prompt-1.md"
       ],
       "mediaLinks": [
         {
@@ -29,7 +32,7 @@
           "url": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-c92476a8b91dad853e46/media/fb62d0a7dca1687fa143.webp"
         }
       ],
-      "previewFile": "C106-preview.webp"
+      "previewUrl": "https://wchao6891.github.io/PromptDirector-Curated/skill-reference-media/dance-motion-continuity/C106-preview.webp"
     },
     {
       "id": "C107",
@@ -43,10 +46,10 @@
       "purpose": "支持脚和身体波浪跨镜衔接",
       "rightsStatus": "source_unverified",
       "originalPromptFiles": [
-        "C107-prompt-1.txt"
+        "C107-prompt-1.md"
       ],
       "bodyFiles": [
-        "C107-prompt-1.txt"
+        "C107-prompt-1.md"
       ],
       "mediaLinks": [
         {
@@ -58,7 +61,7 @@
           "url": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-c92476a8b91dad853e46/1.0.2/media/2fce04207dcdc914fecf.webp"
         }
       ],
-      "previewFile": "C107-preview.webp"
+      "previewUrl": "https://wchao6891.github.io/PromptDirector-Curated/skill-reference-media/dance-motion-continuity/C107-preview.webp"
     },
     {
       "id": "C113",
@@ -72,10 +75,10 @@
       "purpose": "快剪日常蒙太奇：不是逐拍舞蹈表",
       "rightsStatus": "source_unverified",
       "originalPromptFiles": [
-        "C113-prompt-1.txt"
+        "C113-prompt-1.md"
       ],
       "bodyFiles": [
-        "C113-prompt-1.txt"
+        "C113-prompt-1.md"
       ],
       "mediaLinks": [
         {
@@ -87,7 +90,7 @@
           "url": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-c92476a8b91dad853e46/media/67f2b419f0ebd650440f.webp"
         }
       ],
-      "previewFile": "C113-preview.webp"
+      "previewUrl": "https://wchao6891.github.io/PromptDirector-Curated/skill-reference-media/dance-motion-continuity/C113-preview.webp"
     },
     {
       "id": "C213",
@@ -101,10 +104,10 @@
       "purpose": "动作参考保留停顿与原始节奏",
       "rightsStatus": "source_unverified",
       "originalPromptFiles": [
-        "C213-prompt-1.txt"
+        "C213-prompt-1.md"
       ],
       "bodyFiles": [
-        "C213-prompt-1.txt"
+        "C213-prompt-1.md"
       ],
       "mediaLinks": [
         {
@@ -116,7 +119,8 @@
           "url": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-c92476a8b91dad853e46/1.0.2/media/860d7ecbee280eb6609c.webp"
         }
       ],
-      "previewFile": "C213-preview.webp"
+      "previewUrl": "https://wchao6891.github.io/PromptDirector-Curated/skill-reference-media/dance-motion-continuity/C213-preview.webp"
     }
   ]
 }
+```

@@ -1,3 +1,6 @@
+# 来源字段映射
+
+```json
 {
   "version": 1,
   "completenessScope": "library-field-exact",
@@ -14,10 +17,10 @@
       "purpose": "机械结构相对小飞船的危险间隙",
       "rightsStatus": "source_unverified",
       "originalPromptFiles": [
-        "C005-prompt-1.txt"
+        "C005-prompt-1.md"
       ],
       "bodyFiles": [
-        "C005-prompt-1.txt"
+        "C005-prompt-1.md"
       ],
       "mediaLinks": [
         {
@@ -29,7 +32,7 @@
           "url": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-d8fbcd1a05ba01c7f2c8/media/9a8c58252413cd429931.webp"
         }
       ],
-      "previewFile": "C005-preview.webp"
+      "previewUrl": "https://wchao6891.github.io/PromptDirector-Curated/skill-reference-media/scale-and-contact/C005-preview.webp"
     },
     {
       "id": "C028",
@@ -43,10 +46,10 @@
       "purpose": "城市建筑作为怪物的参照物",
       "rightsStatus": "source_unverified",
       "originalPromptFiles": [
-        "C028-prompt-1.txt"
+        "C028-prompt-1.md"
       ],
       "bodyFiles": [
-        "C028-prompt-1.txt"
+        "C028-prompt-1.md"
       ],
       "mediaLinks": [
         {
@@ -58,7 +61,7 @@
           "url": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-188037bfd925a5121795/media/bdfea7584716fbd43f40.webp"
         }
       ],
-      "previewFile": "C028-preview.webp"
+      "previewUrl": "https://wchao6891.github.io/PromptDirector-Curated/skill-reference-media/scale-and-contact/C028-preview.webp"
     },
     {
       "id": "C238",
@@ -72,10 +75,10 @@
       "purpose": "微型人物与食物的持续比例",
       "rightsStatus": "source_unverified",
       "originalPromptFiles": [
-        "C238-prompt-1.txt"
+        "C238-prompt-1.md"
       ],
       "bodyFiles": [
-        "C238-prompt-1.txt"
+        "C238-prompt-1.md"
       ],
       "mediaLinks": [
         {
@@ -87,7 +90,7 @@
           "url": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-21c770663b9db475989f/1.0.2/media/e04454838fdfad044aa1.webp"
         }
       ],
-      "previewFile": "C238-preview.webp"
+      "previewUrl": "https://wchao6891.github.io/PromptDirector-Curated/skill-reference-media/scale-and-contact/C238-preview.webp"
     },
     {
       "id": "C147",
@@ -101,10 +104,10 @@
       "purpose": "从棋盘细节到天地尺度的揭示",
       "rightsStatus": "source_unverified",
       "originalPromptFiles": [
-        "C147-prompt-1.txt"
+        "C147-prompt-1.md"
       ],
       "bodyFiles": [
-        "C147-prompt-1.txt"
+        "C147-prompt-1.md"
       ],
       "mediaLinks": [
         {
@@ -116,7 +119,8 @@
           "url": "https://wchao6891.github.io/PromptDirector-Curated/previews/cases-0152f32b423764db6414/1.0.2/media/f66e35365e3cf1d31e47.webp"
         }
       ],
-      "previewFile": "C147-preview.webp"
+      "previewUrl": "https://wchao6891.github.io/PromptDirector-Curated/skill-reference-media/scale-and-contact/C147-preview.webp"
     }
   ]
 }
+```
