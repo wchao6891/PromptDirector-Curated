@@ -1,8 +1,8 @@
 import { groupCuratedPreview, mountCuratedMediaGallery } from "./curated-media-gallery.js";
 import { createStableMasonry } from "./masonry.js";
 
-const CATALOG_URL = "public-catalog.json";
-const METRICS_URL = "metrics.json";
+const CATALOG_URL = new URL("public-catalog.json", import.meta.url);
+const METRICS_URL = new URL("metrics.json", import.meta.url);
 const FOLLOW_STORAGE_KEY = "promptdirector.curated.following.v1";
 const CASE_PAGE_SIZE = 24;
 
@@ -654,7 +654,7 @@ function publicPackUrl(id) {
 }
 
 function siteAssetUrl(value) {
-  const url = new URL(value, location.href);
+  const url = new URL(value, import.meta.url);
   if (location.hostname === "wchao6891.github.io") return url.href;
   return `${url.pathname.replace(/^\/PromptDirector-Curated/, "")}${url.search}`;
 }

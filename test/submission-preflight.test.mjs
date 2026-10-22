@@ -7,6 +7,7 @@ import { join } from "node:path";
 import test from "node:test";
 import { writePromptDirectorZip } from "../tools/curated-zip.mjs";
 import {
+  assertCaseMediaRelations,
   extractOfficialAttachmentUrls,
   downloadAttachment,
   fetchOfficialAttachment,
@@ -325,3 +326,17 @@ function replaceAscii(bytes, before, after) {
   }
   assert.equal(replacements, 2);
 }
+
+
+test('多图内容保留同一案例，仍拒绝悬空主图、重复编号和孤立封面', () => {
+  const image = id => ({ id, kind: 'image', usage: 'content' });
+  const entry = { title: '多图海报', primaryMediaId: 'a', mediaAssets: [image('a'), image('b')] };
+  assert.doesNotThrow(() => assertCaseMediaRelations(entry));
+  assert.throws(() => assertCaseMediaRelations({ ...entry, primaryMediaId: 'missing' }), /多图海报.*主媒体/);
+  assert.throws(() => assertCaseMediaRelations({ ...entry, mediaAssets: [image('a'), image('a')] }), /编号/);
+  assert.throws(() => assertCaseMediaRelations({ ...entry, mediaAssets: [...entry.mediaAssets, { id: 'p', kind: 'image', usage: 'poster' }] }), /未关联/);
+  const video = { id: 'v', kind: 'video', usage: 'content', posterAssetId: 'p' };
+  const poster = { id: 'p', kind: 'image', usage: 'poster', derivedFromAssetId: 'v' };
+  assert.doesNotThrow(() => assertCaseMediaRelations({ ...entry, mediaAssets: [...entry.mediaAssets, video, poster] }));
+  assert.throws(() => assertCaseMediaRelations({ ...entry, mediaAssets: [...entry.mediaAssets, video, { ...poster, derivedFromAssetId: 'wrong' }] }), /封面/);
+});
