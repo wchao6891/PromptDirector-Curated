@@ -13,7 +13,7 @@ node --test test/website.test.mjs
 python3 -m http.server 8768 --bind 127.0.0.1 --directory dist/website
 ```
 
-Open `/index.html?lang=zh-CN` or `/en/index.html`. The build output `dist/website` is suitable for a static host. `web/config.json` defines the public origin, existing asset origin, contact information and featured case. The intended domain is `https://promptdirector.cn`; building does not connect the domain or deploy anything.
+Open `/index.html?lang=zh-CN` or `/en/index.html`. The build output `dist/website` is suitable for a static host. `web/config.json` defines the public origin, existing asset origin, contact information and featured case. The public website is [promptdirector.cn](https://promptdirector.cn/); building locally does not deploy changes.
 
 ## Publishing one content source
 

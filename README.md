@@ -2,15 +2,15 @@
 
 **English** · [简体中文](README.zh-CN.md)
 
-**Start with the work, then explore its prompt and source.** Browse visual references collected and reviewed with PromptDirector. No installation is needed to explore; download a pack when you want to keep it in your own local library.
+**2,000+ visual cases and reusable creative Skills.** Start with the work, then explore its prompt and source. Browse visual references collected and reviewed with PromptDirector. No installation is needed to explore; download a pack when you want to keep it in your own local library.
 
-[Browse curated cases](https://wchao6891.github.io/PromptDirector-Curated/en/) · [Curated Skills](https://wchao6891.github.io/PromptDirector-Curated/en/skills.html) · [Quick start](https://wchao6891.github.io/PromptDirector-Curated/en/guide.html) · [Add to Chrome](https://chromewebstore.google.com/detail/iahakaahijddcjjldidbclicedibgpjm?hl=en) · [Extension source](https://github.com/wchao6891/PromptDirector)
+[Browse curated cases](https://promptdirector.cn/en/) · [Curated Skills](https://promptdirector.cn/en/skills/) · [Quick start](https://promptdirector.cn/en/guide.html) · [Add to Chrome](https://chromewebstore.google.com/detail/iahakaahijddcjjldidbclicedibgpjm?hl=en) · [Extension source](https://github.com/wchao6891/PromptDirector)
 
-Collections include Chinese-inspired visuals, visual development, product ads, posters, fashion, video prompts and cinematic techniques. See the [live catalog](https://wchao6891.github.io/PromptDirector-Curated/en/) for current packs and case counts; counts may include entries that appear in more than one pack.
+The catalog currently contains **45 case collections and 17 Skills**. Collections include Chinese-inspired visuals, visual development, product ads, posters, fashion, video prompts and cinematic techniques. See the [live catalog](https://promptdirector.cn/en/) for current packs and case counts; counts may include entries that appear in more than one pack.
 
 | Original Chinese-Inspired Visuals | Brand Design | Cinematic Techniques |
 |---|---|---|
-| [Explore Vol.1](https://wchao6891.github.io/PromptDirector-Curated/en/?pack=featured%3Avol-1) | [Explore Brand Design](https://wchao6891.github.io/PromptDirector-Curated/en/?pack=cases-f05a7604a4a889ede786) | [Explore Camera Movement](https://wchao6891.github.io/PromptDirector-Curated/en/?pack=melies%3Acamera-movement) |
+| [Explore Vol.1](https://promptdirector.cn/en/collections/featured-cases-vol-1/) | [Explore Brand Design](https://promptdirector.cn/en/collections/cases-f05a7604a4a889ede786/) | [Explore Camera Movement](https://promptdirector.cn/en/collections/melies-camera-movement/) |
 
 ## Use a pack
 
@@ -32,7 +32,7 @@ For a Skill, use **Submit to curated Skill** in its detail view, review the file
 
 Each pack records its sources and rights status. Editorial acceptance does not prove redistribution permission or grant commercial rights. Third-party recommendations retain author attribution and sources and are marked as unverified when permission has not been established. Submitters cannot grant a license on another author's behalf. Read the [rights and sources policy](RIGHTS.en.md).
 
-[Rights report or removal request](https://github.com/wchao6891/PromptDirector-Curated/issues/new?template=rights-report-en.yml) · [Support](https://wchao6891.github.io/PromptDirector-Curated/en/support.html) · [Privacy](https://wchao6891.github.io/PromptDirector-Curated/en/privacy.html)
+[Rights report or removal request](https://github.com/wchao6891/PromptDirector-Curated/issues/new?template=rights-report-en.yml) · [Support](https://promptdirector.cn/en/support.html) · [Privacy](https://promptdirector.cn/en/privacy.html)
 
 This repository contains public catalogs, previews and release materials. Private cases, evaluation material, sync data and API keys do not belong here. Follows stay on the current device; the product does not offer likes, public follower counts, comments or algorithmic rankings.
 
@@ -44,6 +44,6 @@ This repository contains public catalogs, previews and release materials. Privat
 4. Generate read-only previews with `tools/build-site-previews.mjs` and activate versioned previews with `tools/activate-media-previews.mjs`, using the media manifest. Video packs without a media manifest are rejected to avoid publishing covers without playable media.
 5. Validate with `node tools/validate-catalog.mjs && node tools/validate-skill-catalog.mjs`, submit the reviewed changes and verify the deployed website. A failed metrics refresh retains the last verified snapshot.
 
-## Brand website development
+## Website and catalog
 
-The new individual-case website is built from the same reviewed catalog. See [build, localization and migration documentation](docs/website.md). The existing site and extension data endpoints remain available during migration.
+[PromptDirector.cn](https://promptdirector.cn/en/) is the official website for cases, collections, Skills and guides. It is built from the reviewed catalog in this repository. See [build, localization and migration documentation](docs/website.md). Legacy GitHub Pages data and media URLs remain available for released extensions and existing references.
