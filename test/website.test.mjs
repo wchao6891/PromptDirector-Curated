@@ -57,7 +57,7 @@ test('a Skill package version update keeps its English display metadata and orig
  assert.equal(metadata.skills[0].id,'method@1.0.2');assert.equal(metadata.skills[0].downloadUrl,'https://example.com/method-1.0.2.zip');
 });
 test('detail reads share in-flight requests and a failure can be retried',async()=>{
- let calls=0;const context=vm.createContext({URL,Map,Set,document:{currentScript:{src:'https://promptdirector.cn/website-data.js'}},fetch:async()=>{calls++;if(calls===1)throw Error('network');return {ok:true,json:async()=>[{id:'case',text:'complete'}]}}});
+ let calls=0;const context=vm.createContext({URL,Map,Set,document:{currentScript:{src:'https://promptdirector.cn/website-data.js'}},fetch:async()=>{calls++;if(calls===1)throw Error('network');return {ok:true,json:async()=>({id:'case',text:'complete'})}}});
  vm.runInContext(await readFile(new URL('../web/website-data.js',import.meta.url),'utf8'),context);
  await assert.rejects(vm.runInContext("readCase({detailsUrl:'website/details/p.json'},'case')",context),/network/);
  const [a,b]=await vm.runInContext("Promise.all([readCase({detailsUrl:'website/details/p.json'},'case'),readCase({detailsUrl:'website/details/p.json'},'case')])",context);
@@ -163,6 +163,68 @@ test('a video started from a direct case page keeps its player when the delayed 
  for(const file of ['website-data','app'])vm.runInContext(await readFile(new URL('../web/'+file+'.js',import.meta.url),'utf8'),context);
  const started=vm.runInContext(await readFile(new URL('../web/site-pages.js',import.meta.url),'utf8'),context);
  release();await started;await vm.runInContext('renderPending',context);
- assert.equal(document.querySelector('#media-content video'),player);assert.equal(player.currentTime,5);
+ assert.ok(document.querySelector('#media-content video')===player,'catalog readiness must preserve the existing player');assert.equal(player.currentTime,5);
  assert.equal(document.querySelector('.media-error'),null);
+});
+
+
+test('opening one case downloads only that case, not unrelated prompts from its collection',async()=>{
+ const requests=[];
+ const context=vm.createContext({URL,Map,Set,document:{currentScript:{src:'https://promptdirector.cn/website-data.js'}},fetch:async url=>{
+  requests.push(url);const entry={id:'case',text:'complete original',media:[{text:'member original'}]};return {ok:true,json:async()=>url.endsWith('/p.json')?[entry]:entry};
+ }});
+ vm.runInContext(await readFile(new URL('../web/website-data.js',import.meta.url),'utf8'),context);
+ const entry=await vm.runInContext("readCase({detailsUrl:'website/details/p.json'},'case')",context);
+ assert.equal(requests[0],'https://promptdirector.cn/website/details/p/case.json');
+ assert.equal(entry.text,'complete original');assert.equal(entry.media[0].text,'member original');
+});
+
+test('catalog readiness and media filters preserve the already visible hero image',async()=>{
+ const index=await readJSON('../dist/website/website/index.json'),metadata=await readJSON('../dist/website/website/site.json');
+ const window=parseHTML(await readFile(new URL('../dist/website/index.html',import.meta.url),'utf8')),document=window.document;
+ Object.defineProperty(document,'currentScript',{value:{src:'https://promptdirector.cn/website-data.js'}});
+ const dialog=document.querySelector('#detail');dialog.close=()=>{dialog.open=false};
+ const hero=document.querySelector('.cinema img');
+ const context=vm.createContext({document,URL,URLSearchParams,Map,Set,innerWidth:1440,location:new URL('https://promptdirector.cn/'),localStorage:{getItem:()=>null},history:{replaceState(){},pushState(){}},addEventListener(){},window:{scrollTo(){}},setTimeout:()=>0,clearTimeout(){},fetch:async url=>({ok:true,json:async()=>structuredClone(url.endsWith('/index.json')?index:metadata)})});
+ for(const file of ['website-data','app'])vm.runInContext(await readFile(new URL('../web/'+file+'.js',import.meta.url),'utf8'),context);
+ await vm.runInContext(await readFile(new URL('../web/site-pages.js',import.meta.url),'utf8'),context);
+ assert.ok(document.querySelector('.cinema img')===hero,'catalog must not discard the displayed hero');
+ document.querySelector('[data-kind="video"]').dispatchEvent(new window.Event('click',{bubbles:true}));
+ assert.ok(document.querySelector('.cinema img')===hero,'filtering cards must not reload the hero');
+});
+
+
+test('each lazy case response retains every original field including compound members',async()=>{
+ const index=await readJSON('../dist/website/website/index.json');
+ for(const pack of index.packs){
+  const entries=await readJSON('../dist/website/'+pack.detailsUrl);
+  for(const entry of entries){
+   const path=pack.detailsUrl.replace(/\.json$/,'/'+encodeURIComponent(entry.id)+'.json');
+   assert.deepEqual(await readJSON('../dist/website/'+path),entry);
+  }
+ }
+});
+
+test('guide preview compression preserves source pixels, dimensions and original screenshot links in both languages',async()=>{
+ const sharp=(await import('sharp')).default;
+ for(const dir of ['', 'en/']){
+  const source=await readFile(new URL('../site/'+dir+'guide-assets/library.png',import.meta.url));
+  const doc=await builtDocument(dir+'guide.html'),img=doc.querySelector('img[src$="lossless.webp"]'),preview=img.getAttribute('src');
+  assert.match(preview,/lossless\.webp$/);
+  const result=await readFile(new URL('../dist/website'+preview,import.meta.url));
+  assert.ok(result.length<source.length);
+  assert.ok((await sharp(result).ensureAlpha().raw().toBuffer()).equals(await sharp(source).ensureAlpha().raw().toBuffer()),'decoded screenshot pixels must remain identical');
+  assert.ok(doc.querySelector('a[href="guide-assets/library.png"]'));
+ }
+});
+
+test('the browser discovers the exact responsive hero source before the inline stylesheet',async()=>{
+ for(const dir of ['', 'en/']){
+  const html=await readFile(new URL('../dist/website/'+dir+'index.html',import.meta.url),'utf8'),doc=parseHTML(html).document;
+  const preload=doc.querySelector('link[rel="preload"][as="image"]'),hero=doc.querySelector('.cinema img');
+  assert.ok(preload);assert.equal(preload.getAttribute('href'),hero.getAttribute('src'));
+  assert.equal(preload.getAttribute('imagesrcset'),hero.getAttribute('srcset'));
+  assert.equal(preload.getAttribute('imagesizes'),hero.getAttribute('sizes'));
+  assert.ok(html.indexOf('rel="preload"')<html.indexOf('<style>'));
+ }
 });

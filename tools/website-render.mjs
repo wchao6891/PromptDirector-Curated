@@ -17,7 +17,7 @@ export async function renderWebsite({out,index,metadata,details,config}){
   const dialog=document.querySelector('#detail');dialog.close=()=>{dialog.open=false};dialog.showModal=()=>{dialog.open=true};
   const sandbox={document,URL,URLSearchParams,Map,Set,console,structuredClone,innerWidth:1440,location:new URL(config.origin+'/'+prefix),localStorage:{getItem:()=>null},history:{replaceState(){},pushState(){}},addEventListener(){},scrollTo(){},matchMedia:()=>({matches:false}),setTimeout:()=>0,clearTimeout(){},inputIndex:index,inputMetadata:metadata};
   sandbox.window=sandbox;
-  sandbox.fetch=async url=>{const path=new URL(url).pathname.slice(1);if(!details.has(path))throw Error('Unreviewed build request: '+path);return {ok:true,json:async()=>structuredClone(details.get(path))}};
+  sandbox.fetch=async url=>{const path=decodeURIComponent(new URL(url).pathname.slice(1));if(!details.has(path))throw Error('Unreviewed build request: '+path);return {ok:true,json:async()=>structuredClone(details.get(path))}};
   const context=vm.createContext(sandbox);
   for(const file of ['website-data.js',...(english?['catalog-en.js']:[]),english?'app-en.js':'app.js',english?'site-pages-en.js':'site-pages.js']){
    let code=await readFile(join(out,file),'utf8');code=code.replace(/startWebsite\(\);\s*$/,'');vm.runInContext(code,context,{filename:file});
@@ -39,16 +39,21 @@ export async function renderWebsite({out,index,metadata,details,config}){
    document.querySelector('#initial-case-data')?.remove();
    vm.runInContext('restoreRoute()',context);await vm.runInContext('renderPending',context);
    const main=document.querySelector('#app');main.dataset.prerendered='true';
-   if(main.querySelector('.loading'))throw Error('Incomplete prerender: '+route.path);
+   if(main.querySelector('.loading')||(route.entry&&!main.querySelector('.standalone-case #prompt')))throw Error('Incomplete prerender: '+route.path);
    if(route.entry){
     const raw=details.get(route.pack.detailsUrl.replace(config.origin+'/','')).find(e=>e.id===route.entry.id);
     if(!raw)throw Error('Missing reviewed case: '+route.entry.id);
     const script=document.createElement('script');script.id='initial-case-data';script.type='application/json';script.textContent=safeJson({pack:route.pack.id,entry:raw});document.body.append(script);
    }
    const page=parseHTML(document.toString()).document;
-   if(!route.path){const link=page.querySelector('link[rel="stylesheet"]'),style=page.createElement('style');style.textContent=styles;link.replaceWith(style)}
+   if(!route.path){
+    const link=page.querySelector('link[rel="stylesheet"]'),style=page.createElement('style');style.textContent=styles;link.replaceWith(style);
+    const heroImage=page.querySelector('.cinema img'),preload=page.createElement('link');
+    for(const [name,value] of Object.entries({rel:'preload',as:'image',href:heroImage.getAttribute('src'),imagesrcset:heroImage.getAttribute('srcset'),imagesizes:heroImage.getAttribute('sizes'),fetchpriority:'high'}))if(value)preload.setAttribute(name,value);
+    page.head.prepend(preload);
+   }
    // Local assets remain on the current host, including preview deployments.
-   for(const node of page.querySelectorAll('[src],[href],[srcset]'))for(const attr of ['src','href','srcset'])if(node.hasAttribute(attr))node.setAttribute(attr,node.getAttribute(attr).replaceAll(config.origin+'/', '/'));
+   for(const node of page.querySelectorAll('[src],[href],[srcset],[imagesrcset]'))for(const attr of ['src','href','srcset','imagesrcset'])if(node.hasAttribute(attr))node.setAttribute(attr,node.getAttribute(attr).replaceAll(config.origin+'/', '/'));
    page.querySelector('.language-link').setAttribute('href','/'+(english?'':'en/')+route.path);
    const url=config.origin+'/'+prefix+route.path;
    addMetadata(page,{...route,url,english,config,description:route.description||defaultDescription});

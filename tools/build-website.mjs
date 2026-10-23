@@ -58,9 +58,23 @@ await cp(join(web,'assets'),join(out,'assets'),{recursive:true});
 await cp(join(web,'style.css'),join(out,'style.css'));
 await cp(join(web,'website-data.js'),join(out,'website-data.js'));
 await cp(join(web,'lang.js'),join(out,'lang.js'));
-await prepareWebsiteImages({root,source,out,index,skills:skills.skills});
+const guideImages=[];
+for(const dir of ['', 'en/']){
+ const doc=parseHTML(await readFile(join(source,dir,'guide.html'),'utf8')).document;
+ for(const img of doc.querySelectorAll('img[src^="guide-assets/"]'))guideImages.push(dir+img.getAttribute('src'));
+}
+const imageVariants=await prepareWebsiteImages({root,source,out,index,skills:skills.skills,guideImages});
 await mkdir(join(out,'website/details'),{recursive:true});
-for(const [path,value] of detailOutputs)await writeFile(join(out,path),JSON.stringify(value));
+const renderDetails=new Map(detailOutputs);
+for(const [path,entries] of detailOutputs){
+ await writeFile(join(out,path),JSON.stringify(entries));
+ const directory=path.replace(/\.json$/,'');await mkdir(join(out,directory),{recursive:true});
+ for(const entry of entries){
+  if(!entry.id||/[\\/]/.test(entry.id)||entry.id==='.'||entry.id==='..')throw Error('Invalid case identifier');
+  const caseFile=directory+'/'+entry.id+'.json';
+  await writeFile(join(out,caseFile),JSON.stringify(entry));renderDetails.set(caseFile,entry);
+ }
+}
 await writeFile(join(out,'website/index.json'),JSON.stringify(index));
 await writeFile(join(out,'website/search.json'),JSON.stringify(search));
 const metrics=normalizeSiteMetrics(await json(join(source,'metrics.json')),catalog);
@@ -98,6 +112,10 @@ for(const english of [false,true]){
   doc=doc.split(config.legacyOrigin).join(config.origin+'/');
   doc=doc.replaceAll('href="overview.html"','href="index.html?view=about"').replaceAll('href="skills.html"','href="index.html?view=skills"');
   const parsed=parseHTML(doc).document;
+  for(const img of parsed.querySelectorAll('img[src^="guide-assets/"]')){
+   const variant=imageVariants.get(dir+img.getAttribute('src'))?.[0];
+   if(variant){img.setAttribute('src','/'+variant.url);img.setAttribute('decoding','async');}
+  }
   const base=parsed.createElement('base');base.setAttribute('href',english?'/en/':'/');parsed.head.prepend(base);
   addMetadata(parsed,{title:parsed.title,description:parsed.querySelector('meta[name="description"]')?.content||parsed.title,url:config.origin+'/'+dir+name,english,config});
   await writeFile(join(out,dir,name+'.html'),'<!doctype html>'+parsed.documentElement.outerHTML);
@@ -105,7 +123,7 @@ for(const english of [false,true]){
  // Preserve old human page links within the new site, including query and language.
  for(const [name,view] of [['skills','skills'],['overview','about']])await writeFile(join(out,dir,name+'.html'),`<!doctype html><html lang="${english?'en':'zh-CN'}"><meta charset="utf-8"><title>PromptDirector</title><a href="index.html?view=${view}">PromptDirector</a><script>const u=new URL('index.html',location);u.search=location.search;u.searchParams.set('view','${view}');u.hash=location.hash;location.replace(u.href)</script></html>`);
 }
-const urls=await renderWebsite({out,index,metadata,details:new Map(detailOutputs),config});
+const urls=await renderWebsite({out,index,metadata,details:renderDetails,config});
 urls.push(...['guide','privacy','support'].flatMap(p=>[config.origin+'/'+p,config.origin+'/en/'+p]));
 const notFound=parseHTML(await readFile(join(out,'index.html'),'utf8')).document;
 notFound.querySelector('#app').innerHTML='<section class="empty"><h1>页面未找到</h1><p>Page not found</p><a class="back" href="/">返回首页 / Back to home</a></section>';

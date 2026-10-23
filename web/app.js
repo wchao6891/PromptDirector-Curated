@@ -55,7 +55,11 @@ function renderView(){
  const grid='<div id="grid"></div><div class="load-more"><button id="moreCases">继续浏览</button></div>';
  if(packId){const p=data.packs.find(p=>p.id===packId);if(!p){app.innerHTML='<p class=empty>未找到这个合集。</p>';return}app.innerHTML=`<a class="back" href="${viewPath('collections')}" data-view="collections">← 返回全部合集</a><div class="pack-hero"><div><div class="eyebrow">COLLECTION</div><h1>${esc(p.title)}</h1><p>${p.caseCount} 个案例 · 上传者 ${authorLink(p)} · 上架 ${dateLabel(p)}</p><p class="pack-rights">${esc(p.rightsStatus==='source_unverified'?'权利归原作者 · 授权未核验':p.license)}${downloadLabel(p)?' · '+downloadLabel(p):''}</p></div><div class="pack-actions">${followButton(p)}<a class="primary" href="${esc(p.downloadUrl)}" target="_blank">下载完整合集 ↓</a></div></div><div class="filterbar revised">${types()}${search()}</div>${grid}`;renderGrid();return}
  const feature=all.find(e=>e.pack.id===data.featuredCase.pack&&e.id===data.featuredCase.entry)||all[0];
- app.innerHTML=`<section class="cinema">${previewImage(feature,{hero:true})}<div class="cinema-copy"><div class="eyebrow">PROMPTDIRECTOR / CURATED</div><h1>Spot it.<br>Save it.</h1><p class="hero-tagline">刷到就存，要用就有</p></div><a class="feature-name" href="${casePath(feature)}" data-case="${esc(feature.key)}">编辑选看 · ${esc(feature.title)} ↗</a></section><section id="browse"><div class="compact-toolbar"><h2>精选案例</h2>${types()}${followedFilter()}${packPicker()}${search()}${sortControl()}</div>${grid}</section>`;
+ const existingHero=app.querySelector('.cinema');
+ const hero=existingHero?.querySelector('[data-case]')?.dataset.case===feature.key?existingHero:null;
+ const heroMarkup=`<section class="cinema">${previewImage(feature,{hero:true})}<div class="cinema-copy"><div class="eyebrow">PROMPTDIRECTOR / CURATED</div><h1>Spot it.<br>Save it.</h1><p class="hero-tagline">刷到就存，要用就有</p></div><a class="feature-name" href="${casePath(feature)}" data-case="${esc(feature.key)}">编辑选看 · ${esc(feature.title)} ↗</a></section>`;
+ const browseMarkup=`<section id="browse"><div class="compact-toolbar"><h2>精选案例</h2>${types()}${followedFilter()}${packPicker()}${search()}${sortControl()}</div>${grid}</section>`;
+ if(hero){app.querySelector('#browse')?.remove();app.insertAdjacentHTML('beforeend',browseMarkup)}else app.innerHTML=heroMarkup+browseMarkup;
  renderPackOptions();renderGrid();
 }
 function notify(text){const host=dialog.open?dialog:document.body;if($('#toast').parentElement!==host)host.append($('#toast'));$('#toast').textContent=text;$('#toast').style.display='block';clearTimeout(notify.timer);notify.timer=setTimeout(()=>$('#toast').style.display='none',2400)}
@@ -66,7 +70,8 @@ function showMedia(e,idx=0){
  const media=mediaItems(e),m=media[idx];
  $('#media-content video')?.pause();
  const video=m.mediaKind==='video'&&m.videoUrl;
- $('#media-content').innerHTML=video?`<video controls playsinline preload="metadata" poster="${esc(m.previewImageUrl||e.previewImageUrl)}" src="${esc(video)}"></video>`:`<img src="${esc(m.previewImageUrl||e.previewImageUrl)}" alt="${esc(m.title||e.title)}">`;
+ const dimensions=m.width>0&&m.height>0?`width="${Number(m.width)}" height="${Number(m.height)}" style="aspect-ratio:${Number(m.width)} / ${Number(m.height)};height:auto"`:'';
+ $('#media-content').innerHTML=video?`<video ${dimensions} controls playsinline preload="metadata" poster="${esc(m.previewImageUrl||e.previewImageUrl)}" src="${esc(video)}"></video>`:`<img ${dimensions} src="${esc(m.previewImageUrl||e.previewImageUrl)}" alt="${esc(m.title||e.title)}">`;
  bindMediaError(e,idx);
  const tabs=$('.media-tabs');if(tabs)tabs.innerHTML=media.map((m,i)=>`<button data-media="${i}" class="${i===idx?'active':''}">素材 ${i+1}</button>`).join('');
  $('#prompt').textContent=(m.text??e.text)||'此案例未提供提示词。';

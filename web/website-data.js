@@ -44,9 +44,8 @@ async function readWebsite(){
 async function readCase(pack,id){
  const initial=document.querySelector?.('#initial-case-data');
  if(initial){const value=JSON.parse(initial.textContent);if(value.pack===pack.id&&value.entry.id===id)return resolveMedia(value.entry);}
- const entries=await readWebsiteJson(pack.detailsUrl);
- const entry=entries.find(e=>e.id===id||e.memberEntryIds?.includes(id));
- if(!entry)throw Error('Case unavailable');
+ const entry=await readWebsiteJson(pack.detailsUrl.replace(/\.json$/, '/'+encodeURIComponent(id)+'.json'));
+ if(entry.id!==id&&!entry.memberEntryIds?.includes(id))throw Error('Case unavailable');
  return resolveMedia(entry);
 }
 function localizeCatalogs(data,siteData){
