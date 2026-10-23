@@ -1,0 +1,7 @@
+{
+  "version": 1,
+  "maxEdge": 1280,
+  "maxFrameRate": 30,
+  "videoBitrate": 1200000,
+  "audioBitrate": 96000
+}

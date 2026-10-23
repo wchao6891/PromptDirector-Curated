@@ -1,5 +1,5 @@
 // Resolve GitHub's redirect at the edge; the browser streams the unchanged original.
-export function createVideoWorker(sources,fetchSource=fetch){
+export function createVideoWorker({sources,previews},fetchSource=fetch){
  return {async fetch(request,env){
   const path=new URL(request.url).pathname;
   if(!path.startsWith('/website/video/'))return env.ASSETS.fetch(request);
@@ -7,10 +7,11 @@ export function createVideoWorker(sources,fetchSource=fetch){
   const hash=path.match(/^\/website\/video\/([a-f0-9]{64})\.mp4$/)?.[1];
   const original=hash&&sources[hash];
   if(!original)return new Response(null,{status:404});
-  let destination=original;
+  const source=new URL(request.url).searchParams.get('quality')==='preview'&&previews[hash]||original;
+  let destination=source;
   try{
    // A stalled lookup must not prevent retrying the original public source.
-   const response=await fetchSource(original,{method:'HEAD',redirect:'manual',signal:AbortSignal.timeout(5000)});
+   const response=await fetchSource(source,{method:'HEAD',redirect:'manual',signal:AbortSignal.timeout(5000)});
    if(response.status===302){
     const location=new URL(response.headers.get('location'));
     if(location.protocol==='https:'&&location.hostname==='release-assets.githubusercontent.com'&&!location.username&&!location.password)destination=location.href;

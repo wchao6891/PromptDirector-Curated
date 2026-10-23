@@ -77,6 +77,7 @@ function showMedia(e,idx=0,previewSrc=''){
  const video=m.mediaKind==='video'&&m.videoUrl&&videoPlaybackUrl(m);
  const dimensions=m.width>0&&m.height>0?`width="${Number(m.width)}" height="${Number(m.height)}" style="aspect-ratio:${Number(m.width)} / ${Number(m.height)};height:auto"`:'';
  $('#media-content').innerHTML=video?`<video ${dimensions} controls playsinline preload="metadata" poster="${esc(m.previewImageUrl||e.previewImageUrl)}" src="${esc(video)}"></video>`:`<img ${dimensions} src="${esc(m.previewImageUrl||e.previewImageUrl)}" alt="${esc(m.title||e.title)}">`;
+ if(video&&previewVideos.has(m.videoSha256))$('#media-content').insertAdjacentHTML('beforeend',`<label class="video-quality"><select id="videoQuality" data-media-index="${idx}" aria-label="播放画质"><option value="preview" ${videoQuality==='preview'?'selected':''}>流畅</option><option value="original" ${videoQuality==='original'?'selected':''}>原画</option></select></label>`);
  const content=$('#media-content'),preview=idx===0?(previewSrc||e.thumbnails?.[0]?.url):null;
  content.style.background=preview?`center / contain no-repeat url(${JSON.stringify(assetUrl(preview))})`:'';
  const element=content.querySelector('img,video');
@@ -90,18 +91,31 @@ function showMedia(e,idx=0,previewSrc=''){
  const source=$('#caseSource');source.href=m.sourceUrl||e.sourceUrl||'';source.hidden=!source.getAttribute('href');
 }
 const mediaErrorBindings=new WeakSet();
+function changeVideoSource(player,url){
+ const time=player.currentTime||0,playing=!player.paused;
+ player.addEventListener('loadedmetadata',()=>{if(time)player.currentTime=Math.min(time,player.duration||time);if(playing)player.play().catch(()=>{});},{once:true});
+ player.setAttribute('src',url);player.load();
+}
+document.addEventListener('change',event=>{
+ const entry=selected||initialCase?.entry;
+ if(event.target.id!=='videoQuality'||!entry)return;
+ videoQuality=event.target.value;
+ const media=mediaItems(entry)[Number(event.target.dataset.mediaIndex)];
+ changeVideoSource($('#media-content video'),videoPlaybackUrl(media));
+});
 function bindMediaError(e,idx=0){
  const element=$('#media-content video, #media-content img');if(!element||mediaErrorBindings.has(element))return;
  mediaErrorBindings.add(element);
  const onError=()=>{
   if(!element.isConnected||element.parentElement.querySelector('.media-error'))return;
   const media=mediaItems(e)[idx];
-  if(element.tagName==='VIDEO'&&element.getAttribute('src')!==media.videoUrl){element.setAttribute('src',media.videoUrl);element.load();return;}
+  if(element.tagName==='VIDEO'&&element.getAttribute('src')!==media.videoUrl){if($('#videoQuality'))$('#videoQuality').value='original';changeVideoSource(element,media.videoUrl);return;}
   const message=document.createElement('p');message.className='media-error';message.innerHTML='<span>素材暂时无法加载</span> <button id="retryMedia">重试</button>';element.parentElement.append(message);message.querySelector('button').onclick=()=>showMedia(e,idx);
  };
  element.addEventListener('error',onError);
  if(element.error||(element.tagName==='IMG'&&element.complete&&!element.naturalWidth))onError();
 }
+if(initialCase?.entry)bindMediaError(initialCase.entry);
 function caseMarkup(e,standalone=false){const heading=standalone?'h1':'h2';return `<div class="detail-media"><div id="media-content"></div>${mediaItems(e).length>1?'<div class="media-tabs"></div>':''}</div><section class="detail-info"><div class="eyebrow">${esc(e.pack.title)}</div><${heading} title="${esc(e.title)}">${esc(label(e))}</${heading}><p class="author"><span id="caseAuthor"></span> <a id="caseSource" target="_blank" rel="noopener noreferrer">查看来源 ↗</a></p><div class="prompt-head"><h3>完整提示词</h3><button id="copyPrompt" class="text-action">复制</button></div><p id="prompt" class="prompt"></p><p id="caseRights" class="rights">${esc(typeof catalogEnglish!=='undefined'?catalogEnglish.labels[e.rights]||e.rights:e.rights)}</p><div class="uploader-row"><span>上传者 ${authorLink(e.pack)}</span>${followButton(e.pack)}</div><div class="detail-actions"><a class="text-action" href="${packPath(e.pack)}" data-pack="${esc(e.pack.id)}">查看所属合集 ↗</a><button id="share">复制案例链接</button></div></section>`;}
 async function openCase(key,update=true){
  const item=findCase(key);if(!item)return;

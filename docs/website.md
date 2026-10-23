@@ -9,7 +9,7 @@ Use Node.js 22 or newer. Install the locked build dependencies first.
 ```sh
 npm ci
 node tools/build-website.mjs
-node --test test/website.test.mjs
+npm test
 python3 -m http.server 8768 --bind 127.0.0.1 --directory dist/website
 ```
 
@@ -25,9 +25,10 @@ Existing catalog/preview/media/download URLs must keep responding directly while
 
 ## Data and behavior
 
-- The initial index contains titles, attribution, thumbnails, media types and stable IDs. Prompt text is fetched per collection when opening a case; full-text search loads its separate text index on demand. Failures remain retryable.
+- The initial index contains titles, attribution, thumbnails, media types and stable IDs. Every prerendered visible case includes its complete original content in HTML; other cases load one detail file on demand. Full-text search loads its separate text index. Failures remain retryable.
 - HTML is prerendered at build time (with homepage styles embedded to avoid a blocking stylesheet request), so visitors and crawlers can read the first screen without downloading the full catalog. Each collection, case, Skill and contributor has a stable, bilingual page with canonical metadata and sitemap discovery. Existing query URLs remain supported.
 - Responsive WebP card images are separate from original detail previews and downloads. Build caching uses existing Git object IDs; generated image URLs can be cached immutably.
+- Website videos prefer a separate smooth preview when available and offer Original quality. Switching quality preserves playback position and pause state. Original media fields, legacy resources and package downloads are never replaced with derivatives.
 - A case URL uses the catalog ID and original entry ID, never its list position. Compound cases retain all member media, full prompt text and per-member sources.
 - Package type is derived from case media types. A video poster is not an image case. A mixed compound appears in both filters.
 - Default sorting uses first publication, not later edits. `web/publication-dates.json` preserves the first catalog appearance of existing packages from Git history. New entries may supply `publishedAt`; otherwise a complete Git history determines their first appearance. Shallow builds with unknown dates fail rather than invent dates. Use `fetch-depth: 0` in CI. English display metadata is maintained in `web/catalog-translations-en.json`; publishing must add translations for new IDs (the website tests report gaps).
@@ -38,6 +39,14 @@ Existing catalog/preview/media/download URLs must keep responding directly while
 ## Cutover checks
 
 Before production deployment: verify actual domain hosting and HTTPS, file-size/bandwidth limits, video playback, current and old extension catalog/preview/package import, and the store's privacy/support links. New extension URLs and host permissions are a separate release. Retire the old deployment only after stored media references, follows, shared links and supported extension versions have a verified migration path.
+
+## Website playback previews
+
+`web/video-previews.json` maps existing original video identifiers to website-only derivatives. `web/video-profile.json` defines the smooth-playback budget: a maximum 1280-pixel edge, at most 30 fps, H.264 at about 1.2 Mbps and AAC at 96 kbps. Originals already within that budget are retained without recompression; derivatives larger than their originals are discarded.
+
+With FFmpeg and curl installed, run `tools/prepare-website-videos.mjs` with `--output=YOUR_CACHE_DIRECTORY` and `--release-base=YOUR_NEW_GITHUB_RELEASE_ASSET_BASE`. It resumes its receipt, validates duration and dimensions, and writes `video-previews.json`. The default encoder is portable libx264; `--encoder=h264_videotoolbox` uses macOS hardware encoding. Temporary downloaded copies are removed after processing; reviewed source files are not written. Upload completed derivatives to a new website-only Release, verify the asset names and sizes, then copy the generated manifest into `web/` and rebuild. Do not overwrite original assets or previously published derivatives.
+
+The Pages build generates `_worker.js` and `_routes.json`. Only `/website/video/*` invokes a Function; all other traffic stays static. The Function resolves an allowlisted GitHub Release redirect with HEAD, then sends the browser directly to the signed file URL. It never proxies video bytes. Signed redirects use `no-store` to avoid expiry failures. A failed lookup falls back to the selected public Release URL; a player load failure can retry the original. Static-only local servers lack this helper and may fall back to original playback; test smooth playback on a Pages preview deployment before production.
 
 ## Cloudflare Pages deployment
 

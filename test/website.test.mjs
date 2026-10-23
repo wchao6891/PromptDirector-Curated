@@ -152,7 +152,8 @@ test('a visitor can search and choose a media filter while the prerendered page 
 });
 
 test('a video started from a direct case page keeps its player when the delayed catalog becomes ready',async()=>{
- const index=await readJSON('../dist/website/website/index.json'),metadata=await readJSON('../dist/website/website/site.json'),pack=index.packs.find(p=>p.caseCounts.video),entry=pack.entries.find(e=>e.mediaKind==='video');
+ const previews=await readJSON('../web/video-previews.json');
+ const index=await readJSON('../dist/website/website/index.json'),metadata=await readJSON('../dist/website/website/site.json'),pack=index.packs.find(p=>p.entries.some(e=>previews.entries[e.videoSha256])),entry=pack.entries.find(e=>previews.entries[e.videoSha256]);
  const path=`cases/${encodeURIComponent(pack.packageId)}/${encodeURIComponent(entry.id)}/`;
  const window=parseHTML(await readFile(new URL('../dist/website/'+path+'index.html',import.meta.url),'utf8')),document=window.document;
  Object.defineProperty(document,'currentScript',{value:{src:'https://promptdirector.cn/website-data.js'}});
@@ -162,6 +163,9 @@ test('a video started from a direct case page keeps its player when the delayed 
  const context=vm.createContext({document,URL,URLSearchParams,Map,Set,innerWidth:390,location:new URL('https://promptdirector.cn/'+path),localStorage:{getItem:()=>null},history:{replaceState(){},pushState(){}},addEventListener(){},window:{scrollTo(){}},setTimeout:()=>0,clearTimeout(){},fetch:async url=>{await gate;return{ok:true,json:async()=>structuredClone(url.endsWith('/index.json')?index:metadata)}}});
  for(const file of ['website-data','app'])vm.runInContext(await readFile(new URL('../web/'+file+'.js',import.meta.url),'utf8'),context);
  const started=vm.runInContext(await readFile(new URL('../web/site-pages.js',import.meta.url),'utf8'),context);
+ const quality=document.querySelector('#videoQuality');assert.ok(quality);player.load=()=>{};player.paused=true;
+ Object.defineProperty(quality,'value',{value:'original'});quality.dispatchEvent(new window.Event('change',{bubbles:true}));
+ assert.doesNotMatch(player.getAttribute('src'),/quality=preview/,'quality must work while the unrelated catalog is still unavailable');
  release();await started;await vm.runInContext('renderPending',context);
  assert.ok(document.querySelector('#media-content video')===player,'catalog readiness must preserve the existing player');assert.equal(player.currentTime,5);
  assert.equal(document.querySelector('.media-error'),null);
@@ -323,4 +327,20 @@ test('a rendered ordinary case reveals its full prompt and starts media without 
  assert.ok(h.document.querySelector('#media-content video[src]'),'video connection must start independently of catalog/detail fetches');
  assert.equal(h.document.querySelector('#copyPrompt').disabled,false);
  assert.equal(h.requests.filter(url=>url.includes('/details/')).length,0);
+});
+
+test('website quality switching preserves the original, playback position and pause state',async()=>{
+ const h=await pendingBrowsePage(),key=h.document.querySelector('#grid [data-case]').dataset.case;
+ vm.runInContext(`previewVideos.add(findCase(${JSON.stringify(key)}).videoSha256)`,h.context);
+ await vm.runInContext(`openCase(${JSON.stringify(key)})`,h.context);
+ const player=h.document.querySelector('#media-content video'),quality=h.document.querySelector('#videoQuality');
+ assert.ok(quality);assert.match(player.getAttribute('src'),/\?quality=preview$/);
+ const original=vm.runInContext('selected.videoUrl',h.context);let played=0;player.load=()=>{};player.play=()=>{played++;return Promise.resolve()};
+ player.currentTime=5;player.duration=15;player.paused=false;
+ Object.defineProperty(quality,'value',{value:'original',writable:true});quality.dispatchEvent(new h.window.Event('change',{bubbles:true}));
+ assert.doesNotMatch(player.getAttribute('src'),/quality=preview/);
+ player.dispatchEvent(new h.window.Event('loadedmetadata'));assert.equal(player.currentTime,5);assert.equal(played,1);
+ player.paused=true;quality.value='preview';quality.dispatchEvent(new h.window.Event('change',{bubbles:true}));player.dispatchEvent(new h.window.Event('loadedmetadata'));
+ assert.match(player.getAttribute('src'),/quality=preview/);assert.equal(played,1,'switching a paused video must not autoplay');
+ assert.equal(vm.runInContext('selected.videoUrl',h.context),original,'website preview must never overwrite original media identity');
 });

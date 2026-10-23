@@ -2,7 +2,9 @@
 const websiteRoot=new URL('.',document.currentScript.src);
 const pendingData=new Map();
 const assetUrl=value=>value?new URL(value,websiteRoot).href:'';
-const videoPlaybackUrl=media=>media.videoSha256?new URL('website/video/'+media.videoSha256+'.mp4',websiteRoot).pathname:media.videoUrl;
+const previewVideos=new Set(/*VIDEO_PREVIEW_HASHES*/[]);
+let videoQuality='preview';
+const videoPlaybackUrl=(media,quality=videoQuality)=>media.videoSha256?new URL('website/video/'+media.videoSha256+'.mp4',websiteRoot).pathname+(quality==='preview'&&previewVideos.has(media.videoSha256)?'?quality=preview':''):media.videoUrl;
 const languageRoot=()=>new URL(document.documentElement.lang==='en'?'en/':'',websiteRoot).pathname;
 const viewPath=view=>languageRoot()+(view==='explore'?'':view+'/');
 const packPath=p=>viewPath('collections')+encodeURIComponent(p.packageId)+'/';
@@ -32,6 +34,7 @@ function resolveMedia(value){
     ?assetUrl(item):resolveMedia(item)]));
 }
 const initialBrowse=resolveMedia(JSON.parse(document.querySelector?.('#initial-browse-data')?.textContent||'{"packs":[]}'));
+const initialCase=resolveMedia(JSON.parse(document.querySelector?.('#initial-case-data')?.textContent||'null'));
 function readWebsiteJson(path){
  const url=assetUrl(path);
  if(!pendingData.has(url))pendingData.set(url,fetch(url).then(r=>{if(!r.ok)throw Error(`HTTP ${r.status}`);return r.json()}).catch(error=>{pendingData.delete(url);throw error}));
@@ -46,8 +49,7 @@ async function readWebsite(){
 async function readCase(pack,id){
  const ready=initialBrowse.details?.[pack.id+'/'+id];
  if(ready)return ready;
- const initial=document.querySelector?.('#initial-case-data');
- if(initial){const value=JSON.parse(initial.textContent);if(value.pack===pack.id&&value.entry.id===id)return resolveMedia(value.entry);}
+ if(initialCase&&initialCase.pack===pack.id&&initialCase.entry.id===id)return initialCase.entry;
  const entry=await readWebsiteJson(pack.detailsUrl.replace(/\.json$/, '/'+encodeURIComponent(id)+'.json'));
  if(entry.id!==id&&!entry.memberEntryIds?.includes(id))throw Error('Case unavailable');
  return resolveMedia(entry);

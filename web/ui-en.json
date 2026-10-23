@@ -152,5 +152,8 @@
   "PromptDirector 插件会永久免费，并持续开源更新。": "The PromptDirector extension will always be free, with continued open-source updates.",
   "返回全部合集": "Back to collections",
   "返回所属合集": "Back to collection",
-  "互动功能暂时无法读取，请刷新重试": "Interactive features could not load. Please refresh to retry."
+  "互动功能暂时无法读取，请刷新重试": "Interactive features could not load. Please refresh to retry.",
+  "播放画质": "Playback quality",
+  "流畅": "Smooth",
+  "原画": "Original"
 }

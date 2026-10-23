@@ -12,6 +12,7 @@ const root=fileURLToPath(new URL('../',import.meta.url));
 const source=join(root,'site'),web=join(root,'web'),out=join(root,'dist/website');
 const json=async p=>JSON.parse(await readFile(p,'utf8'));
 const config=await json(join(web,'config.json')),ui=await json(join(web,'ui-en.json'));
+const videoPreviews=await json(join(web,'video-previews.json'));
 const translations=await json(join(web,'catalog-translations-en.json'));
 const catalog=await json(join(source,'public-catalog.json'));
 normalizeSiteCatalog(catalog);
@@ -56,7 +57,7 @@ await cp(join(source,'following.html'),join(out,'following.html'));await cp(join
 for(const name of ['guide.css','guide.js','privacy.css'])await cp(join(source,name),join(out,name));
 await cp(join(web,'assets'),join(out,'assets'),{recursive:true});
 await cp(join(web,'style.css'),join(out,'style.css'));
-await cp(join(web,'website-data.js'),join(out,'website-data.js'));
+await writeFile(join(out,'website-data.js'),(await readFile(join(web,'website-data.js'),'utf8')).replace('/*VIDEO_PREVIEW_HASHES*/[]',JSON.stringify(Object.keys(videoPreviews.entries))));
 await cp(join(web,'lang.js'),join(out,'lang.js'));
 const guideImages=[];
 for(const dir of ['', 'en/']){
@@ -72,7 +73,11 @@ for(const [,entries] of detailOutputs)for(const entry of entries)for(const media
  if(!/^[a-f0-9]{64}$/.test(media.videoSha256)||url.protocol!=='https:'||url.hostname!=='github.com'||!url.pathname.includes('/releases/download/'))throw Error('Invalid reviewed video source');
  videoSources[media.videoSha256]=media.videoUrl;
 }
-await writeFile(join(out,'_worker.js'),await readFile(join(web,'video-worker.js'),'utf8')+'\nexport default createVideoWorker('+JSON.stringify(videoSources)+');\n');
+const previewSources=Object.fromEntries(Object.entries(videoPreviews.entries).map(([sha,preview])=>{
+ if(!videoSources[sha]||!preview.url.startsWith('https://github.com/')||!preview.url.includes('/releases/download/')||!Number.isSafeInteger(preview.bytes)||preview.bytes<=0)throw Error('Invalid website video derivative');
+ return [sha,preview.url];
+}));
+await writeFile(join(out,'_worker.js'),await readFile(join(web,'video-worker.js'),'utf8')+'\nexport default createVideoWorker('+JSON.stringify({sources:videoSources,previews:previewSources})+');\n');
 // Static visits remain outside the Functions quota.
 await writeFile(join(out,'_routes.json'),JSON.stringify({version:1,include:['/website/video/*'],exclude:[]}));
 const renderDetails=new Map(detailOutputs);

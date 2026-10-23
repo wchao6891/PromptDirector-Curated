@@ -1,0 +1,1866 @@
+{
+  "profile": {
+    "version": 1,
+    "maxEdge": 1280,
+    "maxFrameRate": 30,
+    "videoBitrate": 1200000,
+    "audioBitrate": 96000
+  },
+  "entries": {
+    "22aa9a0ed67405117566fb5d5217d7a5adb5318a258b84d80d3ccf2b885ee3e2": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/22aa9a0ed67405117566fb5d5217d7a5adb5318a258b84d80d3ccf2b885ee3e2-preview.mp4",
+      "bytes": 4898628,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.116009
+    },
+    "7fbd2d8f951cadbaf36361186f8f2fb97d8c9eb436ff7001614585935ef65c34": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/7fbd2d8f951cadbaf36361186f8f2fb97d8c9eb436ff7001614585935ef65c34-preview.mp4",
+      "bytes": 4874419,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.116009
+    },
+    "23e0920e391e99809ab9679f9d4538b8d7348373ab7ea0ed26f61600e81eaafd": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/23e0920e391e99809ab9679f9d4538b8d7348373ab7ea0ed26f61600e81eaafd-preview.mp4",
+      "bytes": 5036953,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.116009
+    },
+    "bcc0473b9ddbf2b4a5c684cdb43f8d19278ffa725049667cc7a0f2f2c511af77": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/bcc0473b9ddbf2b4a5c684cdb43f8d19278ffa725049667cc7a0f2f2c511af77-preview.mp4",
+      "bytes": 4977014,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.293
+    },
+    "b4d3ca519f8c01f0eead9feda76e07af91bb230b9993be029d3326dfd31b2174": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/b4d3ca519f8c01f0eead9feda76e07af91bb230b9993be029d3326dfd31b2174-preview.mp4",
+      "bytes": 4973767,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.122
+    },
+    "3c26cc9ca6c568eae80783b419b4da033dcbe1131be60ae731c69c10e6d157c4": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/3c26cc9ca6c568eae80783b419b4da033dcbe1131be60ae731c69c10e6d157c4-preview.mp4",
+      "bytes": 9474476,
+      "width": 1280,
+      "height": 720,
+      "duration": 57.386
+    },
+    "ae01e3c107d8c417378919fc8a4c269a82247d1278e5f77fdda6984ee081c27b": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/ae01e3c107d8c417378919fc8a4c269a82247d1278e5f77fdda6984ee081c27b-preview.mp4",
+      "bytes": 4906451,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.116009
+    },
+    "3799c18c696970d53a9829b622daf422d9d23ac603587bd34207e73e4c91ca26": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/3799c18c696970d53a9829b622daf422d9d23ac603587bd34207e73e4c91ca26-preview.mp4",
+      "bytes": 4981493,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.092993
+    },
+    "75eb4ec0d2e979769a210c9ea271c6aa740a2e4141df50a2921b8c88b54e9c47": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/75eb4ec0d2e979769a210c9ea271c6aa740a2e4141df50a2921b8c88b54e9c47-preview.mp4",
+      "bytes": 6909769,
+      "width": 1280,
+      "height": 548,
+      "duration": 43.420998
+    },
+    "fbfcd8b3f6d9cf9f61229e495c202073f84f813d59c02ff3528c2a42d143f7ac": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/fbfcd8b3f6d9cf9f61229e495c202073f84f813d59c02ff3528c2a42d143f7ac-preview.mp4",
+      "bytes": 4799703,
+      "width": 1280,
+      "height": 720,
+      "duration": 29.461
+    },
+    "ccd1994c1d76dacf4d769cf35fd0f079006bc33199d1b8ca9fa41ccc9e5dd9aa": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/ccd1994c1d76dacf4d769cf35fd0f079006bc33199d1b8ca9fa41ccc9e5dd9aa-preview.mp4",
+      "bytes": 10010672,
+      "width": 1280,
+      "height": 720,
+      "duration": 61.1
+    },
+    "108e61fb5418b0f35c191bf72742db2839bf3ceb72b4d902f55182792b48df10": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/108e61fb5418b0f35c191bf72742db2839bf3ceb72b4d902f55182792b48df10-preview.mp4",
+      "bytes": 4842074,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.066667
+    },
+    "77279469d7e76a269ae27163a8947b3f3e8cb313247ce1630de1d08b0341a35a": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/77279469d7e76a269ae27163a8947b3f3e8cb313247ce1630de1d08b0341a35a-preview.mp4",
+      "bytes": 4920762,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.116009
+    },
+    "f07551bf5a0480c604caa09aeb5f5cdef0cb7d3e2e230c0229d2e7a8fe8d11d6": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/f07551bf5a0480c604caa09aeb5f5cdef0cb7d3e2e230c0229d2e7a8fe8d11d6-preview.mp4",
+      "bytes": 2459766,
+      "width": 1280,
+      "height": 720,
+      "duration": 15.136
+    },
+    "73c2c227167e8cc5963000f6079f074263290fd4ebf480e18c1d3b32527e10b2": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/73c2c227167e8cc5963000f6079f074263290fd4ebf480e18c1d3b32527e10b2-preview.mp4",
+      "bytes": 2558675,
+      "width": 1280,
+      "height": 720,
+      "duration": 15.533991
+    },
+    "6a9fc31c0bfb7ea384c33e1ba63e53de4978591ad89e972ae48a3e634139243f": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/6a9fc31c0bfb7ea384c33e1ba63e53de4978591ad89e972ae48a3e634139243f-preview.mp4",
+      "bytes": 2460546,
+      "width": 1280,
+      "height": 720,
+      "duration": 15.116009
+    },
+    "1a10ce7abeeabada000cf3d988bb7beb76acd4a14c0dcb98fdf7470fa03bb5d7": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/1a10ce7abeeabada000cf3d988bb7beb76acd4a14c0dcb98fdf7470fa03bb5d7-preview.mp4",
+      "bytes": 2491416,
+      "width": 1280,
+      "height": 720,
+      "duration": 15.136
+    },
+    "7b169eb456ae64a0ec1a77d76a199bc31a7b1a99479cc5737f085e00ce76ccc1": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/7b169eb456ae64a0ec1a77d76a199bc31a7b1a99479cc5737f085e00ce76ccc1-preview.mp4",
+      "bytes": 2450175,
+      "width": 1280,
+      "height": 720,
+      "duration": 15.136
+    },
+    "ff883bb9d9b29df1b74e05a20c6cc260a06cfb082f159743f3dbb4ecbe66473e": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/ff883bb9d9b29df1b74e05a20c6cc260a06cfb082f159743f3dbb4ecbe66473e-preview.mp4",
+      "bytes": 2505451,
+      "width": 1280,
+      "height": 720,
+      "duration": 15.136
+    },
+    "b278e3747d49b7bb82028bf8801921170bba5b34709d8c9f96f217017f8ddff7": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/b278e3747d49b7bb82028bf8801921170bba5b34709d8c9f96f217017f8ddff7-preview.mp4",
+      "bytes": 4942657,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.139002
+    },
+    "af3c5d81a322a76d9737f0bdd852dafef24e6aa5e12d1c83af3a09904e803c4d": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/af3c5d81a322a76d9737f0bdd852dafef24e6aa5e12d1c83af3a09904e803c4d-preview.mp4",
+      "bytes": 4949343,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.092993
+    },
+    "1101d3ffce63b313c2279942d5b1947c9b16f10c553c25bb2f3fd0db3c7b5b2c": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/1101d3ffce63b313c2279942d5b1947c9b16f10c553c25bb2f3fd0db3c7b5b2c-preview.mp4",
+      "bytes": 4905362,
+      "width": 1280,
+      "height": 548,
+      "duration": 30.022993
+    },
+    "f4e3c025dbdeb4970843230935db8e1c7411c9b543404e44644a9d0ef2f52897": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/f4e3c025dbdeb4970843230935db8e1c7411c9b543404e44644a9d0ef2f52897-preview.mp4",
+      "bytes": 4340689,
+      "width": 1280,
+      "height": 720,
+      "duration": 26.61
+    },
+    "47a260308869d10180ee89ce7ce156cda21e7174318f6385f7292170df23959c": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/47a260308869d10180ee89ce7ce156cda21e7174318f6385f7292170df23959c-preview.mp4",
+      "bytes": 4567081,
+      "width": 1280,
+      "height": 1280,
+      "duration": 15.133333
+    },
+    "07f8a626d5dea2e7753fb893da87f2740e6a7a9c1e6620c086c57f187e3c90ea": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/07f8a626d5dea2e7753fb893da87f2740e6a7a9c1e6620c086c57f187e3c90ea-preview.mp4",
+      "bytes": 5049642,
+      "width": 960,
+      "height": 1280,
+      "duration": 30.144
+    },
+    "684d5b09d520b63fc7db8eb3ad16af155189251063adf3d7d2b2134e9c43a42e": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/684d5b09d520b63fc7db8eb3ad16af155189251063adf3d7d2b2134e9c43a42e-preview.mp4",
+      "bytes": 2462980,
+      "width": 1280,
+      "height": 720,
+      "duration": 15.116009
+    },
+    "e16e928305eefe569819f8f247fd74886e4b505c8e16352426805ae205de05cd": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/e16e928305eefe569819f8f247fd74886e4b505c8e16352426805ae205de05cd-preview.mp4",
+      "bytes": 5393211,
+      "width": 1280,
+      "height": 720,
+      "duration": 31.533333
+    },
+    "596178cf8f2a9ee979217d162853217fd0fedaa9a838b6ad0d02b5d03b35c588": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/596178cf8f2a9ee979217d162853217fd0fedaa9a838b6ad0d02b5d03b35c588-preview.mp4",
+      "bytes": 4934141,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.116009
+    },
+    "ef0608d8d42b9eeac97bae1cdafc573cbb1dfe8fa73bd973d27d8c67006a9307": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/ef0608d8d42b9eeac97bae1cdafc573cbb1dfe8fa73bd973d27d8c67006a9307-preview.mp4",
+      "bytes": 4905924,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.092993
+    },
+    "70e21a91b26dbdf31ffa1e23e7b05ba2848bcbe9a5ce6f2c62e676e55a8757db": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/70e21a91b26dbdf31ffa1e23e7b05ba2848bcbe9a5ce6f2c62e676e55a8757db-preview.mp4",
+      "bytes": 2550809,
+      "width": 1280,
+      "height": 720,
+      "duration": 15.136
+    },
+    "a41b91bfe86a6dfbd333d3e1744b378e03e5d89e03ac43fc13e82368296be7ab": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/a41b91bfe86a6dfbd333d3e1744b378e03e5d89e03ac43fc13e82368296be7ab-preview.mp4",
+      "bytes": 10093363,
+      "width": 1280,
+      "height": 720,
+      "duration": 61.933333
+    },
+    "d0101476877f0118e45e73626c95bbd0cd342c2db43277f0db7794f76f91ec77": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/d0101476877f0118e45e73626c95bbd0cd342c2db43277f0db7794f76f91ec77-preview.mp4",
+      "bytes": 2422308,
+      "width": 1280,
+      "height": 720,
+      "duration": 14.485
+    },
+    "cce2e1bfb633b3e3f9a6ec785237fbc093cab0e64289da6128020905856f2add": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/cce2e1bfb633b3e3f9a6ec785237fbc093cab0e64289da6128020905856f2add-preview.mp4",
+      "bytes": 5060011,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.116009
+    },
+    "879711ed8eb84cef5456ae0755e4e76249bcfdb4f9fcb7c988afb833d78282f9": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/879711ed8eb84cef5456ae0755e4e76249bcfdb4f9fcb7c988afb833d78282f9-preview.mp4",
+      "bytes": 4981974,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.116009
+    },
+    "ed34358af895616fe50564cb48ef786fd666ac7d480cce8356276de13074a5af": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/ed34358af895616fe50564cb48ef786fd666ac7d480cce8356276de13074a5af-preview.mp4",
+      "bytes": 5066541,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.116009
+    },
+    "f49966c342f06da8c3548f01a70b2c650ff232f3f3a96981e59e2cca9f82fd31": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/f49966c342f06da8c3548f01a70b2c650ff232f3f3a96981e59e2cca9f82fd31-preview.mp4",
+      "bytes": 7958605,
+      "width": 1280,
+      "height": 720,
+      "duration": 48.297007
+    },
+    "660cc20f1c953fe5f4cc6f9840c3ceb188ff44d6aef0e9f980f6fcef611f1162": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/660cc20f1c953fe5f4cc6f9840c3ceb188ff44d6aef0e9f980f6fcef611f1162-preview.mp4",
+      "bytes": 7532531,
+      "width": 1280,
+      "height": 720,
+      "duration": 45.881995
+    },
+    "0051ca5af8664d51a9cde08692f7120e4e105aa89ea46193b02c13e07e19febc": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/0051ca5af8664d51a9cde08692f7120e4e105aa89ea46193b02c13e07e19febc-preview.mp4",
+      "bytes": 4137925,
+      "width": 1280,
+      "height": 720,
+      "duration": 25.166667
+    },
+    "e1fe441b59363aa14c83cccc8620e72f6796db7b039ba2ccbf5804e72727a9c9": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/e1fe441b59363aa14c83cccc8620e72f6796db7b039ba2ccbf5804e72727a9c9-preview.mp4",
+      "bytes": 4968518,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.133333
+    },
+    "bb1057bdea03ca0165df9b80174a9b335eb80c3f1c3167fc0c07486564ba181b": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/bb1057bdea03ca0165df9b80174a9b335eb80c3f1c3167fc0c07486564ba181b-preview.mp4",
+      "bytes": 2498350,
+      "width": 1280,
+      "height": 720,
+      "duration": 15.133333
+    },
+    "091048f7488d44f8b30514fe45579759d4d638d7fe64a8d638649bc30a75dc2d": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/091048f7488d44f8b30514fe45579759d4d638d7fe64a8d638649bc30a75dc2d-preview.mp4",
+      "bytes": 4862272,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.112
+    },
+    "13e815ef723824985996eb71ca461f5074f1e3a28ea2dc06f0921e0c5423fc2b": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/13e815ef723824985996eb71ca461f5074f1e3a28ea2dc06f0921e0c5423fc2b-preview.mp4",
+      "bytes": 5014334,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.112
+    },
+    "d887e632e98f4dade68aa9a8ed8bf7534a5fa1e278231e6eb644303147a45bce": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/d887e632e98f4dade68aa9a8ed8bf7534a5fa1e278231e6eb644303147a45bce-preview.mp4",
+      "bytes": 5013213,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.133333
+    },
+    "440bcc5e24105e0c66cc3734aae4e1e1dc4f139ef42d99fb7239d3add0d0848b": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/440bcc5e24105e0c66cc3734aae4e1e1dc4f139ef42d99fb7239d3add0d0848b-preview.mp4",
+      "bytes": 5020644,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.112
+    },
+    "785b88fdaa7f584eb1d79b31292297e5da10aea88503caf600f939d891325de7": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/785b88fdaa7f584eb1d79b31292297e5da10aea88503caf600f939d891325de7-preview.mp4",
+      "bytes": 1685210,
+      "width": 720,
+      "height": 1280,
+      "duration": 10.1
+    },
+    "d0032804131ded4600810d67fee9a4bffcaad2d37bb14a7540b245066ef70bf4": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/d0032804131ded4600810d67fee9a4bffcaad2d37bb14a7540b245066ef70bf4-preview.mp4",
+      "bytes": 9774594,
+      "width": 1280,
+      "height": 548,
+      "duration": 59.095011
+    },
+    "c0b08643e83c749274a5b7c1dae68e29e5ea7c2e0828b296ce8a25578d6badc3": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/c0b08643e83c749274a5b7c1dae68e29e5ea7c2e0828b296ce8a25578d6badc3-preview.mp4",
+      "bytes": 4852929,
+      "width": 1280,
+      "height": 548,
+      "duration": 30.112
+    },
+    "c7963de01cbfc13e99a165bedadad5c57abd26ce773e491f9bdcd54ef1a12afd": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/c7963de01cbfc13e99a165bedadad5c57abd26ce773e491f9bdcd54ef1a12afd-preview.mp4",
+      "bytes": 1628813,
+      "width": 1280,
+      "height": 720,
+      "duration": 10.1
+    },
+    "0ab101c010cfd098fc5a3c9d05de5fba8b420ba3b56e8f006f86e377404f9917": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/0ab101c010cfd098fc5a3c9d05de5fba8b420ba3b56e8f006f86e377404f9917-preview.mp4",
+      "bytes": 4428708,
+      "width": 1280,
+      "height": 720,
+      "duration": 26.980998
+    },
+    "3aca480b380cf7a320aa9cfe5405594bd0921b1166ed51bceca1c7a713932f2c": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/3aca480b380cf7a320aa9cfe5405594bd0921b1166ed51bceca1c7a713932f2c-preview.mp4",
+      "bytes": 2482956,
+      "width": 1280,
+      "height": 720,
+      "duration": 15.133333
+    },
+    "13e24f025e72762963b582c7db486e87867deaf801f80bfd3f7cbc5343b73979": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/13e24f025e72762963b582c7db486e87867deaf801f80bfd3f7cbc5343b73979-preview.mp4",
+      "bytes": 2120874,
+      "width": 960,
+      "height": 1280,
+      "duration": 12.768
+    },
+    "3942da9f1773e66eda20167a005fe00817347af12bf8ab6b2b447315a8746c30": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/3942da9f1773e66eda20167a005fe00817347af12bf8ab6b2b447315a8746c30-preview.mp4",
+      "bytes": 4907854,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.144
+    },
+    "985fbadc08d6bdb31c9fe4c54b173aab9a18b7ce52a5ba8956494be52bebfa2a": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/985fbadc08d6bdb31c9fe4c54b173aab9a18b7ce52a5ba8956494be52bebfa2a-preview.mp4",
+      "bytes": 4939326,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.07
+    },
+    "38b470ef8b335afd49165cd3341e0d71d7e8fa68d40471352475f0e98425c92b": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/38b470ef8b335afd49165cd3341e0d71d7e8fa68d40471352475f0e98425c92b-preview.mp4",
+      "bytes": 3705355,
+      "width": 1146,
+      "height": 1280,
+      "duration": 20.085011
+    },
+    "8ee95ce14625fcb150c35305e373a7dd92a950ebf39b12bae6b7a32bc97de481": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/8ee95ce14625fcb150c35305e373a7dd92a950ebf39b12bae6b7a32bc97de481-preview.mp4",
+      "bytes": 5005145,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.144
+    },
+    "76be02019df8485c491fab751a89d07cd0bc0479553dee97731e5bf9bd0de83d": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/76be02019df8485c491fab751a89d07cd0bc0479553dee97731e5bf9bd0de83d-preview.mp4",
+      "bytes": 18946491,
+      "width": 1280,
+      "height": 720,
+      "duration": 115.193991
+    },
+    "683355ecf89dd7f0e1fecd352e90922e0660b7cb8b0170af18a22dbf59f08fa8": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/683355ecf89dd7f0e1fecd352e90922e0660b7cb8b0170af18a22dbf59f08fa8-preview.mp4",
+      "bytes": 4974388,
+      "width": 900,
+      "height": 1200,
+      "duration": 30.133333
+    },
+    "d79fbf9eaddf8af76dc183cd80f079df3f96b8b29a8b3bf21affafc88ab26131": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/d79fbf9eaddf8af76dc183cd80f079df3f96b8b29a8b3bf21affafc88ab26131-preview.mp4",
+      "bytes": 4788603,
+      "width": 1280,
+      "height": 794,
+      "duration": 29.21
+    },
+    "ffbd4c675f077aae38687021f441a9571a8dc548ca11b13ab69814889e39ef0d": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/ffbd4c675f077aae38687021f441a9571a8dc548ca11b13ab69814889e39ef0d-preview.mp4",
+      "bytes": 2520868,
+      "width": 1280,
+      "height": 720,
+      "duration": 15.125
+    },
+    "73e2717cb96aeae8809465d4fe2b8414121d32ac4f4ef8df4ec73f3dc5958343": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/73e2717cb96aeae8809465d4fe2b8414121d32ac4f4ef8df4ec73f3dc5958343-preview.mp4",
+      "bytes": 5003875,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.301995
+    },
+    "0e8b80099ad9b038583d08ec21bb80e46db4dda799d4e244e80adea7dc5f367a": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/0e8b80099ad9b038583d08ec21bb80e46db4dda799d4e244e80adea7dc5f367a-preview.mp4",
+      "bytes": 4941720,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.101
+    },
+    "9c543cf1757b02c5533788f1b62edc60a9bda7b63ffbaba33ac8391420724e6b": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/9c543cf1757b02c5533788f1b62edc60a9bda7b63ffbaba33ac8391420724e6b-preview.mp4",
+      "bytes": 5340988,
+      "width": 1280,
+      "height": 720,
+      "duration": 32.553991
+    },
+    "cfa8b3e7c63ee52b197064d1bbea5b71453c544b338b1f702b1d4109df6f542e": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/cfa8b3e7c63ee52b197064d1bbea5b71453c544b338b1f702b1d4109df6f542e-preview.mp4",
+      "bytes": 2497037,
+      "width": 1280,
+      "height": 720,
+      "duration": 15.175167
+    },
+    "2bbf87714a16b985dcee1adbd2b9a837bc0e5018484cdae894665aa4e4ed3ba8": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/2bbf87714a16b985dcee1adbd2b9a837bc0e5018484cdae894665aa4e4ed3ba8-preview.mp4",
+      "bytes": 4923344,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.144
+    },
+    "abe6c3d941ca7b7f1a901e9562ef00f164364645775c4089fde9580db6834a1c": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/abe6c3d941ca7b7f1a901e9562ef00f164364645775c4089fde9580db6834a1c-preview.mp4",
+      "bytes": 2479062,
+      "width": 1280,
+      "height": 720,
+      "duration": 15.168
+    },
+    "7c21f2cfe057100908c81ec14dbb7d13253ac5bd201b4226c754f0d992784b82": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/7c21f2cfe057100908c81ec14dbb7d13253ac5bd201b4226c754f0d992784b82-preview.mp4",
+      "bytes": 4968086,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.144
+    },
+    "52ed4ff0dd977eef6adaae93a766b8fe3d4d283f6860c39dc4b5192cf45de64e": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/52ed4ff0dd977eef6adaae93a766b8fe3d4d283f6860c39dc4b5192cf45de64e-preview.mp4",
+      "bytes": 5000458,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.144
+    },
+    "c97a7562b0475aebda6da20376f2f2e504d04d02ad66a12b822c8312137d74f1": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/c97a7562b0475aebda6da20376f2f2e504d04d02ad66a12b822c8312137d74f1-preview.mp4",
+      "bytes": 4776899,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.144
+    },
+    "0560702aac5c70f314cbbdc75733d0f07b9861fc5b6f53fbf81717fac27f3de9": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/0560702aac5c70f314cbbdc75733d0f07b9861fc5b6f53fbf81717fac27f3de9-preview.mp4",
+      "bytes": 4566475,
+      "width": 1280,
+      "height": 720,
+      "duration": 27.887007
+    },
+    "3d70add10f264b5a544bee8585d47d6666e2c10bd43f61897eda203b2a4567e8": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/3d70add10f264b5a544bee8585d47d6666e2c10bd43f61897eda203b2a4567e8-preview.mp4",
+      "bytes": 1691101,
+      "width": 1280,
+      "height": 720,
+      "duration": 10.066667
+    },
+    "56e7024e0c7b38cdc293b717638ea7a5d95b644495f725414e54498157500e17": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/56e7024e0c7b38cdc293b717638ea7a5d95b644495f725414e54498157500e17-preview.mp4",
+      "bytes": 2524864,
+      "width": 1280,
+      "height": 720,
+      "duration": 15.125
+    },
+    "bb10419f28f8333d001c55e46318dddf70d2ec2c1b630d3f58afdffd5efc77c5": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/bb10419f28f8333d001c55e46318dddf70d2ec2c1b630d3f58afdffd5efc77c5-preview.mp4",
+      "bytes": 2517025,
+      "width": 1280,
+      "height": 720,
+      "duration": 15.168
+    },
+    "a2459958124a5c2d7aac6845bcfc82a47a8a9cf384a404f6d25ef7f27eaa4709": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/a2459958124a5c2d7aac6845bcfc82a47a8a9cf384a404f6d25ef7f27eaa4709-preview.mp4",
+      "bytes": 4718690,
+      "width": 1280,
+      "height": 720,
+      "duration": 29.025011
+    },
+    "2aad835c9052bfeec26d62c955ad1d80f0fef252c31fe88a97db4dc9f54383a7": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/2aad835c9052bfeec26d62c955ad1d80f0fef252c31fe88a97db4dc9f54383a7-preview.mp4",
+      "bytes": 4998334,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.116009
+    },
+    "a9ff3d51a12651514e548664e6ff1256344f06efae64fcb012b886dafc18955a": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/a9ff3d51a12651514e548664e6ff1256344f06efae64fcb012b886dafc18955a-preview.mp4",
+      "bytes": 4781311,
+      "width": 1280,
+      "height": 720,
+      "duration": 29.12
+    },
+    "7eda92ffc949b02be740c352a5c0dad1ff045429599773434694051efa352d98": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/7eda92ffc949b02be740c352a5c0dad1ff045429599773434694051efa352d98-preview.mp4",
+      "bytes": 5125040,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.144
+    },
+    "410f895c72c2b8c714388f088fad089e5367f0cc3ad8ee76af0e8522b22732d9": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/410f895c72c2b8c714388f088fad089e5367f0cc3ad8ee76af0e8522b22732d9-preview.mp4",
+      "bytes": 4736079,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.101
+    },
+    "718a055dc199cd7c9816cf03c4b1c672c10c917fb3c3844bbc9e6d5eaa582623": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/718a055dc199cd7c9816cf03c4b1c672c10c917fb3c3844bbc9e6d5eaa582623-preview.mp4",
+      "bytes": 5166092,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.139002
+    },
+    "6fad135f851f78a48394137f55acc2d57afe8fd588b2d94fdd2a347d7c8dc332": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/6fad135f851f78a48394137f55acc2d57afe8fd588b2d94fdd2a347d7c8dc332-preview.mp4",
+      "bytes": 4956950,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.144
+    },
+    "4b4fb97630d780fdcf4105a3c4ac66aa270403f34a60f4d6376796a31a13b16a": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/4b4fb97630d780fdcf4105a3c4ac66aa270403f34a60f4d6376796a31a13b16a-preview.mp4",
+      "bytes": 2557479,
+      "width": 720,
+      "height": 1280,
+      "duration": 15.65
+    },
+    "98c5d0d178436dc9c621cf14dcea4d44f0ee5b8c10b3f1001c7e4d8f84bb7f19": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/98c5d0d178436dc9c621cf14dcea4d44f0ee5b8c10b3f1001c7e4d8f84bb7f19-preview.mp4",
+      "bytes": 4606919,
+      "width": 1280,
+      "height": 720,
+      "duration": 26.752
+    },
+    "63ca41b0cd006357b261a22e1d69380bd03144c91e8f8326f01481c78eaa2d1d": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/63ca41b0cd006357b261a22e1d69380bd03144c91e8f8326f01481c78eaa2d1d-preview.mp4",
+      "bytes": 4881724,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.101
+    },
+    "1e40ea98f21ef9052ac21b327cc026a641f82674eed5024d4d1462ea7a3ae4b3": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/1e40ea98f21ef9052ac21b327cc026a641f82674eed5024d4d1462ea7a3ae4b3-preview.mp4",
+      "bytes": 3839314,
+      "width": 1280,
+      "height": 1280,
+      "duration": 15.092993
+    },
+    "3b5d4e65fafdc923c5e525a39cd5c171fb53c7832ffaea101d66ec93db46543c": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/3b5d4e65fafdc923c5e525a39cd5c171fb53c7832ffaea101d66ec93db46543c-preview.mp4",
+      "bytes": 2466089,
+      "width": 1280,
+      "height": 960,
+      "duration": 15.116009
+    },
+    "517980631718c25d83ec3a5863ca0686f52923cbc13b67e395d8bd5ba845443b": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/517980631718c25d83ec3a5863ca0686f52923cbc13b67e395d8bd5ba845443b-preview.mp4",
+      "bytes": 1170801,
+      "width": 720,
+      "height": 1280,
+      "duration": 7.220998
+    },
+    "9027d010bc753cfa09ff37292cba69648ce83b9b1227a685e42015190da95cfb": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/9027d010bc753cfa09ff37292cba69648ce83b9b1227a685e42015190da95cfb-preview.mp4",
+      "bytes": 4928680,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.144
+    },
+    "0d093f32d7018354e7b35d9d40edd28a29a3502951a80dc3338b8d3ddd2ab1f7": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/0d093f32d7018354e7b35d9d40edd28a29a3502951a80dc3338b8d3ddd2ab1f7-preview.mp4",
+      "bytes": 2771432,
+      "width": 960,
+      "height": 1280,
+      "duration": 16.927007
+    },
+    "59c001b01b28406e5cab53fd8b667109f748658e043f67953299112d745367a3": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/59c001b01b28406e5cab53fd8b667109f748658e043f67953299112d745367a3-preview.mp4",
+      "bytes": 11742929,
+      "width": 1280,
+      "height": 720,
+      "duration": 78.4
+    },
+    "e6eaa772bebd5a94387c2aa2638b78c9f5fc9af271835148a7e2168e3abc3cb2": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/e6eaa772bebd5a94387c2aa2638b78c9f5fc9af271835148a7e2168e3abc3cb2-preview.mp4",
+      "bytes": 2603931,
+      "width": 1280,
+      "height": 720,
+      "duration": 15.066667
+    },
+    "e75cdef0ceeb58251d1962ee464bf147d7440f6e1944fb869fa51806a0f5307d": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/e75cdef0ceeb58251d1962ee464bf147d7440f6e1944fb869fa51806a0f5307d-preview.mp4",
+      "bytes": 4888677,
+      "width": 900,
+      "height": 1200,
+      "duration": 30.101
+    },
+    "d22c6deb70148ea7a952485c93427a77f729c8262f674d9bdfdb8c307c0e7189": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/d22c6deb70148ea7a952485c93427a77f729c8262f674d9bdfdb8c307c0e7189-preview.mp4",
+      "bytes": 2477450,
+      "width": 1280,
+      "height": 732,
+      "duration": 15.186009
+    },
+    "29507aeb87a2948059fb063622fa3a21b20697bfec58d682a322c800a0193be6": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/29507aeb87a2948059fb063622fa3a21b20697bfec58d682a322c800a0193be6-preview.mp4",
+      "bytes": 5019939,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.25
+    },
+    "faa15d90ce9cad655445b2e6238ac76c6a90edae4017ab0d07fdf0eb01abe27e": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/faa15d90ce9cad655445b2e6238ac76c6a90edae4017ab0d07fdf0eb01abe27e-preview.mp4",
+      "bytes": 3118245,
+      "width": 1136,
+      "height": 1280,
+      "duration": 18.669002
+    },
+    "eb6285170eecb9e6385c379ad52cd16f128a540194f1b0a475b8d4028c0d5a80": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/eb6285170eecb9e6385c379ad52cd16f128a540194f1b0a475b8d4028c0d5a80-preview.mp4",
+      "bytes": 2462701,
+      "width": 720,
+      "height": 1280,
+      "duration": 15.116009
+    },
+    "7184c1fa377dcee209c3a78061e604caee744ac1d959c61988b5b71c140b22c9": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/7184c1fa377dcee209c3a78061e604caee744ac1d959c61988b5b71c140b22c9-preview.mp4",
+      "bytes": 5028088,
+      "width": 900,
+      "height": 1200,
+      "duration": 30.101
+    },
+    "ed242602f2cbf304442c96d059c77f9cb791b3fa820dc5543f6b458044145e15": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/ed242602f2cbf304442c96d059c77f9cb791b3fa820dc5543f6b458044145e15-preview.mp4",
+      "bytes": 2514835,
+      "width": 1138,
+      "height": 1280,
+      "duration": 15.1
+    },
+    "5ebfd3bb2ccda6812d46d3be76b263729a63d0fa6294fb5f914f65cdaacdb266": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/5ebfd3bb2ccda6812d46d3be76b263729a63d0fa6294fb5f914f65cdaacdb266-preview.mp4",
+      "bytes": 2711128,
+      "width": 720,
+      "height": 1280,
+      "duration": 16.695011
+    },
+    "109770e21fc7162c164342b7e009b6f56d060f502389a714ee1109103aa323fc": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/109770e21fc7162c164342b7e009b6f56d060f502389a714ee1109103aa323fc-preview.mp4",
+      "bytes": 5010962,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.041667
+    },
+    "1aa267e6d4dcafacccd436ea4303efc7c7c4244aedff6f0aba159b096d277c31": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/1aa267e6d4dcafacccd436ea4303efc7c7c4244aedff6f0aba159b096d277c31-preview.mp4",
+      "bytes": 2531772,
+      "width": 1280,
+      "height": 720,
+      "duration": 15.136
+    },
+    "4131aa7f425ee6d12ee1f549842b234fa6e4b84e95fd15bc7b25d88049d29489": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/4131aa7f425ee6d12ee1f549842b234fa6e4b84e95fd15bc7b25d88049d29489-preview.mp4",
+      "bytes": 2489933,
+      "width": 1280,
+      "height": 720,
+      "duration": 15.139002
+    },
+    "92c1b19a1f3ad06bc5f891710b05d451da2989beede2fdb1355317053f54ab56": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/92c1b19a1f3ad06bc5f891710b05d451da2989beede2fdb1355317053f54ab56-preview.mp4",
+      "bytes": 1648759,
+      "width": 1280,
+      "height": 720,
+      "duration": 10.123991
+    },
+    "bca98707358ee0504fc997587272f2238062ad8e3d265de4a5ee5da4b062e2dc": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/bca98707358ee0504fc997587272f2238062ad8e3d265de4a5ee5da4b062e2dc-preview.mp4",
+      "bytes": 4134516,
+      "width": 1280,
+      "height": 720,
+      "duration": 25.088
+    },
+    "03ffb8daa4cf9961c46846c0313a26a6fdcff4122f5cfd62e52635ff60e44b62": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/03ffb8daa4cf9961c46846c0313a26a6fdcff4122f5cfd62e52635ff60e44b62-preview.mp4",
+      "bytes": 4577653,
+      "width": 900,
+      "height": 1200,
+      "duration": 27.754
+    },
+    "24e9eb20165747ea41f138183dba06a0ff7ef840630b1b5c89a69a575cd22ff5": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/24e9eb20165747ea41f138183dba06a0ff7ef840630b1b5c89a69a575cd22ff5-preview.mp4",
+      "bytes": 4877658,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.144
+    },
+    "e182a157caaf5940da6a916fb9cdcf6542064a39d76f3b2c6184da863520bf7d": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/e182a157caaf5940da6a916fb9cdcf6542064a39d76f3b2c6184da863520bf7d-preview.mp4",
+      "bytes": 10011600,
+      "width": 1280,
+      "height": 720,
+      "duration": 60.186009
+    },
+    "dd36c21a44c93fed20b39aaa9e42677a4238b8f5f47b7267e5723c86117120f6": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/dd36c21a44c93fed20b39aaa9e42677a4238b8f5f47b7267e5723c86117120f6-preview.mp4",
+      "bytes": 3388731,
+      "width": 1280,
+      "height": 720,
+      "duration": 20.096
+    },
+    "4debf6e493ba98dd59c5b52d1b403bc4eee0b255293f7c584b35c1a1c8cb5f82": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/4debf6e493ba98dd59c5b52d1b403bc4eee0b255293f7c584b35c1a1c8cb5f82-preview.mp4",
+      "bytes": 4964668,
+      "width": 1280,
+      "height": 960,
+      "duration": 30.231995
+    },
+    "f557c099721c306f5810f4b7d82918a11da1f5f5907bee6bfc7a22fb5a8879cb": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/f557c099721c306f5810f4b7d82918a11da1f5f5907bee6bfc7a22fb5a8879cb-preview.mp4",
+      "bytes": 6523261,
+      "width": 1280,
+      "height": 720,
+      "duration": 39.893
+    },
+    "700223895d66e79a94a8327b7e59e2d07aae160be95ef7e9433e54bd2fa6b7aa": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/700223895d66e79a94a8327b7e59e2d07aae160be95ef7e9433e54bd2fa6b7aa-preview.mp4",
+      "bytes": 2430591,
+      "width": 1280,
+      "height": 720,
+      "duration": 14.768005
+    },
+    "9ab7ff92209b5aa46285335b19c47e672acbc9e4b528f317faf757b60d4252e2": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/9ab7ff92209b5aa46285335b19c47e672acbc9e4b528f317faf757b60d4252e2-preview.mp4",
+      "bytes": 2494340,
+      "width": 1280,
+      "height": 720,
+      "duration": 15.092993
+    },
+    "d5d32207d86dcc8aa8782aa1ed65340249fbf4212db019644b755cbad568dd71": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/d5d32207d86dcc8aa8782aa1ed65340249fbf4212db019644b755cbad568dd71-preview.mp4",
+      "bytes": 2477373,
+      "width": 1280,
+      "height": 960,
+      "duration": 15.116009
+    },
+    "b3e1cf283f6df76e17232159ce51a7b8febb9b4e2f42849a8b1855bbf2b624f1": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/b3e1cf283f6df76e17232159ce51a7b8febb9b4e2f42849a8b1855bbf2b624f1-preview.mp4",
+      "bytes": 2514918,
+      "width": 1280,
+      "height": 720,
+      "duration": 15.136
+    },
+    "ef63aebda3bff59544afb0266b2edbdb7bd4e617ce672d3912449371e06b81f4": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/ef63aebda3bff59544afb0266b2edbdb7bd4e617ce672d3912449371e06b81f4-preview.mp4",
+      "bytes": 3357854,
+      "width": 1080,
+      "height": 1206,
+      "duration": 15.092993
+    },
+    "b84539b2d98f1e891bfe06cc0e70a67efe6a367a32e52e9c5a498a00a11479f2": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/b84539b2d98f1e891bfe06cc0e70a67efe6a367a32e52e9c5a498a00a11479f2-preview.mp4",
+      "bytes": 2485624,
+      "width": 1280,
+      "height": 954,
+      "duration": 15.104
+    },
+    "f246b9e513e8889472d4d62a3880c5c09a06dba95676b772a32d85f970668a3b": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/f246b9e513e8889472d4d62a3880c5c09a06dba95676b772a32d85f970668a3b-preview.mp4",
+      "bytes": 1674220,
+      "width": 1280,
+      "height": 696,
+      "duration": 6.101
+    },
+    "51a284331e7b0f613ce549077b90f1fc4f5f752bebb62efe9c90604db96023f7": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/51a284331e7b0f613ce549077b90f1fc4f5f752bebb62efe9c90604db96023f7-preview.mp4",
+      "bytes": 2466665,
+      "width": 1280,
+      "height": 720,
+      "duration": 15.092993
+    },
+    "174eae55c52be430437a0ab11a3a30544fe269a96dc6bfeeecbf1f977044ca28": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/174eae55c52be430437a0ab11a3a30544fe269a96dc6bfeeecbf1f977044ca28-preview.mp4",
+      "bytes": 4887606,
+      "width": 900,
+      "height": 1200,
+      "duration": 29.973
+    },
+    "03367a5bad722aad7e22eec0e7b132958d90f05380d5d01ce2e5170e4456971f": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/03367a5bad722aad7e22eec0e7b132958d90f05380d5d01ce2e5170e4456971f-preview.mp4",
+      "bytes": 3325369,
+      "width": 1280,
+      "height": 720,
+      "duration": 20.096
+    },
+    "20dc660696890d83bb37d5e5c6815e01d68ea7514b1ba046468d34c0eeff157e": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/20dc660696890d83bb37d5e5c6815e01d68ea7514b1ba046468d34c0eeff157e-preview.mp4",
+      "bytes": 4977276,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.241875
+    },
+    "9cdb2bb90f47c310001ed8699e2322dc85df0187ad7c8603ce806398bbced2c6": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/9cdb2bb90f47c310001ed8699e2322dc85df0187ad7c8603ce806398bbced2c6-preview.mp4",
+      "bytes": 3352124,
+      "width": 1024,
+      "height": 1280,
+      "duration": 20.096
+    },
+    "bd3d67fca3c59a06415d62fda7749b8e312ea49b4980c2c8986af5484806a097": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/bd3d67fca3c59a06415d62fda7749b8e312ea49b4980c2c8986af5484806a097-preview.mp4",
+      "bytes": 4879417,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.144
+    },
+    "83288ec4fe9d9f5476bdb06ba839216f055dc1813ea58c77407dd7f599be581b": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/83288ec4fe9d9f5476bdb06ba839216f055dc1813ea58c77407dd7f599be581b-preview.mp4",
+      "bytes": 4935785,
+      "width": 1280,
+      "height": 716,
+      "duration": 29.860998
+    },
+    "6756980007c4ce896ffbfb536ea8e7859382b177dbfd58aa358d17dfef603508": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/6756980007c4ce896ffbfb536ea8e7859382b177dbfd58aa358d17dfef603508-preview.mp4",
+      "bytes": 4832358,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.07
+    },
+    "f38a4a4191e0287741be61d11c1c4364286e371cb06d174a1ac494a90b201641": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/f38a4a4191e0287741be61d11c1c4364286e371cb06d174a1ac494a90b201641-preview.mp4",
+      "bytes": 4925129,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.116009
+    },
+    "a16dd0bf247d6639fa7ff7ff3798e848936e258dbda48ce7d1c590dcee4f57c3": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/a16dd0bf247d6639fa7ff7ff3798e848936e258dbda48ce7d1c590dcee4f57c3-preview.mp4",
+      "bytes": 4979712,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.07
+    },
+    "253d468e2660e88f028ff9292cd9d36061c6435a2f7402ed3e53773f74845da2": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/253d468e2660e88f028ff9292cd9d36061c6435a2f7402ed3e53773f74845da2-preview.mp4",
+      "bytes": 4923534,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.144
+    },
+    "8f20c2db81739fa96d724dfb6e48fbbeb9da3df4d9fed1626a27f8a4e7abd58c": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/8f20c2db81739fa96d724dfb6e48fbbeb9da3df4d9fed1626a27f8a4e7abd58c-preview.mp4",
+      "bytes": 2042859,
+      "width": 1280,
+      "height": 736,
+      "duration": 12.421995
+    },
+    "41a00b924addb2a317c3595f97bc37970d7b6a6cce522d7128b9e4b6dc4f00ab": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/41a00b924addb2a317c3595f97bc37970d7b6a6cce522d7128b9e4b6dc4f00ab-preview.mp4",
+      "bytes": 5060354,
+      "width": 1080,
+      "height": 1080,
+      "duration": 30.116009
+    },
+    "21517ace3bd10fd524051f402f1bc9691814fc924cf1873c5ea6622c2141bdd7": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/21517ace3bd10fd524051f402f1bc9691814fc924cf1873c5ea6622c2141bdd7-preview.mp4",
+      "bytes": 5493922,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.07
+    },
+    "631c76b461b3da48d8e5eb1d9431a8f2c90fb83b8e87022a17e5837cc1fbbc20": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/631c76b461b3da48d8e5eb1d9431a8f2c90fb83b8e87022a17e5837cc1fbbc20-preview.mp4",
+      "bytes": 4922473,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.150041
+    },
+    "d3da477c6e44b67bd5d60c38cf522d89b97ac38e31d3d9690cd65d3c559a0cce": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/d3da477c6e44b67bd5d60c38cf522d89b97ac38e31d3d9690cd65d3c559a0cce-preview.mp4",
+      "bytes": 2490929,
+      "width": 1280,
+      "height": 720,
+      "duration": 15.1
+    },
+    "7157721b2068804bfc7dac507137fec0be46f1a6801939f215cfaf168018dde3": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/7157721b2068804bfc7dac507137fec0be46f1a6801939f215cfaf168018dde3-preview.mp4",
+      "bytes": 4965603,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.116009
+    },
+    "91282072cc2c10a2d41dfb77b3c8098aea21b6319242b66743e39b8212c16e08": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/91282072cc2c10a2d41dfb77b3c8098aea21b6319242b66743e39b8212c16e08-preview.mp4",
+      "bytes": 2543428,
+      "width": 1280,
+      "height": 1280,
+      "duration": 15.116009
+    },
+    "258cec4c92cdbb0580001aecd605a7ebb01f0c3f23451a1b77371a8b2b26c391": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/258cec4c92cdbb0580001aecd605a7ebb01f0c3f23451a1b77371a8b2b26c391-preview.mp4",
+      "bytes": 4493356,
+      "width": 1280,
+      "height": 720,
+      "duration": 27.352993
+    },
+    "a79986bfd7ffcdade6b683094d3ce83a49f2725e17d6f9f21fe024b3ebdc1698": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/a79986bfd7ffcdade6b683094d3ce83a49f2725e17d6f9f21fe024b3ebdc1698-preview.mp4",
+      "bytes": 4965753,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.314
+    },
+    "89de4c6da24d6ba0db6db135a6e927e26e0fc8a3fb697772d95cac764077cb2e": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/89de4c6da24d6ba0db6db135a6e927e26e0fc8a3fb697772d95cac764077cb2e-preview.mp4",
+      "bytes": 5205017,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.07
+    },
+    "7aa5cf85ac005e5b75d4b1fb687cc3ab5a5804d4cecb86d0c53c62574590f867": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/7aa5cf85ac005e5b75d4b1fb687cc3ab5a5804d4cecb86d0c53c62574590f867-preview.mp4",
+      "bytes": 4497140,
+      "width": 1280,
+      "height": 720,
+      "duration": 27.399002
+    },
+    "576a58fe17d2ab8beeeb24ef435397721d6f248b99b1744b8617e044c4e759c5": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/576a58fe17d2ab8beeeb24ef435397721d6f248b99b1744b8617e044c4e759c5-preview.mp4",
+      "bytes": 4390400,
+      "width": 1280,
+      "height": 720,
+      "duration": 26.841995
+    },
+    "e54286ae5fea9770f24a52e29ac7272c913e6f9d761b34411b2b3d651d1f1b2b": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/e54286ae5fea9770f24a52e29ac7272c913e6f9d761b34411b2b3d651d1f1b2b-preview.mp4",
+      "bytes": 4959018,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.07
+    },
+    "d954f7b16ca5d22b009d409f4d7546ed00cd62283953645173f840fd32a5af1a": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/d954f7b16ca5d22b009d409f4d7546ed00cd62283953645173f840fd32a5af1a-preview.mp4",
+      "bytes": 4619040,
+      "width": 1280,
+      "height": 720,
+      "duration": 28.350998
+    },
+    "088b1e4b76eeb08e367fcd48db3de24ad129e250e0b845e3234ff134fc69c4a3": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/088b1e4b76eeb08e367fcd48db3de24ad129e250e0b845e3234ff134fc69c4a3-preview.mp4",
+      "bytes": 4888905,
+      "width": 1280,
+      "height": 716,
+      "duration": 29.813991
+    },
+    "43749ec6414e8133fe9c88e55b8f37e65a7e4f16744329226042b45f29c9fc67": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/43749ec6414e8133fe9c88e55b8f37e65a7e4f16744329226042b45f29c9fc67-preview.mp4",
+      "bytes": 4939232,
+      "width": 720,
+      "height": 1280,
+      "duration": 30.101
+    },
+    "8547112b9699078b29233d9be0d4ba1d4406014548d9e0f5c3c01c95bf069e92": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/8547112b9699078b29233d9be0d4ba1d4406014548d9e0f5c3c01c95bf069e92-preview.mp4",
+      "bytes": 5165582,
+      "width": 1280,
+      "height": 720,
+      "duration": 33.180998
+    },
+    "c4109a9f9267099942e950e49198517af9a82e8a9a2687ab24b89223ec262380": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/c4109a9f9267099942e950e49198517af9a82e8a9a2687ab24b89223ec262380-preview.mp4",
+      "bytes": 2486326,
+      "width": 1280,
+      "height": 720,
+      "duration": 15.168
+    },
+    "25c50eac8cd5fc2f406e0416f6c399ed09b5e654f94fd39c11ba53b2bc4b885f": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/25c50eac8cd5fc2f406e0416f6c399ed09b5e654f94fd39c11ba53b2bc4b885f-preview.mp4",
+      "bytes": 4946073,
+      "width": 1280,
+      "height": 714,
+      "duration": 30.07
+    },
+    "1ee1e82e106df7e7904020246137ebc0c095ae0d04573f7730cd0c89f07b8366": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/1ee1e82e106df7e7904020246137ebc0c095ae0d04573f7730cd0c89f07b8366-preview.mp4",
+      "bytes": 4929217,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.161995
+    },
+    "d0ea75da2fd5e51f5429595fafe567efe05f50533ddd00b739a9a3dedf92cda5": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/d0ea75da2fd5e51f5429595fafe567efe05f50533ddd00b739a9a3dedf92cda5-preview.mp4",
+      "bytes": 6099575,
+      "width": 1280,
+      "height": 720,
+      "duration": 37.453991
+    },
+    "c182896ce20f663063e0afe3bfecb4fa7d69330adc852528c3a762bcf8ae2318": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/c182896ce20f663063e0afe3bfecb4fa7d69330adc852528c3a762bcf8ae2318-preview.mp4",
+      "bytes": 4106238,
+      "width": 1280,
+      "height": 720,
+      "duration": 24.52
+    },
+    "8f30dcbd4972b1b1d314fe04548daa4cb49b1fe8380ec8c23bc07624413cd544": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/8f30dcbd4972b1b1d314fe04548daa4cb49b1fe8380ec8c23bc07624413cd544-preview.mp4",
+      "bytes": 2532729,
+      "width": 720,
+      "height": 1280,
+      "duration": 15.1
+    },
+    "1987f9321dcb11052438cc2d39aee0ddbc263809f092a8703b269e98931552ee": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/1987f9321dcb11052438cc2d39aee0ddbc263809f092a8703b269e98931552ee-preview.mp4",
+      "bytes": 3575417,
+      "width": 1280,
+      "height": 720,
+      "duration": 21.909
+    },
+    "7f8f017e190098dc2234a2ae9d7f7f0f29ae8989e7b2aa3677b0ff280c8559e6": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/7f8f017e190098dc2234a2ae9d7f7f0f29ae8989e7b2aa3677b0ff280c8559e6-preview.mp4",
+      "bytes": 2527787,
+      "width": 720,
+      "height": 1280,
+      "duration": 15.166667
+    },
+    "73a62b710b25b06ac72ccff7a1b49a68c11e85aed9d4b4903acf9e9ec3ad51fc": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/73a62b710b25b06ac72ccff7a1b49a68c11e85aed9d4b4903acf9e9ec3ad51fc-preview.mp4",
+      "bytes": 5227754,
+      "width": 1280,
+      "height": 548,
+      "duration": 31.936
+    },
+    "2792b7b678a6bc9764a0fd2b35b9dbc15ed37296e36160a815eb378082256c4a": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/2792b7b678a6bc9764a0fd2b35b9dbc15ed37296e36160a815eb378082256c4a-preview.mp4",
+      "bytes": 4915390,
+      "width": 1112,
+      "height": 834,
+      "duration": 30.092993
+    },
+    "4270277bb33fceb6c8315b27275b69483aade9be116ed51a053f7963384e9d04": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/4270277bb33fceb6c8315b27275b69483aade9be116ed51a053f7963384e9d04-preview.mp4",
+      "bytes": 2365411,
+      "width": 1080,
+      "height": 1206,
+      "duration": 13.931995
+    },
+    "980583f6d969efc0a3710de4a0d3035f4653b4566a072ebc888835b754cca102": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/980583f6d969efc0a3710de4a0d3035f4653b4566a072ebc888835b754cca102-preview.mp4",
+      "bytes": 6395731,
+      "width": 1280,
+      "height": 548,
+      "duration": 38.677
+    },
+    "cb5256a90bd36f6ab12eb7e0c3e91558adb68bf96e3dbaa038d5df841ef08a64": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/cb5256a90bd36f6ab12eb7e0c3e91558adb68bf96e3dbaa038d5df841ef08a64-preview.mp4",
+      "bytes": 3342551,
+      "width": 1280,
+      "height": 720,
+      "duration": 20.200998
+    },
+    "2557f2323f2109fe94034a7f4c7888dba4ab2bc16f679b59239c8a8293f4b9af": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/2557f2323f2109fe94034a7f4c7888dba4ab2bc16f679b59239c8a8293f4b9af-preview.mp4",
+      "bytes": 2459424,
+      "width": 1080,
+      "height": 1080,
+      "duration": 14.605011
+    },
+    "208021513d4ea753fdee418afcdd6d052e208356276e96b627413c77da62a47d": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/208021513d4ea753fdee418afcdd6d052e208356276e96b627413c77da62a47d-preview.mp4",
+      "bytes": 5214078,
+      "width": 834,
+      "height": 1112,
+      "duration": 30.08
+    },
+    "8c2da3f9375bca3767b5b3b08d0a1cab7f66fffb80dac5bec62db96168cb5abd": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/8c2da3f9375bca3767b5b3b08d0a1cab7f66fffb80dac5bec62db96168cb5abd-preview.mp4",
+      "bytes": 4951315,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.144
+    },
+    "ead498a1b98b601003c872a4b6041c52d1c51eecb05275bf100e69629d47a13a": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/ead498a1b98b601003c872a4b6041c52d1c51eecb05275bf100e69629d47a13a-preview.mp4",
+      "bytes": 4843720,
+      "width": 1276,
+      "height": 718,
+      "duration": 29.720998
+    },
+    "3f3b2b1bcef6bc33b16cdf34fdca66bfc9353452da6d1564bc06fe6f82e3eeae": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/3f3b2b1bcef6bc33b16cdf34fdca66bfc9353452da6d1564bc06fe6f82e3eeae-preview.mp4",
+      "bytes": 4112560,
+      "width": 1280,
+      "height": 640,
+      "duration": 24.960998
+    },
+    "e1687b225126a3767dfc91801532d408ac7fe4519f487bb0a4af3cac3a7dba06": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/e1687b225126a3767dfc91801532d408ac7fe4519f487bb0a4af3cac3a7dba06-preview.mp4",
+      "bytes": 5111444,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.812993
+    },
+    "22daf0e4d14e7a6b3a54527f196f74703cc05d725ce392636997a091d46fcd57": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/22daf0e4d14e7a6b3a54527f196f74703cc05d725ce392636997a091d46fcd57-preview.mp4",
+      "bytes": 4930819,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.144
+    },
+    "80f78fa1889f87920ab2c9c5eea9e425133a5dba71648ebc9077a8b604858ff1": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/80f78fa1889f87920ab2c9c5eea9e425133a5dba71648ebc9077a8b604858ff1-preview.mp4",
+      "bytes": 4892294,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.092993
+    },
+    "5e50b1c262e4008e4dd13e9705dbc98d80d97dbad6f4fd7cdea78bc76f405ace": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/5e50b1c262e4008e4dd13e9705dbc98d80d97dbad6f4fd7cdea78bc76f405ace-preview.mp4",
+      "bytes": 4544144,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.046009
+    },
+    "11a22f84039685b81988225dc659500f704267ef5f04f09e0512a74b81ddc53a": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/11a22f84039685b81988225dc659500f704267ef5f04f09e0512a74b81ddc53a-preview.mp4",
+      "bytes": 1864828,
+      "width": 1280,
+      "height": 720,
+      "duration": 10.208
+    },
+    "c12650544752aa8ef5d799294d4cb17aaaaf5a9a990314302030e905323ef5fe": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/c12650544752aa8ef5d799294d4cb17aaaaf5a9a990314302030e905323ef5fe-preview.mp4",
+      "bytes": 5001081,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.166731
+    },
+    "4839cdb38de92c93815aaae7cec68eef09320162437e229bb71b767b5d78d7e5": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/4839cdb38de92c93815aaae7cec68eef09320162437e229bb71b767b5d78d7e5-preview.mp4",
+      "bytes": 4982539,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.125058
+    },
+    "423d449f55d9024942630542f5a92f1138967c6307f6c4377f7886c47462dcfe": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/423d449f55d9024942630542f5a92f1138967c6307f6c4377f7886c47462dcfe-preview.mp4",
+      "bytes": 5013478,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.108368
+    },
+    "2a993cd9bf59cc33878702fc83b6da9118ea34029e92dff948de9e21658d3936": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/2a993cd9bf59cc33878702fc83b6da9118ea34029e92dff948de9e21658d3936-preview.mp4",
+      "bytes": 2495667,
+      "width": 1080,
+      "height": 1080,
+      "duration": 15.046009
+    },
+    "7179a443726726a73266d3397356eaeb84727f1500f1e1c7745291ff6407a3fb": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/7179a443726726a73266d3397356eaeb84727f1500f1e1c7745291ff6407a3fb-preview.mp4",
+      "bytes": 4935966,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.122
+    },
+    "32dadbedb3e0ef5759811d2d2556be74abffb2d71c945e080eee14ba619e2182": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/32dadbedb3e0ef5759811d2d2556be74abffb2d71c945e080eee14ba619e2182-preview.mp4",
+      "bytes": 4865184,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.116009
+    },
+    "60fd8d5382aea3fa0dab1b5132f768d78120dcbbb891aa3354bed9e345393abe": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/60fd8d5382aea3fa0dab1b5132f768d78120dcbbb891aa3354bed9e345393abe-preview.mp4",
+      "bytes": 4792538,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.112
+    },
+    "5c1ebb18b070430b2e9b8c2916e71a54039cd0c9625516c39490194f024c4d2a": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/5c1ebb18b070430b2e9b8c2916e71a54039cd0c9625516c39490194f024c4d2a-preview.mp4",
+      "bytes": 4934020,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.241875
+    },
+    "e870fe8a11f3c1f549ff756947e100c117eea18f93216e55432f8e636cd250de": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/e870fe8a11f3c1f549ff756947e100c117eea18f93216e55432f8e636cd250de-preview.mp4",
+      "bytes": 4953496,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.116009
+    },
+    "132b7f71dae5dd032905aea4b36b2b71e88bc7aa92246b327bd614a06cf2edad": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/132b7f71dae5dd032905aea4b36b2b71e88bc7aa92246b327bd614a06cf2edad-preview.mp4",
+      "bytes": 4973592,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.091678
+    },
+    "252a8fc8a67f1d3fc14ed927cb1ead9b109622281fb3bee9cee92c67b4e4b84b": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/252a8fc8a67f1d3fc14ed927cb1ead9b109622281fb3bee9cee92c67b4e4b84b-preview.mp4",
+      "bytes": 4972229,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.07
+    },
+    "513cc517e9b5b9328dfe673630d11b5e700a62b0f36afe89c33283364ab5cd72": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/513cc517e9b5b9328dfe673630d11b5e700a62b0f36afe89c33283364ab5cd72-preview.mp4",
+      "bytes": 4934239,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.27515
+    },
+    "f7b48325c8057e9854d043147bb34416c839317d4e258517ab2fbdcac37f21b2": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/f7b48325c8057e9854d043147bb34416c839317d4e258517ab2fbdcac37f21b2-preview.mp4",
+      "bytes": 4444504,
+      "width": 1280,
+      "height": 720,
+      "duration": 28.746009
+    },
+    "d13623db6e7552d3a0c35db53ff9895eaf3feb091a8be0f9ace2d74bd5463e9c": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/d13623db6e7552d3a0c35db53ff9895eaf3feb091a8be0f9ace2d74bd5463e9c-preview.mp4",
+      "bytes": 4927538,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.07
+    },
+    "3afcab67e5e39c94d4ceae804c373f8642dc4b099a55bd21b88131ac986bbc70": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/3afcab67e5e39c94d4ceae804c373f8642dc4b099a55bd21b88131ac986bbc70-preview.mp4",
+      "bytes": 2520274,
+      "width": 1080,
+      "height": 1080,
+      "duration": 15.046009
+    },
+    "d806b504736e62568551c5f2f1d54da6ea231c9079aa3bb3928977c53d5cce7f": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/d806b504736e62568551c5f2f1d54da6ea231c9079aa3bb3928977c53d5cce7f-preview.mp4",
+      "bytes": 4957300,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.144
+    },
+    "89d13e24d69a5f9808bb053a38710411f4dd4172fe99fbbed45e16a8551b1a8a": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/89d13e24d69a5f9808bb053a38710411f4dd4172fe99fbbed45e16a8551b1a8a-preview.mp4",
+      "bytes": 1689227,
+      "width": 1280,
+      "height": 720,
+      "duration": 10.6
+    },
+    "9eff30c8ca5f24e27a95da40684b17cd6776fffc899ad5be7c8a408d1dfa1e4b": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/9eff30c8ca5f24e27a95da40684b17cd6776fffc899ad5be7c8a408d1dfa1e4b-preview.mp4",
+      "bytes": 4872005,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.133333
+    },
+    "dc85750961ca80412cc97abd86beafc9e56979e38ff363500776536cd3f0bf32": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/dc85750961ca80412cc97abd86beafc9e56979e38ff363500776536cd3f0bf32-preview.mp4",
+      "bytes": 2387973,
+      "width": 1080,
+      "height": 1206,
+      "duration": 13.908005
+    },
+    "2edefe8c92ce87d4b150558d581a93de61a883a8485aa07caccdbc2092f1f868": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/2edefe8c92ce87d4b150558d581a93de61a883a8485aa07caccdbc2092f1f868-preview.mp4",
+      "bytes": 5696050,
+      "width": 1280,
+      "height": 720,
+      "duration": 36.333333
+    },
+    "7c45958700ba9b7aed5c67621dc9e81a0c9d6216d02b052670824354ff02b0e9": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/7c45958700ba9b7aed5c67621dc9e81a0c9d6216d02b052670824354ff02b0e9-preview.mp4",
+      "bytes": 3475117,
+      "width": 1280,
+      "height": 720,
+      "duration": 24.357007
+    },
+    "1a0b1c5dff40387d437369750cf1998145574dd8d3ca3f8899346e5049ebfd65": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/1a0b1c5dff40387d437369750cf1998145574dd8d3ca3f8899346e5049ebfd65-preview.mp4",
+      "bytes": 3991395,
+      "width": 1280,
+      "height": 720,
+      "duration": 24.158463
+    },
+    "3898fc84d90b64a4621912da3acdb070f8c9abddad239c1d5a1dca9687e7f7cf": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/3898fc84d90b64a4621912da3acdb070f8c9abddad239c1d5a1dca9687e7f7cf-preview.mp4",
+      "bytes": 3130027,
+      "width": 1280,
+      "height": 720,
+      "duration": 19.087007
+    },
+    "fedc3cdc08a66903ef88a652b4c70eee5d59c8107af727f4113226d028f06238": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/fedc3cdc08a66903ef88a652b4c70eee5d59c8107af727f4113226d028f06238-preview.mp4",
+      "bytes": 4960554,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.139002
+    },
+    "e364f1b8b354fe19e983f57c0d0a83b4e0d6c807ae750d4c552fbf0cb5fc3847": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/e364f1b8b354fe19e983f57c0d0a83b4e0d6c807ae750d4c552fbf0cb5fc3847-preview.mp4",
+      "bytes": 4845384,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.112
+    },
+    "525b7c0bd58354148080597f043e548c3f5a978a98ac28db8fdc39ae142f5adf": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/525b7c0bd58354148080597f043e548c3f5a978a98ac28db8fdc39ae142f5adf-preview.mp4",
+      "bytes": 4722687,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.144
+    },
+    "76be1ac4da896b5b069b687f9a4a89d77c7b05c3bb9ca12dac7f280c239243ba": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/76be1ac4da896b5b069b687f9a4a89d77c7b05c3bb9ca12dac7f280c239243ba-preview.mp4",
+      "bytes": 4987198,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.144
+    },
+    "37882a48820e6ce0a3cdc45e21cf22e07b3b2bfef94d73bbcb3c14e62f68e0a5": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/37882a48820e6ce0a3cdc45e21cf22e07b3b2bfef94d73bbcb3c14e62f68e0a5-preview.mp4",
+      "bytes": 4930913,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.166667
+    },
+    "099e09cd3df6c639a1b5c96a7f21dbb70e1b16e10f2cb61daaeae888747d000a": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/099e09cd3df6c639a1b5c96a7f21dbb70e1b16e10f2cb61daaeae888747d000a-preview.mp4",
+      "bytes": 4922778,
+      "width": 1268,
+      "height": 718,
+      "duration": 30.116009
+    },
+    "0df4d08086b902caa9ab0b4668415c6f235d6b9bc6e85d17d8a6604c2834ced6": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/0df4d08086b902caa9ab0b4668415c6f235d6b9bc6e85d17d8a6604c2834ced6-preview.mp4",
+      "bytes": 2446049,
+      "width": 1280,
+      "height": 960,
+      "duration": 15.161995
+    },
+    "c8c2845910cffeb1adec70891365dfc8a0d8addeda79ff2b3131a3b4934f588a": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/c8c2845910cffeb1adec70891365dfc8a0d8addeda79ff2b3131a3b4934f588a-preview.mp4",
+      "bytes": 5024359,
+      "width": 1268,
+      "height": 718,
+      "duration": 30.116009
+    },
+    "e201782ad5fd045da0cf5c7baec4e0255511d4a37829822b6cfaeb6648a9b33b": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/e201782ad5fd045da0cf5c7baec4e0255511d4a37829822b6cfaeb6648a9b33b-preview.mp4",
+      "bytes": 3619425,
+      "width": 970,
+      "height": 948,
+      "duration": 21.989002
+    },
+    "fe47d06d54c31601d637161dfa4e154f29b17f6792f2df234d86cf22a3df7fb8": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/fe47d06d54c31601d637161dfa4e154f29b17f6792f2df234d86cf22a3df7fb8-preview.mp4",
+      "bytes": 4962107,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.133333
+    },
+    "e7e4737b53dfcef6aa2c0a71c7c0233c2da7cbb4e4c51c5a04b3da168f32650d": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/e7e4737b53dfcef6aa2c0a71c7c0233c2da7cbb4e4c51c5a04b3da168f32650d-preview.mp4",
+      "bytes": 4943134,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.1
+    },
+    "4e04514c6a17730ef4f534d72f20e0f701a6e9cb69803fe65672b1d2532967ca": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/4e04514c6a17730ef4f534d72f20e0f701a6e9cb69803fe65672b1d2532967ca-preview.mp4",
+      "bytes": 4898001,
+      "width": 720,
+      "height": 1280,
+      "duration": 30.1
+    },
+    "fafe07d58b8e15cbfe7170283cc4a07ce92b9239d7b3d673606801310a9617c8": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/fafe07d58b8e15cbfe7170283cc4a07ce92b9239d7b3d673606801310a9617c8-preview.mp4",
+      "bytes": 2536806,
+      "width": 1080,
+      "height": 1080,
+      "duration": 15.092993
+    },
+    "304ca03ba50f8274643d5d2ecae10f92174d73ef80c99ce8677e488b399d7607": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/304ca03ba50f8274643d5d2ecae10f92174d73ef80c99ce8677e488b399d7607-preview.mp4",
+      "bytes": 4924480,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.144
+    },
+    "bb5f5926d824d660a86242de5ee1f3442a006d4430cb6ebaae829e4cba434174": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/bb5f5926d824d660a86242de5ee1f3442a006d4430cb6ebaae829e4cba434174-preview.mp4",
+      "bytes": 2575111,
+      "width": 1080,
+      "height": 1080,
+      "duration": 15.139002
+    },
+    "224f00dd125391e719b368463b978f2668bcfb3bfd5ec2353c6d3b6eec93a5bf": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/224f00dd125391e719b368463b978f2668bcfb3bfd5ec2353c6d3b6eec93a5bf-preview.mp4",
+      "bytes": 4969103,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.144
+    },
+    "2b5c6346b533369ebc51d09625a84ac8b03b7ae4dd9ca76c754b3083d941751b": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/2b5c6346b533369ebc51d09625a84ac8b03b7ae4dd9ca76c754b3083d941751b-preview.mp4",
+      "bytes": 2578577,
+      "width": 1080,
+      "height": 1206,
+      "duration": 15.092993
+    },
+    "97159b05874dd576aba97a162fd9ffd8f6200002ca74c12ccfe878ecba67ae6b": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/97159b05874dd576aba97a162fd9ffd8f6200002ca74c12ccfe878ecba67ae6b-preview.mp4",
+      "bytes": 5023315,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.208391
+    },
+    "dc3ddb0229f32bec708711c3340fa8380adb738d3a32a7879d4e879a5326e6e1": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/dc3ddb0229f32bec708711c3340fa8380adb738d3a32a7879d4e879a5326e6e1-preview.mp4",
+      "bytes": 4701699,
+      "width": 1280,
+      "height": 720,
+      "duration": 28.746009
+    },
+    "5a65a88c3b17cdd93ae8018b65a37bee3982726f25619425088315684b92b861": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/5a65a88c3b17cdd93ae8018b65a37bee3982726f25619425088315684b92b861-preview.mp4",
+      "bytes": 4553494,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.08
+    },
+    "ea8954dcc034329ecbc3a2f4711ab065a2f2fbcd403790c6bb50aca9a2c5d602": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/ea8954dcc034329ecbc3a2f4711ab065a2f2fbcd403790c6bb50aca9a2c5d602-preview.mp4",
+      "bytes": 4953732,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.158437
+    },
+    "eff6fd8550d624fa8e5430b122fa76c15da246eb2ad4c4980660112981240c76": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/eff6fd8550d624fa8e5430b122fa76c15da246eb2ad4c4980660112981240c76-preview.mp4",
+      "bytes": 4932444,
+      "width": 1280,
+      "height": 720,
+      "duration": 30.144
+    },
+    "7c98d8e74e593fed16ed9451de5a54d14dbeb847616f54d0e558f08a0b6f1b36": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/7c98d8e74e593fed16ed9451de5a54d14dbeb847616f54d0e558f08a0b6f1b36-preview.mp4",
+      "bytes": 2469925,
+      "width": 1280,
+      "height": 720,
+      "duration": 15.104
+    },
+    "b48c877f6dbf9da5633998ea2fc7a3899dfd0b7899d026d6f81fa9ed113cbd15": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/b48c877f6dbf9da5633998ea2fc7a3899dfd0b7899d026d6f81fa9ed113cbd15-preview.mp4",
+      "bytes": 3312788,
+      "width": 1280,
+      "height": 720,
+      "duration": 20.125087
+    },
+    "576d9241dcc5356aef933333279960dde7777e338fa5ea903b6665926a176e94": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/576d9241dcc5356aef933333279960dde7777e338fa5ea903b6665926a176e94-preview.mp4",
+      "bytes": 4450093,
+      "width": 1280,
+      "height": 720,
+      "duration": 28.704
+    },
+    "3c3702bc3aff89c8695c3ee5d586f0aaafdebd35993861cebe1d177565bbada9": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/3c3702bc3aff89c8695c3ee5d586f0aaafdebd35993861cebe1d177565bbada9-preview.mp4",
+      "bytes": 2514323,
+      "width": 1280,
+      "height": 720,
+      "duration": 15.158454
+    },
+    "9a55ba60dd5ed74c7c432aa051f2e372b6662a6dcdcb630cd6aa102146b35bca": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/9a55ba60dd5ed74c7c432aa051f2e372b6662a6dcdcb630cd6aa102146b35bca-preview.mp4",
+      "bytes": 2434452,
+      "width": 1280,
+      "height": 720,
+      "duration": 15.116009
+    },
+    "dfe073dbfab6f42efb5319a8dd198035aa73f818077f876d5d3b841ea2cf4116": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/dfe073dbfab6f42efb5319a8dd198035aa73f818077f876d5d3b841ea2cf4116-preview.mp4",
+      "bytes": 2762394,
+      "width": 1280,
+      "height": 720,
+      "duration": 15.166667
+    },
+    "5dd30ec161884a7aaed2f224f48793448aa749332bdc28e1864a1076eedf9df8": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/5dd30ec161884a7aaed2f224f48793448aa749332bdc28e1864a1076eedf9df8-preview.mp4",
+      "bytes": 2451084,
+      "width": 1280,
+      "height": 720,
+      "duration": 15.116009
+    },
+    "26454139951fb024fdac454f14bf893fd3e2eb33e60704978552ea52c390fae5": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/26454139951fb024fdac454f14bf893fd3e2eb33e60704978552ea52c390fae5-preview.mp4",
+      "bytes": 2502671,
+      "width": 1280,
+      "height": 720,
+      "duration": 15.139002
+    },
+    "6635abce939ce0655d29ff6bc049635a00f1dffc05e29cf6ca28e72df429239c": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/6635abce939ce0655d29ff6bc049635a00f1dffc05e29cf6ca28e72df429239c-preview.mp4",
+      "bytes": 2481087,
+      "width": 1280,
+      "height": 720,
+      "duration": 15.191879
+    },
+    "268a770f046431ed7734896146d96cbd65fe47fa4b58b2c6d19e3190384d9fc8": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/268a770f046431ed7734896146d96cbd65fe47fa4b58b2c6d19e3190384d9fc8-preview.mp4",
+      "bytes": 2953042,
+      "width": 1280,
+      "height": 720,
+      "duration": 18.08
+    },
+    "7f8b6a7095aeb06785c0ac853993da7f655634a223a09061c7eada11a21e0204": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/7f8b6a7095aeb06785c0ac853993da7f655634a223a09061c7eada11a21e0204-preview.mp4",
+      "bytes": 1687430,
+      "width": 1280,
+      "height": 732,
+      "duration": 10.208
+    },
+    "708461c65e7fb26226df6cc3b2f64f25143a2380968561878d2d2d26bf6de1df": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/708461c65e7fb26226df6cc3b2f64f25143a2380968561878d2d2d26bf6de1df-preview.mp4",
+      "bytes": 2384811,
+      "width": 1280,
+      "height": 720,
+      "duration": 15.158585
+    },
+    "3745f23bdcb16d8e7822bb9c30f7f7c624811a13f1ba0b0fc0ad0713b9541058": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/3745f23bdcb16d8e7822bb9c30f7f7c624811a13f1ba0b0fc0ad0713b9541058-preview.mp4",
+      "bytes": 2493879,
+      "width": 1280,
+      "height": 720,
+      "duration": 15.092993
+    },
+    "364bfe2e8e780f403280ef90ab3c1b8b42bb5858cd6547cbf0cda6d6dcbb6744": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/364bfe2e8e780f403280ef90ab3c1b8b42bb5858cd6547cbf0cda6d6dcbb6744-preview.mp4",
+      "bytes": 2501493,
+      "width": 1280,
+      "height": 720,
+      "duration": 15.074977
+    },
+    "85c1d383cd2048857f3d004298528a1e26cadfcfc14cf17ec82ea21becd41a1b": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/85c1d383cd2048857f3d004298528a1e26cadfcfc14cf17ec82ea21becd41a1b-preview.mp4",
+      "bytes": 2599145,
+      "width": 1080,
+      "height": 1080,
+      "duration": 15.092993
+    },
+    "ce0e0a49a7fa7dd07d6c949e34e92b9bd0b917daa9d9ae19599f45e169987508": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/ce0e0a49a7fa7dd07d6c949e34e92b9bd0b917daa9d9ae19599f45e169987508-preview.mp4",
+      "bytes": 3963251,
+      "width": 1280,
+      "height": 720,
+      "duration": 24.195011
+    },
+    "c3298cf34b95c588460938fc86d5e1776ae35b955bd3fc87a160a14406c2eedd": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/c3298cf34b95c588460938fc86d5e1776ae35b955bd3fc87a160a14406c2eedd-preview.mp4",
+      "bytes": 2457430,
+      "width": 1280,
+      "height": 720,
+      "duration": 15.158467
+    },
+    "604e0018e82a12ead3748ac04deb6fbe51c86eca8888e4a69a9a3d250839b9ca": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/604e0018e82a12ead3748ac04deb6fbe51c86eca8888e4a69a9a3d250839b9ca-preview.mp4",
+      "bytes": 1348109,
+      "width": 720,
+      "height": 1280,
+      "duration": 8.127007
+    },
+    "2bd3aa34cb5f4e6e38ce7b5eb92181e17640ecad395386c25a1794aec892d19c": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/2bd3aa34cb5f4e6e38ce7b5eb92181e17640ecad395386c25a1794aec892d19c-preview.mp4",
+      "bytes": 2476394,
+      "width": 1280,
+      "height": 720,
+      "duration": 15.139002
+    },
+    "140749b99fe10c710a12f76ac1de87fba86ec5b1244e76e5afa9561800ef742a": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/140749b99fe10c710a12f76ac1de87fba86ec5b1244e76e5afa9561800ef742a-preview.mp4",
+      "bytes": 3324022,
+      "width": 1280,
+      "height": 720,
+      "duration": 20.158407
+    },
+    "430497350d1099dc452e6ccd0689492ff4efb346e05249844f0973877671d456": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/430497350d1099dc452e6ccd0689492ff4efb346e05249844f0973877671d456-preview.mp4",
+      "bytes": 2899532,
+      "width": 1280,
+      "height": 720,
+      "duration": 17.809002
+    },
+    "4c642cfbdacc7a3d93e47f1b867a3a8e0af8dd141ec8498d0928f06d15643463": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/4c642cfbdacc7a3d93e47f1b867a3a8e0af8dd141ec8498d0928f06d15643463-preview.mp4",
+      "bytes": 2456239,
+      "width": 1280,
+      "height": 720,
+      "duration": 15.116009
+    },
+    "867d39bf1f99bafa45a629f41ee05029add5f89ebea4f9db0afb8de7788fa0a7": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/867d39bf1f99bafa45a629f41ee05029add5f89ebea4f9db0afb8de7788fa0a7-preview.mp4",
+      "bytes": 2488370,
+      "width": 1280,
+      "height": 720,
+      "duration": 15.136
+    },
+    "8479e0350e27914d7d22d58fb9712a3d61ca32e304c7a7f7efc967eef12e8830": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/8479e0350e27914d7d22d58fb9712a3d61ca32e304c7a7f7efc967eef12e8830-preview.mp4",
+      "bytes": 2414504,
+      "width": 1280,
+      "height": 720,
+      "duration": 14.743991
+    },
+    "60229c360b5d45cc3d9c2d5d93ecfacb3179ecc36a547b6c2a7a1c6838b9c73b": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/60229c360b5d45cc3d9c2d5d93ecfacb3179ecc36a547b6c2a7a1c6838b9c73b-preview.mp4",
+      "bytes": 2658217,
+      "width": 1280,
+      "height": 720,
+      "duration": 16.128
+    },
+    "2d424a7fe644fc1943620c4ca6c8980c3358e072df8a15bbb10323362a1d48b2": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/2d424a7fe644fc1943620c4ca6c8980c3358e072df8a15bbb10323362a1d48b2-preview.mp4",
+      "bytes": 2481814,
+      "width": 1280,
+      "height": 720,
+      "duration": 15.116009
+    },
+    "8c3898de4223d014673dc5cccf134f506dcac59e26062770d79ed71917c5935b": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/8c3898de4223d014673dc5cccf134f506dcac59e26062770d79ed71917c5935b-preview.mp4",
+      "bytes": 2467200,
+      "width": 1280,
+      "height": 720,
+      "duration": 15.116009
+    },
+    "dc6417def390e52f3a497144219c5f4e0100343792c717c19ab57343c2e45003": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/dc6417def390e52f3a497144219c5f4e0100343792c717c19ab57343c2e45003-preview.mp4",
+      "bytes": 2500112,
+      "width": 1280,
+      "height": 720,
+      "duration": 15.116009
+    },
+    "d75f233b9ecb28bebc0d06684eb1d4f4d718fa6d6bc1778dc3fb758b6098c885": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/d75f233b9ecb28bebc0d06684eb1d4f4d718fa6d6bc1778dc3fb758b6098c885-preview.mp4",
+      "bytes": 2514291,
+      "width": 1280,
+      "height": 720,
+      "duration": 15.125309
+    },
+    "77d78cd2aa2749e4aafcdf7a2d2e43e61153c0c465b085d1aa40449c91ea6122": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/77d78cd2aa2749e4aafcdf7a2d2e43e61153c0c465b085d1aa40449c91ea6122-preview.mp4",
+      "bytes": 2517738,
+      "width": 1280,
+      "height": 720,
+      "duration": 15.116009
+    },
+    "4c115c45a8b4f69294267dbfa8700962a00fa8b10756cf34f8db3fab51514d0b": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/4c115c45a8b4f69294267dbfa8700962a00fa8b10756cf34f8db3fab51514d0b-preview.mp4",
+      "bytes": 2474361,
+      "width": 1280,
+      "height": 720,
+      "duration": 15.175179
+    },
+    "b25c628725549beb825e68714425615489a127d2b8582f9e3d1a3df8b9cf3be6": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/b25c628725549beb825e68714425615489a127d2b8582f9e3d1a3df8b9cf3be6-preview.mp4",
+      "bytes": 2453073,
+      "width": 1280,
+      "height": 720,
+      "duration": 15.061
+    },
+    "30d5d5a35f8e60518e5438784c439795fd379e490bb4d905887af457c66850e8": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/30d5d5a35f8e60518e5438784c439795fd379e490bb4d905887af457c66850e8-preview.mp4",
+      "bytes": 2491166,
+      "width": 1280,
+      "height": 720,
+      "duration": 15.139002
+    },
+    "251c3837f86c961d85d2f42db5cd5bc084ffaf88e44bc42e8f0fd4c9a9847881": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/251c3837f86c961d85d2f42db5cd5bc084ffaf88e44bc42e8f0fd4c9a9847881-preview.mp4",
+      "bytes": 1968365,
+      "width": 720,
+      "height": 1280,
+      "duration": 12.097007
+    },
+    "fce545ee80f1cb2a4dd5d00bd4f726ce2a0c48916c84d093da6e1be6ee8790e3": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/fce545ee80f1cb2a4dd5d00bd4f726ce2a0c48916c84d093da6e1be6ee8790e3-preview.mp4",
+      "bytes": 2488220,
+      "width": 1280,
+      "height": 720,
+      "duration": 15.141741
+    },
+    "f1c0059726aa2d30ee48221d2b09f89baf5283e92d8df5685d9fe29eb0ca7282": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/f1c0059726aa2d30ee48221d2b09f89baf5283e92d8df5685d9fe29eb0ca7282-preview.mp4",
+      "bytes": 2335946,
+      "width": 1280,
+      "height": 720,
+      "duration": 14.233991
+    },
+    "4b14178d842ada76fe4fccab92ccad1ed11990b48dedfc4a9798c3d175e7fdaf": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/4b14178d842ada76fe4fccab92ccad1ed11990b48dedfc4a9798c3d175e7fdaf-preview.mp4",
+      "bytes": 2471584,
+      "width": 1280,
+      "height": 720,
+      "duration": 15.168
+    },
+    "7298704b386f1da1bbfb5c6fb9519846efaccdfc03d392ed8b398ab4db7e1537": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/7298704b386f1da1bbfb5c6fb9519846efaccdfc03d392ed8b398ab4db7e1537-preview.mp4",
+      "bytes": 2316454,
+      "width": 720,
+      "height": 1280,
+      "duration": 14.093991
+    },
+    "177c17a413bfb3e44b5c32a67b4798235e7c064bc6b7d97d2c4e126291989e82": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/177c17a413bfb3e44b5c32a67b4798235e7c064bc6b7d97d2c4e126291989e82-preview.mp4",
+      "bytes": 2526896,
+      "width": 1280,
+      "height": 720,
+      "duration": 15.139002
+    },
+    "bfd6a9697e551462918bad2ec93ce7a70dc2a5477b1f5c87d051d6d8ba687fc9": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/bfd6a9697e551462918bad2ec93ce7a70dc2a5477b1f5c87d051d6d8ba687fc9-preview.mp4",
+      "bytes": 2339288,
+      "width": 720,
+      "height": 1280,
+      "duration": 14.141893
+    },
+    "94b08b5688c044a2f8eea23e6eb6f0bfb69b57fcb243e0edb71524c90f088d55": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/94b08b5688c044a2f8eea23e6eb6f0bfb69b57fcb243e0edb71524c90f088d55-preview.mp4",
+      "bytes": 2473172,
+      "width": 1280,
+      "height": 720,
+      "duration": 15.116009
+    },
+    "2082ce9f474f92fe96575290de992f6fd522a5d3cff64f1e8fe6d7783451490d": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/2082ce9f474f92fe96575290de992f6fd522a5d3cff64f1e8fe6d7783451490d-preview.mp4",
+      "bytes": 2532849,
+      "width": 1280,
+      "height": 720,
+      "duration": 15.139002
+    },
+    "0a26de4f45e116077673a104c4175087fe6368584eb8959a2018633ef2b9c93a": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/0a26de4f45e116077673a104c4175087fe6368584eb8959a2018633ef2b9c93a-preview.mp4",
+      "bytes": 2420514,
+      "width": 1280,
+      "height": 720,
+      "duration": 15.116009
+    },
+    "f957750571e1c92b793f1de1246c32e2eb8777e90415b450c331504fef1f4286": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/f957750571e1c92b793f1de1246c32e2eb8777e90415b450c331504fef1f4286-preview.mp4",
+      "bytes": 2448198,
+      "width": 1280,
+      "height": 720,
+      "duration": 15.136
+    },
+    "57175f9d7edcce5c8408c245c426ebc4c2412b933c52da05c4d32a47c6c61769": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/57175f9d7edcce5c8408c245c426ebc4c2412b933c52da05c4d32a47c6c61769-preview.mp4",
+      "bytes": 2484194,
+      "width": 720,
+      "height": 1280,
+      "duration": 15.092993
+    },
+    "ecd7e8fb37b47d8f3caec0f7c3ffe4fbd6f8d3d2432613ce3cd49666e9bd5de2": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/ecd7e8fb37b47d8f3caec0f7c3ffe4fbd6f8d3d2432613ce3cd49666e9bd5de2-preview.mp4",
+      "bytes": 2474867,
+      "width": 720,
+      "height": 1280,
+      "duration": 15.175167
+    },
+    "e13e13c4f21ac6fa8f2109be9c265628625733647a8ed549516bcd4e717fdc9a": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/e13e13c4f21ac6fa8f2109be9c265628625733647a8ed549516bcd4e717fdc9a-preview.mp4",
+      "bytes": 2431518,
+      "width": 1280,
+      "height": 720,
+      "duration": 14.883991
+    },
+    "b5862db7aee9e190919309869987c0e22b8d72c91c0965b297141f3aed14849a": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/b5862db7aee9e190919309869987c0e22b8d72c91c0965b297141f3aed14849a-preview.mp4",
+      "bytes": 2493509,
+      "width": 1280,
+      "height": 720,
+      "duration": 15.139002
+    },
+    "63d0049f922e5cc2b6f5be862a381db8262e25151819d4aa03cb7d69692a8731": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/63d0049f922e5cc2b6f5be862a381db8262e25151819d4aa03cb7d69692a8731-preview.mp4",
+      "bytes": 2516910,
+      "width": 720,
+      "height": 1280,
+      "duration": 15.136
+    },
+    "de3f5c7a797e5a6adf8f03a8d1415b7ad408284058f96e0a4ea0018437a3ef9b": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/de3f5c7a797e5a6adf8f03a8d1415b7ad408284058f96e0a4ea0018437a3ef9b-preview.mp4",
+      "bytes": 1686697,
+      "width": 834,
+      "height": 834,
+      "duration": 10.077007
+    },
+    "0378d79c1ef011e1af267f52fce9ccbc0740f25f7ac8b62f489dea5535a19d3b": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/0378d79c1ef011e1af267f52fce9ccbc0740f25f7ac8b62f489dea5535a19d3b-preview.mp4",
+      "bytes": 1815645,
+      "width": 720,
+      "height": 1280,
+      "duration": 11.099002
+    },
+    "b21438e457966ecce5c755000ff70b48eb9e35b71ccd063a1f7c54286bfd57de": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/b21438e457966ecce5c755000ff70b48eb9e35b71ccd063a1f7c54286bfd57de-preview.mp4",
+      "bytes": 1367568,
+      "width": 1112,
+      "height": 834,
+      "duration": 8.096
+    },
+    "b0606025bf8a15400873bf72196f25058b173c50c0b2ccde1626c8f02341a4e5": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/b0606025bf8a15400873bf72196f25058b173c50c0b2ccde1626c8f02341a4e5-preview.mp4",
+      "bytes": 1342923,
+      "width": 1112,
+      "height": 834,
+      "duration": 8.096
+    },
+    "16a47bdb67addb5926f35d96ee34fdd899ba39f3977066a2b6b9f90e2acc3957": {
+      "url": "https://github.com/wchao6891/PromptDirector-Curated/releases/download/website-video-previews-v1/16a47bdb67addb5926f35d96ee34fdd899ba39f3977066a2b6b9f90e2acc3957-preview.mp4",
+      "bytes": 686818,
+      "width": 864,
+      "height": 496,
+      "duration": 4.11
+    }
+  }
+}
