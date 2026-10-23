@@ -46,6 +46,17 @@ export async function renderWebsite({out,index,metadata,details,config}){
     const script=document.createElement('script');script.id='initial-case-data';script.type='application/json';script.textContent=safeJson({pack:route.pack.id,entry:raw});document.body.append(script);
    }
    const page=parseHTML(document.toString()).document;
+   const visibleKeys=new Set([...page.querySelectorAll('a[data-case]')].map(a=>a.dataset.case));
+   if(visibleKeys.size){
+    const packs=index.packs.flatMap(p=>{
+     const entries=p.entries.filter(e=>visibleKeys.has(e.key));if(!entries.length)return [];
+     const {entries:unused,...pack}=p,translated=localized.packs.find(item=>item.id===p.id);
+     return [{...pack,title:translated.title,author:translated.author,license:translated.license,entries}];
+    });
+    const featured=visibleKeys.has(hero.key)?{pack:hero.pack.id,entry:details.get(index.packs.find(p=>p.id===hero.pack.id).detailsUrl).find(e=>e.id===hero.id)}:undefined;
+    const order=vm.runInContext('shown.map(e=>e.key)',context).filter(key=>visibleKeys.has(key));
+    const script=page.createElement('script');script.id='initial-browse-data';script.type='application/json';script.textContent=safeJson({packs,order,featured});page.body.append(script);
+   }
    if(!route.path){
     const link=page.querySelector('link[rel="stylesheet"]'),style=page.createElement('style');style.textContent=styles;link.replaceWith(style);
     const heroImage=page.querySelector('.cinema img'),preload=page.createElement('link');

@@ -228,3 +228,76 @@ test('the browser discovers the exact responsive hero source before the inline s
   assert.ok(html.indexOf('rel="preload"')<html.indexOf('<style>'));
  }
 });
+
+async function pendingBrowsePage({failNextDetail=false}={}){
+ const window=parseHTML(await readFile(new URL('../dist/website/index.html',import.meta.url),'utf8')),document=window.document;
+ Object.defineProperty(document,'currentScript',{value:{src:'https://preview.example/website-data.js'}});
+ const dialog=document.querySelector('#detail');dialog.close=()=>{dialog.open=false};dialog.showModal=()=>{dialog.open=true};
+ const index=await readJSON('../dist/website/website/index.json'),metadata=await readJSON('../dist/website/website/site.json');
+ let releaseCatalog,releaseDetail;const catalogGate=new Promise(r=>releaseCatalog=r),detailGate=new Promise(r=>releaseDetail=r),requests=[];
+ const location=new URL('https://preview.example/');
+ const context=vm.createContext({document,URL,URLSearchParams,Map,Set,innerWidth:1440,location,localStorage:{getItem:()=>null,setItem(){}},history:{replaceState(_,__,u){location.href=String(u)},pushState(_,__,u){location.href=String(u)}},addEventListener(){},window:{scrollTo(){}},setTimeout:()=>0,clearTimeout(){},fetch:async url=>{
+  requests.push(url);const path=new URL(url).pathname;
+  if(path.includes('/details/')){if(failNextDetail){failNextDetail=false;return {ok:false,status:503}}await detailGate;return {ok:true,json:async()=>readJSON('../dist/website'+decodeURIComponent(path))}}
+  await catalogGate;return {ok:true,json:async()=>structuredClone(path.endsWith('/index.json')?index:metadata)};
+ }});
+ for(const file of ['website-data','app'])vm.runInContext(await readFile(new URL('../web/'+file+'.js',import.meta.url),'utf8'),context);
+ const started=vm.runInContext(await readFile(new URL('../web/site-pages.js',import.meta.url),'utf8'),context);
+ return {window,document,dialog,context,requests,started,releaseCatalog,releaseDetail};
+}
+
+test('a visible case opens immediately even when the full catalog never arrives',async()=>{
+ const h=await pendingBrowsePage(),card=h.document.querySelector('#grid [data-case]');
+ Object.defineProperty(card.querySelector('img'),'currentSrc',{value:'https://preview.example/already-loaded.webp'});
+ card.dispatchEvent(new h.window.Event('click',{bubbles:true,cancelable:true}));
+ assert.equal(h.dialog.open,true,'slow catalog must not block opening a visible case');
+ assert.ok(h.document.querySelector('#detailBody h2'));
+ assert.equal(h.document.querySelector('#detailBody #media-content img').getAttribute('src'),'https://preview.example/already-loaded.webp','reuse the exact responsive image already shown on the card');
+ assert.match(h.document.querySelector('#prompt').textContent,/正在读取完整案例/);
+ assert.equal(h.document.querySelector('#copyPrompt').disabled,true,'loading text must not be copied as the original prompt');
+ h.document.querySelector('#close').dispatchEvent(new h.window.Event('click',{bubbles:true}));
+ assert.equal(h.dialog.open,false,'close must work before the catalog is ready');
+});
+
+test('the featured cover has complete original text without an extra network request',async()=>{
+ const h=await pendingBrowsePage(),hero=h.document.querySelector('.feature-name');
+ const opened=vm.runInContext(`openCase(${JSON.stringify(hero.dataset.case)})`,h.context);await opened;
+ assert.equal(h.dialog.open,true);assert.ok(h.document.querySelector('#prompt').textContent.length>100);
+ assert.doesNotMatch(h.document.querySelector('#prompt').textContent,/正在读取/);
+ assert.equal(h.requests.filter(url=>url.includes('/details/')).length,0);
+});
+
+test('catalog arrival preserves a case already opened and its pending detail request',async()=>{
+ const h=await pendingBrowsePage(),card=h.document.querySelector('#grid [data-case]'),key=card.dataset.case;
+ const opened=vm.runInContext(`openCase(${JSON.stringify(key)})`,h.context);
+ assert.equal(h.dialog.open,true);
+ const body=h.document.querySelector('#detailBody');const preview=body.querySelector('img');
+ h.releaseCatalog();await h.started;
+ assert.equal(h.dialog.open,true);assert.equal(vm.runInContext('selected.key',h.context),key);
+ assert.ok(body.querySelector('img')===preview,'background index must not rebuild the active detail');
+ h.releaseDetail();await opened;
+ assert.ok(h.document.querySelector('#prompt').textContent.length>100);
+ assert.equal(h.requests.filter(url=>url.includes('/details/')).length,1);
+ assert.ok(h.requests.every(url=>url.startsWith('https://preview.example/')),'preview deployments must not fetch production-host data');
+});
+
+test('initial browse data contains just rendered cases and preserves the original featured case',async()=>{
+ const doc=await builtDocument('index.html'),initial=doc.querySelector('#initial-browse-data');assert.ok(initial);
+ const boot=JSON.parse(initial.textContent),keys=[...new Set([...doc.querySelectorAll('[data-case]')].map(e=>e.dataset.case))];
+ const entries=boot.packs.flatMap(p=>p.entries);assert.deepEqual(entries.map(e=>e.key).sort(),keys.sort());
+ assert.ok(entries.every(e=>!Object.hasOwn(e,'text')),'unopened case prompts stay out of startup data');
+ const hero=doc.querySelector('.feature-name').dataset.case,pack=boot.packs.find(p=>p.entries.some(e=>e.key===hero)),entry=pack.entries.find(e=>e.key===hero);
+ assert.deepEqual(boot.featured.entry,await readJSON('../dist/website/'+pack.detailsUrl.replace(/\.json$/,'/'+entry.id+'.json')));
+});
+
+test('a failed case can retry without waiting for the catalog or discarding its preview',async()=>{
+ const h=await pendingBrowsePage({failNextDetail:true}),key=h.document.querySelector('#grid [data-case]').dataset.case;
+ await vm.runInContext(`openCase(${JSON.stringify(key)})`,h.context);
+ assert.ok(h.document.querySelector('#media-content img'));assert.ok(h.document.querySelector('#retryCase'));
+ h.document.querySelector('#retryCase').dispatchEvent(new h.window.Event('click',{bubbles:true}));
+ assert.equal(h.document.querySelector('#toast').textContent,'','retry must not claim to wait for the unrelated catalog');
+ h.releaseDetail();
+ await vm.runInContext(`readCase(findCase(${JSON.stringify(key)}).pack,findCase(${JSON.stringify(key)}).id)`,h.context);
+ assert.equal(h.document.querySelector('#retryCase'),null);assert.ok(h.document.querySelector('#prompt').textContent.length>100);
+ assert.equal(h.document.querySelector('#copyPrompt').disabled,false);
+});

@@ -30,6 +30,7 @@ function resolveMedia(value){
   ['previewImageUrl','videoUrl','coverUrl','previewUrl','detailsUrl','rightsReviewUrl','path'].includes(key)&&typeof item==='string'
     ?assetUrl(item):resolveMedia(item)]));
 }
+const initialBrowse=resolveMedia(JSON.parse(document.querySelector?.('#initial-browse-data')?.textContent||'{"packs":[]}'));
 function readWebsiteJson(path){
  const url=assetUrl(path);
  if(!pendingData.has(url))pendingData.set(url,fetch(url).then(r=>{if(!r.ok)throw Error(`HTTP ${r.status}`);return r.json()}).catch(error=>{pendingData.delete(url);throw error}));
@@ -42,6 +43,8 @@ async function readWebsite(){
  return [resolveMedia(index),resolveMedia(metadata)];
 }
 async function readCase(pack,id){
+ const featured=initialBrowse.featured;
+ if(featured&&featured.pack===pack.id&&featured.entry.id===id)return featured.entry;
  const initial=document.querySelector?.('#initial-case-data');
  if(initial){const value=JSON.parse(initial.textContent);if(value.pack===pack.id&&value.entry.id===id)return resolveMedia(value.entry);}
  const entry=await readWebsiteJson(pack.detailsUrl.replace(/\.json$/, '/'+encodeURIComponent(id)+'.json'));

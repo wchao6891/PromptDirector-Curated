@@ -5,6 +5,9 @@ let siteData,onlyFollowing=false,authorId='',following=readFollowing(),skillQuer
 let catalogLoading=true;
 let data,all=[],shown=[],view='explore',kind='',query='',packId='',filterPack='',selected=null,sort='newest',limit=48,collectionQuery='',collectionLimit=12;
 const app=$('#app'),dialog=$('#detail');
+const initialCases=initialBrowse.packs.flatMap(p=>p.entries.map(e=>({...e,pack:p})));
+const findCase=key=>all.find(e=>e.key===key)||initialCases.find(e=>e.key===key);
+const initialSequence=(initialBrowse.order||[]).map(findCase);
 const label=e=>{const title=e.title.length>90?e.title.split(' on X:')[0]:e.title;return title.length>90?title.slice(0,90)+'…':title};
 const image=e=>previewImage({...e,title:label(e)});
 const types=()=>`<div class="types">${[['','全部'],['image','图片'],['video','视频']].map(([v,l])=>`<button class="filter ${kind===v?'active':''}" data-kind="${v}" aria-pressed="${kind===v}">${l}</button>`).join('')}</div>`;
@@ -65,13 +68,20 @@ function renderView(){
 function notify(text){const host=dialog.open?dialog:document.body;if($('#toast').parentElement!==host)host.append($('#toast'));$('#toast').textContent=text;$('#toast').style.display='block';clearTimeout(notify.timer);notify.timer=setTimeout(()=>$('#toast').style.display='none',2400)}
 async function copy(text,msg){try{await navigator.clipboard.writeText(text);notify(msg)}catch{notify('复制未获浏览器允许，请手动选择文字');const prompt=$('#prompt');if(dialog.open&&prompt){const range=document.createRange();range.selectNodeContents(prompt);const selection=getSelection();selection.removeAllRanges();selection.addRange(range)}}}
 let detailRequest=0,returnFocus=null;
+function detailSequence(){return shown.some(e=>e.key===selected?.key)?shown:all.length?all:initialSequence.some(e=>e.key===selected?.key)?initialSequence:selected?[selected]:[]}
+function updateDetailNavigation(){const current=detailSequence(),idx=current.findIndex(e=>e.key===selected?.key);$('#previous').disabled=idx<=0;$('#next').disabled=idx<0||idx>=current.length-1;}
 function mediaItems(e){return e.media?.length?e.media:[e]}
-function showMedia(e,idx=0){
+function showMedia(e,idx=0,previewSrc=''){
  const media=mediaItems(e),m=media[idx];
  $('#media-content video')?.pause();
  const video=m.mediaKind==='video'&&m.videoUrl;
  const dimensions=m.width>0&&m.height>0?`width="${Number(m.width)}" height="${Number(m.height)}" style="aspect-ratio:${Number(m.width)} / ${Number(m.height)};height:auto"`:'';
  $('#media-content').innerHTML=video?`<video ${dimensions} controls playsinline preload="metadata" poster="${esc(m.previewImageUrl||e.previewImageUrl)}" src="${esc(video)}"></video>`:`<img ${dimensions} src="${esc(m.previewImageUrl||e.previewImageUrl)}" alt="${esc(m.title||e.title)}">`;
+ const content=$('#media-content'),preview=idx===0?(previewSrc||e.thumbnails?.[0]?.url):null;
+ content.style.background=preview?`center / contain no-repeat url(${JSON.stringify(assetUrl(preview))})`:'';
+ const element=content.querySelector('img,video');
+ element.addEventListener(video?'loadeddata':'load',()=>{if(element.parentElement===content)content.style.background='';},{once:true});
+ if(video?element.readyState>=2:element.complete&&element.naturalWidth)content.style.background='';
  bindMediaError(e,idx);
  const tabs=$('.media-tabs');if(tabs)tabs.innerHTML=media.map((m,i)=>`<button data-media="${i}" class="${i===idx?'active':''}">素材 ${i+1}</button>`).join('');
  $('#prompt').textContent=(m.text??e.text)||'此案例未提供提示词。';
@@ -92,20 +102,25 @@ function bindMediaError(e,idx=0){
 }
 function caseMarkup(e,standalone=false){const heading=standalone?'h1':'h2';return `<div class="detail-media"><div id="media-content"></div>${mediaItems(e).length>1?'<div class="media-tabs"></div>':''}</div><section class="detail-info"><div class="eyebrow">${esc(e.pack.title)}</div><${heading} title="${esc(e.title)}">${esc(label(e))}</${heading}><p class="author"><span id="caseAuthor"></span> <a id="caseSource" target="_blank" rel="noopener noreferrer">查看来源 ↗</a></p><div class="prompt-head"><h3>完整提示词</h3><button id="copyPrompt" class="text-action">复制</button></div><p id="prompt" class="prompt"></p><p id="caseRights" class="rights">${esc(typeof catalogEnglish!=='undefined'?catalogEnglish.labels[e.rights]||e.rights:e.rights)}</p><div class="uploader-row"><span>上传者 ${authorLink(e.pack)}</span>${followButton(e.pack)}</div><div class="detail-actions"><a class="text-action" href="${packPath(e.pack)}" data-pack="${esc(e.pack.id)}">查看所属合集 ↗</a><button id="share">复制案例链接</button></div></section>`;}
 async function openCase(key,update=true){
- const item=all.find(e=>e.key===key);if(!item)return;
+ const item=findCase(key);if(!item)return;
+ const anchor=[...document.querySelectorAll('a[data-case]')].find(a=>a.dataset.case===key);
+ const cover=anchor?.querySelector('img')||anchor?.closest('.cinema')?.querySelector('img');
+ const previewSrc=cover?.currentSrc||cover?.getAttribute('src')||'';
  pauseCardVideo();const request=++detailRequest;selected=item;
  if(!dialog.open){returnFocus=document.activeElement;dialog.showModal()}
- const current=shown.some(x=>x.key===key)?shown:all,idx=current.findIndex(x=>x.key===key);
- $('#previous').disabled=idx<=0;$('#next').disabled=idx>=current.length-1;
- $('#detailBody').innerHTML='<p class="empty" role="status">正在读取完整案例…</p>';
+ updateDetailNavigation();
+ $('#detailBody').innerHTML=caseMarkup(item);$('#detailBody').scrollTop=0;
+ $('#media-content').innerHTML=previewImage(previewSrc?{...item,previewImageUrl:previewSrc,thumbnails:undefined}:item);
+ $('#caseAuthor').textContent=item.author||'';$('#caseSource').hidden=true;
+ $('#prompt').textContent='正在读取完整案例…';$('#prompt').setAttribute('role','status');$('#copyPrompt').disabled=true;
  if(update){const u=new URL(location);u.searchParams.set('case',key);history.pushState(null,'',u)}
  updatePageMetadata();
  try{
   const detail=await readCase(item.pack,item.id);if(request!==detailRequest||!dialog.open)return;
   const e={...item,...detail};selected=e;
   $('#detailBody').innerHTML=caseMarkup(e);
-  showMedia(e,Math.max(0,mediaItems(e).findIndex(m=>kind&&mediaType(m)===kind)));$('#detailBody').scrollTop=0;
- }catch{if(request!==detailRequest||!dialog.open)return;$('#detailBody').innerHTML='<p class="empty">案例暂时无法读取 <button id="retryCase">重试</button></p>';$('#retryCase').onclick=()=>openCase(key,false)}
+  showMedia(e,Math.max(0,mediaItems(e).findIndex(m=>kind&&mediaType(m)===kind)),previewSrc);$('#detailBody').scrollTop=0;
+ }catch{if(request!==detailRequest||!dialog.open)return;$('#prompt').innerHTML='案例暂时无法读取 <button id="retryCase">重试</button>';$('#retryCase').onclick=()=>openCase(key,false)}
 }
 function closeDetail(update=true){detailRequest++;dialog.querySelectorAll('video').forEach(v=>v.pause());dialog.close();selected=null;returnFocus?.focus?.();if(update){const u=new URL(location);u.searchParams.delete('case');history.replaceState(null,'',u)}updatePageMetadata()}
 function goView(next){closeDetail();view=next;authorId='';onlyFollowing=false;const u=new URL(viewPath(next),location.origin);u.searchParams.delete('pack');u.searchParams.delete('author');u.searchParams.delete('skill');u.hash='';history.pushState(null,'',u);packId='';filterPack='';kind='';query='';collectionQuery='';limit=48;collectionLimit=12;render();window.scrollTo(0,0)}
@@ -115,9 +130,16 @@ function toggleFollow(id){
  document.querySelectorAll('[data-follow]').forEach(el=>{el.textContent=following.has(el.dataset.follow)?'已关注':'关注上传者';el.setAttribute('aria-pressed',following.has(el.dataset.follow))});
 }
 document.addEventListener('click',event=>{
- const b=event.target.closest('button,a');if(!b)return;if(b.dataset.follow){toggleFollow(b.dataset.follow);return}if(b.tagName==='A'&&(event.metaKey||event.ctrlKey||event.shiftKey||event.altKey))return;if(!data){
-  if(b.id==='copyPrompt')copy($('#prompt').textContent,'正文已复制');
-  else if(b.tagName!=='A'){
+ const b=event.target.closest('button,a');if(!b)return;if(b.dataset.follow){toggleFollow(b.dataset.follow);return}if(b.tagName==='A'&&(event.metaKey||event.ctrlKey||event.shiftKey||event.altKey))return;
+ if(b.dataset.case&&findCase(b.dataset.case)){event.preventDefault();openCase(b.dataset.case);return}
+ if(b.id==='close'){closeDetail();return}
+ if(b.id==='previous'||b.id==='next'){const current=detailSequence(),idx=current.findIndex(e=>e.key===selected?.key),entry=current[idx+(b.id==='next'?1:-1)];if(entry&&!b.disabled)openCase(entry.key);return}
+ if(b.id==='copyPrompt'){if(!b.disabled)copy($('#prompt').textContent,'正文已复制');return}
+ if(b.id==='share'&&selected){copy(new URL(casePath(selected),location.origin).href,'案例链接已复制');return}
+ if(b.hasAttribute('data-media')&&selected){showMedia(selected,Number(b.dataset.media));return}
+ if(b.id==='retryCase'||b.id==='retryMedia')return;
+ if(!data){
+  if(b.tagName!=='A'){
    if(b.hasAttribute('data-kind'))kind=b.dataset.kind;
    if(b.hasAttribute('data-filter-pack'))filterPack=b.dataset.filterPack;
    if(b.id==='followedOnly')onlyFollowing=!onlyFollowing;
@@ -131,16 +153,10 @@ document.addEventListener('click',event=>{
  if(b.dataset.view){event.preventDefault();goView(b.dataset.view)}
  if(b.hasAttribute('data-kind')){kind=b.dataset.kind;limit=48;collectionLimit=12;render()}
  if(b.hasAttribute('data-filter-pack')){filterPack=b.dataset.filterPack;limit=48;render()}
- if(b.dataset.case)openCase(b.dataset.case);
  if(b.dataset.pack){event.preventDefault();closeDetail();const u=new URL(packPath(data.packs.find(p=>p.id===b.dataset.pack)),location.origin);u.searchParams.delete('author');u.hash='';history.pushState(null,'',u);authorId='';onlyFollowing=false;packId=b.dataset.pack;view='explore';filterPack='';kind='';query='';limit=48;render();window.scrollTo(0,0)}
- if(b.hasAttribute('data-media'))showMedia(selected,Number(b.dataset.media));
  if(b.id==='clear'){onlyFollowing=false;filterPack='';kind='';query='';limit=48;render()}
  if(b.id==='moreCases'){limit+=48;renderGrid()}
  if(b.id==='morePacks'){collectionLimit+=12;renderCollections()}
- if(b.id==='close')closeDetail();
- if(b.id==='copyPrompt')copy($('#prompt').textContent,'正文已复制');
- if(b.id==='share')copy(new URL(casePath(selected),location.origin).href,'案例链接已复制');
- if(b.id==='previous'||b.id==='next'){const current=shown.some(e=>e.key===selected.key)?shown:all;const idx=current.findIndex(e=>e.key===selected.key),e=current[idx+(b.id==='next'?1:-1)];if(e)openCase(e.key)}
 });
 document.addEventListener('input',e=>{if(e.target.matches('[aria-label="搜索案例"]')){query=e.target.value;limit=48;if(query)loadSearch();renderGrid()}if(e.target.matches('[aria-label="搜索合集"]'))renderPackOptions(e.target.value);if(e.target.matches('[aria-label="搜索全部合集"]')){collectionQuery=e.target.value;collectionLimit=12;renderCollections()}});
 document.addEventListener('change',e=>{if(e.target.id==='sort'){sort=e.target.value;limit=48;collectionLimit=12;render()}});
@@ -163,15 +179,17 @@ document.addEventListener('pointerover',event=>{
 document.addEventListener('pointerout',e=>{const card=e.target.closest('.case');if(card&&!card.contains(e.relatedTarget))pauseCardVideo()});
 addEventListener('scroll',pauseCardVideo,{passive:true});document.addEventListener('visibilitychange',()=>{if(document.hidden)pauseCardVideo()});
 function restoreRoute(){
+ if(!data){closeDetail(false);const key=new URL(location).searchParams.get('case');if(findCase(key))openCase(key,false);return}
  closeDetail(false);const u=new URL(location);const route=pageRoute();view=route.view;authorId=route.author||'';packId=route.pack||'';render();const key=view==='case'?null:route.case;if(key){if(all.some(e=>e.key===key))openCase(key,false);else notify('未找到这个案例。')}
 }
 addEventListener('popstate',restoreRoute);
 async function startWebsite(){
  catalogLoading=true;
+ if(!data){const key=new URL(location).searchParams.get('case');if(findCase(key)&&!dialog.open)openCase(key,false)}
  if(!app.dataset.prerendered)app.innerHTML='<p class="loading" role="status">正在读取精选案例…</p>';
  try{
   [data,siteData]=await readWebsite();localizeCatalogs(data,siteData);all=[];
   data.packs.forEach(p=>p.entries.forEach((e,i)=>{e.pack=p;e.entryOrder=i;all.push(e)}));
-  restoreRoute();
+  if(dialog.open){const route=pageRoute();view=route.view;authorId=route.author||'';packId=route.pack||'';render();updateDetailNavigation()}else restoreRoute();
  }catch{if(!app.dataset.prerendered)app.innerHTML='<p class="empty">精选案例暂时无法读取。<button id="retryCatalog">重试</button></p>';else notify('互动功能暂时无法读取，请刷新重试')}finally{catalogLoading=false}
 }
