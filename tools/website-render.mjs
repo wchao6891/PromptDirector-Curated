@@ -53,9 +53,12 @@ export async function renderWebsite({out,index,metadata,details,config}){
      const {entries:unused,...pack}=p,translated=localized.packs.find(item=>item.id===p.id);
      return [{...pack,title:translated.title,author:translated.author,license:translated.license,entries}];
     });
-    const featured=visibleKeys.has(hero.key)?{pack:hero.pack.id,entry:details.get(index.packs.find(p=>p.id===hero.pack.id).detailsUrl).find(e=>e.id===hero.id)}:undefined;
+    const visibleDetails=Object.fromEntries(packs.flatMap(p=>{
+     const originals=details.get(p.detailsUrl);
+     return p.entries.map(e=>[e.key,originals.find(original=>original.id===e.id)]);
+    }));
     const order=vm.runInContext('shown.map(e=>e.key)',context).filter(key=>visibleKeys.has(key));
-    const script=page.createElement('script');script.id='initial-browse-data';script.type='application/json';script.textContent=safeJson({packs,order,featured});page.body.append(script);
+    const script=page.createElement('script');script.id='initial-browse-data';script.type='application/json';script.textContent=safeJson({packs,order,details:visibleDetails});page.body.append(script);
    }
    if(!route.path){
     const link=page.querySelector('link[rel="stylesheet"]'),style=page.createElement('style');style.textContent=styles;link.replaceWith(style);

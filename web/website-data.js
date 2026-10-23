@@ -1,7 +1,8 @@
-// Shared data access for both languages. Full prompts load only when needed.
+// Shared data access: rendered cases are ready immediately; other cases load on demand.
 const websiteRoot=new URL('.',document.currentScript.src);
 const pendingData=new Map();
 const assetUrl=value=>value?new URL(value,websiteRoot).href:'';
+const videoPlaybackUrl=media=>media.videoSha256?new URL('website/video/'+media.videoSha256+'.mp4',websiteRoot).pathname:media.videoUrl;
 const languageRoot=()=>new URL(document.documentElement.lang==='en'?'en/':'',websiteRoot).pathname;
 const viewPath=view=>languageRoot()+(view==='explore'?'':view+'/');
 const packPath=p=>viewPath('collections')+encodeURIComponent(p.packageId)+'/';
@@ -43,8 +44,8 @@ async function readWebsite(){
  return [resolveMedia(index),resolveMedia(metadata)];
 }
 async function readCase(pack,id){
- const featured=initialBrowse.featured;
- if(featured&&featured.pack===pack.id&&featured.entry.id===id)return featured.entry;
+ const ready=initialBrowse.details?.[pack.id+'/'+id];
+ if(ready)return ready;
  const initial=document.querySelector?.('#initial-case-data');
  if(initial){const value=JSON.parse(initial.textContent);if(value.pack===pack.id&&value.entry.id===id)return resolveMedia(value.entry);}
  const entry=await readWebsiteJson(pack.detailsUrl.replace(/\.json$/, '/'+encodeURIComponent(id)+'.json'));

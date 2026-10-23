@@ -23,7 +23,7 @@ export function buildPackage(theme, preview, publishedAt, legacyOrigin) {
     const key = `${theme.id}/${e.id}`;
     search.push([key, [e.text,...(e.media||[]).map(m=>m.text)].filter(Boolean).join('\n')]);
     return {id:e.id,key,title:e.title,author:e.author,mediaKind:e.mediaKind,mediaKinds:kinds,
-      previewImageUrl:e.previewImageUrl,width:e.width,height:e.height,videoUrl:e.videoUrl};
+      previewImageUrl:e.previewImageUrl,width:e.width,height:e.height,videoUrl:e.videoUrl,videoSha256:e.videoSha256};
   });
   return {pack:{...mapAssetUrls(theme,legacyOrigin),publishedAt,caseCounts,caseCount:entries.length,
     detailsUrl:`website/details/${theme.packageId}.json`,entries},details,search};

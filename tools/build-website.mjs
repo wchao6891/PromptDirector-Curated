@@ -65,6 +65,16 @@ for(const dir of ['', 'en/']){
 }
 const imageVariants=await prepareWebsiteImages({root,source,out,index,skills:skills.skills,guideImages});
 await mkdir(join(out,'website/details'),{recursive:true});
+const videoSources={};
+for(const [,entries] of detailOutputs)for(const entry of entries)for(const media of entry.media?.length?entry.media:[entry]){
+ if(!media.videoUrl||!media.videoSha256)continue;
+ const url=new URL(media.videoUrl);
+ if(!/^[a-f0-9]{64}$/.test(media.videoSha256)||url.protocol!=='https:'||url.hostname!=='github.com'||!url.pathname.includes('/releases/download/'))throw Error('Invalid reviewed video source');
+ videoSources[media.videoSha256]=media.videoUrl;
+}
+await writeFile(join(out,'_worker.js'),await readFile(join(web,'video-worker.js'),'utf8')+'\nexport default createVideoWorker('+JSON.stringify(videoSources)+');\n');
+// Static visits remain outside the Functions quota.
+await writeFile(join(out,'_routes.json'),JSON.stringify({version:1,include:['/website/video/*'],exclude:[]}));
 const renderDetails=new Map(detailOutputs);
 for(const [path,entries] of detailOutputs){
  await writeFile(join(out,path),JSON.stringify(entries));

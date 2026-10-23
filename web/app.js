@@ -74,7 +74,7 @@ function mediaItems(e){return e.media?.length?e.media:[e]}
 function showMedia(e,idx=0,previewSrc=''){
  const media=mediaItems(e),m=media[idx];
  $('#media-content video')?.pause();
- const video=m.mediaKind==='video'&&m.videoUrl;
+ const video=m.mediaKind==='video'&&m.videoUrl&&videoPlaybackUrl(m);
  const dimensions=m.width>0&&m.height>0?`width="${Number(m.width)}" height="${Number(m.height)}" style="aspect-ratio:${Number(m.width)} / ${Number(m.height)};height:auto"`:'';
  $('#media-content').innerHTML=video?`<video ${dimensions} controls playsinline preload="metadata" poster="${esc(m.previewImageUrl||e.previewImageUrl)}" src="${esc(video)}"></video>`:`<img ${dimensions} src="${esc(m.previewImageUrl||e.previewImageUrl)}" alt="${esc(m.title||e.title)}">`;
  const content=$('#media-content'),preview=idx===0?(previewSrc||e.thumbnails?.[0]?.url):null;
@@ -95,9 +95,11 @@ function bindMediaError(e,idx=0){
  mediaErrorBindings.add(element);
  const onError=()=>{
   if(!element.isConnected||element.parentElement.querySelector('.media-error'))return;
+  const media=mediaItems(e)[idx];
+  if(element.tagName==='VIDEO'&&element.getAttribute('src')!==media.videoUrl){element.setAttribute('src',media.videoUrl);element.load();return;}
   const message=document.createElement('p');message.className='media-error';message.innerHTML='<span>素材暂时无法加载</span> <button id="retryMedia">重试</button>';element.parentElement.append(message);message.querySelector('button').onclick=()=>showMedia(e,idx);
  };
- element.addEventListener('error',onError,{once:true});
+ element.addEventListener('error',onError);
  if(element.error||(element.tagName==='IMG'&&element.complete&&!element.naturalWidth))onError();
 }
 function caseMarkup(e,standalone=false){const heading=standalone?'h1':'h2';return `<div class="detail-media"><div id="media-content"></div>${mediaItems(e).length>1?'<div class="media-tabs"></div>':''}</div><section class="detail-info"><div class="eyebrow">${esc(e.pack.title)}</div><${heading} title="${esc(e.title)}">${esc(label(e))}</${heading}><p class="author"><span id="caseAuthor"></span> <a id="caseSource" target="_blank" rel="noopener noreferrer">查看来源 ↗</a></p><div class="prompt-head"><h3>完整提示词</h3><button id="copyPrompt" class="text-action">复制</button></div><p id="prompt" class="prompt"></p><p id="caseRights" class="rights">${esc(typeof catalogEnglish!=='undefined'?catalogEnglish.labels[e.rights]||e.rights:e.rights)}</p><div class="uploader-row"><span>上传者 ${authorLink(e.pack)}</span>${followButton(e.pack)}</div><div class="detail-actions"><a class="text-action" href="${packPath(e.pack)}" data-pack="${esc(e.pack.id)}">查看所属合集 ↗</a><button id="share">复制案例链接</button></div></section>`;}
@@ -174,7 +176,7 @@ document.addEventListener('click',e=>{if(e.target.id==='retrySearch'){loadSearch
 document.addEventListener('pointerover',event=>{
  const card=event.target.closest('.case');if(!card||card.contains(event.relatedTarget)||!matchMedia('(hover:hover)').matches||matchMedia('(prefers-reduced-motion:reduce)').matches)return;
  const entry=all.find(e=>e.key===card.dataset.case);if(!entry?.videoUrl)return;
- pauseCardVideo();const player=document.createElement('video');player.className='hover-video';player.muted=true;player.playsInline=true;player.loop=true;player.src=entry.videoUrl;card.querySelector('.picture').append(player);cardVideo=player;player.play().catch(()=>{if(cardVideo===player)pauseCardVideo()});
+ pauseCardVideo();const player=document.createElement('video');player.className='hover-video';player.muted=true;player.playsInline=true;player.loop=true;player.src=videoPlaybackUrl(entry);card.querySelector('.picture').append(player);cardVideo=player;player.play().catch(()=>{if(cardVideo===player)pauseCardVideo()});
 });
 document.addEventListener('pointerout',e=>{const card=e.target.closest('.case');if(card&&!card.contains(e.relatedTarget))pauseCardVideo()});
 addEventListener('scroll',pauseCardVideo,{passive:true});document.addEventListener('visibilitychange',()=>{if(document.hidden)pauseCardVideo()});

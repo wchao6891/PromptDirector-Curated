@@ -229,9 +229,10 @@ test('the browser discovers the exact responsive hero source before the inline s
  }
 });
 
-async function pendingBrowsePage({failNextDetail=false}={}){
+async function pendingBrowsePage({failNextDetail=false,withoutFirstDetail=false}={}){
  const window=parseHTML(await readFile(new URL('../dist/website/index.html',import.meta.url),'utf8')),document=window.document;
  Object.defineProperty(document,'currentScript',{value:{src:'https://preview.example/website-data.js'}});
+ if(withoutFirstDetail){const node=document.querySelector('#initial-browse-data'),boot=JSON.parse(node.textContent);delete boot.details?.[document.querySelector('#grid [data-case]').dataset.case];node.textContent=JSON.stringify(boot);}
  const dialog=document.querySelector('#detail');dialog.close=()=>{dialog.open=false};dialog.showModal=()=>{dialog.open=true};
  const index=await readJSON('../dist/website/website/index.json'),metadata=await readJSON('../dist/website/website/site.json');
  let releaseCatalog,releaseDetail;const catalogGate=new Promise(r=>releaseCatalog=r),detailGate=new Promise(r=>releaseDetail=r),requests=[];
@@ -247,7 +248,7 @@ async function pendingBrowsePage({failNextDetail=false}={}){
 }
 
 test('a visible case opens immediately even when the full catalog never arrives',async()=>{
- const h=await pendingBrowsePage(),card=h.document.querySelector('#grid [data-case]');
+ const h=await pendingBrowsePage({withoutFirstDetail:true}),card=h.document.querySelector('#grid [data-case]');
  Object.defineProperty(card.querySelector('img'),'currentSrc',{value:'https://preview.example/already-loaded.webp'});
  card.dispatchEvent(new h.window.Event('click',{bubbles:true,cancelable:true}));
  assert.equal(h.dialog.open,true,'slow catalog must not block opening a visible case');
@@ -267,8 +268,20 @@ test('the featured cover has complete original text without an extra network req
  assert.equal(h.requests.filter(url=>url.includes('/details/')).length,0);
 });
 
+test('a video can recover through its original source when the free redirect service fails',async()=>{
+ const h=await pendingBrowsePage(),card=h.document.querySelector('#grid [data-case]');
+ await vm.runInContext(`openCase(${JSON.stringify(card.dataset.case)})`,h.context);
+ const player=h.document.querySelector('#media-content video');let loaded=0;player.load=()=>loaded++;
+ assert.match(player.getAttribute('src'),/^\/website\/video\/[a-f0-9]{64}\.mp4$/);
+ player.dispatchEvent(new h.window.Event('error'));
+ assert.match(player.getAttribute('src'),/^https:\/\/github.com\//);assert.equal(loaded,1);
+ assert.equal(h.document.querySelector('.media-error'),null);
+ player.dispatchEvent(new h.window.Event('error'));
+ assert.ok(h.document.querySelector('.media-error button'));
+});
+
 test('catalog arrival preserves a case already opened and its pending detail request',async()=>{
- const h=await pendingBrowsePage(),card=h.document.querySelector('#grid [data-case]'),key=card.dataset.case;
+ const h=await pendingBrowsePage({withoutFirstDetail:true}),card=h.document.querySelector('#grid [data-case]'),key=card.dataset.case;
  const opened=vm.runInContext(`openCase(${JSON.stringify(key)})`,h.context);
  assert.equal(h.dialog.open,true);
  const body=h.document.querySelector('#detailBody');const preview=body.querySelector('img');
@@ -281,17 +294,16 @@ test('catalog arrival preserves a case already opened and its pending detail req
  assert.ok(h.requests.every(url=>url.startsWith('https://preview.example/')),'preview deployments must not fetch production-host data');
 });
 
-test('initial browse data contains just rendered cases and preserves the original featured case',async()=>{
+test('initial browse data includes full original content for every rendered case and no hidden cases',async()=>{
  const doc=await builtDocument('index.html'),initial=doc.querySelector('#initial-browse-data');assert.ok(initial);
  const boot=JSON.parse(initial.textContent),keys=[...new Set([...doc.querySelectorAll('[data-case]')].map(e=>e.dataset.case))];
  const entries=boot.packs.flatMap(p=>p.entries);assert.deepEqual(entries.map(e=>e.key).sort(),keys.sort());
- assert.ok(entries.every(e=>!Object.hasOwn(e,'text')),'unopened case prompts stay out of startup data');
- const hero=doc.querySelector('.feature-name').dataset.case,pack=boot.packs.find(p=>p.entries.some(e=>e.key===hero)),entry=pack.entries.find(e=>e.key===hero);
- assert.deepEqual(boot.featured.entry,await readJSON('../dist/website/'+pack.detailsUrl.replace(/\.json$/,'/'+entry.id+'.json')));
+ assert.deepEqual(Object.keys(boot.details).sort(),keys.sort());
+ for(const pack of boot.packs)for(const entry of pack.entries)assert.deepEqual(boot.details[entry.key],await readJSON('../dist/website/'+pack.detailsUrl.replace(/\.json$/,'/'+entry.id+'.json')));
 });
 
 test('a failed case can retry without waiting for the catalog or discarding its preview',async()=>{
- const h=await pendingBrowsePage({failNextDetail:true}),key=h.document.querySelector('#grid [data-case]').dataset.case;
+ const h=await pendingBrowsePage({failNextDetail:true,withoutFirstDetail:true}),key=h.document.querySelector('#grid [data-case]').dataset.case;
  await vm.runInContext(`openCase(${JSON.stringify(key)})`,h.context);
  assert.ok(h.document.querySelector('#media-content img'));assert.ok(h.document.querySelector('#retryCase'));
  h.document.querySelector('#retryCase').dispatchEvent(new h.window.Event('click',{bubbles:true}));
@@ -300,4 +312,15 @@ test('a failed case can retry without waiting for the catalog or discarding its 
  await vm.runInContext(`readCase(findCase(${JSON.stringify(key)}).pack,findCase(${JSON.stringify(key)}).id)`,h.context);
  assert.equal(h.document.querySelector('#retryCase'),null);assert.ok(h.document.querySelector('#prompt').textContent.length>100);
  assert.equal(h.document.querySelector('#copyPrompt').disabled,false);
+});
+
+test('a rendered ordinary case reveals its full prompt and starts media without waiting for any JSON',async()=>{
+ const h=await pendingBrowsePage(),card=h.document.querySelector('#grid [data-case]');
+ card.dispatchEvent(new h.window.Event('click',{bubbles:true,cancelable:true}));
+ await Promise.resolve();await Promise.resolve();
+ assert.doesNotMatch(h.document.querySelector('#prompt').textContent,/正在读取/,'a visible case must already have its original prompt');
+ assert.ok(h.document.querySelector('#prompt').textContent.length>100);
+ assert.ok(h.document.querySelector('#media-content video[src]'),'video connection must start independently of catalog/detail fetches');
+ assert.equal(h.document.querySelector('#copyPrompt').disabled,false);
+ assert.equal(h.requests.filter(url=>url.includes('/details/')).length,0);
 });
