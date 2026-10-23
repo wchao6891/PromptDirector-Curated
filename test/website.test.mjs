@@ -344,3 +344,17 @@ test('website quality switching preserves the original, playback position and pa
  assert.match(player.getAttribute('src'),/quality=preview/);assert.equal(played,1,'switching a paused video must not autoplay');
  assert.equal(vm.runInContext('selected.videoUrl',h.context),original,'website preview must never overwrite original media identity');
 });
+
+test('returning visitors load scripts matching the new page instead of four-hour cached code',async()=>{
+ const {createHash}=await import('node:crypto');
+ for(const path of ['index.html','en/index.html']){
+  const {document}=parseHTML(await readFile(new URL('../dist/website/'+path,import.meta.url),'utf8'));
+  const base=new URL(path,'https://promptdirector.cn/');
+  for(const node of document.querySelectorAll('script[src],link[rel="stylesheet"]')){
+   const url=new URL(node.getAttribute('src')||node.getAttribute('href'),base);
+   if(url.origin!==base.origin)continue;
+   const content=await readFile(new URL('../dist/website'+url.pathname,import.meta.url));
+   assert.equal(url.searchParams.get('v'),createHash('sha1').update(content).digest('hex'),url.pathname);
+  }
+ }
+});

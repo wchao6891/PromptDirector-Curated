@@ -1,6 +1,7 @@
 // One reviewed content source. site/ remains the unchanged legacy deployment.
 import {readFile,writeFile,mkdir,cp,rm,readdir,stat} from 'node:fs/promises';
 import {execFileSync} from 'node:child_process';
+import {createHash} from 'node:crypto';
 import {fileURLToPath} from 'node:url';
 import {resolve,relative,dirname,join} from 'node:path';
 import {buildPackage,localAsset,mapAssetUrls} from './website-data.mjs';
@@ -104,6 +105,9 @@ for(const name of ['app','site-pages']){
  if(remaining)throw Error(`Untranslated UI in ${name}: ${[...new Set(remaining)].join(', ')}`);
  await writeFile(join(out,name+'-en.js'),en);
 }
+// New HTML must not reuse an older script from a returning visitor's browser cache.
+const assetVersions=new Map(await Promise.all((await readdir(out)).filter(name=>/\.(js|css)$/.test(name)).map(async name=>[name,createHash('sha1').update(await readFile(join(out,name))).digest('hex')])));
+const versionAssets=html=>html.replace(/(src|href)="((?:\.\.\/)?([^"/]+\.(?:js|css)))"/g,(match,attribute,path,name)=>assetVersions.has(name)?`${attribute}="${path}?v=${assetVersions.get(name)}"`:match);
 const template=await readFile(join(web,'index.html'),'utf8');
 for(const english of [false,true]){
  let page=english?translate(template).replace('lang="zh-CN"','lang="en"'):template;
@@ -115,6 +119,7 @@ for(const english of [false,true]){
    .replace(/<span class="brand-tagline">.*?<\/span>/,'');
  }
  const dir=english?'en/':'';
+ page=versionAssets(page);
  await writeFile(join(out,dir,'index.html'),page);
  const header=page.match(/<header>[\s\S]*?<\/header>/)[0].replace(/<button data-view="([^"]+)"[^>]*>(.*?)<\/button>/g,'<a href="index.html?view=$1">$2</a>').replace('href="#"','href="index.html"');
  const footer=page.match(/<footer[\s\S]*?<\/footer>/)[0].replace('href="#"','href="index.html"');
@@ -133,7 +138,7 @@ for(const english of [false,true]){
   }
   const base=parsed.createElement('base');base.setAttribute('href',english?'/en/':'/');parsed.head.prepend(base);
   addMetadata(parsed,{title:parsed.title,description:parsed.querySelector('meta[name="description"]')?.content||parsed.title,url:config.origin+'/'+dir+name,english,config});
-  await writeFile(join(out,dir,name+'.html'),'<!doctype html>'+parsed.documentElement.outerHTML);
+  await writeFile(join(out,dir,name+'.html'),versionAssets('<!doctype html>'+parsed.documentElement.outerHTML));
  }
  // Preserve old human page links within the new site, including query and language.
  for(const [name,view] of [['skills','skills'],['overview','about']])await writeFile(join(out,dir,name+'.html'),`<!doctype html><html lang="${english?'en':'zh-CN'}"><meta charset="utf-8"><title>PromptDirector</title><a href="index.html?view=${view}">PromptDirector</a><script>const u=new URL('index.html',location);u.search=location.search;u.searchParams.set('view','${view}');u.hash=location.hash;location.replace(u.href)</script></html>`);
