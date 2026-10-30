@@ -1,7 +1,7 @@
 {
   "format": "prompt-director-curated-metrics",
   "version": 1,
-  "updatedAt": "2026-10-29T10:10:40.076Z",
+  "updatedAt": "2026-10-30T10:12:40.647Z",
   "downloads": {
     "featured:vol-1": 56,
     "featured:jimeng": 60,
@@ -42,10 +42,10 @@
     "cases-a11838df4ddcdd6931e4": 9,
     "cases-0651f642797edd4693a7": 10,
     "cases-188037bfd925a5121795": 8,
-    "cases-439ddc0a3f2ea802932f": 12,
+    "cases-439ddc0a3f2ea802932f": 13,
     "cases-c841d8e0b8020dda28c3": 19,
     "cases-8987f96b85f0ac8fe26f": 7,
-    "cases-15e09c79753fcb0bea4c": 7,
+    "cases-15e09c79753fcb0bea4c": 8,
     "cases-839cf1bfbcbae095777b": 13,
     "cases-d8fbcd1a05ba01c7f2c8": 17
   }
