@@ -1,7 +1,7 @@
 {
   "format": "prompt-director-curated-metrics",
   "version": 1,
-  "updatedAt": "2026-11-06T11:07:37.312Z",
+  "updatedAt": "2026-11-07T10:26:06.630Z",
   "downloads": {
     "featured:vol-1": 56,
     "featured:jimeng": 62,
@@ -20,7 +20,7 @@
     "cases-f05a7604a4a889ede786": 14,
     "cases-ed99fb86238d9dca13c0": 18,
     "cases-5b8deb5b7d94e3bcdefb": 69,
-    "cases-a7126fd0ce35aaf96153": 26,
+    "cases-a7126fd0ce35aaf96153": 28,
     "cases-3067eed17c7b7ca7d1b3": 14,
     "cases-ad27222f0bfd93989f6e": 21,
     "melies:camera-movement": 17,
@@ -43,7 +43,7 @@
     "cases-0651f642797edd4693a7": 10,
     "cases-188037bfd925a5121795": 9,
     "cases-439ddc0a3f2ea802932f": 13,
-    "cases-c841d8e0b8020dda28c3": 19,
+    "cases-c841d8e0b8020dda28c3": 20,
     "cases-8987f96b85f0ac8fe26f": 7,
     "cases-15e09c79753fcb0bea4c": 8,
     "cases-839cf1bfbcbae095777b": 13,
