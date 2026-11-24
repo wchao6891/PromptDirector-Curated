@@ -1,7 +1,7 @@
 {
   "format": "prompt-director-curated-metrics",
   "version": 1,
-  "updatedAt": "2026-11-23T13:11:42.707Z",
+  "updatedAt": "2026-11-24T13:56:41.330Z",
   "downloads": {
     "featured:vol-1": 62,
     "featured:jimeng": 66,
@@ -23,7 +23,7 @@
     "cases-a7126fd0ce35aaf96153": 33,
     "cases-3067eed17c7b7ca7d1b3": 17,
     "cases-ad27222f0bfd93989f6e": 24,
-    "melies:camera-movement": 28,
+    "melies:camera-movement": 29,
     "melies:camera-angles": 17,
     "melies:framing-and-shot-size": 16,
     "melies:lighting": 17,
